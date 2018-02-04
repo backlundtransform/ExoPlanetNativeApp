@@ -1,10 +1,17 @@
 
 import LocalizedStrings from 'react-native-localization';
 
- export const resource = new LocalizedStrings({
+ export let resource = new LocalizedStrings({
   "en-US":{
-    message:"ExoPlan",
+    message:"ExoPlanetHunter",
+  
+  },en:{
+    message:"ExoPlanetHunter",
+  
+  },sv:{
+    message:"PlanetJägaren",
   
   },
+ 
  
  });

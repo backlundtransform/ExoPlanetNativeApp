@@ -8,8 +8,7 @@ export default class App extends React.Component {
 
     return (
         <View style={styles.container}>
-        <Text> 
-       
+        <Text style={styles.bigblue}> {resource.message}
 </Text>
       </View>
 
@@ -20,8 +19,13 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
+  
+  },  bigblue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
   },
 });
