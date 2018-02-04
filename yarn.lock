@@ -4832,6 +4832,10 @@ react-native-gesture-handler@1.0.0-alpha.39:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
+react-native-localization@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/react-native-localization/-/react-native-localization-0.2.2.tgz#f3effc79b0fa72ca4f954d6f31b97828ec83da37"
+
 react-native-maps@0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.19.0.tgz#ce94fad1cf360e335cb4338a68c95f791e869074"
