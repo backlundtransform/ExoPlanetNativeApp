@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {AppRegistry, StyleSheet, Text, View } from 'react-native';
 
 import{resource} from './src/config/Resource'
-
+import { Drawer } from './src/Navigation/Drawer'
 export default class App extends React.Component {
   render() {
 
@@ -29,3 +29,5 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
 });
+
+AppRegistry.registerComponent('ExoPlanetHunter', () => Drawer );
