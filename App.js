@@ -1,33 +1,20 @@
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View } from 'react-native';
+import {AppRegistry, StyleSheet, Text, View, Button} from 'react-native';
 
 import{resource} from './src/config/Resource'
-import { Drawer } from './src/Navigation/Drawer'
-export default class App extends React.Component {
-  render() {
+import { Drawer } from './src/navigation/Drawer'
 
-    return (
-        <View style={styles.container}>
-        <Text style={styles.bigblue}> {resource.message}
-</Text>
-      </View>
+import Planets  from './src/pages/Planets'
 
-    );
-  }
-}
+import {
+  StackNavigator,
+} from 'react-navigation';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  
-  },  bigblue: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 30,
-  },
+ const App = StackNavigator({
+ first: { screen: Drawer },
+
 });
 
+
 AppRegistry.registerComponent('ExoPlanetHunter', () => Drawer );
+export default App;
