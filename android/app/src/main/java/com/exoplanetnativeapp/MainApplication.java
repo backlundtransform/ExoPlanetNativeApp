@@ -1,4 +1,4 @@
-package com.exoplanethunter;
+package com.exoplanetnativeapp;
 
 import android.app.Application;
 

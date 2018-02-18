@@ -1,7 +1,4 @@
 {
-  "name":"ExoPlanetHunter",
-  "displayName":"ExoPlanetHunter",
-  "expo": {
-    "sdkVersion": "25.0.0"
-  }
+  "name": "ExoPlanetNativeApp",
+  "displayName": "ExoPlanetNativeApp"
 }
