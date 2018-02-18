@@ -1,27 +1,37 @@
 import * as React from 'react';
-import {AppRegistry, StyleSheet, Text, View } from 'react-native'
-
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 import{resource} from '../config/Resource'
-import { Drawer } from '../navigation/Drawer'
-import styles from '../styles/defaultStyle'
+
+import  HamburgerMenu from '../navigation/HamburgerMenu'
 
 export default class StarMap extends React.Component {
-  static navigationOptions = {
+  static navigationOptions =({ navigation, screenProps }) => ( {
     title: resource.starmap,
-  };
+    headerLeft:  <HamburgerMenu navigate ={navigation}/>,
+  });
+  
   render() {
-
-
+ 
     return (
-
-             <View style={styles.container}>
-        <Text style={styles.bigblue}> {resource.starmap}
-        </Text>
-      </View>
-         
+      <Container>
        
+        <Content>
+          <Text>
+          {resource.starmap}
+          </Text>
+        </Content>
+        <Footer>
+          <FooterTab>
+            <Button full>
+              <Text>Footer</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
+      </Container>
 
     );
   }
 }
+
+
 

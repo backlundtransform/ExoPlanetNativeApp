@@ -1,21 +1,34 @@
 import * as React from 'react';
-import {AppRegistry, StyleSheet, Text, View } from 'react-native';
+import {AppRegistry, StyleSheet, View } from 'react-native';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 import{resource} from '../config/Resource'
-import { Drawer } from '../navigation/Drawer'
-import styles from '../styles/defaultStyle'
+
+import  HamburgerMenu from '../navigation/HamburgerMenu'
 export default class Planets extends React.Component {
-  
-  static navigationOptions = {
+
+  static navigationOptions =({ navigation, screenProps }) => ( {
     title: resource.planetlist,
-  };
+    headerLeft:  <HamburgerMenu navigate ={navigation}/>,
+  });
   
   render() {
  
     return (
-        <View style={styles.container}>
-        <Text style={styles.bigblue}> {resource.planetlist}
-        </Text>
-      </View>
+      <Container>
+       
+        <Content>
+          <Text>
+          {resource.planetlist}
+          </Text>
+        </Content>
+        <Footer>
+          <FooterTab>
+            <Button full>
+              <Text>Footer</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
+      </Container>
 
     );
   }
