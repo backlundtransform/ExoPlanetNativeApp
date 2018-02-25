@@ -7,7 +7,6 @@ import{resource} from '../config/Resource'
 export default class Planets extends React.Component {
 
 
-  
   render() {
  
     return (

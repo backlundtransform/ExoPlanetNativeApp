@@ -3,25 +3,30 @@ import {StyleSheet } from 'react-native';
  const styles = StyleSheet.create({
     container: {
      
-      backgroundColor: '#e3e3ef',
-    
-    
-    },  color: {
-      color: '#5584aa',
+      backgroundColor: '#818ea5',
 
+    },  color: {
+      color: '#c6d4ff',
+
+    },
+    headerstyle: {
+     
+      backgroundColor: '#818ea5',
+      color: '#c6d4ff',
+    
     },
     navItemDesign: {
       padding: 20,
       margin: 10,
-      color: '#164d7a',
+      color: '#c6d4ff',
       fontWeight: 'bold',
-      borderBottomColor: '#000',
+      borderBottomColor: '#c6d4ff',
       borderBottomWidth: StyleSheet.hairlineWidth,
       flex: 1
     },
     header: {
    
-      backgroundColor: '#164d7a',
+      backgroundColor: '#50607a',
     },
   });
 

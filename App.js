@@ -5,6 +5,7 @@ import{resource} from './src/config/Resource'
 import { Drawer } from './src/navigation/Drawer'
 import styles from './src/styles/defaultStyle';
 import Planets  from './src/pages/Planets'
+import  HamburgerMenu from './src/navigation/HamburgerMenu'
 
 import {
   StackNavigator,
@@ -15,8 +16,7 @@ import {
  first: { screen: Drawer,
   navigationOptions:({ navigation, screenProps }) => ( {
     headerStyle: styles.container,
-   
-  
+    headerLeft:  <HamburgerMenu navigate ={navigation} />,
   })
 },  
 

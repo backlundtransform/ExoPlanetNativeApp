@@ -6,7 +6,6 @@ import{resource} from '../config/Resource'
 export default class HabPlanets extends React.Component {
 
 
-  
   render() {
  
     return (

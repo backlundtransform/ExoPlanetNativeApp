@@ -13,47 +13,49 @@ import  HamburgerMenu from './HamburgerMenu'
 
 import  NavListItems from './NavListItems'
 const appRoutes ={
-    planets: { screen: Planets, label: resource.planetlist,  
+    planets: { screen: Planets,  
     
       navigationOptions:({ navigation, screenProps }) => ( {
-        title: resource.planetlist,
-        headerLeft:  <HamburgerMenu navigate ={navigation}/>,
-        headerStyle: styles.container,
-       
+     
+        headerLeft:  <HamburgerMenu navigate ={navigation}   />,
+        headerStyle: styles.headerstyle,
+     
+      
         drawerLabel: () =>
        <NavListItems title={resource.planetlist} icon={'md-planet'} /> 
       })
     
-    },  habplanets: { screen: HabPlanets, label: resource.habplanets,  
+    },  habplanets: { screen: HabPlanets, 
     
         navigationOptions:({ navigation, screenProps }) => ( {
-          title: resource.habplanets,
-          headerLeft:  <HamburgerMenu navigate ={navigation}/>,
-        
+         
+          headerLeft:  <HamburgerMenu navigate ={navigation}  />,
+          headerStyle: styles.headerstyle,
+      
           drawerLabel: () =>
          <NavListItems title={resource.habplanets} icon={'globe'} /> 
         })
       
       },
-    constellations: { screen: Constellations,label: resource.con,
+    constellations: { screen: Constellations,
         navigationOptions:({ navigation, screenProps }) => ( {
-            title: resource.con,
-            headerLeft:  <HamburgerMenu navigate ={navigation}/>,
+            
+            headerLeft:  <HamburgerMenu navigate ={navigation}  />,
+            headerStyle: styles.headerstyle,
+          
             drawerLabel: () => 
             <NavListItems title={resource.con} icon={'star'} /> 
           })
 
     },
-    map: { screen: StarMap,label: resource.starmap,
+    map: { screen: StarMap,
     
         navigationOptions:({ navigation, screenProps }) => ( {
-            title:resource.starmap,
-            headerLeft:  <HamburgerMenu navigate ={navigation}/>,
+          
+            headerLeft:  <HamburgerMenu navigate ={navigation} />,
             drawerLabel: () =>
             <NavListItems title={resource.starmap} icon={'map'} /> ,
-        
           })
-  
     }
  }
 
@@ -64,6 +66,5 @@ export const Drawer =  DrawerNavigator(appRoutes, {
     drawerCloseRoute: 'DrawerClose',
     drawerToggleRoute: 'DrawerToggle',
     contentComponent: props  => <SidebarContent{...props} />,
- headerMode: 'none'
-
+    handleNavigationState:(previous, next, action) => { console.log(action.routeName) }
   })
