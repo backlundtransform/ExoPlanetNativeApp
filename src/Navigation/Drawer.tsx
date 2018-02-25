@@ -12,12 +12,15 @@ import styles from '../styles/defaultStyle';
 import  HamburgerMenu from './HamburgerMenu'
 
 import  NavListItems from './NavListItems'
+
+
 const appRoutes ={
+  
     planets: { screen: Planets,  
     
       navigationOptions:({ navigation, screenProps }) => ( {
      
-        headerLeft:  <HamburgerMenu navigate ={navigation}   />,
+        headerLeft:  <HamburgerMenu navigate ={navigation}  />,
         headerStyle: styles.headerstyle,
      
       
@@ -52,10 +55,13 @@ const appRoutes ={
     
         navigationOptions:({ navigation, screenProps }) => ( {
           
-            headerLeft:  <HamburgerMenu navigate ={navigation} />,
+            headerLeft:  <HamburgerMenu navigate ={navigation}  />,
             drawerLabel: () =>
             <NavListItems title={resource.starmap} icon={'map'} /> ,
+
+     
           })
+          
     }
  }
 
@@ -66,5 +72,7 @@ export const Drawer =  DrawerNavigator(appRoutes, {
     drawerCloseRoute: 'DrawerClose',
     drawerToggleRoute: 'DrawerToggle',
     contentComponent: props  => <SidebarContent{...props} />,
-    handleNavigationState:(previous, next, action) => { console.log(action.routeName) }
+
+  
+   
   })

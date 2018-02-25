@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {AppRegistry, StyleSheet, Text, View, Button} from 'react-native';
 
 import{resource} from './src/config/Resource'
@@ -17,6 +17,12 @@ import {
   navigationOptions:({ navigation, screenProps }) => ( {
     headerStyle: styles.container,
     headerLeft:  <HamburgerMenu navigate ={navigation} />,
+    handleNavigationState:(previous, next, action) =>  {
+ 
+      
+      return( <HamburgerMenu navigate ={null} />)
+    
+     }
   })
 },  
 
