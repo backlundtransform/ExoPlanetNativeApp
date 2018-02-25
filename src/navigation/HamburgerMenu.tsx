@@ -7,14 +7,11 @@ interface HamburgerMenuState {  menu :  boolean}
 export default class HamburgerMenu extends React.Component<HamburgerMenuProps, HamburgerMenuState> {
   constructor(props) {
     super(props);
-
-    this.state = {
-      menu:true,
-    
+     this.state = {
+      menu:true,  
   }
   }
 
-  
   componentWillReceiveProps(nextProps){
     const defaultGetStateForAction = Drawer.router.getStateForAction;
 

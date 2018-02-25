@@ -5,8 +5,10 @@ import {DrawerItems } from 'react-navigation';
 import styles from '../styles/defaultStyle';
 import  HamburgerMenu from './HamburgerMenu'
 import { DrawerNavigator } from 'react-navigation';
+
+
 class SideBarContent extends React.Component {
- 
+
   render() {
  
     return (
@@ -18,21 +20,13 @@ class SideBarContent extends React.Component {
             source={require(
                "../images/kepler.jpg"
             )}
-            style={{
-              height: 200,
-              alignSelf: "stretch",
-              justifyContent: "center",
-              alignItems: "center"
-            }}/>
+            style={ styles.sidebarImage}/>
            <DrawerItems
                   {...this.props}
              
                   />
         </Content>
-
-    
-               
-               
+          
     </Container>
     );
   }

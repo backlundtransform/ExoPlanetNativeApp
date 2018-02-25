@@ -9,6 +9,20 @@ import {StyleSheet } from 'react-native';
       color: '#c6d4ff',
 
     },
+   listTitle: {
+      color: '#c6d4ff',
+      fontWeight: 'bold',
+      fontSize: 16,
+      textDecorationLine:'underline'
+
+    },
+    listText: {
+      color: '#c6d4ff',
+    
+      fontSize: 12,
+     
+
+    },
     headerstyle: {
      
       backgroundColor: '#818ea5',
@@ -28,6 +42,29 @@ import {StyleSheet } from 'react-native';
    
       backgroundColor: '#50607a',
     },
+
+   sidebarImage:{
+      height: 200,
+      alignSelf: "stretch",
+      justifyContent: "center",
+      alignItems: "center"
+      
+    },
+
+    listView:{
+      backgroundColor: '#818ea5',
+
+    },
+    listViewItem:{
+      padding: 25,
+      margin: 10,
+     
+   
+      backgroundColor: '#50607a',
+      borderWidth: StyleSheet.hairlineWidth,
+      flex: 1
+    }
+
   });
 
 
