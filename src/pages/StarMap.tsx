@@ -5,10 +5,7 @@ import{resource} from '../config/Resource'
 import  HamburgerMenu from '../navigation/HamburgerMenu'
 
 export default class StarMap extends React.Component {
-  static navigationOptions =({ navigation, screenProps }) => ( {
-    title: resource.starmap,
-    headerLeft:  <HamburgerMenu navigate ={navigation}/>,
-  });
+
   
   render() {
  

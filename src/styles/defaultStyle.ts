@@ -2,15 +2,28 @@ import {StyleSheet } from 'react-native';
 
  const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#000',
-      alignItems: 'center',
-      justifyContent: 'center',
+     
+      backgroundColor: '#e3e3ef',
     
-    },  bigblue: {
-      color: 'blue',
+    
+    },  color: {
+      color: '#5584aa',
+
+    },
+    navItemDesign: {
+      padding: 20,
+      margin: 10,
+      color: '#164d7a',
       fontWeight: 'bold',
-      fontSize: 30,
+      borderBottomColor: '#000',
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      flex: 1
+    },
+    header: {
+   
+      backgroundColor: '#164d7a',
     },
   });
+
+
   export default styles;

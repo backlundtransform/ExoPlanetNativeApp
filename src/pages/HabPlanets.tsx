@@ -1,17 +1,20 @@
 import * as React from 'react';
+import {AppRegistry, StyleSheet, View } from 'react-native';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 import{resource} from '../config/Resource'
-import  HamburgerMenu from '../navigation/HamburgerMenu'
-export default class Constellations extends React.Component {
+
+export default class HabPlanets extends React.Component {
 
 
+  
   render() {
  
     return (
       <Container>
-     <Content>
+       
+        <Content>
           <Text>
-          {resource.con}
+          {resource.habplanets}
           </Text>
         </Content>
         <Footer>
@@ -26,3 +29,4 @@ export default class Constellations extends React.Component {
     );
   }
 }
+
