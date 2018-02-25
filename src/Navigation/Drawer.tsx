@@ -42,8 +42,7 @@ const appRoutes ={
             drawerLabel: () => 
             <NavListItems title={resource.con} icon={'star'} /> 
           })
-    
-    
+
     },
     map: { screen: StarMap,label: resource.starmap,
     
@@ -54,18 +53,16 @@ const appRoutes ={
             <NavListItems title={resource.starmap} icon={'map'} /> ,
         
           })
-    
-    
+  
     }
  }
 
- 
 export const Drawer =  DrawerNavigator(appRoutes, {
     initialRouteName: 'planets',
     drawerPosition: 'left',
     drawerOpenRoute: 'DrawerOpen',
-   drawerCloseRoute: 'DrawerClose',
-drawerToggleRoute: 'DrawerToggle',
+    drawerCloseRoute: 'DrawerClose',
+    drawerToggleRoute: 'DrawerToggle',
     contentComponent: props  => <SidebarContent{...props} />,
  headerMode: 'none'
 
