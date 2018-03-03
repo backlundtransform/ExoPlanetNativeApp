@@ -10,13 +10,13 @@ import { Icon,Text,ListItem, Content} from "native-base";
 import SidebarContent from './SideBarContent'
 import styles from '../styles/defaultStyle';
 import  HamburgerMenu from './HamburgerMenu'
-
+import   PlanetsNavigator from './PlanetsNavigator'
 import  NavListItems from './NavListItems'
 
 
 const appRoutes ={
   
-    planets: { screen: Planets,  
+    planets: { screen: PlanetsNavigator,  
     
       navigationOptions:({ navigation, screenProps }) => ( {
      

@@ -13,8 +13,8 @@ import LocalizedStrings from 'react-native-localization';
     from: "parsec from earth",
     hotJovian: "Hot jovian",
     superEarth: "Superterran",
-    at:"is located at a distance of"
-   
+    at:"is located at a distance of",
+    PlanetInfo:"StarInfo"
   
   },sv:{
     message:"PlanetJägaren",
@@ -25,8 +25,9 @@ import LocalizedStrings from 'react-native-localization';
     from: "parsec från Jorden",
     hotJovian: "Het jovian",
     superEarth: "Super-terrestisk",
-    at:"ligger på ett avstånd av"
-  
+    at:"ligger på ett avstånd av",
+    PlanetInfo:"Planet Info",
+    StarInfo:"Star Info"
   },
 
  });

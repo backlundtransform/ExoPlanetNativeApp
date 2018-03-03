@@ -4,6 +4,7 @@ import {AppRegistry, StyleSheet, Text, View, Button} from 'react-native';
 import{resource} from './src/config/Resource'
 import { Drawer } from './src/navigation/Drawer'
 import styles from './src/styles/defaultStyle';
+import PlanetInfo  from './src/pages/PlanetInfo'
 import Planets  from './src/pages/Planets'
 import  HamburgerMenu from './src/navigation/HamburgerMenu'
 
@@ -22,7 +23,9 @@ import {
       
       return( <HamburgerMenu navigate ={null} />)
     
-     }
+     },
+  
+
   })
 },  
 

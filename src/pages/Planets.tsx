@@ -4,7 +4,15 @@ import { Container, Header, Title, Content,Thumbnail, List, Button, Left, Right,
 import{resource} from '../config/Resource'
 import{PlanetList} from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
-export default class Planets extends React.Component {
+interface PlanetsProps{navigation:any}
+interface  PlanetsPropsState { }
+export default class Planets extends React.Component<PlanetsProps, PlanetsPropsState> {
+  constructor(props) {
+    super(props);
+   
+  }
+  
+
 
 render() {
  
@@ -13,7 +21,7 @@ render() {
         <Content >
           <List dataArray={PlanetList}
             renderRow={(item) =>
-              <ListItem style={styles.listViewItem}>
+              <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('infopages')}>
              <Left>
                 <Thumbnail  source={item.Img
             }

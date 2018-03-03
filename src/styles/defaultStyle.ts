@@ -58,7 +58,7 @@ import {StyleSheet } from 'react-native';
     listViewItem:{
       padding: 25,
       margin: 10,
-     
+      height: 130,
    
       backgroundColor: '#50607a',
       borderWidth: StyleSheet.hairlineWidth,
