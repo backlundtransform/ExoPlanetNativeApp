@@ -12,8 +12,6 @@ export default class Planets extends React.Component<PlanetsProps, PlanetsPropsS
    
   }
   
-
-
 render() {
  
     return (
@@ -21,7 +19,7 @@ render() {
         <Content >
           <List dataArray={PlanetList}
             renderRow={(item) =>
-              <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('infopages')}>
+              <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('infopages', {planet:item})}>
              <Left>
                 <Thumbnail  source={item.Img
             }
