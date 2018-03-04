@@ -14,7 +14,9 @@ import LocalizedStrings from 'react-native-localization';
     hotJovian: "Hot jovian",
     superEarth: "Superterran",
     at:"is located at a distance of",
-    PlanetInfo:"StarInfo"
+    PlanetInfo:"StarInfo",
+    orange:"Orange Dwarf",
+    red:"Red Dwarf"
   
   },sv:{
     message:"PlanetJägaren",
@@ -27,7 +29,9 @@ import LocalizedStrings from 'react-native-localization';
     superEarth: "Super-terrestisk",
     at:"ligger på ett avstånd av",
     PlanetInfo:"Planet Info",
-    StarInfo:"Star Info"
+    StarInfo:"Star Info",
+    orange:"Orange dvärg",
+    red:"Röd dvärg"
   },
 
  });

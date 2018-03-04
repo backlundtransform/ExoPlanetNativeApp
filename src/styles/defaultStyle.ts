@@ -32,7 +32,8 @@ import {StyleSheet } from 'react-native';
     },
     white: {
       color: '#fff',
-
+  
+     
     },
    left: {
      width:50,
@@ -67,6 +68,21 @@ import {StyleSheet } from 'react-native';
     
  
  },
+
+d3button: {
+  justifyContent: 'flex-end',
+  backgroundColor: '#818ea5',
+ 
+  flex :1,
+ marginLeft:100
+  
+},
+d3View: {
+ 
+  backgroundColor: '#000',
+
+  
+},
     headerstyle: {
      
       backgroundColor: '#818ea5',

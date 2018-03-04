@@ -4,5 +4,8 @@ module.exports = {
     },
     getSourceExts() {
       return ['ts', 'tsx'];
-    }
+    },  getBlacklistRE () {
+      const blacklist = require('metro/src/blacklist')
+    return blacklist([/react-native\/local-cli\/core\/__fixtures__.*/])
+  },
   }

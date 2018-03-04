@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {AppRegistry, StyleSheet, View } from 'react-native';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text,Thumbnail  } from 'native-base';
 import{resource} from '../config/Resource'
 import{Planet} from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
@@ -20,9 +20,21 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
       <Container  style={styles.darkcontainer}>
        
         <Content  style={styles.infoContent}>
-          <Text style={styles.color}>
-          {planet.Name}
-          </Text>
+        <Content >
+         
+              
+             <Left>
+                <Thumbnail  source={planet.Img}/>
+              </Left>
+              <Body>
+                <Text style={styles.listTitle}>{planet.Name}</Text>
+                <Text style={styles.listText}>{`${planet.Type}, ${planet.Distance} ${resource.from}`} </Text>
+              </Body>
+              <Right>
+                <Text style={styles.listText}> {planet.DiscYear}</Text>
+              </Right>
+           
+        </Content>
         </Content>
         
       </Container>

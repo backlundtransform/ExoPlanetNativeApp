@@ -9,31 +9,24 @@ export default class HamburgerMenu extends React.Component<HamburgerMenuProps, H
   constructor(props) {
     super(props);
      this.state = {
-      menu:true,  
-  
-  }
+      menu:true  }
   }
 
- 
   componentWillReceiveProps(nextProps){
-
-    const defaultGetStateForAction = Drawer.router.getStateForAction;
+   const defaultGetStateForAction = Drawer.router.getStateForAction;
 
     Drawer.router.getStateForAction = (action, state) => {
       if(action.routeName === 'DrawerClose' && this.refs.header){
-
         this.setState({ menu:true})
-
       }
       else if(action.routeName === 'DrawerOpen' && this.refs.header){
         this.setState({ menu:false})
-
       }
-      
+      else if(action.routeName === 'planets' && this.refs.header){
+        this.setState({ menu:true})
+      }
         return defaultGetStateForAction(action, state);
     };
-
-
   }
 
  HandleClick=()=>{

@@ -12,7 +12,6 @@ Star: { screen: StarInfo},
 
 },{
 
-
 tabBarComponent:  ({navigation}) =><TabBar navigator ={navigation}  />,
 
   
