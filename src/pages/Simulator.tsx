@@ -4,7 +4,7 @@ import { Container } from 'native-base';
 import{resource} from '../config/Resource'
 import styles from '../styles/defaultStyle'
 
-export default class StarInfo extends React.Component {
+export default class Simulator extends React.Component {
 
   render() {
  
