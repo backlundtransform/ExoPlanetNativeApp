@@ -7,7 +7,7 @@ import {StyleSheet } from 'react-native';
 
     }, 
     darkcontainer: {
-     
+     zIndex:-99999,
       backgroundColor: '#50607a',
 
     }, 

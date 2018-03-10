@@ -18,7 +18,7 @@ const appRoutes ={
   
     planets: { screen: PlanetsNavigator,  
     
-      navigationOptions:({ navigation, screenProps }) => ( {
+      navigationOptions:({ navigation, screenProps }) => ({
      
         headerLeft:  <HamburgerMenu navigate ={navigation}  />,
         headerStyle: styles.headerstyle,
