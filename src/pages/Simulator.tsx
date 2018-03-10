@@ -36,11 +36,6 @@ export default class Simulator extends React.PureComponent<any,{x:number,y:numbe
   updateHandler = ({ touches, screen, time }) => {
     let move = touches.find(x => x.type === "move");
 
-   // x, y: center of the ellipse
-//a, b: semimajor and semiminor axes
-//X = cx + (rx * Math.cos(alpha));
-//Y =cy + (ry * Math.sin(alpha));
-
 
 this.setState({
   alpha: this.state.alpha+1/100 
