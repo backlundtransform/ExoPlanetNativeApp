@@ -19,20 +19,35 @@ import Svg,{
 } from 'react-native-svg';
 import{PlanetList} from '../service/getPlanets'
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
+
 const RADIUS = 25;
  
-export default class Simulator extends React.PureComponent<any,{x:number,y:number}> {
+export default class Simulator extends React.PureComponent<any,{x:number,y:number, alpha:number}> {
   constructor(props) {
     super(props);
 
     this.state = {
-      x: WIDTH / 2 - RADIUS,
-      y: HEIGHT / 2 - RADIUS
+      x:0,
+      y: HEIGHT / 2 - RADIUS,
+      alpha:0
     };
   }
  
   updateHandler = ({ touches, screen, time }) => {
     let move = touches.find(x => x.type === "move");
+
+   // x, y: center of the ellipse
+//a, b: semimajor and semiminor axes
+//X = cx + (rx * Math.cos(alpha));
+//Y =cy + (ry * Math.sin(alpha));
+
+
+this.setState({
+  alpha: this.state.alpha+1/100 
+
+});
+
+
     if (move) {
 
       this.setState({
@@ -43,15 +58,17 @@ export default class Simulator extends React.PureComponent<any,{x:number,y:numbe
   };
  
   render() {
+
+    const {alpha} = this.state
     return (
       <Container style= {styles.d3View} > 
       <GameLoop onUpdate={this.updateHandler}>
  <Content style= {[ { left: this.state.x, top: this.state.y }]} >
      
-     <Svg  height="100" width="600"  >
+     <Svg  height="300" width="900"  >
         <Defs>
 		<ClipPath id="clip">
-      <Circle  cx="50" cy="50" r="40"
+      <Circle  cx={ 200 + (160 * Math.cos(alpha))} cy={ 150 + (50 * Math.sin(alpha))} r="25"
           />
 		</ClipPath>
     <RadialGradient id="Circle"
@@ -62,17 +79,17 @@ export default class Simulator extends React.PureComponent<any,{x:number,y:numbe
     </RadialGradient>
  	</Defs>
    <Ellipse
-        cx="20"
-        cy="20"
-        rx="300"
-        ry="30"
+        cx="200"
+        cy="150"
+        rx="160"
+        ry="50"
         stroke="white"
         strokeWidth="2"
-      
+        fillOpacity="0"
     />
         <Image
-        x="0"
-        y="0"
+      
+        x={ 150 + ((160) * Math.cos(alpha))} y={  100+(50 * Math.sin(alpha))}
         width="100"
         height="100"
   
@@ -81,7 +98,7 @@ export default class Simulator extends React.PureComponent<any,{x:number,y:numbe
       clipPath="url(#clip)"
     />
   
-    <Circle  cx="50" cy="50" r="40"
+    <Circle  cx={ 200 + (160 * Math.cos(alpha))} cy={ 150 + (50 * Math.sin(alpha))} r="25"
            fillOpacity={0.6}
            fill="url(#Circle)"/>
         </Svg>
