@@ -1,5 +1,5 @@
 import  * as React from "react";
-import { AppRegistry, StyleSheet, Dimensions, View,ScrollView,ImageBackground    } from "react-native";
+import { AppRegistry, StyleSheet, Dimensions, View,ScrollView,ImageBackground,  TouchableHighlight   } from "react-native";
 import { Container,Content,} from 'native-base';
 import { GameLoop } from "react-native-game-engine";
 import styles from '../styles/defaultStyle'
@@ -35,6 +35,7 @@ export default class Simulator extends React.PureComponent<any,{x:number,y:numbe
     };
   }
  
+
   updateHandler = ({ touches, screen, time }) => {
     let move = touches.find(x => x.type === "move");
 
@@ -46,11 +47,9 @@ this.setState({
 
 
     if (move) {
-
-      this.setState({
-        x: this.state.x + move.delta.pageX,
-        y: this.state.y + move.delta.pageY
-      });
+     // move.delta.pageX,
+    // move.delta.pageY
+   
     }
   };
 
@@ -63,6 +62,13 @@ RotateY=(cy:number,ry:number)=>{
 
     return  cy + ((ry) * Math.sin(this.state.alpha))
    }
+
+   handleResetZoomScale = (event) => {
+    console.log(event)
+  }
+ 
+
+    
  
   render() {
 
@@ -71,12 +77,17 @@ RotateY=(cy:number,ry:number)=>{
   
     return (
    
-      <ScrollView style= {styles.d3View}   horizontal={true}> 
-     
+      <ScrollView style= {styles.d3View}   horizontal={true}  
+      maximumZoomScale={10}
+      minimumZoomScale={1}
+      zoomScale={2} 
+      centerContent
+      bouncesZoom={true}
+      >
       <GameLoop onUpdate={this.updateHandler}>
  <Content style= {[ { left: this.state.x, top: this.state.y }]} >
-     
-     <Svg  height="700" width="900"  >
+
+     <Svg  height="700" width="900"   >
      <Image  href={require(
         "../images/sky-night-stars.jpg"
      )}
@@ -137,10 +148,10 @@ RotateY=(cy:number,ry:number)=>{
 
         </Svg>
      
-      
-        </Content>  
+       
+        </Content>
       </GameLoop>  
-  
+
       </ScrollView>    
     );
   }
