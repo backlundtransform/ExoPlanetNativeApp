@@ -63,12 +63,6 @@ RotateY=(cy:number,ry:number)=>{
     return  cy + ((ry) * Math.sin(this.state.alpha))
    }
 
-   handleResetZoomScale = (event) => {
-    console.log(event)
-  }
- 
-
-    
  
   render() {
 
