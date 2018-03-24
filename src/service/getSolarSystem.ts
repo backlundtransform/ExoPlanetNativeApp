@@ -15,6 +15,7 @@ export const SolarSystems= [
         Img:{uri:orangeIcon},
         HabZoneMin:4,
         HabZoneMax : 6,
+        Radius:2,
         Planets:[ 
     
     
@@ -37,7 +38,7 @@ export const SolarSystems= [
         Img:{uri:redIcon},
         HabZoneMin:8,
         HabZoneMax : 10,
-
+        Radius:2,
         Planets:[{Name:"GJ 180 b",
         Img:  {uri:jovanbase64Icon},
         Type: resource.superEarth,
@@ -57,7 +58,6 @@ export const SolarSystems= [
 
       }]
 
-        
   
       }as Star
     

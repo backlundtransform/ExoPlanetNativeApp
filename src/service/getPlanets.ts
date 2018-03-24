@@ -24,6 +24,7 @@ export interface Star{
   HabZoneMin?:Number,
   HabZoneMax? :Number
   Planets?: Array<Planet>
+  Radius?:number
  
 }
 export const PlanetList = [{
