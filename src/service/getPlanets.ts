@@ -9,6 +9,7 @@ export interface Planet{
   Name :string
   Img: any
   Type: string
+
   Distance: number
   Esi:number
   DiscYear:number
@@ -21,8 +22,9 @@ export interface Star{
   Name :string
   Img: any
   Type: string
-  HabZoneMin?:Number,
-  HabZoneMax? :Number
+
+  HabZoneMin?:number
+  HabZoneMax? :number
   Planets?: Array<Planet>
   Radius?:number
  
@@ -52,4 +54,17 @@ export const PlanetList = [{
     Type: resource.red,
     Img:{uri:redIcon}
   }
+},{Name:"GJ 180 b",
+Img:  {uri:jovanbase64Icon},
+Type: resource.hotJovian,
+Distance: 11.69,
+Esi:0.7,
+DiscYear: 2014,
+Radius: 15,
+starDistance: 150,
+Star:{
+  Name:"GJ 180",
+  Type: resource.red,
+  Img:{uri:redIcon}
+}
 } ] as Array<Planet> 

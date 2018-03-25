@@ -3,6 +3,10 @@ import { AppRegistry, StyleSheet, Dimensions, View,ScrollView,ImageBackground,  
 import { Container,Content,} from 'native-base';
 import { GameLoop } from "react-native-game-engine";
 import styles from '../styles/defaultStyle'
+import {Gradient} from '../styles/radialgradients'
+
+
+import{resource} from '../config/Resource'
 import{Planet, Star, terranbase64Icon,jovanbase64Icon,  redIcon,  orangeIcon} from '../service/getPlanets'
 import{SolarSystem} from '../service/getSolarSystem'
 import Svg,{
@@ -46,7 +50,7 @@ export default class Simulator extends React.PureComponent<SimulatorProps,Simula
     let move = touches.find(x => x.type === "move");
 
 this.setState({
-  alpha: this.state.alpha+1/10 
+  alpha: this.state.alpha+1/50 
 
 });
 
@@ -72,7 +76,13 @@ RotateY=(cy:number,ry:number)=>{
   render() {
 
 const {star}= this.state
-    
+let {height} = Dimensions.get('window');
+
+
+let width =star.Planets[star.Planets.length-1].starDistance*2
+
+width =(width>star.HabZoneMax*2?width:star.HabZoneMax*2)+star.Planets[star.Planets.length-1].Radius*2
+ height =height > width*0.3?height: width*0.3
     return (
    
       <ScrollView style= {styles.d3View}   horizontal={true}  
@@ -85,62 +95,69 @@ const {star}= this.state
       <GameLoop onUpdate={this.updateHandler}>
  <Content style= {[ { left: this.state.x, top: this.state.y }]} >
 
-     <Svg  height="700" width={ star.Planets[star.Planets.length-1].starDistance*220}  >
+     <Svg  height={height} width={width}  >
      <Image  href={require(
         "../images/sky-night-stars.jpg"
      )}
    
     > </Image>
-        <Defs>
-		<ClipPath id="clip">
-      <Circle  cx={ this.RotateX(200 ,160)} cy={ this.RotateY(150,50)} r="25"
+        { Gradient(star)}
+      
+   <Path  d={`M${width/2-star.Radius},${height/2} a1,1 0 0,0 ${star.Radius*2},0`}   fill={`url(#Star-${star.Type})`} />
+
+   <Ellipse
+cx={width/2}
+cy={height/2}
+rx={star.HabZoneMax}
+ry={star.HabZoneMax * 0.3}
+stroke="blue"
+strokeWidth="1"
+fillOpacity="0"
+/>
+
+   <Ellipse
+cx={width/2}
+cy={height/2}
+rx={star.HabZoneMin}
+ry={star.HabZoneMin * 0.3}
+stroke="red"
+strokeWidth="1"
+fillOpacity="0"
+/>
+
+  {star.Planets.map((p,index)=>{ return (<React.Fragment key={index}><Ellipse  key={index}
+cx={width/2}
+cy={height/2}
+rx={p.starDistance}
+ry={p.starDistance * 0.3}
+stroke="white"
+strokeWidth="1"
+fillOpacity="0"
+/>
+<ClipPath  key={index}
+  id={p.Name}>
+      <Circle  cx={ this.RotateX(width/2 ,p.starDistance)} cy={ this.RotateY(height/2,p.starDistance * 0.3)} r={p.Radius}
           />
 		</ClipPath>
-    <RadialGradient id="Hotjovian"
-      gradientUnits="objectBoundingBox" fx="30%" fy="30%">
-      <Stop offset="0%" stopColor="#FFFFFF" />
-      <Stop offset="30%" stopColor="#f6e9e0" />
-      <Stop offset="100%" stopColor="#600000" />
-    </RadialGradient>
-    < RadialGradient id="Star"    cx="70" cy="5" r="115" fx="25" fy="25">
-    <Stop offset="10%" stopColor="#ff6a00"/>
-        <Stop offset="50%" stopColor="red"/>
-        <Stop offset="70%" stopColor="black"/>
-    </ RadialGradient>
-    < RadialGradient id="Startop"    cx="70" cy="70" r="115" fx="25" fy="25">
-    <Stop offset="10%" stopColor="#ff6a00"/>
-        <Stop offset="50%" stopColor="red"/>
-        <Stop offset="70%" stopColor="black"/>
-        
-       
-    </ RadialGradient>
- 	</Defs>
-   <Path d="M120,150 a1,1 0 0,0 140,0"    fill="url(#Star)" />
-   <Ellipse
-        cx="200"
-        cy="150"
-        rx="160"
-        ry="50"
-        stroke="white"
-        strokeWidth="1"
-        fillOpacity="0"
-    />
+<Image 
+ key={index}
+x={ this.RotateX(width/2-50 ,p.starDistance)} y={ this.RotateY(height/2-50,p.starDistance * 0.3)} 
+width="100"
+height="100"
+   href={p.Img}
+clipPath={`url(#${p.Name})`} 
+/>
 
-        <Image
-      
-        x={this.RotateX(150 ,160)} y={ this.RotateY(100,50)}
-        width="100"
-        height="100"
-           href={{uri:jovanbase64Icon}}
-      clipPath="url(#clip)"
-    />
-
-        <Circle  cx={this.RotateX(200,160)} cy={this.RotateY(150,50)} r="25"
-           fillOpacity={0.6}
-           fill="url(#Hotjovian)"/>
+<Circle  key={index}   cx={this.RotateX(width/2,p.starDistance)} cy={this.RotateY(height/2,p.starDistance * 0.3)} r={p.Radius}
+   fillOpacity={0.6}
+   fill={`url(#${p.Type})`}/>
+</React.Fragment>
+  )})}
+  
+  
   
      
-  <Path d="M260,150 a1,1 0 0,0 -140,0"    fill="url(#Startop)" />
+  <Path  d={`M${width/2+star.Radius},${height/2} a1,1 0 0,0  ${star.Radius*-2},0`}   fill={`url(#Startop-${star.Type})`}/>
 
         </Svg>
      
