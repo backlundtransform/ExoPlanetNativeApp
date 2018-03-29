@@ -21,9 +21,7 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
        
         <Content  style={styles.infoContent}>
         <Content >
-         
-              
-             <Left>
+               <Left>
                 <Thumbnail  source={planet.Img}/>
               </Left>
               <Body>

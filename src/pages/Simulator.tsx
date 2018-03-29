@@ -9,6 +9,7 @@ import {Gradient} from '../styles/radialgradients'
 import{resource} from '../config/Resource'
 import{Planet, Star, terranbase64Icon,jovanbase64Icon,  redIcon,  orangeIcon} from '../service/getPlanets'
 import{SolarSystem} from '../service/getSolarSystem'
+
 import Svg,{
   Circle,
   Ellipse,
@@ -72,7 +73,9 @@ RotateY=(cy:number,ry:number)=>{
     return  cy + ((ry) * Math.sin(this.state.alpha))
    }
 
- 
+navigateToPlanet=(planet:any)=>{
+this.props.navigation.navigate('infopages', {planet:PlanetList.find(p=>p.Name=planet.Name)})
+   }
   render() {
 
 const {star}= this.state
@@ -125,43 +128,50 @@ strokeWidth="1"
 fillOpacity="0"
 />
 
-  {star.Planets.map((p,index)=>{ return (<React.Fragment key={index}><Ellipse  key={index}
-cx={width/2}
-cy={height/2}
-rx={p.starDistance}
-ry={p.starDistance * 0.3}
-stroke="white"
-strokeWidth="1"
-fillOpacity="0"
+  {star.Planets.map((p,index)=>{ return (<React.Fragment key={index} ><Ellipse  key={`ellipse- ${index}`}
+    cx={width/2}
+    cy={height/2}
+    rx={p.starDistance}
+    ry={p.starDistance * 0.3}
+    stroke="white"
+    strokeWidth="1"
+    fillOpacity="0"
 />
-<ClipPath  key={index}
-  id={p.Name}>
-      <Circle  cx={ this.RotateX(width/2 ,p.starDistance)} cy={ this.RotateY(height/2,p.starDistance * 0.3)} r={p.Radius}
-          />
+    <ClipPath  key={`path- ${index}`}
+      id={p.Name}>
+      <Circle cx={ this.RotateX(width/2 ,p.starDistance)} cy={ this.RotateY(height/2,p.starDistance * 0.3)} r={p.Radius}
+       />
 		</ClipPath>
 <Image 
- key={index}
-x={ this.RotateX(width/2-50 ,p.starDistance)} y={ this.RotateY(height/2-50,p.starDistance * 0.3)} 
-width="100"
-height="100"
-   href={p.Img}
-clipPath={`url(#${p.Name})`} 
+    key={`image- ${index}`}
+    x={ this.RotateX(width/2-50 ,p.starDistance)} y={ this.RotateY(height/2-50,p.starDistance * 0.3)} 
+    width="100"
+    height="100"
+    href={p.Img}
+    clipPath={`url(#${p.Name})`} 
 />
-
-<Circle  key={index}   cx={this.RotateX(width/2,p.starDistance)} cy={this.RotateY(height/2,p.starDistance * 0.3)} r={p.Radius}
+<Text
+ key={`text- ${index}`}
+        x={2*p.Radius+this.RotateX(width/2,p.starDistance)}
+        y={2*p.Radius+this.RotateY(height/2,p.starDistance * 0.3)}
+        textAnchor="middle"
+        fontWeight="bold"
+        fontSize="16"
+        fill="white"
+    >{p.Name}</Text>
+  <Circle  key={`circle-${index}`}   
+   cx={this.RotateX(width/2,p.starDistance)} 
+   cy={this.RotateY(height/2,p.starDistance * 0.3)}
+   r={p.Radius}
+   onPressIn={() => this.navigateToPlanet(p)}
    fillOpacity={0.6}
    fill={`url(#${p.Type})`}/>
 </React.Fragment>
   )})}
-  
-  
-  
-     
-  <Path  d={`M${width/2+star.Radius},${height/2} a1,1 0 0,0  ${star.Radius*-2},0`}   fill={`url(#Startop-${star.Type})`}/>
 
-        </Svg>
-     
-       
+  <Path    d={`M${width/2+star.Radius},${height/2} a1,1 0 0,0  ${star.Radius*-2},0`}   fill={`url(#Startop-${star.Type})`}/>
+  </Svg>
+
         </Content>
       </GameLoop>  
 
