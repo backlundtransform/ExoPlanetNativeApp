@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: '#000000',
+    height: 500,
+    width: 700,
   },
 });
 export default class StarMap extends React.Component<any, any> {
@@ -34,24 +36,24 @@ export default class StarMap extends React.Component<any, any> {
   
   onRegionChange(region) {
            console.log(region);
-
+this.setState({region:region})
   }
-  
+
   render() {
+    const start =  {
+      latitude: 51,
+      longitude: 0,
+      latitudeDelta: 20,
+      longitudeDelta: 20,
+   } 
 
-
-    return ( <View style={{
-      height: 450,
-      width: 350,
-      backgroundColor: '#000000',
-     
-    }}><MapView
+    return ( <MapView
         mapType={Platform.OS == "android" ? "none" : "standard"}
         style={styles.map}
-        region={this.state.region}
-       onRegionChange={(region)=>this.onRegionChange(region)}
-      ><UrlTile urlTemplate="https://github.com/gbanm/ExoPlanetNativeApp/blob/feature-mapcomponent/src/tiles/{x}.png"  />
-      </MapView></View>
+        region={start}
+       onRegionChange={(region)=>console.log(region)}
+      ><UrlTile urlTemplate="https://raw.githubusercontent.com/gbanm/ExoPlanetNativeApp/feature-mapcomponent/src/tiles/{x}.png"  />
+      </MapView>
     
      )
   }
