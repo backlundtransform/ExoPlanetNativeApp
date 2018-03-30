@@ -17,6 +17,7 @@
     "react-native": "0.53.0",
     "react-native-game-engine": "^0.8.9",
     "react-native-localization": "^0.2.3",
+    "react-native-maps": "^0.20.1",
     "react-native-svg": "^6.2.2",
     "react-native-svg-pan-zoom": "^0.1.2",
     "react-native-typescript-transformer": "^1.2.3",

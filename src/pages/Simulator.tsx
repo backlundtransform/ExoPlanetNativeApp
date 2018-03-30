@@ -36,8 +36,6 @@ export default class Simulator extends React.PureComponent<SimulatorProps,Simula
   constructor(props) {
     super(props);
 
-
-
     this.state = {
       x:0,
       y:0,
@@ -74,7 +72,8 @@ RotateY=(cy:number,ry:number)=>{
    }
 
 navigateToPlanet=(planet:any)=>{
-this.props.navigation.navigate('infopages', {planet:PlanetList.find(p=>p.Name=planet.Name)})
+
+this.props.navigation.navigate('infopages', {planet:PlanetList.find(p=>p.Name==planet.Name)})
    }
   render() {
 

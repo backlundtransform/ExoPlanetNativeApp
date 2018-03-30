@@ -1,32 +1,59 @@
 import * as React from 'react';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+import {AppRegistry, StyleSheet, View,Platform } from 'react-native';
 import{resource} from '../config/Resource'
-
+import MapView from 'react-native-maps';
+import { LocalTile,  UrlTile  } from 'react-native-maps';
 import  HamburgerMenu from '../navigation/HamburgerMenu'
+const styles = StyleSheet.create({
+  container: {
+    
+    height: 700,
+    width: 700,
+    backgroundColor: '#000000',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: '#000000',
+  },
+});
+export default class StarMap extends React.Component<any, any> {
 
-export default class StarMap extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      region: {
+        latitude: 33,
+        longitude: 33,
+        latitudeDelta: 20,
+        longitudeDelta: 20,
+     }
+    };
+  }
 
   
-  render() {
- 
-    return (
-      <Container>
-       
-        <Content>
-          <Text>
-          {resource.starmap}
-          </Text>
-        </Content>
-        <Footer>
-          <FooterTab>
-            <Button full>
-              <Text>Footer</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
-      </Container>
+  onRegionChange(region) {
+           console.log(region);
 
-    );
+  }
+  
+  render() {
+
+
+    return ( <View style={{
+      height: 450,
+      width: 350,
+      backgroundColor: '#000000',
+     
+    }}><MapView
+        mapType={Platform.OS == "android" ? "none" : "standard"}
+        style={styles.map}
+        region={this.state.region}
+       onRegionChange={(region)=>this.onRegionChange(region)}
+      ><UrlTile urlTemplate="https://raw.githubusercontent.com/gbanm/exoplanethunter/master/assets/star.png"  />
+      </MapView></View>
+    
+     )
   }
 }
 
