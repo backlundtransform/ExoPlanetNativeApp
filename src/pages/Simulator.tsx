@@ -23,7 +23,7 @@ import Svg,{
   Defs,
   Stop,
   RadialGradient,
-  LinearGradient
+  LinearGradient,G
 } from 'react-native-svg';
 import{PlanetList} from '../service/getPlanets'
 
@@ -65,12 +65,12 @@ this.setState({
 
 RotateX=(cx:number,rx:number)=>{
 
-    return  cx + ((rx) * Math.cos(this.state.alpha))
+    return  cx + ((rx) * Math.cos(this.state.alpha+rx))
    }
 
 RotateY=(cy:number,ry:number)=>{
 
-    return  cy + ((ry) * Math.sin(this.state.alpha))
+    return  cy + ((ry) * Math.sin(this.state.alpha+ry/0.3))
    }
 
 navigateToPlanet=(planet:any)=>{
@@ -96,17 +96,19 @@ width =(width>star.HabZoneMax*2?width:star.HabZoneMax*2)+star.Planets[star.Plane
       bouncesZoom={true}
       >
       <GameLoop onUpdate={this.updateHandler}>
- <Content style= {[ { left: this.state.x, top: this.state.y }]} >
+ <Content  style= {[ { left: this.state.x, top: this.state.y }]} >
 
-     <Svg  height={height} width={width}  >
+     <Svg height={height} width={width}>
      <Image  href={require(
         "../images/sky-night-stars.jpg"
      )}
    
     > </Image>
         { Gradient(star)}
+
+ 
       
-   <Path  d={`M${width/2-star.Radius},${height/2} a1,1 0 0,0 ${star.Radius*2},0`}   fill={`url(#Star-${star.Type})`} />
+   <Path   d={`M${width/2-star.Radius},${height/2} a1,1 0 0,0 ${star.Radius*2},0`}   fill={`url(#Star-${star.Type})`} />
 
    <Ellipse
 cx={width/2}
@@ -128,15 +130,7 @@ strokeWidth="1"
 fillOpacity="0"
 />
 
-  {star.Planets.map((p,index)=>{ return (<React.Fragment key={index} ><Ellipse  key={`ellipse- ${index}`}
-    cx={width/2}
-    cy={height/2}
-    rx={p.starDistance}
-    ry={p.starDistance * 0.3}
-    stroke="white"
-    strokeWidth="1"
-    fillOpacity="0"
-/>
+  {star.Planets.map((p,index)=>{ return (<G key={index} >
     <ClipPath  key={`path- ${index}`}
       id={p.Name}>
       <Circle cx={ this.RotateX(width/2 ,p.starDistance)} cy={ this.RotateY(height/2,p.starDistance * 0.3)} r={p.Radius}
@@ -151,7 +145,7 @@ fillOpacity="0"
     clipPath={`url(#${p.Name})`} 
 />
 <Text
- key={`text- ${index}`}
+        key={`text- ${index}`}
         x={2*p.Radius+this.RotateX(width/2,p.starDistance)}
         y={2*p.Radius+this.RotateY(height/2,p.starDistance * 0.3)}
         textAnchor="middle"
@@ -166,7 +160,8 @@ fillOpacity="0"
    onPressIn={() => this.navigateToPlanet(p)}
    fillOpacity={0.6}
    fill={`url(#${p.Type})`}/>
-</React.Fragment>
+  
+</G>
   )})}
 
   <Path    d={`M${width/2+star.Radius},${height/2} a1,1 0 0,0  ${star.Radius*-2},0`}   fill={`url(#Startop-${star.Type})`}/>
