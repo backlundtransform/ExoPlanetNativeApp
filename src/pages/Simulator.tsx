@@ -26,7 +26,7 @@ import Svg,{
   LinearGradient,G
 } from 'react-native-svg';
 import{PlanetList} from '../service/getPlanets'
-
+import SvgPanZoom, { SvgPanZoomElement } from 'react-native-svg-pan-zoom';
 
 const RADIUS = 25;
 interface SimulatorProps{navigation:any}
@@ -89,16 +89,27 @@ width =(width>star.HabZoneMax*2?width:star.HabZoneMax*2)+star.Planets[star.Plane
     return (
    
       <ScrollView style= {styles.d3View}   horizontal={true}  
-      maximumZoomScale={10}
-      minimumZoomScale={1}
-      zoomScale={2} 
-      centerContent
-      bouncesZoom={true}
+     
       >
       <GameLoop onUpdate={this.updateHandler}>
  <Content  style= {[ { left: this.state.x, top: this.state.y }]} >
 
-     <Svg height={height} width={width}>
+        <SvgPanZoom
+          canvasHeight  = {height}
+          canvasWidth   = {width}
+          minScale      = {0.5}
+          initialZoom   = {1}
+          maxScale ={2}
+     
+     
+        >
+  <SvgPanZoomElement
+   x  = {0}
+    y  = {0}
+
+  
+  
+  >
      <Image  href={require(
         "../images/sky-night-stars.jpg"
      )}
@@ -165,8 +176,8 @@ fillOpacity="0"
   )})}
 
   <Path    d={`M${width/2+star.Radius},${height/2} a1,1 0 0,0  ${star.Radius*-2},0`}   fill={`url(#Startop-${star.Type})`}/>
-  </Svg>
-
+  </SvgPanZoomElement>
+        </SvgPanZoom>
         </Content>
       </GameLoop>  
 
