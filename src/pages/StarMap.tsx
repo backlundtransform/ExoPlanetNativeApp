@@ -23,8 +23,8 @@ export default class StarMap extends React.Component<any, any> {
     super(props);
     this.state = {
       region: {
-        latitude: 33,
-        longitude: 33,
+        latitude: 30,
+        longitude: 30,
         latitudeDelta: 20,
         longitudeDelta: 20,
      }
@@ -50,7 +50,7 @@ export default class StarMap extends React.Component<any, any> {
         style={styles.map}
         region={this.state.region}
        onRegionChange={(region)=>this.onRegionChange(region)}
-      ><UrlTile urlTemplate="https://raw.githubusercontent.com/gbanm/exoplanethunter/master/assets/star.png"  />
+      ><UrlTile urlTemplate="https://github.com/gbanm/ExoPlanetNativeApp/blob/feature-mapcomponent/src/tiles/{x}.png"  />
       </MapView></View>
     
      )
