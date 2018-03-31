@@ -14,6 +14,7 @@ export interface Planet{
   Esi:number
   DiscYear:number
   Radius?:number
+  Coordinate?: any
   starDistance: number,
   Star?: Star
 }
@@ -48,7 +49,7 @@ export const PlanetList = [{
   Distance: 11.69,
   Esi:0.7,
   DiscYear: 2014,
-
+  Coordinate:{  latitude:51,longitude:0 },
   Star:{
     Name:"GJ 180",
     Type: resource.red,
@@ -58,9 +59,10 @@ export const PlanetList = [{
 Img:  {uri:jovanbase64Icon},
 Type: resource.hotJovian,
 Distance: 11.69,
-Esi:0.7,
+Esi:0,
 DiscYear: 2014,
 Radius: 15,
+
 starDistance: 150,
 Star:{
   Name:"GJ 180",
