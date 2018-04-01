@@ -2,8 +2,9 @@ import * as React from 'react';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 import {AppRegistry, StyleSheet, View,Platform } from 'react-native';
 import{resource} from '../config/Resource'
+import{geojson} from '../config/geojson'
 import MapView from 'react-native-maps';
-import { LocalTile,  UrlTile,Marker } from 'react-native-maps';
+import { LocalTile,  UrlTile,Marker,  Polyline } from 'react-native-maps';
 import  HamburgerMenu from '../navigation/HamburgerMenu'
 import { Dimensions } from 'react-native'
 import{PlanetList } from '../service/getPlanets'
@@ -34,20 +35,21 @@ export default class StarMap extends React.Component<any, any> {
     super(props);
     this.state = {
       region:  start,
-     zoom:7
+
+     zoom:7,
+     rightascension:start.longitude/15,
+     declination:start.latitude
     };
 
   }
-
- // n = 2 ^ zoom
-//xtile = n * ((lon_deg + 180) / 360)
-//ytile = n * (1 - (log(tan(lat_rad) + sec(lat_rad)) / π)) / 2
 onRegionChange(region) {
       
     const { height, width } = Dimensions.get('window')
        
-      
-    this.setState({region:region,zoom:Math.log2(360 * ((width/256) / region.longitudeDelta)) + 1})
+    const rightascension = region.longitude/15
+    const declination =region.latitude
+    const zoom =Math.log2(360 * ((width/256) / region.longitudeDelta)) + 1
+this.setState({rightascension,declination, region,zoom})
 
   }
   navigateToPlanet=(planet:any)=>{
@@ -57,8 +59,9 @@ onRegionChange(region) {
  
   render() {
    
- const{region, zoom}= this.state;
-    return ( <MapView
+ const{region, zoom, rightascension,declination }= this.state;
+    return (<Container      style={styles.container}>
+<MapView
         mapType={Platform.OS == "android" ? "none" : "standard"}
         style={styles.map}
         initialRegion={start}
@@ -78,10 +81,32 @@ onRegionChange(region) {
       image={require('../images/marker.png')}
       onPress={p=> this.navigateToPlanet(planet)}
     />) ) }
-  
-      </MapView>
     
-     )
+    {geojson.features.filter(p=>p.geometry.type=="Point").map((star,index) =>  (
+    <Marker
+
+      coordinate={{  latitude:star.geometry.coordinates[1] as number,longitude:star.geometry.coordinates[0] as number}}
+     
+      key={"star"+ index}
+      image={require('../images/smarker.png')}
+ 
+    />) )}{geojson.features.filter(p=>p.geometry.type=="LineString").map((line,index) =>  (
+      <Polyline
+      key={"line"+ index}
+       coordinates={(line.geometry.coordinates as number[][]).map(p=> { return {latitude:p[1] as number,longitude:p[0] as number}}) }
+      strokeColor="#add7ed" 
+       strokeWidth={1}
+       zIndex={1000000}
+   />))}
+   </MapView>
+<Header><Left>
+ <Text>
+      { "Rightascension: "+rightascension}    
+        </Text><Text>
+      { "Declination: "+declination}    
+        </Text></Left>
+      </Header>
+    </Container>)
   }
 }
 
