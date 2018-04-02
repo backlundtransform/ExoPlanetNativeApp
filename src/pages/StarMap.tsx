@@ -104,9 +104,9 @@ this.setState({rightascension,declination, region,zoom})
    </MapView>
 <Header><Left>
  <Text>
-      { "Rightascension: "+rightascension}    
+      { "Ra: "+rightascension}    
         </Text><Text>
-      { "Declination: "+declination}    
+      { "Dec: "+declination}    
         </Text></Left>
       </Header>
     </Container>)
