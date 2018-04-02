@@ -57,9 +57,8 @@ this.setState({rightascension,declination, region,zoom})
 
   }
   navigateToPlanet=(planet:any)=>{
-    console.log(planet)
+
   this.props.navigation.navigate("d3view",{navigation:planet})
-//this.props.navigation.navigate('infopages', {planet:PlanetList.find(p=>p.Name==planet.Name)})
        }
  
   render() {
