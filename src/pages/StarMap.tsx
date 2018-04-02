@@ -40,7 +40,7 @@ export default class StarMap extends React.Component<any, any> {
      zoom:7,
      rightascension:start.longitude/15,
      declination:start.latitude,
-     mark:[]
+  
     };
 
   }
@@ -50,20 +50,21 @@ onRegionChange(region) {
       
     const { height, width } = Dimensions.get('window')
 
-    const rightascension = region.longitude/15
+    const rightascension = 12 + -1*region.longitude/15
     const declination =region.latitude
     const zoom =Math.log2(360 * ((width/256) / region.longitudeDelta)) + 1
 this.setState({rightascension,declination, region,zoom})
 
   }
   navigateToPlanet=(planet:any)=>{
-   // this.props.navigation.navigate("d3view",{navigation:SolarSystem(planet.star)})
-this.props.navigation.navigate('infopages', {planet:PlanetList.find(p=>p.Name==planet.Name)})
+    console.log(planet)
+  this.props.navigation.navigate("d3view",{navigation:planet})
+//this.props.navigation.navigate('infopages', {planet:PlanetList.find(p=>p.Name==planet.Name)})
        }
  
   render() {
   
- const{region, zoom, rightascension,declination, mark }= this.state;
+ const{region, zoom, rightascension,declination }= this.state;
 
     return (<Container      style={styles.container}>
 <MapView
@@ -74,11 +75,11 @@ this.props.navigation.navigate('infopages', {planet:PlanetList.find(p=>p.Name==p
         minZoomLevel={6}
         maxZoomLevel={9}
        onRegionChange={(region)=> this.onRegionChange(region)}
-       onLayout={() => { mark.map((marker)=>marker&&marker.showCallout()) }}
+   
       ><UrlTile urlTemplate="https://raw.githubusercontent.com/gbanm/ExoPlanetService/master/ExoPlanetHunter.Web/Content/tiles/{z}/tile.png"  />
         {PlanetList.filter(p=>p.Esi>=0.7 && p.Coordinate!==undefined).map((planet,index) =>  (
     <Marker
-    ref={ref => { mark[index] = ref; }}
+  
       key={planet.Name}
       coordinate={planet.Coordinate}
       title={planet.Name}
