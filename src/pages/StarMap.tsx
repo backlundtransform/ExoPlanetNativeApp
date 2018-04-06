@@ -9,7 +9,7 @@ import  HamburgerMenu from '../navigation/HamburgerMenu'
 import { Dimensions } from 'react-native'
 import{PlanetList } from '../service/getPlanets'
 import{SolarSystem } from '../service/getSolarSystem'
-
+import Sensor from '../sensor/sensor'
 const styles = StyleSheet.create({
   container: {
     
@@ -104,6 +104,7 @@ this.setState({rightascension,declination, region,zoom})
    </MapView>
 <Header><Left>
  <Text>
+ <Sensor />
       { "Ra: "+rightascension}    
         </Text><Text>
       { "Dec: "+declination}    
