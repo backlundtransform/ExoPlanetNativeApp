@@ -10,7 +10,7 @@ import { Dimensions } from 'react-native'
 import{PlanetList } from '../service/getPlanets'
 import{SolarSystem } from '../service/getSolarSystem'
 import { decorator as sensors } from "react-native-sensors";
-
+import{siderealtime } from '../sensor/mathfunctions'
 import RNSimpleCompass from 'react-native-simple-compass';
 const styles = StyleSheet.create({
   container: {
@@ -69,7 +69,7 @@ onRegionChange(region) {
     timeout: 5000,
     maximumAge: 0
   });
-  
+ siderealtime(this.state.currentRegion.longitude);
     const { height, width } = Dimensions.get('window')
 
     const rightascension = 12 + -1*region.longitude/15
@@ -94,7 +94,7 @@ this.setState({rightascension,declination, region,zoom})
 
  const{region, zoom, rightascension,declination,degree ,currentRegion}= this.state;
 
-console.log(currentRegion);
+
 
     return (<Container      style={styles.container}>
 <MapView
