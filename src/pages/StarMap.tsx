@@ -43,11 +43,33 @@ const start =  {
      rightascension:start.longitude/15,
      declination:start.latitude,
   
+    
     };
-
+   
   }
+
+ success=(pos)=> {
+    var crd = pos.coords;
+
+    this.setState({currentRegion:{latitude:crd.latitude, longitude:crd.longitude}
+   
+    });
+
+  };
+  
+error=(err)=> {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  };
+  
+  
+ 
 onRegionChange(region) {
-      
+  navigator.geolocation.getCurrentPosition(this.success, this.error,  {
+    enableHighAccuracy: false,
+    timeout: 5000,
+    maximumAge: 0
+  });
+  
     const { height, width } = Dimensions.get('window')
 
     const rightascension = 12 + -1*region.longitude/15
@@ -68,8 +90,11 @@ this.setState({rightascension,declination, region,zoom})
       this.setState({degree})
       RNSimpleCompass.stop();
     });
-   
- const{region, zoom, rightascension,declination,degree }= this.state;
+
+
+ const{region, zoom, rightascension,declination,degree ,currentRegion}= this.state;
+
+console.log(currentRegion);
 
     return (<Container      style={styles.container}>
 <MapView
@@ -114,7 +139,7 @@ this.setState({rightascension,declination, region,zoom})
         </Text><Text>
  
       { "Dec: "+degree} 
-   
+    
         </Text></Left>
       </Header>
     </Container>)

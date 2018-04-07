@@ -1,4 +1,12 @@
-export const siderealtime=(longitude:number, min:number, days: number):number =>{
+export const siderealtime=(longitude:number):number =>{
+
+	const now = new Date;
+	const min= now.getUTCMinutes()
+	const start = new Date(now.getUTCFullYear(), 0, 0);
+	const diff= (now.getTime() - start.getTime());
+	const oneDay = 1000 * 60 * 60 * 24;
+	const days = Math.floor(diff / oneDay);
+
 	let startime=0.0657098*days-17.41409 +((min+4*longitude)/60)*1.002737909;
 	if(startime<0){	
 		startime=startime+24;
@@ -65,3 +73,9 @@ export const right_ascension=(hour:number,hourangle:number)=>{
 		return right_ascension;
 	
 	}
+
+
+		
+		
+		
+		
