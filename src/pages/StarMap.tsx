@@ -9,7 +9,9 @@ import  HamburgerMenu from '../navigation/HamburgerMenu'
 import { Dimensions } from 'react-native'
 import{PlanetList } from '../service/getPlanets'
 import{SolarSystem } from '../service/getSolarSystem'
-import Sensor from '../sensor/sensor'
+import { decorator as sensors } from "react-native-sensors";
+
+import RNSimpleCompass from 'react-native-simple-compass';
 const styles = StyleSheet.create({
   container: {
     
@@ -30,13 +32,13 @@ const start =  {
   latitudeDelta: 5,
   longitudeDelta: 5,
 } 
-export default class StarMap extends React.Component<any, any> {
+ class StarMap extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
     this.state = {
       region:  start,
-
+      degree:0,
      zoom:7,
      rightascension:start.longitude/15,
      declination:start.latitude,
@@ -44,8 +46,6 @@ export default class StarMap extends React.Component<any, any> {
     };
 
   }
-
-
 onRegionChange(region) {
       
     const { height, width } = Dimensions.get('window')
@@ -62,8 +62,14 @@ this.setState({rightascension,declination, region,zoom})
        }
  
   render() {
-  
- const{region, zoom, rightascension,declination }= this.state;
+    const degree_update_rate = 3;
+    RNSimpleCompass.start(degree_update_rate, (degree) => {
+ 
+      this.setState({degree})
+      RNSimpleCompass.stop();
+    });
+   
+ const{region, zoom, rightascension,declination,degree }= this.state;
 
     return (<Container      style={styles.container}>
 <MapView
@@ -104,15 +110,22 @@ this.setState({rightascension,declination, region,zoom})
    </MapView>
 <Header><Left>
  <Text>
- <Sensor />
-      { "Ra: "+rightascension}    
+    { "Ra: "+rightascension}    
         </Text><Text>
-      { "Dec: "+declination}    
+ 
+      { "Dec: "+degree} 
+   
         </Text></Left>
       </Header>
     </Container>)
   }
 }
+export default sensors({
+  Accelerometer: {
+      updateInterval: 300
+  },
+  Gyroscope: true,
 
+})(StarMap);
 
 
