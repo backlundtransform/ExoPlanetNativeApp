@@ -10,19 +10,20 @@ import { Dimensions } from 'react-native'
 import{PlanetList } from '../service/getPlanets'
 import{SolarSystem } from '../service/getSolarSystem'
 import { decorator as sensors } from "react-native-sensors";
-import{siderealtime } from '../sensor/mathfunctions'
+import{siderealtime,dot_product } from '../sensor/mathfunctions'
+import Compass from '../sensor/compass'
 import RNSimpleCompass from 'react-native-simple-compass';
 const styles = StyleSheet.create({
   container: {
     
-    height: 700,
+    height: 500,
     width: 700,
     backgroundColor: '#000000',
   },
   map: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: '#000000',
-    height: 500,
+    height: 600,
     width: 700,
   },
 });
@@ -58,7 +59,7 @@ const start =  {
   };
   
 error=(err)=> {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
+  
   };
   
   
@@ -69,7 +70,7 @@ onRegionChange(region) {
     timeout: 5000,
     maximumAge: 0
   });
- siderealtime(this.state.currentRegion.longitude);
+
     const { height, width } = Dimensions.get('window')
 
     const rightascension = 12 + -1*region.longitude/15
@@ -93,10 +94,10 @@ this.setState({rightascension,declination, region,zoom})
 
 
  const{region, zoom, rightascension,declination,degree ,currentRegion}= this.state;
+ const {Accelerometer}= this.props
+console.log(Accelerometer)
 
-
-
-    return (<Container      style={styles.container}>
+    return (<Container style={styles.container}>
 <MapView
         mapType={Platform.OS == "android" ? "none" : "standard"}
         style={styles.map}
@@ -133,16 +134,11 @@ this.setState({rightascension,declination, region,zoom})
        zIndex={1000000}
    />))}
    </MapView>
-<Header><Left>
- <Text>
-    { "Ra: "+rightascension}    
-        </Text><Text>
- 
-      { "Dec: "+degree} 
-    
-        </Text></Left>
-      </Header>
-    </Container>)
+
+
+{currentRegion&&(<Compass longitude={currentRegion.longitude}  latitude={currentRegion.latitude}  azimuth={degree} altitude={dot_product(Accelerometer.z,Accelerometer.y,Accelerometer.x,1,0,0)} rightascension={rightascension} declination={declination}   siderealtime={siderealtime(currentRegion.longitude)} />)}
+
+</Container>)
   }
 }
 export default sensors({

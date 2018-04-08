@@ -4,12 +4,13 @@ export const siderealtime=(longitude:number):string =>{
 		  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
 
 	const min= now.getUTCMinutes()
-	const start =Date.UTC(now.getUTCFullYear(), 0, 0);
+	const start =Date.UTC(now.getUTCFullYear(), 0, 1);
 	const diff= (utc_timestamp - start);
 	const oneDay = 1000 * 60 * 60 * 24;
 	const days = Math.floor(diff / oneDay);
 
-	let startime=0.0657098*days-17.41409 +((min+4*longitude)/60)*1.002737909;
+	let startime=0.0657098*days-17.41409 +((now.getUTCHours()*60+now.getUTCMinutes()+4*longitude)/60)*1.002737909;
+	
 	if(startime<0){	
 		startime=startime+24;
 	}
@@ -17,14 +18,15 @@ export const siderealtime=(longitude:number):string =>{
 	if(startime>24){
 		startime=startime-24;
 	}
+
 	return timeformat(startime);
 	
  }
 export const dot_product=(a1:number,a2:number,a3:number, b1:number, b2:number, b3:number):number=>{
-
+	
 	let  numerator =Math.sqrt(a1*a1 + a2*a2 +a3*a3)*Math.sqrt(b1*b1 + b2*b2 +b3*b3)
 	numerator = numerator ===0?1:numerator 
-	return Math.acos((a1*b1+a2*b2+a3*b3)/numerator)
+	return toDegrees(Math.acos((a1*b1+a2*b2+a3*b3)/numerator))-90;
 
 }
  export const declination = ( latitude:number, altitude:number, azimuth:number):number=>{
@@ -83,14 +85,15 @@ export const right_ascension=(hour:number,hourangle:number)=>{
 
 		
 const timeformat=(time:number)=>{
-      const decimal = Math.round(time); 
+      const decimal = Math.trunc(time); 
 	  const fractional =(time - decimal);
+	  let numb =(fractional*60).toString().substring(0, 2);
 		if(fractional< 10/60)
 		{
-		return "0"+(fractional*60).toString().substring(0, 1);
+			numb= "0"+(fractional*60).toString().substring(0, 1);
 		}
 
-			 return  decimal +":"+(fractional*60).toString().substring(0, 2);
+			 return  decimal +":"+numb;
 	
 	}
 		

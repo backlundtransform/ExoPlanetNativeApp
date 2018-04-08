@@ -1,9 +1,41 @@
-import RNSimpleCompass from 'react-native-simple-compass';
+import * as React from 'react';
+import {AppRegistry, StyleSheet, View , Dimensions} from 'react-native';
+import { Container,Text, Content, Footer } from 'native-base';
+import{resource} from '../config/Resource'
+import styles from '../styles/defaultStyle'
 
+interface compassProps{longitude:number, latitude:number, altitude:number, azimuth:number,rightascension:number,declination:number, siderealtime:string}
+interface  StarPropsState { }
 
+export default class Compass extends React.Component<compassProps, any> {
+    constructor(props) {
+        super(props);
 
+      }
+    
+  render() {
+    const {longitude, latitude, altitude, azimuth,rightascension,declination,siderealtime}= this.props
 
-export const compass=(degree_update_rate:number) =>{RNSimpleCompass.start(degree_update_rate, (degree) => {
-  return degree
-
-});} 
+    let {width} = Dimensions.get('window');
+    width=width/3
+    const margin ={width: width, marginLeft:10}
+    return (<Footer style={styles.compasscontainer}>
+      <View style={styles.compassview}>
+        <View style={margin}>
+                <Text  >{"long:"+longitude.toFixed(2)}</Text>
+                <Text >{"alt:"+altitude.toFixed(2)} </Text>
+                <Text >{"ra:"+rightascension.toFixed(2)} </Text>
+          </View>
+      <View style={margin} >
+      <Text style={styles.sidereal} >{siderealtime} </Text> 
+      </View>
+      <View style={margin}>
+              <Text >{"lat:"+latitude.toFixed(2)} </Text>
+              <Text >{"az:"+azimuth.toFixed(2)} </Text>
+              <Text >{"dec:"+declination.toFixed(2)} </Text>       
+      </View>
+      </View>
+      </Footer>
+);
+  }
+}

@@ -11,7 +11,15 @@ import {StyleSheet } from 'react-native';
       backgroundColor: '#50607a',
 
     }, 
+   compasscontainer: {
+      zIndex:-99999,
+       backgroundColor: '#50607a',
+       height:80,
     
+ 
+     }, 
+
+     compassview: { alignItems: 'center', flexDirection: 'row', flex: 1, justifyContent: 'flex-start', },
     color: {
       color: '#c6d4ff',
 
@@ -21,6 +29,13 @@ import {StyleSheet } from 'react-native';
       fontWeight: 'bold',
       fontSize: 16,
       textDecorationLine:'underline'
+
+    },
+    sidereal: {
+      color: '#c6d4ff',
+      fontWeight: 'bold',
+      fontSize: 18,
+
 
     },
     listText: {
