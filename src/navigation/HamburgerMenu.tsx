@@ -44,8 +44,7 @@ export default class HamburgerMenu extends React.Component<HamburgerMenuProps, H
         <Left >
         <Button transparent onPress={() => this.HandleClick()} >
             <Icon name={ this.state.menu? "menu": "close"}  />
-          </Button>
-        </Left>
+          </Button></Left>
       </Header>
      
     );

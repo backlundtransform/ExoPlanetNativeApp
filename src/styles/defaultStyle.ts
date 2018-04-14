@@ -1,6 +1,19 @@
 import {StyleSheet } from 'react-native';
 
  const styles = StyleSheet.create({
+
+  mapcontainer: {
+    
+    height: 500,
+    width: 700,
+    backgroundColor: '#000000',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: '#000000',
+    height: 600,
+    width: 700,
+  },
     container: {
      
       backgroundColor: '#818ea5',
@@ -90,6 +103,14 @@ d3button: {
  
   flex :1,
  marginLeft:100
+  
+},
+gpsbutton: {
+  justifyContent: 'flex-end',
+  backgroundColor: '#818ea5',
+ 
+  flex :1,
+
   
 },
 d3View: {

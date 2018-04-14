@@ -1,4 +1,5 @@
-export const siderealtime=(longitude:number):string =>{
+
+const time =(longitude:number):number=>{
 	const now = new Date;
 	var utc_timestamp = Date.UTC(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() , 
 		  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
@@ -19,7 +20,22 @@ export const siderealtime=(longitude:number):string =>{
 		startime=startime-24;
 	}
 
-	return timeformat(startime);
+return startime
+
+
+}
+const hourangle=(latitude:number,altitude:number, azimuth:number)=>{
+	let numerator=Math.sin(toRadians(azimuth_angle(azimuth)));
+	 let denominator=Math.cos(toRadians(azimuth_angle(azimuth)))*Math.sin(toRadians(latitude))+Math.tan(toRadians(altitude))*Math.cos(toRadians(latitude));
+	
+	return toDegrees(Math.atan2(numerator,denominator));
+			
+			
+	}
+
+export const siderealtime=(longitude:number):string =>{
+
+	return timeformat(time(longitude));
 	
  }
 export const dot_product=(a1:number,a2:number,a3:number, b1:number, b2:number, b3:number):number=>{
@@ -29,7 +45,7 @@ export const dot_product=(a1:number,a2:number,a3:number, b1:number, b2:number, b
 	return toDegrees(Math.acos((a1*b1+a2*b2+a3*b3)/numerator))-90;
 
 }
- export const declination = ( latitude:number, altitude:number, azimuth:number):number=>{
+ export const getdeclination = (latitude:number, altitude:number, azimuth:number):number=>{
 		
 	let sindec=Math.sin(toRadians(latitude))*Math.sin(toRadians(altitude))-Math.cos(toRadians(latitude))*Math.cos(toRadians(altitude))*Math.cos(toRadians(azimuth_angle(azimuth)));
 	
@@ -61,17 +77,12 @@ export const  azimuth_angle=(azimuth:number):number =>{
 			
 		}
 
-export const hourangle=(latitude:number,altitude:number, azimuth:number)=>{
-            let numerator=Math.sin(toRadians(azimuth_angle(azimuth)));
-	     	let denominator=Math.cos(toRadians(azimuth_angle(azimuth)))*Math.sin(toRadians(latitude))+Math.tan(toRadians(altitude))*Math.cos(toRadians(latitude));
-			
-			return toDegrees(Math.atan2(numerator,denominator));
-					
-					
-			}
 
-export const right_ascension=(hour:number,hourangle:number)=>{
-	const right_ascension=Math.abs(hour*15-hourangle);
+
+export const right_ascension=(longitude:number,latitude:number,altitude:number, azimuth:number)=>{
+
+	const angle =hourangle(latitude,altitude, azimuth)
+	const right_ascension=Math.abs(time(longitude)*15-angle);
 	
 	if(right_ascension>360)
 	{

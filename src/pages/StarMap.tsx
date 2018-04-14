@@ -10,30 +10,28 @@ import { Dimensions } from 'react-native'
 import{PlanetList } from '../service/getPlanets'
 import{SolarSystem } from '../service/getSolarSystem'
 import { decorator as sensors } from "react-native-sensors";
-import{siderealtime,dot_product } from '../sensor/mathfunctions'
+import{siderealtime,dot_product,right_ascension,getdeclination } from '../sensor/mathfunctions'
 import Compass from '../sensor/compass'
 import RNSimpleCompass from 'react-native-simple-compass';
-const styles = StyleSheet.create({
-  container: {
-    
-    height: 500,
-    width: 700,
-    backgroundColor: '#000000',
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: '#000000',
-    height: 600,
-    width: 700,
-  },
-});
+
+import styles from "../styles/defaultStyle"
+
 const start =  {
   latitude: 51,
   longitude: 0,
   latitudeDelta: 5,
   longitudeDelta: 5,
 } 
- class StarMap extends React.Component<any, any> {
+interface StarmapProp { navigation:any, Accelerometer:any, gyroscop:any}
+interface StarmapState {region: any,
+  currentRegion?:any,
+  degree:number,
+ zoom:number,
+ altitude:number,
+ siderealtime:string
+ rightascension:number,
+ declination:number,gps:boolean}
+ class StarMap extends React.Component<StarmapProp, StarmapState> {
 
   constructor(props) {
     super(props);
@@ -43,18 +41,19 @@ const start =  {
      zoom:7,
      rightascension:start.longitude/15,
      declination:start.latitude,
-  
-    
+     gps:true,
+     altitude:0,
+     siderealtime:""
     };
    
   }
 
  success=(pos)=> {
     var crd = pos.coords;
-
+    if(this.refs.map){
     this.setState({currentRegion:{latitude:crd.latitude, longitude:crd.longitude}
    
-    });
+    }); }
 
   };
   
@@ -62,7 +61,7 @@ error=(err)=> {
   
   };
   
-  
+ 
  
 onRegionChange(region) {
   navigator.geolocation.getCurrentPosition(this.success, this.error,  {
@@ -76,28 +75,47 @@ onRegionChange(region) {
     const rightascension = 12 + -1*region.longitude/15
     const declination =region.latitude
     const zoom =Math.log2(360 * ((width/256) / region.longitudeDelta)) + 1
+    if(this.refs.map){
 this.setState({rightascension,declination, region,zoom})
+    }
 
   }
   navigateToPlanet=(planet:any)=>{
 
   this.props.navigation.navigate("d3view",{navigation:planet})
        }
+
+       componentWillReceiveProps(nextProps){
+        const {currentRegion,altitude, degree,rightascension,declination}= this.state
+  
+       
+        let gps = nextProps.navigation.state.params&&nextProps.navigation.state.params.gps
+        if(this.state.currentRegion!== undefined){
+       const rightascension =right_ascension(currentRegion.longitude,currentRegion.latitude,altitude, degree)
+        const declination =getdeclination(currentRegion.latitude, altitude, degree)
+        this.setState({rightascension,declination, altitude :dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,nextProps.Accelerometer.x,1,0,0), siderealtime:siderealtime(this.state.currentRegion.longitude)});
+       
+        const degree_update_rate = 3;
+        RNSimpleCompass.start(degree_update_rate, (degree) => {
+          if(this.refs.map){
+          this.setState({degree})
+          }
+          RNSimpleCompass.stop();
+        });
+
+      }
+       }
  
   render() {
-    const degree_update_rate = 3;
-    RNSimpleCompass.start(degree_update_rate, (degree) => {
  
-      this.setState({degree})
-      RNSimpleCompass.stop();
-    });
+  
 
 
- const{region, zoom, rightascension,declination,degree ,currentRegion}= this.state;
+ const{region, zoom, rightascension,declination,degree ,currentRegion,altitude,siderealtime}= this.state;
  const {Accelerometer}= this.props
-console.log(Accelerometer)
 
-    return (<Container style={styles.container}>
+
+    return (<Container ref="map" style={styles.mapcontainer}>
 <MapView
         mapType={Platform.OS == "android" ? "none" : "standard"}
         style={styles.map}
@@ -136,7 +154,7 @@ console.log(Accelerometer)
    </MapView>
 
 
-{currentRegion&&(<Compass longitude={currentRegion.longitude}  latitude={currentRegion.latitude}  azimuth={degree} altitude={dot_product(Accelerometer.z,Accelerometer.y,Accelerometer.x,1,0,0)} rightascension={rightascension} declination={declination}   siderealtime={siderealtime(currentRegion.longitude)} />)}
+{currentRegion&&(<Compass longitude={currentRegion.longitude}  latitude={currentRegion.latitude}  azimuth={degree} altitude={altitude} rightascension={rightascension} declination={declination}   siderealtime={ siderealtime} />)}
 
 </Container>)
   }

@@ -10,6 +10,7 @@ import { Icon,Text,ListItem, Content,View} from "native-base";
 import SidebarContent from './SideBarContent'
 import styles from '../styles/defaultStyle';
 import  HamburgerMenu from './HamburgerMenu'
+import  GpsMenu from './GpsMenu'
 import   PlanetsNavigator from './PlanetsNavigator'
 import  NavListItems from './NavListItems'
 import { Button, TouchableOpacity } from 'react-native';
@@ -54,11 +55,16 @@ const appRoutes ={
 
     },
     map: { screen: StarMap,
-        navigationOptions:({ navigation, screenProps }) => ( {
+        navigationOptions:({ navigation, gps }) => ( {
             headerLeft:  <HamburgerMenu navigate ={navigation}  />,
+          
+          headerRight:<GpsMenu navigate ={navigation} />,
+
             drawerLabel: () =>
             <NavListItems title={resource.starmap} icon={'map'} /> ,
-          })       
+          })   
+          
+        
     }
  }
 
