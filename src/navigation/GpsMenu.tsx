@@ -27,6 +27,7 @@ export default class GpsMenu extends React.Component<GpsMenuProps, GpsMenuState>
   }
 
   this.props.navigate.setParams({gps:this.state.menu}) 
+  
   this.setState({ menu:!this.state.menu})
   }
   render() {

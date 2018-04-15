@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
-import {AppRegistry, StyleSheet, View,Platform } from 'react-native';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text} from 'native-base';
+import {AppRegistry, StyleSheet, View,Platform ,Image} from 'react-native';
 import{resource} from '../config/Resource'
 import{geojson} from '../config/geojson'
 import MapView from 'react-native-maps';
 import { LocalTile,  UrlTile,Marker,  Polyline, Callout } from 'react-native-maps';
+
 import  HamburgerMenu from '../navigation/HamburgerMenu'
 import { Dimensions } from 'react-native'
 import{PlanetList } from '../service/getPlanets'
@@ -19,7 +20,9 @@ import {
 
 
 
-import styles from "../styles/defaultStyle"
+import styles from "../styles/defaultStyle";
+
+import customMap from "../styles/customMap"
 
 const start =  {
   latitude: 51,
@@ -81,7 +84,7 @@ onRegionChange(region) {
     const rightascension = 12 + -1*region.longitude/15
     const declination =region.latitude
     const zoom =Math.log2(360 * ((width/256) / region.longitudeDelta)) + 1
-console.log(zoom)
+
     if(this.refs.map && !(this.state.gps)){
 
     this.setState({rightascension,declination})
@@ -92,6 +95,8 @@ console.log(zoom)
 
   this.props.navigation.navigate("d3view",{navigation:planet})
        }
+
+
 
        componentWillReceiveProps(nextProps){
 
@@ -145,18 +150,25 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
  const {Accelerometer}= this.props
 
 
-    return (<Container ref="map" style={styles.mapcontainer}>
-<MapView
-        mapType={Platform.OS == "android" ? "none" : "standard"}
+    return (<Container ref="map" style={styles.mapcontainer}><MapView
+
+        cacheEnabled={true}
+    
+      moveOnMarkerPress={false}
+   
+       loadingBackgroundColor={"#000000"}
+        mapType={ "standard" }
         style={styles.map}
         initialRegion={start}
+        customMapStyle={customMap}
         region={gps?region:null}
         showsCompass={true}
         minZoomLevel={2}
         maxZoomLevel={4}
        onRegionChange={(region)=> this.onRegionChange(region)}
+     
    
-      ><UrlTile urlTemplate="https://raw.githubusercontent.com/gbanm/ExoPlanetService/master/ExoPlanetHunter.Web/Content/tiles/4/tile.jpg"  />
+      ><UrlTile urlTemplate="https://raw.githubusercontent.com/gbanm/ExoPlanetService/master/ExoPlanetHunter.Web/Content/tiles/{z}/tile.jpg"  />
         {PlanetList.filter(p=>p.Esi>=0.7 && p.Coordinate!==undefined).map((planet,index) =>  (
     <Marker
   

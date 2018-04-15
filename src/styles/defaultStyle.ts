@@ -2,17 +2,26 @@ import {StyleSheet } from 'react-native';
 
  const styles = StyleSheet.create({
 
+
   mapcontainer: {
     
     height: 500,
     width: 700,
     backgroundColor: '#000000',
+  
+
   },
   map: {
-    ...StyleSheet.absoluteFillObject,
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
     backgroundColor: '#000000',
     height: 600,
     width: 700,
+
+
   },
     container: {
      
