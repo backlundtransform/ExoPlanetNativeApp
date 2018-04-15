@@ -41,7 +41,7 @@ interface StarmapState {region: any,
      zoom:7,
      rightascension:start.longitude/15,
      declination:start.latitude,
-     gps:true,
+     gps:false,
      altitude:0,
      siderealtime:""
     };
@@ -50,7 +50,8 @@ interface StarmapState {region: any,
 
  success=(pos)=> {
     var crd = pos.coords;
-    if(this.refs.map){
+    if(this.refs.map && this.state.currentRegion=== undefined){
+  
     this.setState({currentRegion:{latitude:crd.latitude, longitude:crd.longitude}
    
     }); }
@@ -75,8 +76,10 @@ onRegionChange(region) {
     const rightascension = 12 + -1*region.longitude/15
     const declination =region.latitude
     const zoom =Math.log2(360 * ((width/256) / region.longitudeDelta)) + 1
-    if(this.refs.map){
-this.setState({rightascension,declination, region,zoom})
+
+    if(this.refs.map && !(this.state.gps)){
+
+    this.setState({rightascension,declination})
     }
 
   }
@@ -86,32 +89,50 @@ this.setState({rightascension,declination, region,zoom})
        }
 
        componentWillReceiveProps(nextProps){
-        const {currentRegion,altitude, degree,rightascension,declination}= this.state
+        let {region,currentRegion,altitude, degree,rightascension,declination}= this.state
   
-       
-        let gps = nextProps.navigation.state.params&&nextProps.navigation.state.params.gps
-        if(this.state.currentRegion!== undefined){
-       const rightascension =right_ascension(currentRegion.longitude,currentRegion.latitude,altitude, degree)
-        const declination =getdeclination(currentRegion.latitude, altitude, degree)
-        this.setState({rightascension,declination, altitude :dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,nextProps.Accelerometer.x,1,0,0), siderealtime:siderealtime(this.state.currentRegion.longitude)});
+    
+        const gps = nextProps.navigation.state.params&&nextProps.navigation.state.params.gps
+        if(this.state.currentRegion!== undefined && (gps!==undefined &&gps)){
+         const rightascension =right_ascension(currentRegion.longitude,currentRegion.latitude,altitude, degree)
+         const declination =getdeclination(currentRegion.latitude, altitude, degree)
+
+        
+
+      const longitude = (rightascension-12)<180?(rightascension-12):(rightascension-12)-360;
+      if(region.longitude+10<longitude ||region.longitude-10>longitude){
+      region = {
+        latitude: declination,
+        longitude: longitude,
+        latitudeDelta: 7,
+        longitudeDelta: 7,
+      } 
+      this.setState({ gps, region,rightascension,declination, altitude :dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,nextProps.Accelerometer.x,1,0,0), siderealtime:siderealtime(this.state.currentRegion.longitude)});
+ 
+    }
+  
+ 
        
         const degree_update_rate = 3;
         RNSimpleCompass.start(degree_update_rate, (degree) => {
-          if(this.refs.map){
+          if(this.refs.map && (degree+10<this.state.degree ||degree-10>this.state.degree)){
+            
           this.setState({degree})
           }
           RNSimpleCompass.stop();
         });
 
+      }else{
+
+        this.setState({ gps:false})
+  
+  
       }
        }
  
   render() {
- 
-  
 
-
- const{region, zoom, rightascension,declination,degree ,currentRegion,altitude,siderealtime}= this.state;
+ const{region, gps,rightascension,declination,degree ,currentRegion,altitude,siderealtime}= this.state;
  const {Accelerometer}= this.props
 
 
@@ -120,6 +141,7 @@ this.setState({rightascension,declination, region,zoom})
         mapType={Platform.OS == "android" ? "none" : "standard"}
         style={styles.map}
         initialRegion={start}
+        region={gps?region:null}
         showsCompass={true}
         minZoomLevel={6}
         maxZoomLevel={9}
@@ -154,7 +176,7 @@ this.setState({rightascension,declination, region,zoom})
    </MapView>
 
 
-{currentRegion&&(<Compass longitude={currentRegion.longitude}  latitude={currentRegion.latitude}  azimuth={degree} altitude={altitude} rightascension={rightascension} declination={declination}   siderealtime={ siderealtime} />)}
+{currentRegion&&(<Compass longitude={currentRegion.longitude}  latitude={currentRegion.latitude}  azimuth={degree} altitude={altitude} rightascension={rightascension} declination={declination}   siderealtime={ siderealtime}  gps ={gps}/>)}
 
 </Container>)
   }

@@ -4,7 +4,7 @@ import { Container,Text, Content, Footer } from 'native-base';
 import{resource} from '../config/Resource'
 import styles from '../styles/defaultStyle'
 
-interface compassProps{longitude:number, latitude:number, altitude:number, azimuth:number,rightascension:number,declination:number, siderealtime:string}
+interface compassProps{longitude:number, latitude:number, altitude:number, azimuth:number,rightascension:number,declination:number, siderealtime:string, gps:boolean}
 interface  StarPropsState { }
 
 export default class Compass extends React.Component<compassProps, any> {
@@ -14,7 +14,7 @@ export default class Compass extends React.Component<compassProps, any> {
       }
     
   render() {
-    const {longitude, latitude, altitude, azimuth,rightascension,declination,siderealtime}= this.props
+    const {longitude, latitude, altitude, azimuth,rightascension,declination,siderealtime,gps}= this.props
 
     let {width} = Dimensions.get('window');
     width=width/3
@@ -23,15 +23,15 @@ export default class Compass extends React.Component<compassProps, any> {
       <View style={styles.compassview}>
         <View style={margin}>
                 <Text  >{"long:"+longitude.toFixed(2)}</Text>
-                <Text >{"alt:"+altitude.toFixed(2)} </Text>
+                {gps?  <Text >{"alt:"+altitude.toFixed(2)} </Text>:null}
                 <Text >{"ra:"+rightascension.toFixed(2)} </Text>
           </View>
       <View style={margin} >
-      <Text style={styles.sidereal} >{siderealtime} </Text> 
+      {gps?  <Text style={styles.sidereal} >{siderealtime} </Text>:null}
       </View>
       <View style={margin}>
               <Text >{"lat:"+latitude.toFixed(2)} </Text>
-              <Text >{"az:"+azimuth.toFixed(2)} </Text>
+             {gps? <Text >{"az:"+azimuth.toFixed(2)} </Text>:null}
               <Text >{"dec:"+declination.toFixed(2)} </Text>       
       </View>
       </View>
