@@ -17,7 +17,7 @@ import RNSimpleCompass from 'react-native-simple-compass';
 import {
   DeviceEventEmitter, NativeModules
 } from 'react-native';
-
+import { constants} from '../config/constants'
 
 
 import styles from "../styles/defaultStyle";
@@ -168,7 +168,7 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
        onRegionChange={(region)=> this.onRegionChange(region)}
      
    
-      ><UrlTile urlTemplate="https://raw.githubusercontent.com/gbanm/ExoPlanetService/master/ExoPlanetHunter.Web/Content/tiles/{z}/tile.jpg"  />
+      ><UrlTile urlTemplate={constants.tiles}  />
         {PlanetList.filter(p=>p.Esi>=0.7 && p.Coordinate!==undefined).map((planet,index) =>  (
     <Marker
   

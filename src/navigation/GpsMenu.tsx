@@ -4,7 +4,7 @@ import styles from '../styles/defaultStyle';
 import StarMap from '../pages/StarMap';
 import  {Drawer}  from './Drawer'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import * as MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 interface GpsMenuProps{navigate:any}
 interface GpsMenuState {  menu :  boolean}
 const _ismounted =true

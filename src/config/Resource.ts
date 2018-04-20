@@ -16,7 +16,8 @@ import LocalizedStrings from 'react-native-localization';
     at:"is located at a distance of",
     PlanetInfo:"StarInfo",
     orange:"Orange Dwarf",
-    red:"Red Dwarf"
+    red:"Red Dwarf",
+    habmenu: ["Habitable Planets","Cold(–50-0°C)", "Normal Temperature(0–50°C)", "Hot(50–100°C)", "Earth similarity index", "Suitability for vegetation","Candidate for habitable moon"]
   
   },sv:{
     message:"PlanetJägaren",
@@ -31,7 +32,12 @@ import LocalizedStrings from 'react-native-localization';
     PlanetInfo:"Planet Info",
     StarInfo:"Star Info",
     orange:"Orange dvärg",
-    red:"Röd dvärg"
+    red:"Röd dvärg",
+    habmenu: ["Beboliga Planeter","Kallt (-50-0°C)", "Normal Temperatur(0–50°C)", "Varmt(50–100°C)", "Liknar Jorden (ESI index)", "Lämpad för växlighet (SPH index)","Kandidater för beboliga månar"]
+
+
+
+
   },
 
  });

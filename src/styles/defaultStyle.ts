@@ -45,8 +45,20 @@ import {StyleSheet } from 'react-native';
     color: {
       color: '#c6d4ff',
 
+    },  habTitle: {
+      color: '#c6d4ff',
+      fontWeight: 'bold',
+      fontSize: 14,
+ 
     },
+   habicon:{
+    flex:0,
+    color: '#c6d4ff',
+    fontWeight: 'bold',
+    fontSize: 30,
+   },
    listTitle: {
+    flex: 1,
       color: '#c6d4ff',
       fontWeight: 'bold',
       fontSize: 16,
