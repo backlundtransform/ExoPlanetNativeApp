@@ -1,28 +1,39 @@
 import * as React from 'react';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
+import {AppRegistry, StyleSheet, View,Image} from 'react-native';
+import { Container, Header, Title, Content,Thumbnail, List, Button, Left, Right, Body, Text, ListItem} from 'native-base';
 import{resource} from '../config/Resource'
-import  HamburgerMenu from '../navigation/HamburgerMenu'
-export default class Constellations extends React.Component {
+import{PlanetList, filter} from '../service/getPlanets'
+import styles from '../styles/defaultStyle'
+import {constants} from '../config/constants'
+interface ConstellationsProps{navigation:any}
+interface  ConstellationsPropsState { }
+export default class Constellations extends React.Component<ConstellationsProps,ConstellationsPropsState> {
 
+    render() {
+  
 
-  render() {
- 
-    return (
-      <Container>
-     <Content>
-          <Text>
-          {resource.con}
-          </Text>
-        </Content>
-        <Footer>
-          <FooterTab>
-            <Button full>
-              <Text>Footer</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
-      </Container>
+         return (
+           <Container style={styles.listView}>
+           <Content >
+             <List dataArray={constants.constellations}
+               renderRow={(item,index) =>{
+            
+               return <ListItem style={styles.listViewItem} onPress={() => {}}>
+              
+                <Body style={styles.habbody} >
+                       {item.icon}
+                  <Text  style={styles.habTitle} >  {item.name}</Text>
+       
+                </Body>
 
-    );
-  }
-}
+              </ListItem>
+            
+               
+               }}/>
+      
+           </Content>
+         </Container>
+         );
+       }
+     }
+     

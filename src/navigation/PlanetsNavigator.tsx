@@ -20,7 +20,7 @@ import {
      planets: { screen: Planets,
     
       navigationOptions:({ navigation, screenProps }) => ( {
-     
+  
         headerLeft:  <HamburgerMenu navigate ={navigation}  />,
         headerStyle: styles.headerstyle,
         
@@ -43,14 +43,10 @@ import {
             </Left><Button  style={styles.d3button}  transparent onPress={() =>navigation.navigate("d3view",{navigation:navigation})} >
             <Icon style={styles.white} name={"3d-rotation"} size={36} />
             </Button>
-        </Header>),
-        
-        
+        </Header>), 
       }),    
-      
-        
-    },
    
+    }, 
 }
 , {
   headerMode: 'none' 

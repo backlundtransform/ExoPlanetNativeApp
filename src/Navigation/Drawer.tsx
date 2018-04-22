@@ -3,7 +3,7 @@ import{resource} from '../config/Resource'
 import * as React from 'react';
 
 import Planets from '../pages/Planets';
-import HabPlanets from '../pages/HabPlanets';
+
 import Constellations from '../pages/Constellations';
 import StarMap from '../pages/StarMap';
 import { Icon,Text,ListItem, Content,View} from "native-base";
@@ -12,6 +12,7 @@ import styles from '../styles/defaultStyle';
 import  HamburgerMenu from './HamburgerMenu'
 import  GpsMenu from './GpsMenu'
 import   PlanetsNavigator from './PlanetsNavigator'
+import   HabNavigator from './HabNavigator'
 import  NavListItems from './NavListItems'
 import { Button, TouchableOpacity } from 'react-native';
 
@@ -20,7 +21,7 @@ const appRoutes ={
     planets: { screen: PlanetsNavigator,  
     
       navigationOptions:({ navigation, screenProps }) => ({
-     
+        
         headerLeft:  <HamburgerMenu navigate ={navigation}  />,
         headerStyle: styles.headerstyle,
         
@@ -31,9 +32,9 @@ const appRoutes ={
 
       })
     
-    },  habplanets: { screen: HabPlanets, 
+    },  habplanets: { screen: HabNavigator, 
     
-        navigationOptions:({ navigation, screenProps }) => ( {
+        navigationOptions:({ navigation, screenProps }) => ({
          
           headerLeft:  <HamburgerMenu navigate ={navigation}  />,
           headerStyle: styles.headerstyle,
