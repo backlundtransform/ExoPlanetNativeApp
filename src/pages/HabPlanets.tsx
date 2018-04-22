@@ -12,6 +12,7 @@ interface  HabPlanetsPropsState { }
 export default class HabPlanets extends React.Component<HabPlanetsProps,HabPlanetsPropsState> {
 
   render() {
+ 
     return (
       <Container style={styles.listView}>
       <Content >

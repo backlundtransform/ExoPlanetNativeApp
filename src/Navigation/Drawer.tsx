@@ -3,7 +3,7 @@ import{resource} from '../config/Resource'
 import * as React from 'react';
 
 import Planets from '../pages/Planets';
-
+import ConstellationNavigator from './ConstellationNavigator';
 import Constellations from '../pages/Constellations';
 import StarMap from '../pages/StarMap';
 import { Icon,Text,ListItem, Content,View} from "native-base";
@@ -44,7 +44,7 @@ const appRoutes ={
         })
       
       },
-    constellations: { screen: Constellations,
+    constellations: { screen: ConstellationNavigator ,
         navigationOptions:({ navigation, screenProps }) => ( {
             
             headerLeft:  <HamburgerMenu navigate ={navigation}  />,

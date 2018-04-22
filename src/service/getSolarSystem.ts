@@ -7,6 +7,11 @@ export const SolarSystem=(star:Star):Star=>{
     return SolarSystems.find(p=>p.Name==star.Name);
 }
 
+export const ConstellationSolarSystems=(constellation:number):Array<Star>=>{
+
+  return SolarSystems.filter(p=>p.Constellation===constellation);
+}
+
 export const SolarSystems= [
     
   {
@@ -39,6 +44,7 @@ export const SolarSystems= [
         HabZoneMin:120,
         HabZoneMax :300,
         Radius:60,
+        Constellation:1,
         Planets:[{Name:"GJ 180 b",
         Img:  {uri:jovanbase64Icon},
         Type: resource.superEarth,

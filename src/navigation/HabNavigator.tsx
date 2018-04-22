@@ -19,3 +19,6 @@ const HabNavigator = StackNavigator({
       headerMode: 'none' 
     });
      export default  HabNavigator
+
+
+     

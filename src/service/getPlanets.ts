@@ -28,7 +28,7 @@ export interface Star{
   Name :string
   Img: any
   Type: string
-
+  Constellation?:number
   HabZoneMin?:number
   HabZoneMax? :number
   Planets?: Array<Planet>
@@ -49,7 +49,8 @@ export const PlanetList= [{
   Star:{
     Name:"1RXS 1609",
     Type: resource.orange,
-    Img:{uri:orangeIcon}
+    Img:{uri:orangeIcon},
+    Constellation:2,
   }
 } , {
   Name:"GJ 180 c",
@@ -66,7 +67,8 @@ export const PlanetList= [{
   Star:{
     Name:"GJ 180",
     Type: resource.red,
-    Img:{uri:redIcon}
+    Img:{uri:redIcon},
+    Constellation:1,
   }
 },{Name:"GJ 180 b",
 Img:  {uri:jovanbase64Icon},
@@ -84,7 +86,8 @@ starDistance: 150,
 Star:{
   Name:"GJ 180",
   Type: resource.red,
-  Img:{uri:redIcon}
+  Img:{uri:redIcon},
+  Constellation:1,
 }
 } ] as Array<Planet> 
 

@@ -35,8 +35,8 @@ interface SimulatorState{x:number,y:number, alpha:number, star:Star}
 export default class Simulator extends React.PureComponent<SimulatorProps,SimulatorState> {
   constructor(props) {
     super(props);
-
-const  prop= this.props.navigation.state.params.navigation
+   console.log(this.props.navigation.state.params.Star) 
+const  prop= this.props.navigation.state.params.Star?this.props.navigation.state.params:this.props.navigation.state.params.navigation
     this.state = {
       x:0,
       y:0,

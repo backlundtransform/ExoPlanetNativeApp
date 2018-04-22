@@ -10,7 +10,7 @@ interface  ConstellationsPropsState { }
 export default class Constellations extends React.Component<ConstellationsProps,ConstellationsPropsState> {
 
     render() {
-  
+      console.log(this.props.navigation)
 
          return (
            <Container style={styles.listView}>
@@ -18,16 +18,18 @@ export default class Constellations extends React.Component<ConstellationsProps,
              <List dataArray={constants.constellations}
                renderRow={(item,index) =>{
             
-               return <ListItem style={styles.listViewItem} onPress={() => {}}>
+               return <ListItem style={styles.listViewItem} onPress={() => {
+        this.props.navigation.navigate('solarlist',{const:item.id})}}>
               
-                <Body style={styles.habbody} >
-                       {item.icon}
-                  <Text  style={styles.habTitle} >  {item.name}</Text>
-       
-                </Body>
+             <Left>
+               {item.icon}
 
-              </ListItem>
-            
+           </Left>
+           <Body>
+             <Text style={styles.listTitle}>{item.name}</Text>
+         
+           </Body>
+         </ListItem>
                
                }}/>
       
