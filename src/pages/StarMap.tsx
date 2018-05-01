@@ -150,9 +150,11 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
  const {Accelerometer}= this.props
 
 
-    return (<Container ref="map" style={styles.mapcontainer}><MapView
+    return (<Container ref="map" style={styles.mapcontainer}>
+    
 
-        cacheEnabled={true}
+    <MapView
+       cacheEnabled={true}
     
       moveOnMarkerPress={false}
    
@@ -169,7 +171,7 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
      
    
       ><UrlTile urlTemplate={constants.tiles}  />
-        {PlanetList.filter(p=>p.Esi>=0.7 && p.Coordinate!==undefined).map((planet,index) =>  (
+     {currentRegion&& PlanetList.filter(p=>p.Esi>=0.7 && p.Coordinate!==undefined).map((planet,index) =>  (
     <Marker
   
       key={planet.Name}
@@ -179,14 +181,15 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
       onPress={p=> this.navigateToPlanet(planet)}
     />) ) }
     
-    {geojson.features.filter(p=>p.geometry.type=="Point").map((star,index) =>  (
+    {currentRegion&& geojson.features.filter(p=>p.geometry.type=="Point").map((star,index) =>  (
+   
  <Marker
      coordinate={{  latitude:star.geometry.coordinates[1] as number,longitude:star.geometry.coordinates[0] as number}}
       key={"star"+ index}
-      image={require('../images/smarker.png')}
+      
       title={star.properties.name}
       description={star.properties.constellation}
- ></Marker>) )}{geojson.features.filter(p=>p.geometry.type=="LineString").map((line,index) =>  (
+ ><Text style={{color:"#c6d4ff",   fontSize:10}}>{star.properties.name}</Text>{star.properties.size!=="s"?(<Image source={require('../images/smarker.png')} style={{ width: 40, height: 40}}/>):null}</Marker>))}{currentRegion&& geojson.features.filter(p=>p.geometry.type=="LineString").map((line,index) =>  (
       <Polyline
       key={"line"+ index}
        coordinates={(line.geometry.coordinates as number[][]).map(p=> { return {latitude:p[1] as number,longitude:p[0] as number}}) }
