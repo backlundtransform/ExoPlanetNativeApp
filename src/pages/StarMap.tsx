@@ -94,12 +94,12 @@ onRegionChange(region) {
   
     const zoom =Math.log2(360 * ((width/256) / region.longitudeDelta)) + 1
 let points = geojson.features.filter(p=>p.geometry.type=="Point" && 
-p.geometry.coordinates[1] <region.latitude+50 && 
-p.geometry.coordinates[1]>region.latitude-50&& 
-p.geometry.coordinates[0] <region.longitude+50 && 
-p.geometry.coordinates[0] >region.longitude-50)
-  
-points.length =20
+p.geometry.coordinates[1] <region.latitude + region.latitudeDelta/2 && 
+p.geometry.coordinates[1]>region.latitude - region.latitudeDelta/2&& 
+p.geometry.coordinates[0] <region.longitude + region.longitudeDelta/2 && 
+p.geometry.coordinates[0] >region.longitude - region.longitudeDelta/2)
+
+
 
 
 this.setState({points})
