@@ -38,6 +38,7 @@ interface StarmapState {region: any,
  altitude:number,
  siderealtime:string
  rightascension:number,
+ points:Array<any>
  declination:number,gps:boolean}
  class StarMap extends React.Component<StarmapProp, StarmapState> {
 
@@ -47,17 +48,25 @@ interface StarmapState {region: any,
       region:  start,
       degree:0,
      zoom:7,
+     points:[],
      rightascension:start.longitude/15,
      declination:start.latitude,
      gps:false,
      altitude:0,
      siderealtime:""
     };
-  
+
+    setTimeout(()=>{  navigator.geolocation.getCurrentPosition(this.success, this.error,  {
+      enableHighAccuracy: false,
+      timeout: 5000,
+      maximumAge: 0
+    }); }, 100)
+ 
   }
 
  success=(pos)=> {
     var crd = pos.coords;
+
     if(this.refs.map && this.state.currentRegion=== undefined){
   
     this.setState({currentRegion:{latitude:crd.latitude, longitude:crd.longitude}
@@ -67,28 +76,33 @@ interface StarmapState {region: any,
   };
   
 error=(err)=> {
-  
+
+
   };
   
- 
- 
+
 onRegionChange(region) {
-  navigator.geolocation.getCurrentPosition(this.success, this.error,  {
-    enableHighAccuracy: false,
-    timeout: 5000,
-    maximumAge: 0
-  });
-
-    const { height, width } = Dimensions.get('window')
-
-    const rightascension = 12 + -1*region.longitude/15
-    const declination =region.latitude
-    const zoom =Math.log2(360 * ((width/256) / region.longitudeDelta)) + 1
-
-    if(this.refs.map && !(this.state.gps)){
+  const rightascension = 12 + -1*region.longitude/15
+  const declination =region.latitude
+  if(!(this.state.gps)){
 
     this.setState({rightascension,declination})
     }
+ 
+    const { height, width } = Dimensions.get('window')
+
+  
+    const zoom =Math.log2(360 * ((width/256) / region.longitudeDelta)) + 1
+let points = geojson.features.filter(p=>p.geometry.type=="Point" && 
+p.geometry.coordinates[1] <region.latitude+50 && 
+p.geometry.coordinates[1]>region.latitude-50&& 
+p.geometry.coordinates[0] <region.longitude+50 && 
+p.geometry.coordinates[0] >region.longitude-50)
+  
+points.length =20
+
+
+this.setState({points})
 
   }
   navigateToPlanet=(planet:any)=>{
@@ -98,12 +112,10 @@ onRegionChange(region) {
 
 
 
-       componentWillReceiveProps(nextProps){
+ componentWillReceiveProps(nextProps){
 
+  let {region,currentRegion,altitude, degree,rightascension,declination}= this.state
      
- 
-        let {region,currentRegion,altitude, degree,rightascension,declination}= this.state
- 
         const gps = nextProps.navigation.state.params&&nextProps.navigation.state.params.gps
         if(this.state.currentRegion!== undefined && (gps!==undefined &&gps)){
          const rightascension =right_ascension(currentRegion.longitude,currentRegion.latitude,altitude, degree)
@@ -146,14 +158,12 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
  
   render() {
 
- const{region, gps,rightascension,declination,degree ,currentRegion,altitude,siderealtime}= this.state;
+ const{region, gps,rightascension,declination,degree ,currentRegion,altitude,siderealtime,points}= this.state;
  const {Accelerometer}= this.props
 
 
     return (<Container ref="map" style={styles.mapcontainer}>
-    
-
-    <MapView
+  <MapView
        cacheEnabled={true}
     
       moveOnMarkerPress={false}
@@ -171,25 +181,22 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
      
    
       ><UrlTile urlTemplate={constants.tiles}  />
-     {currentRegion&& PlanetList.filter(p=>p.Esi>=0.7 && p.Coordinate!==undefined).map((planet,index) =>  (
+     {PlanetList.filter(p=>p.Esi>=0.7 && p.Coordinate!==undefined).map((planet,index) =>  (
     <Marker
-  
       key={planet.Name}
       coordinate={planet.Coordinate}
       title={planet.Name}
      image={require('../images/marker.png')}
       onPress={p=> this.navigateToPlanet(planet)}
     />) ) }
-    
-    {currentRegion&& geojson.features.filter(p=>p.geometry.type=="Point").map((star,index) =>  (
-   
+     {points.map((star,index) =>  ( 
  <Marker
      coordinate={{  latitude:star.geometry.coordinates[1] as number,longitude:star.geometry.coordinates[0] as number}}
       key={"star"+ index}
-      
-      title={star.properties.name}
+     title={star.properties.name}
       description={star.properties.constellation}
- ><Text style={{color:"#c6d4ff",   fontSize:10}}>{star.properties.name}</Text>{star.properties.size!=="s"?(<Image source={require('../images/smarker.png')} style={{ width: 40, height: 40}}/>):null}</Marker>))}{currentRegion&& geojson.features.filter(p=>p.geometry.type=="LineString").map((line,index) =>  (
+ ><Text style={{color:"#c6d4ff",   fontSize:10}}>{star.properties.name}</Text>{star.properties.size!=="s"?(<Image source={require('../images/smarker.png')} style={{ width: 40, height: 40}}/>):null}</Marker>))}
+ {currentRegion&& geojson.features.filter(p=>p.geometry.type=="LineString").map((line,index) =>  (
       <Polyline
       key={"line"+ index}
        coordinates={(line.geometry.coordinates as number[][]).map(p=> { return {latitude:p[1] as number,longitude:p[0] as number}}) }
@@ -197,20 +204,17 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
        strokeWidth={1}
        zIndex={1000000}
    />))}
-   </MapView>
-
-
+</MapView>
 {currentRegion&&(<Compass longitude={currentRegion.longitude}  latitude={currentRegion.latitude}  azimuth={degree} altitude={altitude} rightascension={rightascension} declination={declination}   siderealtime={ siderealtime}  gps ={gps}/>)}
-
 </Container>)
   }
 }
-export default sensors({
+ export default sensors({
   Accelerometer: {
       updateInterval: 300
   },
   Gyroscope: true,
 
-})(StarMap);
+})(StarMap);;
 
 

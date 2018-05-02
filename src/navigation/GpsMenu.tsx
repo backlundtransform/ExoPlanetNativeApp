@@ -22,13 +22,12 @@ export default class GpsMenu extends React.Component<GpsMenuProps, GpsMenuState>
   }
 
  HandleClick=()=>{
-  if(!this.refs.header){
-    return
-  }
+
 //to do use redux instead
   const {menu} =this.state
-  this.props.navigate.setParams({gps:this.state.menu}) 
   alert(menu?resource.sensorstart:resource.sensorstop)
+  this.props.navigate.setParams({gps:this.state.menu}) 
+
   this.setState({ menu:!this.state.menu})
   }
   render() {
