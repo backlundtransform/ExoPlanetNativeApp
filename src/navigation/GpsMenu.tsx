@@ -26,7 +26,7 @@ export default class GpsMenu extends React.Component<GpsMenuProps, GpsMenuState>
 //to do use redux instead
   const {menu} =this.state
   alert(menu?resource.sensorstart:resource.sensorstop)
-  this.props.navigate.setParams({gps:this.state.menu}) 
+ this.props.navigate.setParams({gps:this.state.menu}) 
 
   this.setState({ menu:!this.state.menu})
   }

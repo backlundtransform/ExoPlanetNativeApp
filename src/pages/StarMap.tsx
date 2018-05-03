@@ -4,7 +4,7 @@ import {AppRegistry, StyleSheet, View,Platform ,Image} from 'react-native';
 import{resource} from '../config/Resource'
 import{geojson} from '../config/geojson'
 import MapView from 'react-native-maps';
-import { LocalTile,  UrlTile,Marker,  Polyline, Callout } from 'react-native-maps';
+import { LocalTile,  UrlTile,Marker, Circle, Polyline, Callout } from 'react-native-maps';
 
 import  HamburgerMenu from '../navigation/HamburgerMenu'
 import { Dimensions } from 'react-native'
@@ -38,7 +38,8 @@ interface StarmapState {region: any,
  altitude:number,
  siderealtime:string
  rightascension:number,
- points:Array<any>
+ points:Array<any>,
+lines:Array<any>,
  declination:number,gps:boolean}
  class StarMap extends React.Component<StarmapProp, StarmapState> {
 
@@ -49,6 +50,7 @@ interface StarmapState {region: any,
       degree:0,
      zoom:7,
      points:[],
+     lines:[],
      rightascension:start.longitude/15,
      declination:start.latitude,
      gps:false,
@@ -93,16 +95,30 @@ onRegionChange(region) {
 
   
     const zoom =Math.log2(360 * ((width/256) / region.longitudeDelta)) + 1
+
+
+  }
+
+
+  onRegionChangeComplete(region) {
+
+    let lines =  geojson.features.filter(p=>p.geometry.type=="LineString"&& 
+    p.geometry.coordinates[0][1] <region.latitude + region.latitudeDelta/2 && 
+    p.geometry.coordinates[0][1]>region.latitude - (region.latitudeDelta/2)&& 
+    p.geometry.coordinates[0][0] <region.longitude + region.longitudeDelta && 
+    p.geometry.coordinates[0][0] >region.longitude - (region.longitudeDelta/2))
 let points = geojson.features.filter(p=>p.geometry.type=="Point" && 
-p.geometry.coordinates[1] <region.latitude + region.latitudeDelta/2 && 
-p.geometry.coordinates[1]>region.latitude - region.latitudeDelta/2&& 
-p.geometry.coordinates[0] <region.longitude + region.longitudeDelta/2 && 
-p.geometry.coordinates[0] >region.longitude - region.longitudeDelta/2)
+p.geometry.coordinates[1] <region.latitude + region.latitudeDelta&& 
+p.geometry.coordinates[1]>region.latitude - region.latitudeDelta&& 
+p.geometry.coordinates[0] <region.longitude + region.longitudeDelta && 
+p.geometry.coordinates[0] >region.longitude - region.longitudeDelta)
+
+points.length =10
 
 
+this.setState({points, lines})
 
 
-this.setState({points})
 
   }
   navigateToPlanet=(planet:any)=>{
@@ -110,8 +126,7 @@ this.setState({points})
   this.props.navigation.navigate("d3view",{navigation:planet})
        }
 
-
-
+     
  componentWillReceiveProps(nextProps){
 
   let {region,currentRegion,altitude, degree,rightascension,declination}= this.state
@@ -158,7 +173,7 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
  
   render() {
 
- const{region, gps,rightascension,declination,degree ,currentRegion,altitude,siderealtime,points}= this.state;
+ const{region, gps,rightascension,declination,degree ,currentRegion,altitude,siderealtime,points,lines}= this.state;
  const {Accelerometer}= this.props
 
 
@@ -178,9 +193,10 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
         minZoomLevel={2}
         maxZoomLevel={4}
        onRegionChange={(region)=> this.onRegionChange(region)}
-     
+     onRegionChangeComplete={(region)=> this.onRegionChangeComplete(region)}
    
-      ><UrlTile urlTemplate={constants.tiles}  />
+    
+     ><UrlTile urlTemplate={constants.tiles}  />
      {PlanetList.filter(p=>p.Esi>=0.7 && p.Coordinate!==undefined).map((planet,index) =>  (
     <Marker
       key={planet.Name}
@@ -193,10 +209,11 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
  <Marker
      coordinate={{  latitude:star.geometry.coordinates[1] as number,longitude:star.geometry.coordinates[0] as number}}
       key={"star"+ index}
+      image ={require('../images/smarker.png')}
      title={star.properties.name}
       description={star.properties.constellation}
- ><Text style={{color:"#c6d4ff",   fontSize:10}}>{star.properties.name}</Text>{star.properties.size!=="s"?(<Image source={require('../images/smarker.png')} style={{ width: 40, height: 40}}/>):null}</Marker>))}
- {currentRegion&& geojson.features.filter(p=>p.geometry.type=="LineString").map((line,index) =>  (
+ />))}
+ { lines.map((line,index) =>  (
       <Polyline
       key={"line"+ index}
        coordinates={(line.geometry.coordinates as number[][]).map(p=> { return {latitude:p[1] as number,longitude:p[0] as number}}) }
@@ -216,5 +233,3 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
   Gyroscope: true,
 
 })(StarMap);;
-
-
