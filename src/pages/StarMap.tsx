@@ -58,11 +58,7 @@ lines:Array<any>,
      siderealtime:""
     };
 
-    setTimeout(()=>{  navigator.geolocation.getCurrentPosition(this.success, this.error,  {
-      enableHighAccuracy: false,
-      timeout: 5000,
-      maximumAge: 0
-    }); }, 100)
+    setTimeout(()=>{  navigator.geolocation.getCurrentPosition(this.success, this.error)}, 100)
  
   }
 
@@ -71,9 +67,8 @@ lines:Array<any>,
 
     if(this.refs.map && this.state.currentRegion=== undefined){
   
-    this.setState({currentRegion:{latitude:crd.latitude, longitude:crd.longitude}
-   
-    }); }
+  this.setState({currentRegion:{latitude:crd.latitude, longitude:crd.longitude}});
+   }
 
   };
   
@@ -83,38 +78,26 @@ error=(err)=> {
   };
   
 
-onRegionChange(region) {
-  const rightascension = 12 + -1*region.longitude/15
-  const declination =region.latitude
-  if(!(this.state.gps)){
-
-    this.setState({rightascension,declination})
-    }
- 
-    const { height, width } = Dimensions.get('window')
-
-  
-    const zoom =Math.log2(360 * ((width/256) / region.longitudeDelta)) + 1
-
-
-  }
-
 
   onRegionChangeComplete(region) {
 
     let lines =  geojson.features.filter(p=>p.geometry.type=="LineString"&& 
-    p.geometry.coordinates[0][1] <region.latitude + region.latitudeDelta/2 && 
-    p.geometry.coordinates[0][1]>region.latitude - (region.latitudeDelta/2)&& 
+    p.geometry.coordinates[0][1] <region.latitude + region.latitudeDelta/2+30 && 
+    p.geometry.coordinates[0][1]>region.latitude - (region.latitudeDelta/2+30)&& 
     p.geometry.coordinates[0][0] <region.longitude + region.longitudeDelta && 
-    p.geometry.coordinates[0][0] >region.longitude - (region.longitudeDelta/2))
-let points = geojson.features.filter(p=>p.geometry.type=="Point" && 
+    p.geometry.coordinates[0][0] >region.longitude - (region.longitudeDelta/2+30))
+let points = geojson.features.filter(p=>p.geometry.type=="Point" && p.properties.size=="xxl" && 
 p.geometry.coordinates[1] <region.latitude + region.latitudeDelta&& 
 p.geometry.coordinates[1]>region.latitude - region.latitudeDelta&& 
 p.geometry.coordinates[0] <region.longitude + region.longitudeDelta && 
 p.geometry.coordinates[0] >region.longitude - region.longitudeDelta)
 
-points.length =10
 
+if(!(this.state.gps)){
+  const rightascension = 12 + -1*region.longitude/15
+  const declination =region.latitude
+  this.setState({rightascension,declination})
+    }
 
 this.setState({points, lines})
 
@@ -126,50 +109,52 @@ this.setState({points, lines})
   this.props.navigation.navigate("d3view",{navigation:planet})
        }
 
-     
- componentWillReceiveProps(nextProps){
 
-  let {region,currentRegion,altitude, degree,rightascension,declination}= this.state
-     
-        const gps = nextProps.navigation.state.params&&nextProps.navigation.state.params.gps
-        if(this.state.currentRegion!== undefined && (gps!==undefined &&gps)){
-         const rightascension =right_ascension(currentRegion.longitude,currentRegion.latitude,altitude, degree)
-         const declination =getdeclination(currentRegion.latitude, altitude, degree)
+  componentWillReceiveProps(nextProps){
 
-        
-
-      const longitude = (rightascension-12)<180?(rightascension-12):(rightascension-12)-360;
-      if(region.longitude+2<longitude ||region.longitude-2>longitude){
-      region = {
-        latitude: declination,
-        longitude: longitude,
-        latitudeDelta: 10,
-        longitudeDelta: 10,
-      } 
-const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,nextProps.Accelerometer.x,1,0,0)
-     
-      this.setState({ gps, region,rightascension,declination, altitude, siderealtime:siderealtime(this.state.currentRegion.longitude) });
- 
-    }
-  
-
-    const degree_update_rate = 3;
-    RNSimpleCompass.start(degree_update_rate, (degree) => {
-    
-      if(this.refs.map && (degree+2<this.state.degree ||degree-2>this.state.degree)){
+              
+              let {region,currentRegion,altitude, degree,rightascension,declination}= this.state
+           
+              const gps = nextProps.navigation.state.params&&nextProps.navigation.state.params.gps
+              if(this.state.currentRegion!== undefined && (gps!==undefined &&gps)){
+               const rightascension =right_ascension(currentRegion.longitude,currentRegion.latitude,altitude, degree)
+               const declination =getdeclination(currentRegion.latitude, altitude, degree)
+      
+              
+      
+            const longitude = (rightascension-12)<180?(rightascension-12):(rightascension-12)-360;
+            if(region.longitude+2<longitude ||region.longitude-2>longitude){
+            region = {
+              latitude: declination,
+              longitude: longitude,
+              latitudeDelta: 10,
+              longitudeDelta: 10,
+            } 
+      const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,nextProps.Accelerometer.x,1,0,0)
+           
+            this.setState({ gps, region,rightascension,declination, altitude, siderealtime:siderealtime(this.state.currentRegion.longitude) });
        
-    this.setState({degree})
-      }
-      RNSimpleCompass.stop();
-    });
+          }
+        
+      
+          const degree_update_rate = 3;
+          RNSimpleCompass.start(degree_update_rate, (degree) => {
+          
+            if(this.refs.map && (degree+2<this.state.degree ||degree-2>this.state.degree)){
+             
+          this.setState({degree})
+            }
+            RNSimpleCompass.stop();
+          });
+      
+            }else{
+      
+              this.setState({ gps:false})
+        
+        
+            }
+             }  
 
-      }else{
-
-        this.setState({ gps:false})
-  
-  
-      }
-       }
  
   render() {
 
@@ -179,11 +164,9 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
 
     return (<Container ref="map" style={styles.mapcontainer}>
   <MapView
-       cacheEnabled={true}
     
       moveOnMarkerPress={false}
-   
-       loadingBackgroundColor={"#000000"}
+  
         mapType={ "standard" }
         style={styles.map}
         initialRegion={start}
@@ -192,7 +175,7 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
         showsCompass={true}
         minZoomLevel={2}
         maxZoomLevel={4}
-       onRegionChange={(region)=> this.onRegionChange(region)}
+    
      onRegionChangeComplete={(region)=> this.onRegionChangeComplete(region)}
    
     
@@ -205,7 +188,8 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
      image={require('../images/marker.png')}
       onPress={p=> this.navigateToPlanet(planet)}
     />) ) }
-     {points.map((star,index) =>  ( 
+   
+            {points.map((star,index) =>  ( 
  <Marker
      coordinate={{  latitude:star.geometry.coordinates[1] as number,longitude:star.geometry.coordinates[0] as number}}
       key={"star"+ index}
@@ -214,13 +198,21 @@ const altitude =dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,
       description={star.properties.constellation}
  />))}
  { lines.map((line,index) =>  (
-      <Polyline
+    <React.Fragment key={"fragment"+ index}><Polyline
       key={"line"+ index}
        coordinates={(line.geometry.coordinates as number[][]).map(p=> { return {latitude:p[1] as number,longitude:p[0] as number}}) }
       strokeColor="#add7ed" 
        strokeWidth={1}
        zIndex={1000000}
-   />))}
+  />
+  {(line.geometry.coordinates as number[][]).map((p,i)=> { return <Circle   key={`${p[1]}${p[0]}${i}`} center={{latitude:p[1] as number,longitude:p[0] as number}}
+  radius={25000}
+  zIndex={10000000000}
+  strokeColor={"#f2f7f8"}
+  fillColor={"#f2f7f8"}></Circle> })} 
+    </React.Fragment>
+   
+))}
 </MapView>
 {currentRegion&&(<Compass longitude={currentRegion.longitude}  latitude={currentRegion.latitude}  azimuth={degree} altitude={altitude} rightascension={rightascension} declination={declination}   siderealtime={ siderealtime}  gps ={gps}/>)}
 </Container>)
