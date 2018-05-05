@@ -5,9 +5,9 @@ import{resource} from '../config/Resource'
 import{geolinesjson} from '../config/geojson'
 import MapView from 'react-native-maps';
 import { LocalTile,  UrlTile,Marker, Circle, Polyline, Callout } from 'react-native-maps';
-import DrawPolygon from '../geocomponents/DrawPolygon'
+import DrawPolyline from '../geocomponents/DrawPolyline'
 import DrawStar  from '../geocomponents/DrawStar'
-import DrawPlanets  from '../geocomponents/DrawPlanets'
+import DrawPlanet from '../geocomponents/DrawPlanet'
 import  HamburgerMenu from '../navigation/HamburgerMenu'
 import { Dimensions } from 'react-native'
 
@@ -78,12 +78,7 @@ error=(err)=> {
   };
   
 
-
   onRegionChangeComplete(region) {
-
-
-
-
 
 if(!(this.state.gps)){
   const rightascension = 12 + -1*region.longitude/15
@@ -92,14 +87,8 @@ if(!(this.state.gps)){
     }
 
 
-
-
-
+    
   }
-  navigateToPlanet=(planet:any)=>{
-
-  this.props.navigation.navigate("d3view",{navigation:planet})
-       }
 
 
   componentWillReceiveProps(nextProps){
@@ -167,7 +156,7 @@ if(!(this.state.gps)){
         maxZoomLevel={4}
 onRegionChangeComplete={(region)=> this.onRegionChangeComplete(region)}
 ><UrlTile urlTemplate={constants.tiles}  />
-{currentRegion&&(<DrawPolygon/>)}{currentRegion&&(<DrawStar/>)}{currentRegion&&(<DrawPlanets navigateToPlanet={(planet)=>this.navigateToPlanet(planet)}/>)}</MapView>
+{currentRegion&&(<DrawPolyline  />)}{currentRegion&&(<DrawStar/>)}{currentRegion&&(<DrawPlanet navigation ={this.props.navigation}/>)}</MapView>
 {currentRegion&&(<Compass longitude={currentRegion.longitude}  latitude={currentRegion.latitude}  azimuth={degree} altitude={altitude} rightascension={rightascension} declination={declination}   siderealtime={ siderealtime}  gps ={gps}/>)}
 </Container>)
   }
@@ -178,4 +167,5 @@ onRegionChangeComplete={(region)=> this.onRegionChangeComplete(region)}
   },
   Gyroscope: true,
 
-})(StarMap);;
+
+})(StarMap);

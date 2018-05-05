@@ -10,7 +10,7 @@ interface  ConstellationsPropsState { }
 export default class Constellations extends React.Component<ConstellationsProps,ConstellationsPropsState> {
 
     render() {
-      console.log(this.props.navigation)
+   
 
          return (
            <Container style={styles.listView}>

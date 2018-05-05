@@ -1,11 +1,10 @@
 import * as React from 'react';
 import MapView from 'react-native-maps';
 import { LocalTile,  UrlTile,Marker, Circle, Polyline, Callout } from 'react-native-maps';
-import { View, Text } from 'react-native';
 
 import{PlanetList } from '../service/getPlanets'
-interface DrawPlanetsProps{ navigateToPlanet:(planet)=>void}
-export default class DrawPlanets extends React.PureComponent<DrawPlanetsProps,any> {
+interface DrawPlanetsProps{ navigation:any}
+export default class DrawPlanet extends React.PureComponent<DrawPlanetsProps,any> {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,7 +13,11 @@ export default class DrawPlanets extends React.PureComponent<DrawPlanetsProps,an
         }
 
     }
-
+    navigateToPlanet=(planet:any)=>{
+ 
+        this.props.navigation.navigate("d3view",{navigation:planet})
+             }
+      
     componentWillReceiveProps(nextProps) {
         if (this.props !== nextProps) {
             this.setState(() => ({
@@ -22,9 +25,6 @@ export default class DrawPlanets extends React.PureComponent<DrawPlanetsProps,an
             }));
         }
     }
-
-      
-
 
     componentDidUpdate() { 
         if (this.state.tracksViewChanges) {
@@ -41,8 +41,8 @@ export default class DrawPlanets extends React.PureComponent<DrawPlanetsProps,an
               coordinate={planet.Coordinate}
               title={planet.Name}
              image={require('../images/marker.png')}
-              onPress={p=> this.props.navigateToPlanet(planet)}
-             />) ) }</React.Fragment>)
+             onPress={p=> this.navigateToPlanet(planet)}
+             />))}</React.Fragment>)
 
     }
 }

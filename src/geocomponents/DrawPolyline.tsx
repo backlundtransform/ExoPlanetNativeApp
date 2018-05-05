@@ -3,8 +3,9 @@ import MapView from 'react-native-maps';
 import { LocalTile,  UrlTile,Marker, Circle, Polyline, Callout } from 'react-native-maps';
 import { View, Text } from 'react-native';
 import{geolinesjson} from '../config/geojson'
-
-export default class DrawPolygon extends React.PureComponent<any,any> {
+import{resource} from '../config/Resource'
+import styles from '../styles/defaultStyle'
+export default class DrawPolyline extends React.PureComponent<any,any> {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,8 +22,6 @@ export default class DrawPolygon extends React.PureComponent<any,any> {
             }));
         }
     }
-
-      
 
 
     componentDidUpdate() { 
@@ -42,7 +41,8 @@ export default class DrawPolygon extends React.PureComponent<any,any> {
                strokeWidth={1}
                zIndex={1000000}
           />
-          {(line.geometry.coordinates as number[][]).map((p,i)=> { return <Circle   key={`${p[1]}${p[0]}${i}`} center={{latitude:p[1] as number,longitude:p[0] as number}}
+          {line.properties.constellation&&(<Marker   coordinate={{latitude:line.geometry.coordinates[0][1]+1 as number,longitude:line.geometry.coordinates[0][0] as number}}><Text style={styles.listTitle}>{line.properties.constellation}</Text></Marker>)}
+          {(line.geometry.coordinates as number[][]).map((p,i)=> { return <Circle key={`${p[1]}${p[0]}${i}`} center={{latitude:p[1] as number,longitude:p[0] as number}}
           radius={25000}
           zIndex={10000000000}
           strokeColor={"#f2f7f8"}
