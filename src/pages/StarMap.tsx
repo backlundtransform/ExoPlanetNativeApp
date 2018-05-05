@@ -2,13 +2,15 @@ import * as React from 'react';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text} from 'native-base';
 import {AppRegistry, StyleSheet, View,Platform ,Image} from 'react-native';
 import{resource} from '../config/Resource'
-import{geojson} from '../config/geojson'
+import{geolinesjson} from '../config/geojson'
 import MapView from 'react-native-maps';
 import { LocalTile,  UrlTile,Marker, Circle, Polyline, Callout } from 'react-native-maps';
-
+import DrawPolygon from '../geocomponents/DrawPolygon'
+import DrawStar  from '../geocomponents/DrawStar'
+import DrawPlanets  from '../geocomponents/DrawPlanets'
 import  HamburgerMenu from '../navigation/HamburgerMenu'
 import { Dimensions } from 'react-native'
-import{PlanetList } from '../service/getPlanets'
+
 import{SolarSystem } from '../service/getSolarSystem'
 import { decorator as sensors } from "react-native-sensors";
 import{siderealtime,dot_product,right_ascension,getdeclination } from '../sensor/mathfunctions'
@@ -38,8 +40,7 @@ interface StarmapState {region: any,
  altitude:number,
  siderealtime:string
  rightascension:number,
- points:Array<any>,
-lines:Array<any>,
+
  declination:number,gps:boolean}
  class StarMap extends React.Component<StarmapProp, StarmapState> {
 
@@ -49,8 +50,7 @@ lines:Array<any>,
       region:  start,
       degree:0,
      zoom:7,
-     points:[],
-     lines:[],
+  
      rightascension:start.longitude/15,
      declination:start.latitude,
      gps:false,
@@ -81,16 +81,8 @@ error=(err)=> {
 
   onRegionChangeComplete(region) {
 
-    let lines =  geojson.features.filter(p=>p.geometry.type=="LineString"&& 
-    p.geometry.coordinates[0][1] <region.latitude + region.latitudeDelta/2+30 && 
-    p.geometry.coordinates[0][1]>region.latitude - (region.latitudeDelta/2+30)&& 
-    p.geometry.coordinates[0][0] <region.longitude + region.longitudeDelta && 
-    p.geometry.coordinates[0][0] >region.longitude - (region.longitudeDelta/2+30))
-let points = geojson.features.filter(p=>p.geometry.type=="Point" && p.properties.size=="xxl" && 
-p.geometry.coordinates[1] <region.latitude + region.latitudeDelta&& 
-p.geometry.coordinates[1]>region.latitude - region.latitudeDelta&& 
-p.geometry.coordinates[0] <region.longitude + region.longitudeDelta && 
-p.geometry.coordinates[0] >region.longitude - region.longitudeDelta)
+
+
 
 
 if(!(this.state.gps)){
@@ -99,7 +91,7 @@ if(!(this.state.gps)){
   this.setState({rightascension,declination})
     }
 
-this.setState({points, lines})
+
 
 
 
@@ -158,15 +150,13 @@ this.setState({points, lines})
  
   render() {
 
- const{region, gps,rightascension,declination,degree ,currentRegion,altitude,siderealtime,points,lines}= this.state;
+ const{region, gps,rightascension,declination,degree ,currentRegion,altitude,siderealtime}= this.state;
  const {Accelerometer}= this.props
 
 
     return (<Container ref="map" style={styles.mapcontainer}>
   <MapView
-    
-      moveOnMarkerPress={false}
-  
+        moveOnMarkerPress={false}
         mapType={ "standard" }
         style={styles.map}
         initialRegion={start}
@@ -175,45 +165,9 @@ this.setState({points, lines})
         showsCompass={true}
         minZoomLevel={2}
         maxZoomLevel={4}
-    
-     onRegionChangeComplete={(region)=> this.onRegionChangeComplete(region)}
-   
-    
-     ><UrlTile urlTemplate={constants.tiles}  />
-     {PlanetList.filter(p=>p.Esi>=0.7 && p.Coordinate!==undefined).map((planet,index) =>  (
-    <Marker
-      key={planet.Name}
-      coordinate={planet.Coordinate}
-      title={planet.Name}
-     image={require('../images/marker.png')}
-      onPress={p=> this.navigateToPlanet(planet)}
-    />) ) }
-   
-            {points.map((star,index) =>  ( 
- <Marker
-     coordinate={{  latitude:star.geometry.coordinates[1] as number,longitude:star.geometry.coordinates[0] as number}}
-      key={"star"+ index}
-      image ={require('../images/smarker.png')}
-     title={star.properties.name}
-      description={star.properties.constellation}
- />))}
- { lines.map((line,index) =>  (
-    <React.Fragment key={"fragment"+ index}><Polyline
-      key={"line"+ index}
-       coordinates={(line.geometry.coordinates as number[][]).map(p=> { return {latitude:p[1] as number,longitude:p[0] as number}}) }
-      strokeColor="#add7ed" 
-       strokeWidth={1}
-       zIndex={1000000}
-  />
-  {(line.geometry.coordinates as number[][]).map((p,i)=> { return <Circle   key={`${p[1]}${p[0]}${i}`} center={{latitude:p[1] as number,longitude:p[0] as number}}
-  radius={25000}
-  zIndex={10000000000}
-  strokeColor={"#f2f7f8"}
-  fillColor={"#f2f7f8"}></Circle> })} 
-    </React.Fragment>
-   
-))}
-</MapView>
+onRegionChangeComplete={(region)=> this.onRegionChangeComplete(region)}
+><UrlTile urlTemplate={constants.tiles}  />
+{currentRegion&&(<DrawPolygon/>)}{currentRegion&&(<DrawStar/>)}{currentRegion&&(<DrawPlanets navigateToPlanet={(planet)=>this.navigateToPlanet(planet)}/>)}</MapView>
 {currentRegion&&(<Compass longitude={currentRegion.longitude}  latitude={currentRegion.latitude}  azimuth={degree} altitude={altitude} rightascension={rightascension} declination={declination}   siderealtime={ siderealtime}  gps ={gps}/>)}
 </Container>)
   }
