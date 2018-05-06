@@ -101,9 +101,9 @@ if(!(this.state.gps)){
           {
                let rightascension =right_ascension(currentRegion.longitude,currentRegion.latitude,altitude, degree)/15
                const declination =getdeclination(currentRegion.latitude, altitude, degree)
-   console.log(rightascension)
+   
             const longitude = 15*(rightascension-12)<0?15*Math.abs(rightascension-12):-15*Math.abs(rightascension-12)
-            console.log(longitude)
+  
             if(region.longitude+2<longitude ||region.longitude-2>longitude)
             {
             region = {
