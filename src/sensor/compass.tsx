@@ -24,15 +24,15 @@ export default class Compass extends React.Component<compassProps, any> {
         <View style={margin}>
                 <Text  >{"long:"+longitude.toFixed(2)}</Text>
                 {gps?  <Text >{"alt:"+altitude.toFixed(2)} </Text>:null}
-                <Text >{"ra:"+rightascension.toFixed(2)} </Text>
+                <Text >{"dec:"+declination.toFixed(2)} </Text> 
           </View>
       <View style={margin} >
       {gps?  <Text style={styles.sidereal} >{siderealtime} </Text>:null}
       </View>
       <View style={margin}>
-              <Text >{"lat:"+latitude.toFixed(2)} </Text>
-             {gps? <Text >{"az:"+azimuth.toFixed(2)} </Text>:null}
-              <Text >{"dec:"+declination.toFixed(2)} </Text>       
+              <Text >{"lat:"+latitude.toFixed(2)}</Text>
+             {gps? <Text >{"az:"+azimuth.toFixed(2)}</Text>:null}
+                <Text >{"ra:"+rightascension.toFixed(2)}</Text>    
       </View>
       </View>
       </Footer>
