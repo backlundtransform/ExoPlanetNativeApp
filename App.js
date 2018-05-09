@@ -7,7 +7,8 @@ import styles from './src/styles/defaultStyle';
 import PlanetInfo  from './src/pages/PlanetInfo'
 import Planets  from './src/pages/Planets'
 import  HamburgerMenu from './src/navigation/HamburgerMenu'
-
+import { Provider } from 'react-redux';
+import store from './src/store';
 import {
   StackNavigator,
 } from 'react-navigation';
@@ -19,12 +20,8 @@ import {
     headerStyle: styles.container,
     headerLeft:  <HamburgerMenu navigate ={navigation} />,
     handleNavigationState:(previous, next, action) =>  {
- 
-      
       return( <HamburgerMenu navigate ={null} />)
-    
      },
-  
 
   })
 },  
@@ -32,5 +29,5 @@ import {
 } );
 
 
-AppRegistry.registerComponent('ExoPlanetHunter', () => Drawer );
+AppRegistry.registerComponent('ExoPlanetHunter', () =>    <Drawer /> );
 export default App;

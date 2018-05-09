@@ -4,10 +4,13 @@ import { Container, Header, Title, Content,Thumbnail, List, Button, Left, Right,
 import{resource} from '../config/Resource'
 import{filter,GetPlanetList,Planet,PlanetList } from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
+import * as Actions from '../redux/actions';
+import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
 
-interface PlanetsProps{navigation:any}
+interface PlanetsProps{navigation:any, getData:any}
 interface  PlanetsPropsState {planetlist:Array<Planet> }
-export default class Planets extends React.Component<PlanetsProps, PlanetsPropsState> {
+class Planets extends React.Component<PlanetsProps, PlanetsPropsState> {
   constructor(props) {
     super(props);
     
@@ -16,7 +19,7 @@ export default class Planets extends React.Component<PlanetsProps, PlanetsPropsS
     }
   
   }
- 
+
 render() {
 
 
@@ -41,9 +44,24 @@ render() {
             }>
           </List>
         </Content>
-      </Container>
+      </Container>    
 
     );
   }
 }
 
+function mapStateToProps(state, props) {
+  return {
+      loading: state.planetReducer.loading,
+     planets: state.planetReducer.data
+  }
+}
+
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(Actions.getData, dispatch);
+}
+
+
+//export default connect(mapStateToProps, mapDispatchToProps)(Planets);
+export default Planets
