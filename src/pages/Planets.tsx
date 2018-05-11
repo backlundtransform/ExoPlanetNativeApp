@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {AppRegistry, StyleSheet, View,Image } from 'react-native';
-import { Container, Header, Title, Content,Thumbnail, List, Button, Left, Right, Body, Icon, Text, ListItem} from 'native-base';
+import { Container, Header, Title, Content,Thumbnail, List, Button, Left, Right, Body, Icon, Text, ListItem, Spinner} from 'native-base';
 import{resource} from '../config/Resource'
 import{filter,GetPlanetList,Planet,PlanetList } from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
@@ -8,30 +8,38 @@ import {getData} from '../redux/actions';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 
-interface PlanetsProps{navigation:any, getData:any}
-interface  PlanetsPropsState {planetlist:Array<Planet> }
+interface PlanetsProps{navigation:any, getData:any,planets: Array<Planets>, loading:boolean}
+interface  PlanetsPropsState {loading:boolean}
 class Planets extends React.Component<PlanetsProps, PlanetsPropsState> {
   constructor(props) {
     super(props);
-    
-    this.state = {
-      planetlist:GetPlanetList(props.navigation.state.params)
-    }
+    this.state = {loading:true}
   
   }
-componentDidMount() {
+async componentDidMount() {
+const {getData,planets,navigation,loading} =this.props
 
-   this.props.getData()
+const filter = navigation.state.params
+    if(planets.length===0 || filter!==undefined)
+    {
+   
+    await getData(navigation.state.params)
+
+    }
+
 
 }
+componentWillReceiveProps(nextProps){
+  this.setState({loading:nextProps.loading})
 
+}
 render() {
-
-
+  const {planets,navigation} =this.props
+  const {loading} =this.state
+  
     return (
       <Container style={styles.listView}>
-        <Content >
-          <List dataArray={this.state.planetlist}
+        <Content >{loading?(<Spinner color="#c6d4ff" />):(<List dataArray={planets}
             renderRow={(item) =>
               <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('infopages', {planet:item})}>
              <Left>
@@ -47,8 +55,7 @@ render() {
               </Right>
             </ListItem>
             }>
-          </List>
-        </Content>
+          </List>)}</Content>
       </Container>    
 
     );
@@ -56,12 +63,13 @@ render() {
 }
 
 function mapStateToProps(state, props) {
+
   return {
+ 
       loading: state.planetReducer.loading,
-     planets: state.planetReducer.data
+     planets: state.planetReducer.planets
   }
 }
-
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({getData:getData},dispatch);

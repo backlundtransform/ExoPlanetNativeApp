@@ -1,12 +1,12 @@
 export const PLANETS_AVAILABLE = 'PLANETS_AVAILABLE';
 
-import {PlanetList} from '../../service/getPlanets';
+import {PlanetList,GetPlanetList,filter} from '../../service/getPlanets';
  
-export  const getData=()=>{
+export  const getData=(filter:filter)=>{
     return (dispatch) => {
 
         setTimeout(() => {
-            const planets  = PlanetList;
+            const planets  = GetPlanetList(filter);
             dispatch({type: PLANETS_AVAILABLE, planets:planets});
         }, 2000);
  
