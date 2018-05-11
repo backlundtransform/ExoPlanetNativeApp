@@ -15,7 +15,9 @@ import   PlanetsNavigator from './PlanetsNavigator'
 import   HabNavigator from './HabNavigator'
 import  NavListItems from './NavListItems'
 import { Button, TouchableOpacity } from 'react-native';
+import { Provider } from 'react-redux';
 
+import store from '../store'; 
 const appRoutes ={
   
     planets: { screen: PlanetsNavigator,  
@@ -75,6 +77,6 @@ export const Drawer =  DrawerNavigator(appRoutes, {
     drawerOpenRoute: 'DrawerOpen',
     drawerCloseRoute: 'DrawerClose',
     drawerToggleRoute: 'DrawerToggle',
-    contentComponent: props  => <SidebarContent{...props} />,
+    contentComponent: props  =>   <SidebarContent{...props} />,
 
   })

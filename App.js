@@ -3,6 +3,8 @@ import {AppRegistry, StyleSheet, Text, View, Button} from 'react-native';
 
 import{resource} from './src/config/Resource'
 import { Drawer } from './src/navigation/Drawer'
+
+import { AppNavigator } from './src/navigation/AppNavigator'
 import styles from './src/styles/defaultStyle';
 import PlanetInfo  from './src/pages/PlanetInfo'
 import Planets  from './src/pages/Planets'
@@ -14,20 +16,14 @@ import {
 } from 'react-navigation';
 
 
- const App = StackNavigator({
- first: { screen: Drawer,
-  navigationOptions:({ navigation, screenProps }) => ( {
-    headerStyle: styles.container,
-    headerLeft:  <HamburgerMenu navigate ={navigation} />,
-    handleNavigationState:(previous, next, action) =>  {
-      return( <HamburgerMenu navigate ={null} />)
-     },
+class App extends React.Component {
+  render() {
+    return (<Provider store={store}>
+ <AppNavigator/></Provider>
 
-  })
-},  
+    );
+  }
+}
 
-} );
-
-
-AppRegistry.registerComponent('ExoPlanetHunter', () =>    <Drawer /> );
-export default App;
+AppRegistry.registerComponent('ExoPlanetHunter', () =>  App);
+export default   App;

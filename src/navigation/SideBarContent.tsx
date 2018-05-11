@@ -12,7 +12,7 @@ class SideBarContent extends React.Component {
   render() {
  
     return (
-
+    
       <Container style={styles.container}>
    
         <Content >
@@ -27,7 +27,7 @@ class SideBarContent extends React.Component {
                   />
         </Content>
           
-    </Container>
+    </Container> 
     );
   }
 }
