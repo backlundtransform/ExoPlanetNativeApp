@@ -10,6 +10,8 @@ import  InfoNavigator  from './InfoNavigator';
 import {  Button, Left ,Header ,Right} from 'native-base'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import  HamburgerMenu from './HamburgerMenu'
+import SearchPage  from '../pages/SearchPage'
+import DashBoard  from '../pages/DashBoard'
 import {
   StackNavigator
 } from 'react-navigation';
@@ -46,7 +48,24 @@ import {
         </Header>), 
       }),    
    
-    }, 
+    },  search: { screen: SearchPage,
+    
+      navigationOptions:({ navigation, screenProps }) => ( {
+  
+        headerLeft:  <HamburgerMenu navigate ={navigation}  />,
+        headerStyle: styles.headerstyle,
+        
+      
+      })},
+      dashboard: { screen: DashBoard,
+    
+        navigationOptions:({ navigation, screenProps }) => ( {
+    
+          headerLeft:  <HamburgerMenu navigate ={navigation}  />,
+          headerStyle: styles.headerstyle,
+          
+        
+        })},  
 }
 , {
   headerMode: 'none' 

@@ -4,7 +4,7 @@ import {PlanetList,GetPlanetList,filter} from '../../service/getPlanets';
  
 export  const getData=(filter:filter)=>{
     return (dispatch) => {
-
+        console.log("action")
         setTimeout(() => {
             const planets  = GetPlanetList(filter);
             dispatch({type: PLANETS_AVAILABLE, planets:planets});

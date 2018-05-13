@@ -20,8 +20,9 @@ import LocalizedStrings from 'react-native-localization';
     habmenu: ["Habitable Planets","Cold(–50-0°C)", "Normal Temperature(0–50°C)", "Hot(50–100°C)", "Earth similarity index", "Suitability for vegetation","Candidate for habitable moon"],
     const:["Ursa Major"],
     sensorstart: "Starting Sensor..",
-    sensorstop: "Deactivating Sensor"
-
+    sensorstop: "Deactivating Sensor",
+    search: "Search",
+    dashboard: "Dashboard"
   },sv:{
     message:"PlanetJägaren",
     planetlist:"Planetlista",
@@ -39,7 +40,9 @@ import LocalizedStrings from 'react-native-localization';
     habmenu: ["Beboliga Planeter","Kallt (-50-0°C)", "Normal Temperatur(0–50°C)", "Varmt(50–100°C)", "Liknar Jorden (ESI index)", "Lämpad för växlighet (SPH index)","Kandidater för beboliga månar"],
 const:["Stora björnen"],
 sensorstart: "Väntar på sensor",
-sensorstop: "Stänger av sensor"
+sensorstop: "Stänger av sensor",
+search: "Sök",
+dashboard: "Instrumentbräda"
 
   },
 

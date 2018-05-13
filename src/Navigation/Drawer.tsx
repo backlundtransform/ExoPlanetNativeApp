@@ -15,7 +15,9 @@ import   PlanetsNavigator from './PlanetsNavigator'
 import   HabNavigator from './HabNavigator'
 import  NavListItems from './NavListItems'
 import { Button, TouchableOpacity } from 'react-native';
+import { Header , Left } from 'native-base';
 import { Provider } from 'react-redux';
+import  Settings  from './Settings';
 
 import store from '../store'; 
 const appRoutes ={
@@ -23,8 +25,11 @@ const appRoutes ={
     planets: { screen: PlanetsNavigator,  
     
       navigationOptions:({ navigation, screenProps }) => ({
+
+        headerLeft:(<HamburgerMenu navigate ={navigation}  />
+       ),
         
-        headerLeft:  <HamburgerMenu navigate ={navigation}  />,
+       headerRight:  <Settings navigate ={navigation} />,
         headerStyle: styles.headerstyle,
         
       
