@@ -42,7 +42,7 @@ const:["Stora björnen"],
 sensorstart: "Väntar på sensor",
 sensorstop: "Stänger av sensor",
 search: "Sök",
-dashboard: "Instrumentbräda"
+dashboard: "Statistik"
 
   },
 
