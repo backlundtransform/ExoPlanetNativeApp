@@ -22,7 +22,7 @@ async componentDidMount() {
   const filter = navigation.state.params
 
    await getData(navigation.state.params)
-   console.log(this.props)
+
    if(navigation.state.routeName=== "planets" && planets.length>0 ){
     this.setState({loading:loading})
    }

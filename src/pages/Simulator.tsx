@@ -106,9 +106,6 @@ width =(width>star.HabZoneMax*2?width:star.HabZoneMax*2)+star.Planets[star.Plane
   <SvgPanZoomElement
    x  = {0}
     y  = {0}
-
-  
-  
   >
      <Image  href={require(
         "../images/sky-night-stars.jpg"

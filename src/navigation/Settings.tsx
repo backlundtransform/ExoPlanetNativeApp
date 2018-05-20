@@ -22,8 +22,7 @@ class Settings extends React.Component<SettingsProps, SettingsPropsState> {
       <Icon
 
   name='ios-settings'
- 
-style={{ width: 20, zIndex:-10, margin:10,color:"#fff"} }
+ style={{ width: 20, zIndex:-10, margin:10,color:"#fff"} }
 />
         <Picker
               mode="dropdown"

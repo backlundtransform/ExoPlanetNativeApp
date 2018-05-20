@@ -22,7 +22,15 @@ import LocalizedStrings from 'react-native-localization';
     sensorstart: "Starting Sensor..",
     sensorstop: "Deactivating Sensor",
     search: "Search",
-    dashboard: "Dashboard"
+    dashboard: "Dashboard",
+    number:"Confirmed planets",
+    sortsearch:["Sort","Distance","Habitable","Mass","Discovery year"],
+    masssearch:["Mass class","Jovian","Neptunian","Super-Earth","Earth","Mercurian"],
+    compsearch:["Composition","Gas","Gas-water","Rocky-water","Rocky-iron","Iron"],
+    atmossearch:["Atmosphere","Metal-rich","Hydrogen-rich","None"],
+    tempsearch:["Temperature zon","Hot","Varm","Cold"],
+    discsearch:["Discovery-method","Radial velocity","Transiting","Micro lensing","Astrometry","Pulsar timing","Imaging"],
+    lightyearsearch:["Distance","less than  20 light years","less than  200 light years","less than  2000 light years","less than  20000 light years"]
   },sv:{
     message:"PlanetJägaren",
     planetlist:"Planetlista",
@@ -38,11 +46,19 @@ import LocalizedStrings from 'react-native-localization';
     orange:"Orange dvärg",
     red:"Röd dvärg",
     habmenu: ["Beboliga Planeter","Kallt (-50-0°C)", "Normal Temperatur(0–50°C)", "Varmt(50–100°C)", "Liknar Jorden (ESI index)", "Lämpad för växlighet (SPH index)","Kandidater för beboliga månar"],
-const:["Stora björnen"],
-sensorstart: "Väntar på sensor",
-sensorstop: "Stänger av sensor",
-search: "Sök",
-dashboard: "Statistik"
+    const:["Stora björnen"],
+    sensorstart: "Väntar på sensor",
+    sensorstop: "Stänger av sensor",
+    search: "Sök",
+    dashboard: "Statistik",
+    number:"Hittade planeter",
+    sortsearch:["Sortera efter","Avstånd (från jorden)","Beboelighet","Massa","Upptäckts år"],
+    masssearch:["Mass Klass","Jovian (Gasjätte)","Neptunian","Super-jord","Jord","Mercurian"],
+    compsearch:["Sammansättning","Gas","Gas-vatten","Sten-vatten","Sten-järn","Järn"],
+    atmossearch:["Atmosfär","Metallrik","Väterik","Ingen"],
+    tempsearch:["Temperatur zon","Varm","Beboelig","Kall"],
+    discsearch:["Upptäktsmethod","Dopplerspektroskopi","Transitmetoden","Gravitationslins","Astrometri","Pulsartiming","Teleskop"],
+    lightyearsearch:["Avstånd","mindre än 20 ljusår","mindre än 200 ljusår","mindre än 2000 ljusår","mindre än 20000 ljusår"]
 
   },
 

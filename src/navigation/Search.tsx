@@ -8,7 +8,10 @@ import { Container, Header, Title, Content, Button, Left, Icon, Text, ListItem,I
 import{resource} from '../config/Resource'
 interface Searchprop{search:any}
 class Search extends React.Component<Searchprop,any> {
-  
+  constructor(props) {
+    super(props);
+   
+  }
   render() {
  
     return (<Header  style={styles.headercontent} searchBar rounded>
