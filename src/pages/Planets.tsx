@@ -49,12 +49,11 @@ render() {
             renderRow={(item) =>
               <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('infopages', {planet:item})}>
              <Left>
-                <Thumbnail  source={item.Img}
-          />
+                <Thumbnail  source={item.Img}  />
               </Left>
               <Body>
                 <Text style={styles.listTitle}>{item.Name}</Text>
-                <Text style={styles.listText}>{`${item.Type}, ${item.Distance} ${resource.from}`} </Text>
+                <Text style={styles.listText}>{`${resource.masssearch[item.Type]}, ${item.Distance} ${resource.from}`} </Text>
               </Body>
               <Right>
                 <Text style={styles.listText}> {item.DiscYear}</Text>

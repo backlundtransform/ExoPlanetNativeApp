@@ -27,6 +27,9 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
               <Body>
                 <Text style={styles.listTitle}>{planet.Name}</Text>
                 <Text style={styles.listText}>{`${planet.Type}, ${planet.Distance} ${resource.from}`} </Text>
+
+                 <Text style={styles.listText}>{resource.massInfo[planet.Type]} </Text>
+                 <Text style={styles.listText}>{resource.compInfo[planet.Comp]} </Text>
               </Body>
               <Right>
                 <Text style={styles.listText}> {planet.DiscYear}</Text>

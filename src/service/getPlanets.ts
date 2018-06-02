@@ -9,8 +9,8 @@ export interface filter{Key:string, MaxValue:number, MinValue:number, Name:strin
 export interface Planet{
   Name :string
   Img: any
-  Type: string
-
+  Type: number
+ Comp:number
   Distance: number
   Esi:number
   Sph:number
@@ -38,11 +38,12 @@ export interface Star{
 export const PlanetList= [{
   Name:"1RXS 1609 b",
   Img: {uri:jovanbase64Icon},
-  Type: resource.hotJovian,
+  Type: 0,
   Distance: 145.00,
   Temp:-100,
   Esi:0,
   Sph:0,
+  Comp: 0,
   Hab:false,
   Moons:true,
   DiscYear:2008,
@@ -55,9 +56,10 @@ export const PlanetList= [{
 } , {
   Name:"GJ 180 c",
   Img:  {uri:terranbase64Icon},
-  Type: resource.superEarth,
+  Type: 2,
   Distance: 11.69,
   Temp:0,
+  Comp:2,
   Esi:0.7,
   Sph:0.7,
   Hab:true,
@@ -72,7 +74,8 @@ export const PlanetList= [{
   }
 },{Name:"GJ 180 b",
 Img:  {uri:jovanbase64Icon},
-Type: resource.hotJovian,
+Type:1,
+Comp:1,
 Distance: 11.69,
 Esi:0,
 Temp:100,
