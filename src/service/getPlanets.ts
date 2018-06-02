@@ -51,7 +51,7 @@ export const PlanetList= [{
     Name:"1RXS 1609",
     Type: resource.orange,
     Img:{uri:orangeIcon},
-    Constellation:2,
+    Constellation:1,
   }
 } , {
   Name:"GJ 180 c",

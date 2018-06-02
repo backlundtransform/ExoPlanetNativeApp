@@ -30,34 +30,37 @@ import LocalizedStrings from 'react-native-localization';
  
     comptitle:"Composition",
     compsearch:["Composition","Gas","Gas-water","Rocky-water","Rocky-iron","Iron"],
-    atmossearch:["Atmosphere","Metal-rich","Hydrogen-rich","None"],
+    atmostitle:"Atmosphere",
+    atmossearch:["Hydrogen-rich","Metal-rich","None"],
     tempsearch:["Temperature zon","Hot","Varm","Cold"],
     discsearch:["Discovery-method","Radial velocity","Transiting","Micro lensing","Astrometry","Pulsar timing","Imaging"],
     lightyearsearch:["Distance","less than  20 light years","less than  200 light years","less than  2000 light years","less than  20000 light years"],
 
-        massInfo :["The planet is of the type Mercurian, which means that it has a similar mass like our solar systems smallests planets e.g Mercury.",
-"The planet is of the type terrestrial, which means that it has a similar mass like our solar systems inner planets Mars, Venus and Earth.",
+    planetname:["The planet is called", "and is orbiting the star","that is located in the constellation" ],
+    decFormatdist:["at a distance of ", "lightyears from Earth." ],
+        massInfo :[
+          "The planet is of the type Jovian, which means that the planet is a giant like Jupiter or Saturn. ",
+          "The planet is of the type Neptunian, which means that it has a similar mass like our solar systems smaller gas giants Uranus and Neptune.",
+          "The planet is of the type Super-terrestrial, which means that its mass is larger than Earth, but is considerably smaller than our solar systems smaller gas giants Uranus and Neptune.",
+          "The planet is of the type terrestrial, which means that it has a similar mass like our solar systems inner planets Mars, Venus and Earth.",
 
-"The planet is of the type Super-terrestrial, which means that its mass is larger than Earth, but is considerably smaller than our solar systems smaller gas giants Uranus and Neptune.",
-
-"The planet is of the type Neptunian, which means that it has a similar mass like our solar systems smaller gas giants Uranus and Neptune.",
-"The planet is of the type Jovian, which means that the planet is a giant like Jupiter or Saturn. "
+          "The planet is of the type Mercurian, which means that it has a similar mass like our solar systems smallests planets e.g Mercury.",
 
 ],
 
-compInfo :["The planet consists of gas.","The planet is composed mostly of gaseous or liquid matter.","The planet has a solid stone surface, where even liquid water may be present.","The planet has a solid stone surface, which is rich in iron.","The planet surface is solid and the core is made of iron."]
-    
+compInfo :["The planet consists of gas.","The planet is composed mostly of gaseous or liquid matter.","The planet has a solid stone surface, where even liquid water may be present.","The planet has a solid stone surface, which is rich in iron.","The planet surface is solid and the core is made of iron."],
 
 
+orbit:["It takes", "days for the planet to complete an entire revolution around its star."],
+decMean:["The planet is located at a distance from it star that correspond to ", "times the distance between our Earth and Sun."],
 
+hzd:["The planet is within the its solar system habitable zone, where alien could exist.","The planet is too close to its sun, no alien could exist here.", "The planet is too far away from its sun, no alien could exist here."],
+hza:["The planet has an atmosphere that could be suitable for life.","The planet has no atmosphere.", "The planet has an atmosphere, but it is not suitable for life."],
 
+atmosinfo:["The planet has a hydrogen-rich atmosphere.","The planet has a metal-rich atmosphere.",  ""],
 
-
-
-
-
-
-
+meantemp:["The mean temperature of the planet is", "A hot day at", "the mean temperature is","C and on a cold day at it is" ]
+ 
 
 
   },sv:{
@@ -89,29 +92,41 @@ compInfo :["The planet consists of gas.","The planet is composed mostly of gaseo
 
     comptitle:"Sammansättning",
     compsearch:["Gas","Gas-vatten","Sten-vatten","Sten-järn","Järn"],
-    atmossearch:["Atmosfär","Metallrik","Väterik","Ingen"],
+    atmostitle:"Atmosfär",
+    atmossearch:["Väterik","Metallrik","Ingen"],
     tempsearch:["Temperatur zon","Varm","Beboelig","Kall"],
     discsearch:["Upptäktsmethod","Dopplerspektroskopi","Transitmetoden","Gravitationslins","Astrometri","Pulsartiming","Teleskop"],
     lightyearsearch:["Avstånd","mindre än 20 ljusår","mindre än 200 ljusår","mindre än 2000 ljusår","mindre än 20000 ljusår"],
+    planetname:["Planeten heter", "och roterar runt stjärnan","som ligger i stjärnbilden" ],
+    decFormatdist:["på ett avstånd utav ", "ljusår från jorden." ],
 
 
-
-    massInfo :["Planeten är av typen Mercurian vilket innebär att den har likande massa som vårat solsystems minsta planeter t.e.x Merkurius.",
- 
-    "Planeten är av typen terrestrisk vilket innebär att den har likande massa som vårat solsystems inre planeter Mars, Venus och Jorden.",
-    
-    "Planeten är av typen Super-terrestrisk vilket innebär att dess massa är större än Jordens men betydligt mindre än vårat solsystems mindre gasjättar Uranus och Neptunus.",
-
+    massInfo :[
+      
+      
+    "Planeten är av typen Jovian vilket innebär att planeten är en jätte som Jupiter eller Saturnus. ",
     "Planeten är av typen Neptunian vilket innebär att dess massa är i samma storleks ordning som vårat solsystems mindre gasjättar Uranus och Neptunus.",
+     
+    "Planeten är av typen Super-terrestrisk vilket innebär att dess massa är större än Jordens men betydligt mindre än vårat solsystems mindre gasjättar Uranus och Neptunus.",
+    "Planeten är av typen terrestrisk vilket innebär att den har likande massa som vårat solsystems inre planeter Mars, Venus och Jorden.",
 
-    "Planeten är av typen Jovian vilket innebär att planeten är en jätte som Jupiter eller Saturnus. "
+    "Planeten är av typen Mercurian vilket innebär att den har likande massa som vårat solsystems minsta planeter t.e.x Merkurius.",
+ 
+    
+
     ],
     
-    compInfo :["Planeten består av gas.","Planeten består mestadels av gasformig eller flytande materia.","Planeten har en fast yta i form utav en sten skorpa där även flytande vatten kan förekomma.","Planeten har en fast yta i form utav en sten skorpa och är rik på järn.","Planeten har en fast yta och dess kärna består utav järn"]
+    compInfo :["Planeten består av gas.","Planeten består mestadels av gasformig eller flytande materia.","Planeten har en fast yta i form utav en sten skorpa där även flytande vatten kan förekomma.","Planeten har en fast yta i form utav en sten skorpa och är rik på järn.","Planeten har en fast yta och dess kärna består utav järn"],
         
-    
-    
+    orbit:["Det tar", "dagar för planeten att rotera ett varv runt sin sol."],
+    decMean:["Planeten ligger på ett avstånd från sin stjärna som motsvarar ", "gånger avståndet mellan jorden och solen."],
 
+    hzd:["Planeten ligger i solsystemets beboeliga zon där liv ska kunna existera.","Planeten ligger för nära sin sol för att liv ska kunna existera.", "Planeten ligger för långt bort från sin sol för att liv ska kunna existera."],
+    hza:["Planeten har en atmosfär som skulle kunna vara lämplig för liv.","Planeten saknar atmosfär.", "Planetens atmosfär är olämplig för liv. "],
+
+    atmosinfo:["Atmosfären är rik på väte.","Atmosfären är rik på metaller.",""],
+
+    meantemp:["Planetens medeltempratur är", "En varm dag på", "är temperaturen","C och på en kall dag är det" ]
   },
 
  });

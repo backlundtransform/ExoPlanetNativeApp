@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {AppRegistry, StyleSheet, View } from 'react-native';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text,Thumbnail  } from 'native-base';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text,Thumbnail,  } from 'native-base';
 import{resource} from '../config/Resource'
 import{Planet} from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
@@ -25,11 +25,17 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
                 <Thumbnail  source={planet.Img}/>
               </Left>
               <Body>
-                <Text style={styles.listTitle}>{planet.Name}</Text>
-                <Text style={styles.listText}>{`${planet.Type}, ${planet.Distance} ${resource.from}`} </Text>
-
+              <Content >
+              <Text style={styles.listText}>{`${resource.planetname[0]}  ${planet.Name} ${resource.planetname[1]}  ${planet.Star.Name}  ${resource.planetname[2]} ${resource.const[planet.Star.Constellation-1]}` } {`${resource.decFormatdist[0]}${planet.Distance} ${resource.decFormatdist[1]} ` }</Text>
+             
+                   </Content>
+                   <Text style={styles.listText}> </Text>
+                   <Content >
                  <Text style={styles.listText}>{resource.massInfo[planet.Type]} </Text>
                  <Text style={styles.listText}>{resource.compInfo[planet.Comp]} </Text>
+                 </Content>
+                 <Text style={styles.listText}> </Text>
+
               </Body>
               <Right>
                 <Text style={styles.listText}> {planet.DiscYear}</Text>
