@@ -9,8 +9,15 @@ export interface filter{Key:string, MaxValue:number, MinValue:number, Name:strin
 export interface Planet{
   Name :string
   Img: any
+  Period:number
+  Hzd:number
+  Hzc :number
+  Hza:number
+  Hzi :number
   Type: number
- Comp:number
+  Comp:number
+  Atmosphere:number
+  MeanDistance:number
   Distance: number
   Esi:number
   Sph:number
@@ -20,6 +27,11 @@ export interface Planet{
   starDistance: number,
   Star?: Star
   Temp?:number
+  TempMin?:number
+
+
+  TempMax?:number
+ 
   Hab?:boolean
   Moons:true
 }
@@ -43,6 +55,18 @@ export const PlanetList= [{
   Temp:-100,
   Esi:0,
   Sph:0,
+  Period:100,
+  Hzd:1,
+  Hzc :1,
+  Hza:1,
+  Hzi :1,
+  MeanDistance:2,
+  Atmosphere:1,
+ TempMin:-200,
+
+
+ TempMax:0,
+
   Comp: 0,
   Hab:false,
   Moons:true,
@@ -58,10 +82,21 @@ export const PlanetList= [{
   Img:  {uri:terranbase64Icon},
   Type: 2,
   Distance: 11.69,
+  Atmosphere:0,
   Temp:0,
+  TempMin:-200,
+
+
+  TempMax:100,
   Comp:2,
   Esi:0.7,
   Sph:0.7,
+  Period:200,
+  Hzd:2,
+  Hzc :2,
+  Hza:1,
+  Hzi :1,
+  MeanDistance:0.4,
   Hab:true,
   Moons:false,
   DiscYear: 2014,
@@ -78,7 +113,18 @@ Type:1,
 Comp:1,
 Distance: 11.69,
 Esi:0,
+Period:20,
+Hzd:1,
+Hzc :1,
+Hza:2,
+Hzi :2,
+Atmosphere:0,
+MeanDistance:10,
 Temp:100,
+TempMin:-100,
+
+
+TempMax:200,
 Sph:0,
 Hab:false,
 Moons:true,

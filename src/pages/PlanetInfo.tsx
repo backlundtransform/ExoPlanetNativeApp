@@ -26,6 +26,8 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
               </Left>
               <Body>
               <Content >
+                
+              <Text style={styles.listText}></Text>
               <Text style={styles.listText}>{`${resource.planetname[0]}  ${planet.Name} ${resource.planetname[1]}  ${planet.Star.Name}  ${resource.planetname[2]} ${resource.const[planet.Star.Constellation-1]}` } {`${resource.decFormatdist[0]}${planet.Distance} ${resource.decFormatdist[1]} ` }</Text>
              
                    </Content>
@@ -35,10 +37,16 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
                  <Text style={styles.listText}>{resource.compInfo[planet.Comp]} </Text>
                  </Content>
                  <Text style={styles.listText}> </Text>
-
+                 <Text style={styles.listText}> </Text>
               </Body>
               <Right>
-                <Text style={styles.listText}> {planet.DiscYear}</Text>
+                <Text style={styles.listText}>{`${resource.orbit[0]} ${planet.Period} ${resource.orbit[1]} ${resource.decMean[0]} ${planet.MeanDistance} ${resource.decMean[1]}`}</Text>
+       
+               <Text style={styles.listText}></Text>
+               <Text style={styles.listText}>{`${resource.hzd[planet.Hzd]} ${resource.hza[planet.Hza]} ${resource.atmosinfo[planet.Atmosphere]}`}</Text>
+
+                      <Text style={styles.listText}></Text>
+                      <Text style={styles.listText}>{`${resource.meantemp[0]}  ${planet.Temp}. ${resource.meantemp[1]} ${planet.Name} ${resource.meantemp[2]} ${planet.TempMax} ${resource.meantemp[2]} ${planet.TempMin}`}</Text>
               </Right>
            
         </Content>
