@@ -12,7 +12,7 @@ import Svg,{
   ClipPath,
   Path,
   Image,
- 
+  Rect,
   Use,
   Defs,
 
@@ -31,16 +31,16 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
 
     return (
       <View style={{ flex:1}}>
-      <ScrollView>   
-           <Container style={styles.darkcontainer}>
-        <Content  style={styles.infoContent}>
+      <ScrollView  style={styles.infoMainContent}>   
+       
+  
       <Svg
     height="300" 
     width="300" 
 >
     <Defs>
         <ClipPath id="clip">
-            <Circle cx="150" cy="150" r="120" fill="#FFFFFF" />
+            <Circle cx="150" cy="150" r="120"  />
         </ClipPath>
     </Defs>
 
@@ -70,13 +70,59 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
        
                <Text style={styles.listText}></Text>
                <Text style={styles.listText}>{`${resource.hzd[planet.Hzd]} ${resource.hza[planet.Hza]} ${resource.atmosinfo[planet.Atmosphere]}`}</Text>
-               <Text style={styles.listText}></Text>
-                      <Text style={styles.listText}></Text>  
-                      <Text style={styles.listText}></Text>  
-                      <Text style={styles.listText}></Text>
-                    
-                      </Content >
-        </Container></ScrollView>
+             
+             
+<Svg
+    height="100"
+    width="500"
+>
+
+    
+    
+    <Image
+     
+     width="40" height="40" x="20" y="30"
+        href={require('../images/earth.png')}
+
+    /> <Image
+     
+    width="40" height="40" x="80" y="30"
+       href={require('../images/earth.png')}
+
+   />
+    
+    <Image
+     
+     width="40" height="40" x="140" y="30"
+        href={require('../images/earth.png')}
+
+    />
+    
+    <Image
+     
+     width="40" height="40" x="200" y="30"
+        href={require('../images/earth.png')}
+
+    />
+       <Image
+     
+     width="40" height="40" x="260" y="30"
+        href={require('../images/earth.png')}
+
+    />
+       
+    <Circle cx="40" cy="50" r="20" fill="#c6d4ff"  fillOpacity={Math.round(planet.Esi)>=1?"0":"1"}/>
+    <Circle cx="100" cy="50" r="20" fill="#c6d4ff" fillOpacity={Math.round(planet.Esi)>=2?"0":"1"}/>
+    <Circle cx="160" cy="50" r="20" fill="#c6d4ff"  fillOpacity={Math.round(planet.Esi)>=3?"0":"1"}/>
+    <Circle cx="220" cy="50" r="20" fill="#c6d4ff"  fillOpacity={Math.round(planet.Esi)>=4?"0":"1"} />
+
+   <Circle cx="280" cy="50" r="20" fill="#c6d4ff"  fillOpacity={Math.round(planet.Esi)>=5?"0":"1"} />
+ 
+  
+   
+</Svg>
+         
+      </ScrollView>
                       </View>
  
 

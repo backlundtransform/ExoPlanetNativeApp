@@ -172,6 +172,17 @@ d3View: {
       borderWidth: StyleSheet.hairlineWidth,
       flex: 1
     },
+    
+    infoMainContent: {
+      padding: 25,
+      margin: 0,
+      height: 130,
+      zIndex:-99999,
+      backgroundColor: '#50607a',
+ 
+      borderWidth: StyleSheet.hairlineWidth,
+      flex: 1
+    },
     header: {
    
       backgroundColor: '#50607a',
