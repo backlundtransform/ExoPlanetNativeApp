@@ -14,7 +14,7 @@ export interface Planet{
   Hzc :number
   Hza:number
   Hzi :number
-  Type: number
+  Type: string
   Comp:number
   Atmosphere:number
   MeanDistance:number
@@ -29,7 +29,7 @@ export interface Planet{
   Temp?:number
   TempMin?:number
 
-
+  MassType?:number
   TempMax?:number
  
   Hab?:boolean
@@ -50,7 +50,8 @@ export interface Star{
 export const PlanetList= [{
   Name:"1RXS 1609 b",
   Img: {uri:jovanbase64Icon},
-  Type: 0,
+  Type: resource.hotJovian,
+  MassType:0,
   Distance: 145.00,
   Temp:-100,
   Esi:0,
@@ -80,7 +81,8 @@ export const PlanetList= [{
 } , {
   Name:"GJ 180 c",
   Img:  {uri:terranbase64Icon},
-  Type: 2,
+  Type: resource.superEarth,
+  MassType:2,
   Distance: 11.69,
   Atmosphere:0,
   Temp:0,
@@ -109,7 +111,8 @@ export const PlanetList= [{
   }
 },{Name:"GJ 180 b",
 Img:  {uri:jovanbase64Icon},
-Type:1,
+Type: resource.hotJovian,
+MassType:0,
 Comp:1,
 Distance: 11.69,
 Esi:0,
