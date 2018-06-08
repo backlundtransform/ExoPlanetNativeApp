@@ -51,7 +51,7 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
              
          
               <Text style={styles.listText}></Text>
-              <Text style={styles.listText}>{`${resource.planetname[0]} ${planet.Type} ${planet.Name} ${resource.planetname[1]}  ${planet.Star.Name}  ${resource.planetname[2]} ${resource.const[planet.Star.Constellation-1]}` } {`${resource.decFormatdist[0]}${planet.Distance} ${resource.decFormatdist[1]} ` }</Text>
+              <Text style={styles.listText}>{`${resource.planetname[0]} ${planet.Name} ${resource.planetname[1]}  ${planet.Star.Name}  ${resource.planetname[2]} ${resource.const[planet.Star.Constellation-1]}` } {`${resource.decFormatdist[0]}${planet.Distance} ${resource.decFormatdist[1]} ` }</Text>
             
                    <Text style={styles.listText}> </Text>
             
@@ -65,10 +65,12 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
        
                <Text style={styles.listText}></Text>
                <Text style={styles.listText}>{`${resource.hzd[planet.Hzd]} ${resource.hza[planet.Hza]} ${resource.atmosinfo[planet.Atmosphere]}`}</Text>
-             
-             
+               <Text style={styles.listText}></Text>
+               <Text style={styles.listText}></Text>
+               <Text style={styles.habTitle}>{resource.esiratings}</Text>
                <RatingBar rating={planet.Esi} />
-         
+               <Text style={styles.habTitle}>{resource.sphratings}</Text>
+               <RatingBar rating={planet.Sph} />
       </ScrollView>
                       </View>
  

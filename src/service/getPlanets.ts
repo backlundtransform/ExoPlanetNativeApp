@@ -92,7 +92,7 @@ export const PlanetList= [{
   TempMax:100,
   Comp:2,
   Esi:0.7,
-  Sph:0.7,
+  Sph:0.4,
   Period:200,
   Hzd:2,
   Hzc :2,
