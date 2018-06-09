@@ -4,27 +4,10 @@ import { Container,Content,} from 'native-base';
 import { GameLoop } from "react-native-game-engine";
 import styles from '../styles/defaultStyle'
 import {Gradient} from '../styles/radialgradients'
-
-
 import{resource} from '../config/Resource'
 import{Planet, Star, terranbase64Icon,jovanbase64Icon,  redIcon,  orangeIcon} from '../service/getPlanets'
 import{SolarSystem} from '../service/getSolarSystem'
-
-import Svg,{
-  Circle,
-  Ellipse,
-  Pattern,
-  Path,
-  Image,
-  ClipPath,
-  Symbol,
-  Text,
-  Use,
-  Defs,
-  Stop,
-  RadialGradient,
-  LinearGradient,G
-} from 'react-native-svg';
+import Svg,{Circle,Ellipse,Pattern,Path, Image,ClipPath, Symbol,Text, Use,Defs,Stop,RadialGradient,LinearGradient,G} from 'react-native-svg';
 import{PlanetList} from '../service/getPlanets'
 import SvgPanZoom, { SvgPanZoomElement } from 'react-native-svg-pan-zoom';
 
