@@ -16,10 +16,6 @@ export default class Ratingbar extends React.Component<RatingbarProps, any> {
             width="500"
         >
         
-     
-        
-            
-    
              {rating>=0.1?  <Image  width="40" height="40" x="20" y="30"
                 href={require('../images/earth.png')}
         
@@ -63,8 +59,8 @@ export default class Ratingbar extends React.Component<RatingbarProps, any> {
                 href={require('../images/earth.png')}
         
             />:  
-             <Path d="M0,40 a1,1 0 0,0 40,0" fill="#c6d4ff"       
-             transform = "rotate(90 40 40) translate(30 -180)"/>}
+           <Path d="M0,40 a1,1 0 0,0 40,0" fill="#c6d4ff"       
+             transform = "rotate(90 40 40) translate(30 -180)"/> }
                     {rating>=0.8?  <Image
              
              width="40" height="40" x="200" y="30"

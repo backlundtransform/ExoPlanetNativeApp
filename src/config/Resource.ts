@@ -63,12 +63,12 @@ meantemp:["The mean temperature of the planet is", "A hot day at", "the mean tem
 
 
 moon:"It is possible that the planet can have a habitable moon.",
+disc:"Discovered year ",
 discinfo:["It was first detected by radial velocity, that is done by recording variations in the color of light from the host star.","It was first detected by the transit method, that is based on the observation of a stars small drop in brightness, that occurs when the planet orbit the star","It was first detected by microlensing, that is based on the observation of the bending of light due to the gravitational field.","It was first detected by astrometry, that involves precise measurements of the positions and movements of stars.","The planet is orbiting a neutron star and was detected by pulsar timing.","It was first detected by a telescope."],
-disc:"Discovered year:",
-esiratings:"Earth similarity index:",
-sphratings:"Suitability for vegetation"
- 
-
+iratings:"Earth similarity index:",
+sphratings:"Suitability for vegetation",
+planetinfo:["Mass","Radius","Density","Gravity","Surface pressure","Escape velocity"],
+earth:"Earth"
 
   },sv:{
     message:"PlanetJägaren",
@@ -136,9 +136,12 @@ sphratings:"Suitability for vegetation"
 
     moon:"Det är möjligt att planeten kan han ha en beboelig måne.",
     discinfo:["Upptäkten gjordes med hjälp utav Dopplerspektroskopi, d.v.s genom att mäta förändringen av frekvensen (svängningstalet) av stjärnans ljus.","Upptäkten gjordes med hjälp utav Transitmetoden, d.v.s genom att mäta förändringar av stjärnans ljusstyrka när planeten passerar framför den.","Upptäkten gjordes med hjälp utav gravitationslins, d.v.s genom att mäta hur stjärnans ljus böjs i gravitationsfältet på sin väg till oss.","Upptäkten gjordes med hjälp utav Astrometri, d.v.s genom att mäta stjärnans position och dess rörelser med hög precision.","Planeten kretsar runt snabbt roterande neutronstjärnor så kallade pulsar och kunde därför upptäckas med hjälp utav Pulsartiming.","Upptäkten gjordes med hjälp utav ett teleskop."],
-    disc:"Planeten upptäcktes år:",
+    disc:"Planeten upptäcktes år ",
     esiratings:"Liknar Jorden (ESI index):",
-    sphratings:"Lämpad för växlighet (SPH index):"
+    sphratings:"Lämpad för växlighet (SPH index):",
+    planetinfo:["Massa","Radie","Densitet","Gravitation","Atmosfäriskt tryck","Flykthastig"],
+
+    earth:"Jordens"
   },
 
  });

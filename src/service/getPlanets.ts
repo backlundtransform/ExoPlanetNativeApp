@@ -21,14 +21,19 @@ export interface Planet{
   Distance: number
   Esi:number
   Sph:number
-  DiscYear:number
+  DiscYear:number,
+  DiscMethod:number,
   Radius?:number
   Coordinate?: any
   starDistance: number,
   Star?: Star
   Temp?:number
   TempMin?:number
-
+  Mass?:number,
+  Density?:number,
+  Gravity?:number,
+  SurfacePressure?:number,
+  EscapeVelocity?:number,
   MassType?:number
   TempMax?:number
  
@@ -52,11 +57,13 @@ export const PlanetList= [{
   Img: {uri:jovanbase64Icon},
   Type: resource.hotJovian,
   MassType:0,
+
   Distance: 145.00,
   Temp:-100,
   Esi:0,
   Sph:0,
   Period:100,
+  DiscMethod:1,
   Hzd:1,
   Hzc :1,
   Hza:1,
@@ -64,7 +71,11 @@ export const PlanetList= [{
   MeanDistance:2,
   Atmosphere:1,
  TempMin:-200,
-
+ Mass:2,
+ Density:3,
+ Gravity:3,
+ SurfacePressure:1,
+ EscapeVelocity:2,
 
  TempMax:0,
 
@@ -98,10 +109,16 @@ export const PlanetList= [{
   Hzc :2,
   Hza:1,
   Hzi :1,
+  Mass:10,
+  Density:2,
+  Gravity:2,
+  SurfacePressure:1,
+  EscapeVelocity:2,
   MeanDistance:0.4,
   Hab:true,
   Moons:false,
   DiscYear: 2014,
+  DiscMethod:2,
   Coordinate:{  latitude:51,longitude:0 },
   Star:{
     Name:"GJ 180",
@@ -125,7 +142,11 @@ Atmosphere:0,
 MeanDistance:10,
 Temp:100,
 TempMin:-100,
-
+Mass:6,
+Density:7,
+Gravity:7,
+SurfacePressure:6,
+EscapeVelocity:2,
 
 TempMax:200,
 Sph:0,
