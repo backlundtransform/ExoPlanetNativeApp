@@ -44,6 +44,15 @@ export const Gradient =(star:Star)=>(<Defs> <RadialGradient id={resource.hotJovi
  <Stop offset="10%" stopColor="#ff6a00"/>
  <Stop offset="50%" stopColor="orange"/>
  <Stop offset="70%" stopColor="black"/>   
+</ RadialGradient>< RadialGradient id={`${resource.red}`} gradientUnits="objectBoundingBox" fx="30%" fy="30%">
+ <Stop offset="10%" stopColor="#ff6a00"/>
+ <Stop offset="50%" stopColor="red"/>
+ <Stop offset="80%" stopColor="#50607a"/>   
+</ RadialGradient>
+< RadialGradient id={`${resource.orange}`}    gradientUnits="objectBoundingBox" fx="30%" fy="30%">
+<Stop offset="10%" stopColor="#ff6a00"/>
+ <Stop offset="50%" stopColor="orange"/>
+ <Stop offset="80%" stopColor="#50607a"/>
 </ RadialGradient>
  	</Defs>)
     

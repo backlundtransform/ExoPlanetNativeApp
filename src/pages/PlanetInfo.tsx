@@ -24,16 +24,14 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
     return (
       <View style={{ flex:1}}>
       <ScrollView  style={styles.infoMainContent}>   
-       
-  
-      <Svg
+        <Svg
             height="300" 
             width="300" 
        >      { Gradient(planet.Star)}
     <G>
     <Defs>
         <ClipPath id="clip">
-            <Circle cx="150" cy="150" r="120"  />
+            <Circle cx="150" cy="130" r="120"  />
         </ClipPath>
     </Defs>
 
@@ -43,7 +41,7 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
         clipPath="url(#clip)"
     />
     <Circle 
-  cx="150" cy="150" r="120" 
+  cx="150" cy="130" r="120" 
    fillOpacity={0.6}
    fill={`url(#${planet.Type})`}/></G>
 </Svg>
@@ -65,7 +63,7 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
        
                <Text style={styles.listText}></Text>
                <Text style={styles.listText}>{`${resource.hzd[planet.Hzd]&&resource.hzd[planet.Hzd]} ${resource.hza[planet.Hza]&&resource.hza[planet.Hza]} ${resource.atmosinfo[planet.Atmosphere] &&resource.atmosinfo[planet.Atmosphere]}  ${planet.Moon ? resource.moon:"" }`}</Text>
-               <Text style={styles.listText}>{`${planet.DiscYear&&resource.disc} ${planet.DiscYear&&planet.DiscYear} ${resource.discinfo[planet.DiscMethod]&&resource.discinfo[planet.DiscMethod]}`}</Text>
+               <Text style={styles.listText}>{`${planet.DiscYear&&resource.disc} ${planet.DiscYear&&planet.DiscYear}. ${resource.discinfo[planet.DiscMethod]&&resource.discinfo[planet.DiscMethod]}`}</Text>
              <Text style={styles.listText}></Text>
                <Text style={styles.listText}></Text>
                <Text style={styles.habTitle}>{resource.esiratings}</Text>
