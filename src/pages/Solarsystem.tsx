@@ -34,8 +34,7 @@ render() {
             width="100" 
        >      { Gradient(item)}
     <G>
-    
-    <Circle 
+     <Circle 
   cx="50" cy="50" r="60" 
  
    fill={`url(#${item.Type})`}/></G>

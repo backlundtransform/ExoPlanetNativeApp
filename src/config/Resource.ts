@@ -68,7 +68,16 @@ discinfo:["It was first detected by radial velocity, that is done by recording v
 iratings:"Earth similarity index:",
 sphratings:"Suitability for vegetation",
 planetinfo:["Mass","Radius","Density","Gravity","Surface pressure","Escape velocity"],
-earth:"Earth"
+earth:"Earth",
+starname:["The star is called","and is located in the constellation"],
+startype:["The star has exploded and the only thing that remains are small, heavy and very rapidly rotating celestial objects known as pulsars.","The star has","color and is of the type"],
+color: ["blue","blue to white","orange to red","red"],
+lum:["very luminous supergiant","less luminous supergiant","luminous giant","giant","subgiant","dwarf","subdwarf","white dwarf","pulsar"],
+mag:["The star is visible from Earth with the naked eye.","The star can not be seen from Earth without a telescope."],
+
+habzone:["The stars habitable zone is located at a distance between","and","times the distance between Earth and the Sun"],
+numberplanet:["The star has a known planet that is located in the habitable zone","The star has","known planets and has","planets located in the habitable zone.","known planets, but has no known planets that are located in the habitable zone.","The star has a known planet, but it is not in the habitable zone."]
+
 
   },sv:{
     message:"PlanetJägaren",
@@ -141,7 +150,17 @@ earth:"Earth"
     sphratings:"Lämpad för växlighet (SPH index):",
     planetinfo:["Massa","Radie","Densitet","Gravitation","Atmosfäriskt tryck","Flykthastig"],
 
-    earth:"Jordens"
+    earth:"Jordens",
+
+    starname:["Stjärnan heter","och ligger i stjärnbilden"],
+    startype:["Stjärna har exploderat det ända som återstår är små, tunga och mycket snabbt roterande himlakroppar så kallade pulsarer.","Stjärnan har en","färg och är av stjärntypen"],
+   color: ["blå","blåvit","orange-röd","röd"],
+   lum:["hyperjätte","superjätte","ljusjätte","jätte","subjätte","dvärg","subdvärg","vit dvärg","pulsar"],
+   mag:["Stjärnan är synlig från jorden med blotta ögat.","Stjärnan kan inte ses från jorden utan ett teleskop"],
+
+   habzone:["Stjärnans beboeliga zon ligger på ett avstånd mellan","och","gånger avståndet mellan jorden och solen."],
+   numberplanet:["Stjärnan har en känd planet som ligger i den beboeliga zonen","Stjärnan har","kända planeter och har","planeter som ligger i den beboeliga zonen.","kända planeter men har inga kända planeter som ligger i den beboeliga zonen.","Stjärnan har en känd planet men den ligger inte i den beboeliga zonen."]
+
   },
 
  });

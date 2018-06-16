@@ -22,20 +22,18 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
        
         <Content  style={styles.infoContent}>
         <Content >
-         
-              
-             <Left>
+         <Left>
              <Svg
             height="300" 
             width="300" 
        >      { Gradient(planet.Star)}
-    <G>
+      <G>
     
-    <Circle 
-  cx="150" cy="130" r="120" 
+     <Circle 
+      cx="150" cy="130" r="120" 
  
-   fill={`url(#${planet.Star.Type})`}/></G>
-</Svg>
+      fill={`url(#${planet.Star.Type})`}/></G>
+    </Svg>
               </Left>
               <Body>
                 <Text style={styles.listTitle}>{planet.Star.Name}</Text>
