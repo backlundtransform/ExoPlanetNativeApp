@@ -45,12 +45,14 @@ export interface Star{
   Name :string
   Img: any
   Type: string
+  Color?:number
+  Luminosity?:number
+  Magnitude?:number
   Constellation?:number
   HabZoneMin?:number
   HabZoneMax? :number
   Planets?: Array<Planet>
   Radius?:number
- 
 }
 export const PlanetList= [{
   Name:"1RXS 1609 b",
@@ -86,6 +88,9 @@ export const PlanetList= [{
   Star:{
     Name:"1RXS 1609",
     Type: resource.orange,
+    Color:2,
+    Luminosity:5,
+    Magnitude:1,
     Img:{uri:orangeIcon},
     Constellation:1,
   }
@@ -125,6 +130,9 @@ export const PlanetList= [{
     Type: resource.red,
     Img:{uri:redIcon},
     Constellation:1,
+    Color:3,
+    Luminosity:5,
+    Magnitude:1,
   }
 },{Name:"GJ 180 b",
 Img:  {uri:jovanbase64Icon},
