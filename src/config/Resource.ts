@@ -76,9 +76,9 @@ lum:["very luminous supergiant","less luminous supergiant","luminous giant","gia
 mag:["The star is visible from Earth with the naked eye.","The star can not be seen from Earth without a telescope."],
 
 habzone:["The stars habitable zone is located at a distance between","and","times the distance between Earth and the Sun"],
-numberplanet:["The star has a known planet that is located in the habitable zone","The star has","known planets and has","planets located in the habitable zone.","known planets, but has no known planets that are located in the habitable zone.","The star has a known planet, but it is not in the habitable zone."]
-
-
+numberplanet:["a known planet that is located in the habitable zone","The star has","known planets and has","planets located in the habitable zone.","known planets, but has no known planets that are located in the habitable zone.","The star has a known planet, but it is not in the habitable zone."],
+starinfo:["Mass","Radius","Age","Temperature"],
+oursun:"Sun"
   },sv:{
     message:"PlanetJägaren",
     planetlist:"Planetlista",
@@ -159,8 +159,9 @@ numberplanet:["The star has a known planet that is located in the habitable zone
    mag:["Stjärnan är synlig från jorden med blotta ögat.","Stjärnan kan inte ses från jorden utan ett teleskop"],
 
    habzone:["Stjärnans beboeliga zon ligger på ett avstånd mellan","och","gånger avståndet mellan jorden och solen."],
-   numberplanet:["Stjärnan har en känd planet som ligger i den beboeliga zonen","Stjärnan har","kända planeter och har","planeter som ligger i den beboeliga zonen.","kända planeter men har inga kända planeter som ligger i den beboeliga zonen.","Stjärnan har en känd planet men den ligger inte i den beboeliga zonen."]
-
+   numberplanet:["en känd planet som ligger i den beboeliga zonen","Stjärnan har","kända planeter och har","planeter som ligger i den beboeliga zonen.","kända planeter men har inga kända planeter som ligger i den beboeliga zonen.","Stjärnan har en känd planet men den ligger inte i den beboeliga zonen."]
+   ,starinfo:["Massa","Radie","Ålder","Temperatur"],
+   oursun:"Solen"
   },
 
  });

@@ -21,7 +21,7 @@ export const SolarSystems= [
         HabZoneMin:350,
         HabZoneMax : 400,
         Radius:60,
-        Planets:[{Name:"1RXS 1609 b",
+        Planets:[  {Name:"1RXS 1609 b",
         Img: {uri:jovanbase64Icon},
         Type: resource.hotJovian,
         Distance: 145.00,

@@ -51,7 +51,12 @@ export interface Star{
   Constellation?:number
   HabZoneMin?:number
   HabZoneMax? :number
+  Mass?: number
+  Age?:number
+  Temp?:number
   Planets?: Array<Planet>
+  NoHabPlanets?: number
+  NoPlanets?: number
   Radius?:number
 }
 export const PlanetList= [{
@@ -93,6 +98,8 @@ export const PlanetList= [{
     Magnitude:1,
     Img:{uri:orangeIcon},
     Constellation:1,
+    NoHabPlanets:0,
+    NoPlanets:1
   }
 } , {
   Name:"GJ 180 c",
@@ -133,6 +140,12 @@ export const PlanetList= [{
     Color:3,
     Luminosity:5,
     Magnitude:1,
+    Mass: 2,
+    Age:1000,
+    Temp:3000,
+    Radius:1,
+    NoHabPlanets:1,
+    NoPlanets:2
   }
 },{Name:"GJ 180 b",
 Img:  {uri:jovanbase64Icon},
@@ -169,6 +182,15 @@ Star:{
   Type: resource.red,
   Img:{uri:redIcon},
   Constellation:1,
+  Color:4,
+  Luminosity:5,
+  Magnitude:0,
+  Mass: 3,
+  Age:4000000,
+  Temp:100000,
+  Radius:2,
+  NoHabPlanets:1,
+  NoPlanets:2
 }
 } ] as Array<Planet> 
 

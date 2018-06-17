@@ -5,6 +5,7 @@ import{resource} from '../config/Resource'
 import styles from '../styles/defaultStyle'
 import {Gradient} from '../styles/radialgradients'
 import Svg,{Circle,G,ClipPath,Path,Image,Rect, Use,Defs,} from 'react-native-svg';
+import { Planet } from '../service/getPlanets';
 interface StarProps{navigation:any}
 interface  StarPropsState { }
 export default class StarInfo extends React.Component<StarProps, StarPropsState> {
@@ -13,10 +14,43 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
 
       }
     
+      getPlanetText=(planet:Planet):string=>{
+        const knownhabplanets = planet.Star.NoHabPlanets
+        const knownplanets = planet.Star.NoPlanets
+
+      
+        
+        if(knownhabplanets>=1 && knownplanets>1){
+
+          
+          if(knownhabplanets===1){
+
+            return `${resource.numberplanet[1]} ${knownplanets} ${resource.numberplanet[2]} ${resource.numberplanet[0]}`;
+          }
+          return `${resource.numberplanet[1]} ${knownplanets} ${resource.numberplanet[2]} ${knownhabplanets} ${resource.numberplanet[3]}`;
+        }
+        
+        
+        if(knownhabplanets==0 && knownplanets>1){
+
+          return `${resource.numberplanet[1]} ${knownplanets} ${resource.numberplanet[4]}` 
+
+        }
+
+        if(knownhabplanets==0 && knownplanets==1){
+
+          return `${resource.numberplanet[5]}` 
+        }
+
+
+      }
   render() {
+
+  
     const {planet}= this.props.navigation.state.params
+  
 
-
+    const planetext =this.getPlanetText(planet)
     return (
       <View style={{ flex:1}}>
       <ScrollView  style={styles.infoMainContent}>  
@@ -39,9 +73,9 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
             
                    <Text style={styles.listText}> </Text>
             
-                 <Text style={styles.listText}>{resource.habzone[0]} {planet.Star.HabZoneMin} {resource.habzone[1]} {planet.Star.HabZoneMax} </Text>
-   
-         
+                 <Text style={styles.listText}>{planet.Star.HabZoneMin !==undefined && planet.Star.HabZoneMax !==undefined ?  `${resource.habzone[0]} ${planet.Star.HabZoneMin} ${resource.habzone[1]} ${planet.Star.HabZoneMax}`:null} </Text>
+                 <Text style={styles.listText}>{ planetext}</Text>
+        
                         <Text style={styles.listText}></Text>
                <Text style={styles.listText}></Text>
           
@@ -49,23 +83,17 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
 
    <Text style={styles.listText}></Text>
                <Text style={styles.listText}></Text><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Mass&&<Text style={styles.listText}>{`${resource.planetinfo[0]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Mass&&<Text style={styles.listText}>{`${planet.Mass}*${resource.earth }`}</Text>}</View>
+                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Mass&&<Text style={styles.listText}>{`${resource.starinfo[0]}`}</Text>}</View>
+                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Mass&&<Text style={styles.listText}>{`${planet.Star.Mass}*${resource.oursun}`}</Text>}</View>
               </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Radius&&<Text style={styles.listText}>{`${resource.planetinfo[1]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Radius&&<Text style={styles.listText}>{`${planet.Radius}*${resource.earth }`}</Text>}</View>
+                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Radius&&<Text style={styles.listText}>{`${resource.starinfo[1]}`}</Text>}</View>
+                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Radius&&<Text style={styles.listText}>{`${planet.Star.Radius}*${resource.oursun }`}</Text>}</View>
               </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Density&&<Text style={styles.listText}>{`${resource.planetinfo[2]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Density&&<Text style={styles.listText}>{`${planet.Density}*${resource.earth }`}</Text>}</View>
+                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Age&&<Text style={styles.listText}>{`${resource.starinfo[2]}`}</Text>}</View>
+                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Age&&<Text style={styles.listText}>{`${planet.Star.Age}`}</Text>}</View>
               </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Gravity&&<Text style={styles.listText}>{`${resource.planetinfo[3]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Gravity&&<Text style={styles.listText}>{`${planet.Gravity}*${resource.earth }`}</Text>}</View>
-              </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.SurfacePressure&&<Text style={styles.listText}>{`${resource.planetinfo[4]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.SurfacePressure&&<Text style={styles.listText}>{`${planet.SurfacePressure}*${resource.earth }`}</Text>}</View>
-              </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.EscapeVelocity&&<Text style={styles.listText}>{`${resource.planetinfo[5]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.EscapeVelocity&&<Text style={styles.listText}>{`${planet.EscapeVelocity}*${resource.earth }`}</Text>}</View>
+                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Temp&&<Text style={styles.listText}>{`${resource.starinfo[3]}`}</Text>}</View>
+                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Temp&&<Text style={styles.listText}>{`${planet.Star.Temp} C`}</Text>}</View>
               </View>
                 <Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text>
