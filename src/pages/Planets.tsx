@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {AppRegistry, StyleSheet, View,Image } from 'react-native';
+import {AppRegistry, StyleSheet, View} from 'react-native';
 import { Container, Header, Picker,Title, Content,Thumbnail, List, Button, Left, Right, Body, Icon, Text, ListItem, Spinner,Item,Input } from 'native-base';
 import{resource} from '../config/Resource'
 import{filter,GetPlanetList,Planet,PlanetList } from '../service/getPlanets'
@@ -8,6 +8,8 @@ import {getData} from '../redux/actions';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import Search from "../navigation/Search";
+import {Gradient} from '../styles/radialgradients'
+import Svg,{Circle,G,ClipPath,Path,Rect,Image, Use,Defs,} from 'react-native-svg';
 
 interface PlanetsProps{navigation:any, getData:any,planets: Array<Planets>, loading:boolean}
 interface  PlanetsPropsState {loading:boolean}
@@ -49,7 +51,30 @@ render() {
             renderRow={(item) =>
               <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('infopages', {planet:item})}>
              <Left>
-                <Thumbnail  source={item.Img}  />
+
+
+                   <Svg
+             height="80" 
+             width="80" 
+       >      { Gradient(item.Star)}
+    <G>
+    <Defs>
+        <ClipPath id="clip">
+            <Circle   cx="50" cy="40" r="30"   />
+        </ClipPath>
+    </Defs>
+
+    <Image
+     width="100" height="100" 
+        href={item.Img} 
+        clipPath="url(#clip)"
+    />
+     <Circle 
+        cx="50" cy="40" r="30" 
+        fillOpacity={0.6}
+        fill={`url(#${item.Type})`}/></G>
+        </Svg>
+
               </Left>
               <Body>
                 <Text style={styles.listTitle}>{item.Name}</Text>
