@@ -82,18 +82,18 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
        
 
    <Text style={styles.listText}></Text>
-               <Text style={styles.listText}></Text><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Mass&&<Text style={styles.listText}>{`${resource.starinfo[0]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Mass&&<Text style={styles.listText}>{`${planet.Star.Mass}*${resource.oursun}`}</Text>}</View>
-              </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Radius&&<Text style={styles.listText}>{`${resource.starinfo[1]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Radius&&<Text style={styles.listText}>{`${planet.Star.Radius}*${resource.oursun }`}</Text>}</View>
-              </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Age&&<Text style={styles.listText}>{`${resource.starinfo[2]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Age&&<Text style={styles.listText}>{`${planet.Star.Age}`}</Text>}</View>
-              </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Temp&&<Text style={styles.listText}>{`${resource.starinfo[3]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Star.Temp&&<Text style={styles.listText}>{`${planet.Star.Temp} C`}</Text>}</View>
+               <Text style={styles.listText}></Text><View style={ styles.infocontainer}>
+                <View style={styles.infotext} >{planet.Star.Mass&&<Text style={styles.listText}>{`${resource.starinfo[0]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.Star.Mass&&<Text style={styles.listText}>{`${planet.Star.Mass}*${resource.oursun}`}</Text>}</View>
+              </View><View style={styles.infocontainer}>
+                <View style={styles.infotext} >{planet.Star.Radius&&<Text style={styles.listText}>{`${resource.starinfo[1]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.Star.Radius&&<Text style={styles.listText}>{`${planet.Star.Radius}*${resource.oursun }`}</Text>}</View>
+              </View><View style={styles.infocontainer}>
+                <View style={styles.infotext} >{planet.Star.Age&&<Text style={styles.listText}>{`${resource.starinfo[2]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.Star.Age&&<Text style={styles.listText}>{`${planet.Star.Age}`}</Text>}</View>
+              </View><View style={styles.infocontainer}>
+                <View style={styles.infotext} >{planet.Star.Temp&&<Text style={styles.listText}>{`${resource.starinfo[3]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.Star.Temp&&<Text style={styles.listText}>{`${planet.Star.Temp} C`}</Text>}</View>
               </View>
                 <Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text>
@@ -103,11 +103,7 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
                         <Text style={styles.listText}></Text><Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text><Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text>
-
-                
               </Body>
-             
-           
               </ScrollView>
               </View>
         

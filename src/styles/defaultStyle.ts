@@ -1,8 +1,16 @@
 import {StyleSheet } from 'react-native';
 
  const styles = StyleSheet.create({
-
-
+  infocontainer:
+  { 
+    flex: 1, 
+    alignSelf: 'stretch', 
+    flexDirection: 'row' 
+  },
+  infotext: {
+     flex: 1, 
+     alignSelf: 'stretch' 
+    },
   mapcontainer: {
     
     height: 500,

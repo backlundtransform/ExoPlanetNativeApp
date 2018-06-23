@@ -1,51 +1,38 @@
 import * as React from 'react';
-import {AppRegistry, StyleSheet, View,Image} from 'react-native';
-import {Picker, Container, Header, Title, Content,Thumbnail, List, Button, Left, Right, Body, Text, ListItem} from 'native-base';
+import {AppRegistry, StyleSheet, View,Image, StyleProp} from 'react-native';
+import {Picker,Form, Container, Header, Title, Content,Thumbnail, List, Button, Left, Right, Body, Text, ListItem} from 'native-base';
 import{resource} from '../config/Resource'
 import styles from '../styles/defaultStyle'
-
+import SearchPicker from '../components/SearchPicker'
 interface SearchPageProps{navigate:any}
-interface SearchPagePropsState {Type:string, Comp:string}
+interface SearchPagePropsState {mass:string, comp:string,atmos:string,disc:string, temp:string,lightyears:string}
+
  class SearchPage extends React.Component<SearchPageProps,SearchPagePropsState> {
   constructor(props) {
     super(props);
-    this.state = {Type:resource.masssearch[0],  Comp:resource.compsearch[0]}
-
+   this.state ={mass:resource.masstitle,comp:"",atmos:"",disc:"",temp:"",lightyears:"" }
+   this.handleChange = this.handleChange.bind(this);
   }
-  onMassValueChange(value: string) {
-    this.setState({Type:value})
+      
+
+
+  handleChange (value: any, key:any) {
+
+ this.setState({ [key]: value });
+  }
   
-  }
 
-onCompChange(value: string) {
-  this.setState({Comp:value})
-
-}
     render() {
    
-      const {Type,Comp}=this.state
+      const {comp,mass,atmos,disc,temp,lightyears}=this.state
          return (
            <Container style={styles.listView}>
-           <Body>
-           <Picker
-              mode="dropdown"
-              style={{ position: 'absolute', top: 0, width: 300, height: 100 }}
-              selectedValue={Type}
-              onValueChange={this.onMassValueChange.bind(this)}
-              itemStyle={{ backgroundColor: '#818ea5', marginLeft: 0, paddingLeft: 15}}
-            >
-       {resource.masssearch.map(p=>(<Picker.Item  label={p} key={"mass"+p} value={p}/>))}
-        </Picker>
-        <Picker
-              mode="dropdown"
-            style={{ position: 'absolute', top: 60, width: 300, height: 200 }}
-              selectedValue={Comp}
-              onValueChange={this.onCompChange.bind(this)}
-              itemStyle={{ backgroundColor: '#818ea5', marginLeft: 0, paddingLeft: 15}}
-            >
-       {resource.compsearch.map(p=>(<Picker.Item  label={p} key={"comp"+p} value={p}/>))}
-        </Picker>
-          </Body>
+          <SearchPicker statekey={"mass"} title={resource.masstitle} value={mass}  searcharray={resource.masssearch} onValueChange={this.handleChange} />
+          <SearchPicker statekey={"comp"} title={resource.comptitle} value={comp}  searcharray={resource.compsearch} onValueChange={this.handleChange} />
+          <SearchPicker statekey={"temp"} title={resource.temptitle} value={temp}  searcharray={resource.tempsearch} onValueChange={this.handleChange} />
+          <SearchPicker statekey={"atmos"} title={resource.atmostitle} value={atmos}  searcharray={resource.atmossearch} onValueChange={this.handleChange} />
+          <SearchPicker statekey={"disc"}  title={resource.disctitle} value={disc}  searcharray={resource.discsearch} onValueChange={this.handleChange} />
+          <SearchPicker statekey={"lightyears"} title={resource.atmostitle}  value={lightyears}  searcharray={resource.lightyearsearch} onValueChange={this.handleChange} />
         </Container>
          );
        }

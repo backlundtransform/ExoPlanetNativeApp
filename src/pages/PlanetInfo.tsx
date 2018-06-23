@@ -45,10 +45,7 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
    fillOpacity={0.6}
    fill={`url(#${planet.Type})`}/></G>
 </Svg>
-
-             
-         
-              <Text style={styles.listText}></Text>
+<Text style={styles.listText}></Text>
               <Text style={styles.listText}>{`${resource.planetname[0]} ${planet.Name} ${resource.planetname[1]}  ${planet.Star.Name}  ${resource.planetname[2]} ${resource.const[planet.Star.Constellation-1]&&resource.const[planet.Star.Constellation-1]}` } {`${resource.decFormatdist[0]}${planet.Distance} ${resource.decFormatdist[1]} ` }</Text>
             
                    <Text style={styles.listText}> </Text>
@@ -72,24 +69,24 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
                <RatingBar rating={planet.Sph} />
 
    <Text style={styles.listText}></Text>
-               <Text style={styles.listText}></Text><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Mass&&<Text style={styles.listText}>{`${resource.planetinfo[0]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Mass&&<Text style={styles.listText}>{`${planet.Mass}*${resource.earth }`}</Text>}</View>
-              </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Radius&&<Text style={styles.listText}>{`${resource.planetinfo[1]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Radius&&<Text style={styles.listText}>{`${planet.Radius}*${resource.earth }`}</Text>}</View>
-              </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Density&&<Text style={styles.listText}>{`${resource.planetinfo[2]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Density&&<Text style={styles.listText}>{`${planet.Density}*${resource.earth }`}</Text>}</View>
-              </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Gravity&&<Text style={styles.listText}>{`${resource.planetinfo[3]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.Gravity&&<Text style={styles.listText}>{`${planet.Gravity}*${resource.earth }`}</Text>}</View>
-              </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.SurfacePressure&&<Text style={styles.listText}>{`${resource.planetinfo[4]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.SurfacePressure&&<Text style={styles.listText}>{`${planet.SurfacePressure}*${resource.earth }`}</Text>}</View>
-              </View><View style={{ flex: 1, alignSelf: 'stretch', flexDirection: 'row' }}>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.EscapeVelocity&&<Text style={styles.listText}>{`${resource.planetinfo[5]}`}</Text>}</View>
-                <View style={{ flex: 1, alignSelf: 'stretch' }} >{planet.EscapeVelocity&&<Text style={styles.listText}>{`${planet.EscapeVelocity}*${resource.earth }`}</Text>}</View>
+               <Text style={styles.listText}></Text><View style={styles.infocontainer}>
+                <View style={styles.infotext} >{planet.Mass&&<Text style={styles.listText}>{`${resource.planetinfo[0]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.Mass&&<Text style={styles.listText}>{`${planet.Mass}*${resource.earth }`}</Text>}</View>
+              </View><View style={styles.infocontainer}>
+                <View style={styles.infotext} >{planet.Radius&&<Text style={styles.listText}>{`${resource.planetinfo[1]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.Radius&&<Text style={styles.listText}>{`${planet.Radius}*${resource.earth }`}</Text>}</View>
+              </View><View style={styles.infocontainer}>
+                <View style={styles.infotext} >{planet.Density&&<Text style={styles.listText}>{`${resource.planetinfo[2]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.Density&&<Text style={styles.listText}>{`${planet.Density}*${resource.earth }`}</Text>}</View>
+              </View><View style={styles.infocontainer}>
+                <View style={styles.infotext} >{planet.Gravity&&<Text style={styles.listText}>{`${resource.planetinfo[3]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.Gravity&&<Text style={styles.listText}>{`${planet.Gravity}*${resource.earth }`}</Text>}</View>
+              </View><View style={styles.infocontainer}>
+                <View style={styles.infotext} >{planet.SurfacePressure&&<Text style={styles.listText}>{`${resource.planetinfo[4]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.SurfacePressure&&<Text style={styles.listText}>{`${planet.SurfacePressure}*${resource.earth }`}</Text>}</View>
+              </View><View style={styles.infocontainer}>
+                <View style={styles.infotext} >{planet.EscapeVelocity&&<Text style={styles.listText}>{`${resource.planetinfo[5]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.EscapeVelocity&&<Text style={styles.listText}>{`${planet.EscapeVelocity}*${resource.earth }`}</Text>}</View>
               </View>
                 <Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text>
@@ -99,7 +96,7 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
                         <Text style={styles.listText}></Text><Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text><Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text>
-      </ScrollView>
+               </ScrollView>
                       </View>
  
 
