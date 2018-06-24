@@ -11,7 +11,7 @@ import Search from "../navigation/Search";
 import {Gradient} from '../styles/radialgradients'
 import Svg,{Circle,G,ClipPath,Path,Rect,Image, Use,Defs,} from 'react-native-svg';
 
-interface PlanetsProps{navigation:any, getData:any,planets: Array<Planets>, loading:boolean}
+interface PlanetsProps{navigation:any, getData:any,planets: Array<Planet>, loading:boolean}
 interface  PlanetsPropsState {loading:boolean}
 class Planets extends React.Component<PlanetsProps, PlanetsPropsState> {
   constructor(props) {

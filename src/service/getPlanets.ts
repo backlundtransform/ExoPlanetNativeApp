@@ -36,6 +36,7 @@ export interface Planet{
   EscapeVelocity?:number,
   MassType?:number
   TempMax?:number
+  TempZone?:number
  
   Hab?:boolean
   Moons:true
@@ -205,5 +206,6 @@ export const GetPlanetList= (filter:filter) => {
    {
     return PlanetList.filter(p=>p.Name.search(filter.Name)!==-1)
    }
-   return PlanetList.filter(p=>filter.MinValue!==undefined ? (p[filter.Key]>filter.MinValue && p[filter.Key]<filter.MaxValue && p.Hab==true):filter.Key==="Moons"?  p.Moons==true:p.Hab==true)
+   return PlanetList.filter(p=>filter.MinValue!==undefined ? (p[filter.Key]>filter.MinValue && p[filter.Key]<filter.MaxValue 
+    && p.Hab==true):filter.Key==="Moons"?  p.Moons==true:p.Hab==true)
   }

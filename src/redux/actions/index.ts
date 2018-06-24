@@ -1,14 +1,26 @@
 export const PLANETS_AVAILABLE = 'PLANETS_AVAILABLE';
-
-import {PlanetList,GetPlanetList,filter} from '../../service/getPlanets';
+export const SEARCH_FILTER = 'SEARCH_FILTER';
+import {PlanetList,GetPlanetList,filter,Planet} from '../../service/getPlanets';
  
 export  const getData=(filter:filter)=>{
     return (dispatch) => {
-        console.log("action")
+      
         setTimeout(() => {
             const planets  = GetPlanetList(filter);
             dispatch({type: PLANETS_AVAILABLE, planets:planets});
         }, 2000);
  
-    };
+    };  
 }
+
+export const setFilter=(filter:Array<Planet>)=>{
+
+    return (dispatch) => {  
+
+        dispatch({type: SEARCH_FILTER, planets:filter});
+
+
+    }
+    
+ 
+   }
