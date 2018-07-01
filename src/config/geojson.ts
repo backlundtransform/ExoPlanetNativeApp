@@ -126,7 +126,7 @@ export const geolinesjson ={
     {
       "type": "Feature",
       "properties": {
-        "constellationid": 82,
+        "constellationid": 83,
         "constellation": "Ursa Major"
       },
       "geometry": {
@@ -654,7 +654,7 @@ export const geolinesjson ={
     {
       "type": "Feature",
       "properties": {
-        "constellation": "Cea",
+        "constellation": "Cealum",
         "constellationid": 10
       },
       "geometry": {
@@ -681,10 +681,7 @@ export const geolinesjson ={
     },
     {
       "type": "Feature",
-      "properties": {
-        "constellation": "Camelopardalis",
-        "constellationid": 11
-      },
+      "properties": {},
       "geometry": {
         "type": "LineString",
         "coordinates": [
@@ -1769,7 +1766,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Drago",
-        "constellationid": 33
+        "constellationid": 34
       },
       "geometry": {
         "type": "LineString",
@@ -1829,7 +1826,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Equuleus",
-        "constellationid": 34
+        "constellationid": 35
       },
       "geometry": {
         "type": "LineString",
@@ -1853,7 +1850,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Eridanus",
-        "constellationid": 35
+        "constellationid": 36
       },
       "geometry": {
         "type": "LineString",
@@ -1929,7 +1926,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Fornax",
-        "constellationid": 36
+        "constellationid": 37
       },
       "geometry": {
         "type": "LineString",
@@ -1982,7 +1979,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Genimi",
-        "constellationid": 37
+        "constellationid": 38
       },
       "geometry": {
         "type": "LineString",
@@ -2082,7 +2079,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Grus",
-        "constellationid": 38
+        "constellationid": 39
       },
       "geometry": {
         "type": "LineString",
@@ -2135,7 +2132,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Hercules",
-        "constellationid": 39
+        "constellationid": 40
       },
       "geometry": {
         "type": "LineString",
@@ -2289,7 +2286,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Horologium",
-        "constellationid": 40
+        "constellationid": 41
       },
       "geometry": {
         "type": "LineString",
@@ -2317,7 +2314,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Hydra",
-        "constellationid": 41
+        "constellationid": 42
       },
       "geometry": {
         "type": "LineString",
@@ -2390,7 +2387,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Hydrus",
-        "constellationid": 42
+        "constellationid": 43
       },
       "geometry": {
         "type": "LineString",
@@ -2418,7 +2415,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Indus",
-        "constellationid": 42
+        "constellationid": 44
       },
       "geometry": {
         "type": "LineString",
@@ -2492,7 +2489,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Lacerta",
-        "constellationid": 43
+        "constellationid": 45
       },
       "geometry": {
         "type": "LineString",
@@ -2553,7 +2550,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Leo",
-        "constellationid": 44
+        "constellationid": 46
       },
       "geometry": {
         "type": "LineString",
@@ -2610,7 +2607,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Leo Minor",
-        "constellationid": 45
+        "constellationid": 47
       },
       "geometry": {
         "type": "LineString",
@@ -2659,7 +2656,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Lepus",
-        "constellationid": 46
+        "constellationid": 48
       },
       "geometry": {
         "type": "LineString",
@@ -2720,7 +2717,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Libra",
-        "constellationid": 47
+        "constellationid": 49
       },
       "geometry": {
         "type": "LineString",
@@ -2819,7 +2816,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Lupus",
-        "constellationid": 48
+        "constellationid": 50
       },
       "geometry": {
         "type": "LineString",
@@ -2860,7 +2857,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Lynx",
-        "constellationid": 49
+        "constellationid": 51
       },
       "geometry": {
         "type": "LineString",
@@ -2896,7 +2893,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Lyra",
-        "constellationid": 50
+        "constellationid": 52
       },
       "geometry": {
         "type": "LineString",
@@ -2940,7 +2937,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Mensa",
-        "constellationid": 51
+        "constellationid": 53
       },
       "geometry": {
         "type": "LineString",
@@ -2968,7 +2965,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Microscopium",
-        "constellationid": 52
+        "constellationid": 54
       },
       "geometry": {
         "type": "LineString",
@@ -3004,7 +3001,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Monoceros",
-        "constellationid": 53
+        "constellationid": 55
       },
       "geometry": {
         "type": "LineString",
@@ -3057,7 +3054,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Musca",
-        "constellationid": 54
+        "constellationid": 56
       },
       "geometry": {
         "type": "LineString",
@@ -3093,7 +3090,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Norma",
-        "constellationid": 55
+        "constellationid": 57
       },
       "geometry": {
         "type": "LineString",
@@ -3125,7 +3122,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Octans",
-        "constellationid": 56
+        "constellationid": 58
       },
       "geometry": {
         "type": "LineString",
@@ -3186,7 +3183,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Ophiuchus",
-        "constellationid": 57
+        "constellationid": 59
       },
       "geometry": {
         "type": "LineString",
@@ -3206,7 +3203,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Orion",
-        "constellationid": 58
+        "constellationid": 60
       },
       "geometry": {
         "type": "LineString",
@@ -3302,6 +3299,1307 @@ export const geolinesjson ={
           [
             102.216796875,
             -9.79567758282973
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Pavo",
+        "constellationid": 61
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -122.34374999999999,
+            -54.572061655658516
+          ],
+          [
+            -133.59375,
+            -65.21989393613208
+          ],
+          [
+            -115.31249999999999,
+            -65.36683689226321
+          ],
+          [
+            -122.34374999999999,
+            -54.572061655658516
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -115.6640625,
+            -65.36683689226321
+          ],
+          [
+            -94.921875,
+            -61.60639637138627
+          ],
+          [
+            -81.9140625,
+            -61.60639637138627
+          ],
+          [
+            -79.453125,
+            -66.51326044311185
+          ],
+          [
+            -95.625,
+            -67.474922384787
+          ],
+          [
+            -115.6640625,
+            -65.36683689226321
+          ],
+          [
+            -104.0625,
+            -72.53451763078357
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -115.6640625,
+            -65.36683689226321
+          ],
+          [
+            -116.71874999999999,
+            -73.49557354093136
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -79.1015625,
+            -66.79190947341796
+          ],
+          [
+            -74.53125,
+            -69.162557908105
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Pegasus",
+        "constellationid": 62
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -179.265625,
+            29.84064389983441
+          ],
+          [
+            -179.6171875,
+            12.754794702435618
+          ],
+          [
+            -165.171875,
+            12.754794702435618
+          ],
+          [
+            -164.5234375,
+            29.22889003019423
+          ],
+          [
+            -179.265625,
+            29.84064389983441
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -164.8828125,
+            29.22889003019423
+          ],
+          [
+            -149.765625,
+            31.353636941500987
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -164.1796875,
+            28.304380682962783
+          ],
+          [
+            -156.796875,
+            21.616579336740603
+          ],
+          [
+            -146.95312499999997,
+            23.241346102386135
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -165.234375,
+            12.897489183755892
+          ],
+          [
+            -149.0625,
+            10.14193168613103
+          ],
+          [
+            -142.734375,
+            12.554563528593656
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Perseus",
+        "constellationid": 63
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            120.47656249999999,
+            40.88593094075317
+          ],
+          [
+            135.21874999999997,
+            42.996162679728116
+          ],
+          [
+            135.21874999999997,
+            52.05249047600099
+          ],
+          [
+            125.828125,
+            51.39920565355378
+          ],
+          [
+            120.47656249999999,
+            40.88593094075317
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            126.5625,
+            51.39920565355378
+          ],
+          [
+            130.078125,
+            55.178867663281984
+          ],
+          [
+            136.7578125,
+            57.89149735271034
+          ],
+          [
+            135.35156249999997,
+            54.36775852406841
+          ],
+          [
+            135.35156249999997,
+            51.17934297928927
+          ],
+          [
+            148.359375,
+            53.74871079689897
+          ],
+          [
+            150.46875,
+            55.97379820507658
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            120.58593749999999,
+            41.244772343082076
+          ],
+          [
+            118.125,
+            34.59704151614417
+          ],
+          [
+            122.34374999999999,
+            31.052933985705163
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            135.21874999999997,
+            42.996162679728116
+          ],
+          [
+            141.6796875,
+            37.16031654673677
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            125.828125,
+            51.39920565355378
+          ],
+          [
+            116.3671875,
+            51.6180165487737
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Perseus",
+        "constellationid": 64
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            163.3984375,
+            -53.330872983017045
+          ],
+          [
+            161.71874999999997,
+            -45.58328975600631
+          ],
+          [
+            163.046875,
+            -41.90973623453718
+          ],
+          [
+            165.671875,
+            -44.59046718130883
+          ],
+          [
+            176.515625,
+            -41.244772343082076
+          ],
+          [
+            178.6796875,
+            -46.31658418182218
+          ],
+          [
+            165.671875,
+            -44.59046718130883
+          ],
+          [
+            163.3984375,
+            -53.330872983017045
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Pictor",
+        "constellationid": 65
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            92.10937499999999,
+            -53.5403073915002
+          ],
+          [
+            91.7578125,
+            -59.355596110016315
+          ],
+          [
+            82.96875,
+            -62.59334083012023
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Pisces",
+        "constellationid": 66
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            172.96875,
+            27
+          ],
+          [
+            172.859375,
+            31.53522956294847
+          ],
+          [
+            176.1328125,
+            31.052933985705163
+          ],
+          [
+            176.1328125,
+            31.052933985705163
+          ],
+          [
+            154.68749999999997,
+            1.7575368113083254
+          ],
+          [
+            176.1328125,
+            9.795677582829743
+          ],
+          [
+            180,
+            8
+          ],
+          [
+            180,
+            5.61598581915534
+          ],
+          [
+            174.7265625,
+            9.2
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Pisces Austrinus",
+        "constellationid": 67
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -148.18359375,
+            -31.353636941500987
+          ],
+          [
+            -147.65625,
+            -35.46066995149529
+          ],
+          [
+            -153.45703125,
+            -35.02999636902566
+          ],
+          [
+            -165.41015625,
+            -33.87041555094182
+          ],
+          [
+            -173.671875,
+            -31.503629305773018
+          ],
+          [
+            -172.96875,
+            -24.846565348219734
+          ],
+          [
+            -164.53125,
+            -24.046463999666567
+          ],
+          [
+            -153.45703125,
+            -35.02999636902566
+          ],
+          [
+            -148.18359375,
+            -31.353636941500987
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Puppis",
+        "constellationid": 68
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            69.873046875,
+            -48.98021698537499
+          ],
+          [
+            77.16796875,
+            -39.97712009843963
+          ],
+          [
+            68.90625,
+            -33.504759069226075
+          ],
+          [
+            56.6015625,
+            -38.47939467327644
+          ],
+          [
+            62.57812500000001,
+            -42.553080288955805
+          ],
+          [
+            69.873046875,
+            -48.98021698537499
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            68.818359375,
+            -33.43144133557529
+          ],
+          [
+            57.041015625,
+            -21.616579336740593
+          ],
+          [
+            53.525390625,
+            -19.890723023996898
+          ],
+          [
+            50.361328125,
+            -21.289374355860424
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Pyxis",
+        "constellationid": 69
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            52.64648437499999,
+            -34.813803317113134
+          ],
+          [
+            51.240234375,
+            -28.690587654250685
+          ],
+          [
+            50.88867187499999,
+            -26.20688962239801
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Reticulum",
+        "constellationid": 70
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            113.54296874999999,
+            -59.26588062825808
+          ],
+          [
+            113.62109375,
+            -62.512317938386914
+          ],
+          [
+            119.94921874999999,
+            -65.99884379185184
+          ],
+          [
+            117.28906250000001,
+            -62.186013857194226
+          ],
+          [
+            113.54296874999999,
+            -59.26588062825808
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Sagitta",
+        "constellationid": 71
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -120.58593749999999,
+            18.312810846425442
+          ],
+          [
+            -117.24609374999999,
+            17.644022027872726
+          ],
+          [
+            -115.6640625,
+            16.26438308756265
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -117.24609374999999,
+            17.644022027872726
+          ],
+          [
+            -115.6640625,
+            17.22475820662464
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Sagittarius",
+        "constellationid": 72
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -95.09765625,
+            -33.7243396617476
+          ],
+          [
+            -110.390625,
+            -27.215556209029675
+          ],
+          [
+            -111.796875,
+            -23.563987128451217
+          ],
+          [
+            -110.56640625,
+            -22.642587534013032
+          ],
+          [
+            -105.1171875,
+            -22.31114335506464
+          ],
+          [
+            -92.8125,
+            -25.324166525738384
+          ],
+          [
+            -87.5390625,
+            -27.215556209029675
+          ],
+          [
+            -95.09765625,
+            -33.7243396617476
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Scorpius",
+        "constellationid": 73
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -90,
+            -37.300275281344305
+          ],
+          [
+            -84.90234375,
+            -36.738884124394296
+          ],
+          [
+            -89.12109375,
+            -41.244772343082076
+          ],
+          [
+            -83.49609375,
+            -44.21370990970204
+          ],
+          [
+            -70.48828125,
+            -39.90973623453718
+          ],
+          [
+            -70.48828125,
+            -29.84064389983441
+          ],
+          [
+            -65.21484375,
+            -23.563987128451217
+          ],
+          [
+            -59.0625,
+            -22.268764039073968
+          ],
+          [
+            -58.53515625,
+            -27.68352808378776
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -59.23828124999999,
+            -22.105998799750566
+          ],
+          [
+            -61.69921875,
+            -17.811456088564473
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Sculptor",
+        "constellationid": 74
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            162.7734375,
+            -29.075375179558346
+          ],
+          [
+            175.078125,
+            -28.459033019728043
+          ],
+          [
+            178.9453125,
+            -31.353636941500987
+          ],
+          [
+            177.18749999999997,
+            -38.43144133557529
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Scutum",
+        "constellationid": 75
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -103.88671875,
+            -10.660607953624762
+          ],
+          [
+            -103.18359375,
+            -5.266007882805485
+          ],
+          [
+            -98.96484375,
+            -11.178401873711772
+          ],
+          [
+            -101.25,
+            -18.646245142670598
+          ],
+          [
+            -103.88671875,
+            -10.660607953624762
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Serpens",
+        "constellationid": 76
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -57.65624999999999,
+            -4.536764322084078
+          ],
+          [
+            -57.30468749999999,
+            2.1967272417616712
+          ],
+          [
+            -54.4921875,
+            12.039320557540572
+          ],
+          [
+            -56.6015625,
+            16.138470312451155
+          ],
+          [
+            -60.732421875,
+            17.53484700204879
+          ],
+          [
+            -56.865234375,
+            20.005972656239187
+          ],
+          [
+            -56.42578125,
+            16.138470312451155
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Sextans",
+        "constellationid": 77
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            37.70507812499999,
+            -6.227933930268672
+          ],
+          [
+            32.34375,
+            1.0546279422758869
+          ],
+          [
+            25.048828125,
+            -1.2303741774326018
+          ],
+          [
+            25.015625,
+            -3.688855143147035
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Taurus",
+        "constellationid": 78
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            124.8046875,
+            10
+          ],
+          [
+            103.53515625,
+            18.812717856407776
+          ],
+          [
+            100.8984375,
+            22.686952411999155
+          ],
+          [
+            88.9453125,
+            29
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            103.35937499999999,
+            18.812717856407776
+          ],
+          [
+            90.703125,
+            19.973348786110602
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Telescopium",
+        "constellationid": 79
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -91.93359375,
+            -50.06419173665909
+          ],
+          [
+            -92.10937499999999,
+            -46.437856895024204
+          ],
+          [
+            -88.24218749999999,
+            -46.31658418182218
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Triangulum",
+        "constellationid": 80
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            155.048828125,
+            28.994401411046148
+          ],
+          [
+            145.423828125,
+            31.84064389983441
+          ],
+          [
+            146.91796874999997,
+            33.99023555965106
+          ],
+          [
+            155.048828125,
+            28.994401411046148
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Triangulum Australe",
+        "constellationid": 81
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -57.83203125,
+            -63.35212928507874
+          ],
+          [
+            -67.939453125,
+            -68.97416358340674
+          ],
+          [
+            -46.7578125,
+            -68.97416358340674
+          ],
+          [
+            -57.83203125,
+            -63.35212928507874
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Tucana",
+        "constellationid": 82
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -148.88671874999997,
+            -61.938950426660604
+          ],
+          [
+            -150.380859375,
+            -65.76672667423811
+          ],
+          [
+            -178.6640625,
+            -64.77412531292872
+          ],
+          [
+            -179.421875,
+            -63.470144746565424
+          ],
+          [
+            -155.7421875,
+            -58.50052541051129
+          ],
+          [
+            -148.88671874999997,
+            -61.938950426660604
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Ursa Minor",
+        "constellationid": 84
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -50.78125,
+            90
+          ],
+          [
+            -57.724609375,
+            76.3518964311259
+          ],
+          [
+            -50.25390625,
+            71.63599288330609
+          ],
+          [
+            -44.453125,
+            69.62651016802958
+          ],
+          [
+            -49.19921875,
+            67.80924450600011
+          ],
+          [
+            -55.17578125,
+            70.02058730174062
+          ],
+          [
+            -50.25390625,
+            71.63599288330609
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Vela",
+        "constellationid": 85
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            21.943355798721313,
+            -42.25569292070534
+          ],
+          [
+            33.28124642372131,
+            -43.23986862257151
+          ],
+          [
+            60.11327767372131,
+            -49.42050413288815
+          ],
+          [
+            50.927730798721306,
+            -55.3624631237912
+          ],
+          [
+            26.074215173721313,
+            -54.960797804377485
+          ],
+          [
+            18.164058923721313,
+            -51.38092507741159
+          ],
+          [
+            21.943355798721313,
+            -42.25569292070534
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Virgo",
+        "constellationid": 86
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0.14648079872131348,
+            -6.286180407616669
+          ],
+          [
+            -16.113284826278683,
+            -7.420575484550603
+          ],
+          [
+            -20.244144201278687,
+            -3.4841805629161966
+          ],
+          [
+            -26.835941076278687,
+            -2.430912775695463
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -15.937503576278685,
+            -7.420575484550603
+          ],
+          [
+            -21.738284826278683,
+            -11.322073187205667
+          ],
+          [
+            -24.375003576278687,
+            -10.977146779935724
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -7.2363317012786865,
+            -6.984591147926246
+          ],
+          [
+            -16.992191076278687,
+            -15.001390933179904
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -7.5878942012786865,
+            -6.460875139690233
+          ],
+          [
+            -12.246097326278687,
+            -0.14648600355415706
+          ],
+          [
+            -14.355472326278688,
+            5.295178638889195
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            0,
+            -6.024028760044601
+          ],
+          [
+            2.2558557987213135,
+            -0.7616981008033044
+          ],
+          [
+            5.8593714237213135,
+            -2.957671716870788
+          ],
+          [
+            2.9589807987213135,
+            -6.024028760044601
+          ],
+          [
+            0,
+            -6.024028760044601
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "constellation": "Volans",
+        "constellationid": 87
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            68.90625,
+            -68.07878389624943
+          ],
+          [
+            48.35937499999999,
+            -66.9206135182968
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            48.33984375,
+            -66.93006025862445
+          ],
+          [
+            55.54687499999999,
+            -64.88626540914476
+          ],
+          [
+            60.1171875,
+            -67.64267630796034
+          ],
+          [
+            69.08203125,
+            -65.76672667423811
+          ],
+          [
+            68.73046875,
+            -68.13885164925573
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+      
+       "constellation": "Vulpecula",
+        "constellationid": 88
+      
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -120.234375,
+            22.879342971957897
+          ],
+          [
+            -115.75195312499999,
+            24.94304553343818
           ]
         ]
       }
