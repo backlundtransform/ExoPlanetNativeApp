@@ -196,8 +196,8 @@ Star:{
 } ] as Array<Planet> 
 
 
-export const GetPlanetList= (filter:filter) => {  
-
+export const GetPlanetList= (filter:filter, planets:Array<Planet> ) => {  
+console.log(planets)
   if(filter===undefined)
    { 
      return PlanetList

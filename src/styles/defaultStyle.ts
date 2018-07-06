@@ -32,7 +32,7 @@ import {StyleSheet } from 'react-native';
 
   },
   button: {
-    color: '#c6d4ff',
+  
     backgroundColor: '#50607a',
 
   }, 

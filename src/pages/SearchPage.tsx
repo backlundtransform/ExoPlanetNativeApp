@@ -29,7 +29,7 @@ handleChange (value: any, key:any) {
 filter () {
   let {comp,mass,atmos,disc,temp,lightyears}=this.state
   const { setFilter,planets} =this.props
- 
+
   const compindex =resource.compsearch.indexOf(comp)
   const massindex = resource.masssearch.indexOf(mass)
   const atmosindex = resource.atmossearch.indexOf(atmos)
@@ -44,6 +44,7 @@ filter () {
 
   
   setFilter(planetsfilter)
+
   }
 
 
