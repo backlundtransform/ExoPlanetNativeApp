@@ -196,19 +196,23 @@ Star:{
 } ] as Array<Planet> 
 
 
-export const GetPlanetList= (filter:filter, filterstate:SearchPageState) => {  
+export const GetPlanetList= (filter:filter, filterstate:any) => {  
   let planetsfilter = PlanetList
-  if(filterstate!==undefined)
+
+  if(filterstate.filter!==undefined)
   { 
-  const compindex =resource.compsearch.indexOf(filterstate.comp)
-  const massindex = resource.masssearch.indexOf(filterstate.mass)
-  const atmosindex = resource.atmossearch.indexOf(filterstate.atmos)
-  const discindex =  resource.discsearch.indexOf(filterstate.disc)
-  const tempindex = resource.tempsearch.indexOf(filterstate.temp)
+
+   const currentfilter = filterstate.filter.filter
+  const compindex =resource.compsearch.indexOf(currentfilter.comp)
+  const massindex = resource.masssearch.indexOf(currentfilter.mass)
+  const atmosindex = resource.atmossearch.indexOf(currentfilter.atmos)
+  const discindex =  resource.discsearch.indexOf(currentfilter.disc)
+  const tempindex = resource.tempsearch.indexOf(currentfilter.temp)
+
  planetsfilter =  planetsfilter.filter(p=>(compindex >-1?p.Comp===compindex:true) 
-   &&( massindex >-1?p.Mass=== massindex:true)
- &&(atmosindex >-1?p.Atmosphere===atmosindex:true) 
- &&(tempindex>-1?p.TempZone===tempindex:true) 
+   &&( massindex >-1?p.MassType=== massindex:false)
+ &&(atmosindex >-1?p.Atmosphere===atmosindex:false) 
+ &&(tempindex>-1?p.TempZone===tempindex:false) 
   )
   }
   if(filter===undefined)

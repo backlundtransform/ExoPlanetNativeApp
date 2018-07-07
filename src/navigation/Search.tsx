@@ -20,7 +20,7 @@ class Search extends React.Component<Searchprop,any> {
           <Input placeholder={resource.search}  onChange={(value)=>this.props.search(value.nativeEvent.text)}/>
         </Item>
         <Button transparent>
-          <Text>{resource.search} </Text>
+          <Text>{resource.search}</Text>
         </Button>
       </Header>
     );

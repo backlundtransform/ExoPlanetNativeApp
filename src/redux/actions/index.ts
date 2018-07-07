@@ -5,9 +5,9 @@ import {PlanetList,GetPlanetList,filter,Planet,SearchPageState} from '../../serv
 
 export  const getData=(filter:filter)=>{
     return (dispatch, getState) => {
- 
+
         setTimeout(() => {
-            const planets  = GetPlanetList(filter,getState().searchReducer.searchState);
+            const planets  = GetPlanetList(filter,getState().searchReducer);
             dispatch({type: PLANETS_AVAILABLE, planets:planets});
         }, 2000);
  

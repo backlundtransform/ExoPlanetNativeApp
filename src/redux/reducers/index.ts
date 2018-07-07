@@ -22,11 +22,7 @@ const planetReducer = (state = planetState , action) => {
 
 const searchReducer = (state = searchState , action) => {
   
-    if(action.type !==SEARCH_FILTER){
-
-        return state;
-     }
-
+    
 
 state = Object.assign({}, state,{filter:action.filter });
   return state;     

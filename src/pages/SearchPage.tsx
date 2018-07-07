@@ -8,14 +8,14 @@ import {PlanetList,GetPlanetList,filter,Planet,SearchPageState} from '../service
 import {setFilter} from '../redux/actions';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
-interface SearchPageProps{navigate:any, setFilter:any,filter:SearchPageState}
-interface SearchPagePropsState {mass:string, comp:string,atmos:string,disc:string, temp:string,lightyears:string,filter:SearchPageState}
+interface SearchPageProps{navigate:any, setFilter:any,filter:any}
+interface SearchPagePropsState {mass:string, comp:string,atmos:string,disc:string, temp:string,lightyears:string}
 
  class SearchPage extends React.Component<SearchPageProps,SearchPagePropsState> {
   constructor(props) {
     super(props);
 
-   this.state ={mass:"",comp:"",atmos:"",disc:"",temp:"",lightyears:"", filter:{mass:"",comp:"",atmos:"",disc:"",temp:"",lightyears:""}}
+   this.state ={mass:"",comp:"",atmos:"",disc:"",temp:"",lightyears:""}
    this.handleChange = this.handleChange.bind(this);
   }
       
@@ -23,20 +23,22 @@ interface SearchPagePropsState {mass:string, comp:string,atmos:string,disc:strin
 
 handleChange (value: any, key:any) 
 {
-
-    this.setState({ [key]: value });
+ this.setState({ [key]: value });
 }
 componentWillMount(){
  const {filter} =this.props
+  if(filter===undefined){
 
-console.log(filter)
-console.log(filter["mass"])
-  this.setState({filter})
+    return
+  }
+ const action =filter.filter
+
+  this.setState({mass:action.mass,comp:action.comp,atmos:action.atmos,disc:action.disc,temp:action.temp,lightyears:""})
 
 }
 setfilter () {
   let {comp,mass,atmos,disc,temp,lightyears}=this.state
-  const { setFilter} =this.props
+  const { setFilter,navigate} =this.props
 
   setFilter({filter:{comp,mass,atmos,disc,temp,lightyears}})
 

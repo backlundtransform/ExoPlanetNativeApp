@@ -19,9 +19,7 @@ class Settings extends React.Component<SettingsProps, SettingsPropsState> {
   render() {
     return (
       <Header style={styles.d3button} >
-      <Icon
-
-  name='ios-settings'
+      <Icon name='ios-settings'
  style={{ width: 20, zIndex:-10, margin:10,color:"#fff"} }
 />
         <Picker
