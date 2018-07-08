@@ -209,12 +209,37 @@ export const GetPlanetList= (filter:filter, filterstate:any) => {
   const discindex =  resource.discsearch.indexOf(currentfilter.disc)
   const tempindex = resource.tempsearch.indexOf(currentfilter.temp)
 
- planetsfilter =  planetsfilter.filter(p=>(compindex >-1?p.Comp===compindex:false) 
-   ||( massindex >-1?p.MassType=== massindex:false)
-   ||(atmosindex >-1?p.Atmosphere===atmosindex:false) 
-   ||(tempindex>-1?p.TempZone===tempindex:false) 
-  )
-  }
+  const lightyearsindex = resource.lightyearsearch.indexOf(currentfilter.lightyears)
+if(compindex>-1){
+  planetsfilter =  planetsfilter.filter(p=>p.Comp===compindex) 
+}
+
+if(massindex>-1){
+  planetsfilter =  planetsfilter.filter(p=>p.MassType=== massindex) 
+}
+
+if(atmosindex>-1){
+  planetsfilter =  planetsfilter.filter(p=>p.Atmosphere===atmosindex) 
+}
+if(tempindex>-1){
+  planetsfilter =  planetsfilter.filter(p=>p.TempZone===tempindex) 
+}
+
+  switch(lightyearsindex) {
+       case 0:
+        planetsfilter =  planetsfilter.filter(p=>p.Distance< 20) 
+        break;
+        case 1:
+         planetsfilter =  planetsfilter.filter(p=>p.Distance< 200) 
+        break;
+         case 2:
+        planetsfilter =  planetsfilter.filter(p=>p.Distance< 2000) 
+        break;
+        case 3:
+        planetsfilter =  planetsfilter.filter(p=>p.Distance< 20000) 
+        break;
+  }  
+}
   if(filter===undefined)
    { 
      return planetsfilter 

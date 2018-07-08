@@ -24,6 +24,7 @@ interface SearchPagePropsState {mass:string, comp:string,atmos:string,disc:strin
 handleChange (value: any, key:any) 
 {
  this.setState({ [key]: value });
+
 }
 componentWillMount(){
  const {filter} =this.props
@@ -37,6 +38,7 @@ componentWillMount(){
   this.setState({mass:action.mass,comp:action.comp,atmos:action.atmos,disc:action.disc,temp:action.temp,lightyears:""})
 
 }
+
 setfilter () {
   let {comp,mass,atmos,disc,temp,lightyears}=this.state
   const { setFilter,navigate} =this.props
