@@ -209,10 +209,10 @@ export const GetPlanetList= (filter:filter, filterstate:any) => {
   const discindex =  resource.discsearch.indexOf(currentfilter.disc)
   const tempindex = resource.tempsearch.indexOf(currentfilter.temp)
 
- planetsfilter =  planetsfilter.filter(p=>(compindex >-1?p.Comp===compindex:true) 
-   &&( massindex >-1?p.MassType=== massindex:false)
- &&(atmosindex >-1?p.Atmosphere===atmosindex:false) 
- &&(tempindex>-1?p.TempZone===tempindex:false) 
+ planetsfilter =  planetsfilter.filter(p=>(compindex >-1?p.Comp===compindex:false) 
+   ||( massindex >-1?p.MassType=== massindex:false)
+   ||(atmosindex >-1?p.Atmosphere===atmosindex:false) 
+   ||(tempindex>-1?p.TempZone===tempindex:false) 
   )
   }
   if(filter===undefined)

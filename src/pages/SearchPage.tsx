@@ -27,6 +27,7 @@ handleChange (value: any, key:any)
 }
 componentWillMount(){
  const {filter} =this.props
+
   if(filter===undefined){
 
     return
