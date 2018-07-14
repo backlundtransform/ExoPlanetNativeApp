@@ -41,7 +41,7 @@ import LocalizedStrings from 'react-native-localization';
 
     planetname:["The planet is called", "and is orbiting the star","that is located in the constellation" ],
     decFormatdist:["at a distance of ", "lightyears from Earth." ],
-        massInfo :[
+    massInfo :[
           "The planet is of the type Jovian, which means that the planet is a giant like Jupiter or Saturn. ",
           "The planet is of the type Neptunian, which means that it has a similar mass like our solar systems smaller gas giants Uranus and Neptune.",
           "The planet is of the type Super-terrestrial, which means that its mass is larger than Earth, but is considerably smaller than our solar systems smaller gas giants Uranus and Neptune.",
@@ -49,40 +49,37 @@ import LocalizedStrings from 'react-native-localization';
 
           "The planet is of the type Mercurian, which means that it has a similar mass like our solar systems smallests planets e.g Mercury.",
 
-],
+            ],
 
-compInfo :["The planet consists of gas.","The planet is composed mostly of gaseous or liquid matter.","The planet has a solid stone surface, where even liquid water may be present.","The planet has a solid stone surface, which is rich in iron.","The planet surface is solid and the core is made of iron."],
+    compInfo:["The planet consists of gas.","The planet is composed mostly of gaseous or liquid matter.","The planet has a solid stone surface, where even liquid water may be present.","The planet has a solid stone surface, which is rich in iron.","The planet surface is solid and the core is made of iron."],
+    orbit:["It takes", "days for the planet to complete an entire revolution around its star."],
+    decMean:["The planet is located at a distance from it star that correspond to ", "times the distance between our Earth and Sun."],
+    hzd:["The planet is within the its solar system habitable zone, where alien could exist.","The planet is too close to its sun, no alien could exist here.", "The planet is too far away from its sun, no alien could exist here."],
+    hza:["The planet has an atmosphere that could be suitable for life.","The planet has no atmosphere.", "The planet has an atmosphere, but it is not suitable for life."],
+    atmosinfo:["The planet has a hydrogen-rich atmosphere.","The planet has a metal-rich atmosphere.",  ""],
+    meantemp:["The mean temperature of the planet is", "A hot day at", "the mean temperature is","C and on a cold day at it is" ],
+    moon:"It is possible that the planet can have a habitable moon.",
+    disc:"Discovered year ",
+    discinfo:["It was first detected by radial velocity, that is done by recording variations in the color of light from the host star.","It was first detected by the transit method, that is based on the observation of a stars small drop in brightness, that occurs when the planet orbit the star","It was first detected by microlensing, that is based on the observation of the bending of light due to the gravitational field.","It was first detected by astrometry, that involves precise measurements of the positions and movements of stars.","The planet is orbiting a neutron star and was detected by pulsar timing.","It was first detected by a telescope."],
+    esiratings:"Earth similarity index:",
+    sphratings:"Suitability for vegetation",
+    planetinfo:["Mass","Radius","Density","Gravity","Surface pressure","Escape velocity"],
+    earth:"Earth",
+    starname:["The star is called","and is located in the constellation"],
+    startype:["The star has exploded and the only thing that remains are small, heavy and very rapidly rotating celestial objects known as pulsars.","The star has","color and is of the type"],
+    color: ["blue","blue to white","orange to red","red"],
+    lum:["very luminous supergiant","less luminous supergiant","luminous giant","giant","subgiant","dwarf","subdwarf","white dwarf","pulsar"],
+    mag:["The star is visible from Earth with the naked eye.","The star can not be seen from Earth without a telescope."],
 
-
-orbit:["It takes", "days for the planet to complete an entire revolution around its star."],
-decMean:["The planet is located at a distance from it star that correspond to ", "times the distance between our Earth and Sun."],
-
-hzd:["The planet is within the its solar system habitable zone, where alien could exist.","The planet is too close to its sun, no alien could exist here.", "The planet is too far away from its sun, no alien could exist here."],
-hza:["The planet has an atmosphere that could be suitable for life.","The planet has no atmosphere.", "The planet has an atmosphere, but it is not suitable for life."],
-
-atmosinfo:["The planet has a hydrogen-rich atmosphere.","The planet has a metal-rich atmosphere.",  ""],
-
-meantemp:["The mean temperature of the planet is", "A hot day at", "the mean temperature is","C and on a cold day at it is" ],
-
-
-moon:"It is possible that the planet can have a habitable moon.",
-disc:"Discovered year ",
-discinfo:["It was first detected by radial velocity, that is done by recording variations in the color of light from the host star.","It was first detected by the transit method, that is based on the observation of a stars small drop in brightness, that occurs when the planet orbit the star","It was first detected by microlensing, that is based on the observation of the bending of light due to the gravitational field.","It was first detected by astrometry, that involves precise measurements of the positions and movements of stars.","The planet is orbiting a neutron star and was detected by pulsar timing.","It was first detected by a telescope."],
-iratings:"Earth similarity index:",
-sphratings:"Suitability for vegetation",
-planetinfo:["Mass","Radius","Density","Gravity","Surface pressure","Escape velocity"],
-earth:"Earth",
-starname:["The star is called","and is located in the constellation"],
-startype:["The star has exploded and the only thing that remains are small, heavy and very rapidly rotating celestial objects known as pulsars.","The star has","color and is of the type"],
-color: ["blue","blue to white","orange to red","red"],
-lum:["very luminous supergiant","less luminous supergiant","luminous giant","giant","subgiant","dwarf","subdwarf","white dwarf","pulsar"],
-mag:["The star is visible from Earth with the naked eye.","The star can not be seen from Earth without a telescope."],
-
-habzone:["The stars habitable zone is located at a distance between","and","times the distance between Earth and the Sun"],
-numberplanet:["a known planet that is located in the habitable zone","The star has","known planets and has","planets located in the habitable zone.","known planets, but has no known planets that are located in the habitable zone.","The star has a known planet, but it is not in the habitable zone."],
-starinfo:["Mass","Radius","Age","Temperature"],
-oursun:"Sun"
-  },sv:{
+    habzone:["The stars habitable zone is located at a distance between","and","times the distance between Earth and the Sun"],
+    numberplanet:["a known planet that is located in the habitable zone","The star has","known planets and has","planets located in the habitable zone.","known planets, but has no known planets that are located in the habitable zone.","The star has a known planet, but it is not in the habitable zone."],
+    starinfo:["Mass","Radius","Age","Temperature"],
+    oursun:"Sun",
+    foundplanets:"Found planets: ",
+    foundhabitableplanets:"Found habitable planets: ",
+  },
+  sv:
+  {
     message:"PlanetJägaren",
     planetlist:"Planetlista",
     habplanets: "Jordlika planeter",
@@ -159,14 +156,16 @@ oursun:"Sun"
 
     starname:["Stjärnan heter","och ligger i stjärnbilden"],
     startype:["Stjärna har exploderat det ända som återstår är små, tunga och mycket snabbt roterande himlakroppar så kallade pulsarer.","Stjärnan har en","färg och är av stjärntypen"],
-   color: ["blå","blåvit","orange-röd","röd"],
-   lum:["hyperjätte","superjätte","ljusjätte","jätte","subjätte","dvärg","subdvärg","vit dvärg","pulsar"],
-   mag:["Stjärnan är synlig från jorden med blotta ögat.","Stjärnan kan inte ses från jorden utan ett teleskop"],
+     color: ["blå","blåvit","orange-röd","röd"],
+    lum:["hyperjätte","superjätte","ljusjätte","jätte","subjätte","dvärg","subdvärg","vit dvärg","pulsar"],
+    mag:["Stjärnan är synlig från jorden med blotta ögat.","Stjärnan kan inte ses från jorden utan ett teleskop"],
 
-   habzone:["Stjärnans beboeliga zon ligger på ett avstånd mellan","och","gånger avståndet mellan jorden och solen."],
-   numberplanet:["en känd planet som ligger i den beboeliga zonen","Stjärnan har","kända planeter och har","planeter som ligger i den beboeliga zonen.","kända planeter men har inga kända planeter som ligger i den beboeliga zonen.","Stjärnan har en känd planet men den ligger inte i den beboeliga zonen."]
-   ,starinfo:["Massa","Radie","Ålder","Temperatur"],
-   oursun:"Solen"
+    habzone:["Stjärnans beboeliga zon ligger på ett avstånd mellan","och","gånger avståndet mellan jorden och solen."],
+     numberplanet:["en känd planet som ligger i den beboeliga zonen","Stjärnan har","kända planeter och har","planeter som ligger i den beboeliga zonen.","kända planeter men har inga kända planeter som ligger i den beboeliga zonen.","Stjärnan har en känd planet men den ligger inte i den beboeliga zonen."],
+     starinfo:["Massa","Radie","Ålder","Temperatur"],
+     oursun:"Solen",
+   foundplanets:"Hittade planeter: ",
+   foundhabitableplanets:"Hittade beboliga planeter:  "
   },
 
  });

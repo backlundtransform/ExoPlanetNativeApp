@@ -3,7 +3,10 @@ import styles from '../styles/defaultStyle';
 import{resource} from '../config/Resource'
 import {Container,Header,Title,Content,Button,Icon,Right,Body,Left,Form} from "native-base";
 import {Picker} from "react-native";
-interface SettingsProps{navigate:any}
+import {setFilter} from '../redux/actions';
+import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
+interface SettingsProps{navigate:any, filter}
 interface  SettingsPropsState { }
 class Settings extends React.Component<SettingsProps, SettingsPropsState> {
   
@@ -16,11 +19,16 @@ class Settings extends React.Component<SettingsProps, SettingsPropsState> {
     this.props.navigate.navigate(value) 
   
   }
+
+
   render() {
+    const {filter}= this.props
+
+    const color =filter===undefined?"#fff":"red" 
     return (
       <Header style={styles.d3button} >
       <Icon name='ios-settings'
- style={{ width: 20, zIndex:-10, margin:10,color:"#fff"} }
+ style={{ width: 20, zIndex:-10, margin:10,color:color} }
 />
         <Picker
               mode="dropdown"
@@ -35,4 +43,17 @@ class Settings extends React.Component<SettingsProps, SettingsPropsState> {
     </Header>);
   }
 }
-export default  Settings
+
+function mapStateToProps(state, props) {
+
+  return {
+ 
+  filter: state.searchReducer.filter
+  }
+}
+
+const mapDispatchToProps=(dispatch)=> {
+  return bindActionCreators({setFilter:setFilter},dispatch);
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Settings);

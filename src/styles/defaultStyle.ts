@@ -100,6 +100,21 @@ import {StyleSheet } from 'react-native';
      
 
     },
+    stattitle: {
+      color: '#c6d4ff',
+      fontFamily: 'Cochin',
+      fontSize: 18,
+      fontWeight:'bold'
+     
+
+    },
+    statnum: {
+      color: '#c6d4ff',
+      fontFamily: 'Cochin',
+      fontSize: 32,
+      fontWeight:'bold'
+
+    },
     white: {
       color: '#fff',
   
