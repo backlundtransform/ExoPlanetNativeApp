@@ -23,7 +23,7 @@ interface SearchPagePropsState {mass:string, comp:string,atmos:string,disc:strin
 
 handleChange (value: any, key:any) 
 {
- this.setState({ [key]: value });
+ this.setState({ [key]: value }, () => this.setfilter());
 
 }
 componentWillMount(){
@@ -61,7 +61,6 @@ setfilter () {
           <SearchPicker statekey={"atmos"} title={resource.atmostitle} value={atmos}  searcharray={resource.atmossearch} onValueChange={this.handleChange} />
           <SearchPicker statekey={"disc"}  title={resource.disctitle} value={disc}  searcharray={resource.discsearch} onValueChange={this.handleChange} />
           <SearchPicker statekey={"lightyears"} title={resource.atmostitle}  value={lightyears}  searcharray={resource.lightyearsearch} onValueChange={this.handleChange} />
-          <Button style={styles.button}  onPress={() => this.setfilter()}><Text>{resource.search}</Text></Button>
         </Container>
          );
        }
