@@ -41,7 +41,7 @@ export const SolarSystems= [
         HabZoneMin:120,
         HabZoneMax :300,
         Radius:60,
-        Constellation:1,
+        Constellation:83,
         Planets:[{Name:"GJ 180 b",
         Img:  {uri:jovanbase64Icon},
         Type: resource.superEarth,

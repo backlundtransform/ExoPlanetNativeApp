@@ -157,7 +157,7 @@ if(!(this.state.gps)){
         maxZoomLevel={4}
 onRegionChangeComplete={(region)=> this.onRegionChangeComplete(region)}
 ><UrlTile urlTemplate={constants.tiles}  />
-{currentRegion&&(<DrawPolyline  />)}{currentRegion&&(<DrawStar/>)}{currentRegion&&(<DrawPlanet navigation ={this.props.navigation}/>)}</MapView>
+{currentRegion&&(<DrawPolyline  navigation ={this.props.navigation}/>)}{currentRegion&&(<DrawStar/>)}{currentRegion&&(<DrawPlanet navigation ={this.props.navigation}/>)}</MapView>
 {currentRegion&&(<Compass longitude={currentRegion.longitude}  latitude={currentRegion.latitude}  azimuth={degree} altitude={altitude} rightascension={rightascension} declination={declination}   siderealtime={ siderealtime}  gps ={gps}/>)}
 </Container>)
   }

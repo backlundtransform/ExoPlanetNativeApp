@@ -5,7 +5,8 @@ import { View, Text } from 'react-native';
 import{geolinesjson} from '../config/geojson'
 import{resource} from '../config/Resource'
 import styles from '../styles/defaultStyle'
-export default class DrawPolyline extends React.PureComponent<any,any> {
+
+export default class DrawPolyline extends React.PureComponent<{ navigation:any},any> {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +24,10 @@ export default class DrawPolyline extends React.PureComponent<any,any> {
         }
     }
 
-
+    navigateToConstellation=(id:number)=>{
+       
+        this.props.navigation.navigate('solarlist',{const:id})
+             }
     componentDidUpdate() { 
         if (this.state.tracksViewChanges) {
             this.setState({
@@ -41,7 +45,8 @@ export default class DrawPolyline extends React.PureComponent<any,any> {
                strokeWidth={1}
                zIndex={1000000}
           />
-          {line.properties.constellation&&(<Marker   coordinate={{latitude:line.geometry.coordinates[0][1]+1 as number,longitude:line.geometry.coordinates[0][0] as number}}><Text style={styles.listTitle}>{line.properties.constellation}</Text></Marker>)}
+          {line.properties.constellation&&(<Marker  onPress={()=> this.navigateToConstellation(line.properties.constellationid)} coordinate={{latitude:line.geometry.coordinates[0][1]+1 as number,longitude:line.geometry.coordinates[0][0] as number}}><Text style={styles.listTitle} 
+         >{line.properties.constellation}</Text></Marker>)}
           {(line.geometry.coordinates as number[][]).map((p,i)=> { return <Circle key={`${p[1]}${p[0]}${i}`} center={{latitude:p[1] as number,longitude:p[0] as number}}
           radius={25000}
           zIndex={10000000000}

@@ -47,8 +47,7 @@ class Settings extends React.Component<SettingsProps, SettingsPropsState> {
 function mapStateToProps(state, props) {
 
   return {
- 
-  filter: state.searchReducer.filter
+    filter: state.searchReducer.filter
   }
 }
 

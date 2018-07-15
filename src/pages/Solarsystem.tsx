@@ -14,9 +14,16 @@ export default class  SolarSystem extends React.Component<SolarSystemProps, Sola
     super(props);
  
     this.state = {
-        starlist:ConstellationSolarSystems(props.navigation.state.params.const)
+        starlist:[]
     }
   
+  }
+
+  componentDidMount(){
+
+    const starlist =ConstellationSolarSystems(this.props.navigation.state.params.const)
+
+    this.setState({starlist})
   }
  
 render() {
