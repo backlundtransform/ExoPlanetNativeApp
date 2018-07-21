@@ -93,39 +93,36 @@ if(!(this.state.gps)){
 
   componentWillReceiveProps(nextProps){
 
-              
-              let {region,currentRegion,altitude, degree,rightascension,declination}= this.state
-           
+              let {region,currentRegion,degree}= this.state
+      
               const gps = nextProps.navigation.state.params&&nextProps.navigation.state.params.gps
           if(this.state.currentRegion!== undefined && (gps!==undefined &&gps))
           {
+            const altitude = dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,nextProps.Accelerometer.x,1,0,0)
                let rightascension =right_ascension(currentRegion.longitude,currentRegion.latitude,altitude, degree)/15
                const declination =getdeclination(currentRegion.latitude, altitude, degree)
    
             const longitude = 15*(rightascension-12)<0?15*Math.abs(rightascension-12):-15*Math.abs(rightascension-12)
   
-            if(region.longitude+2<longitude ||region.longitude-2>longitude)
-            {
+         
             region = {
               latitude: declination,
               longitude: longitude,
               latitudeDelta: 10,
               longitudeDelta: 10,
-            } 
-            const altitude = dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,nextProps.Accelerometer.x,1,0,0)
-            rightascension = rightascension
-            this.setState({ gps, region,rightascension,declination, altitude, siderealtime:siderealtime(this.state.currentRegion.longitude) });
+            }
+
+            this.setState({ gps,region,rightascension,declination, altitude, siderealtime:siderealtime(this.state.currentRegion.longitude) },()=>  this.forceUpdate());
        
-          }
+        
         
       
           const degree_update_rate = 3;
           RNSimpleCompass.start(degree_update_rate, (degree) => {
           
-                if(this.refs.map && (degree+2<this.state.degree ||degree-2>this.state.degree))
-                {
+               
                   this.setState({degree:  degree})
-                }
+             
                  RNSimpleCompass.stop();
          
                 });
@@ -164,7 +161,7 @@ onRegionChangeComplete={(region)=> this.onRegionChangeComplete(region)}
 }
  export default sensors({
   Accelerometer: {
-      updateInterval: 300
+      updateInterval: 100
   },
   Gyroscope: true,
 
