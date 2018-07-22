@@ -12,10 +12,11 @@ import  HamburgerMenu from '../navigation/HamburgerMenu'
 import { Dimensions } from 'react-native'
 
 import{SolarSystem } from '../service/getSolarSystem'
-import { decorator as sensors } from "react-native-sensors";
-import{siderealtime,dot_product,right_ascension,getdeclination } from '../sensor/mathfunctions'
+
+import{siderealtime,dot_product,right_ascension,getdeclination,azimuth_degree } from '../sensor/mathfunctions'
 import Compass from '../sensor/compass'
-import RNSimpleCompass from 'react-native-simple-compass';
+
+
 import {
   DeviceEventEmitter, NativeModules
 } from 'react-native';
@@ -32,7 +33,7 @@ const start =  {
   latitudeDelta: 20,
   longitudeDelta: 10,
 } 
-interface StarmapProp { navigation:any, Accelerometer:any, gyroscop:any}
+interface StarmapProp { navigation:any, Accelerometer:any, gyroscop:any,Magnetometer:any}
 interface StarmapState {region: any,
   currentRegion?:any,
   degree:number,
@@ -40,7 +41,7 @@ interface StarmapState {region: any,
  altitude:number,
  siderealtime:string
  rightascension:number,
-
+ Accelerometer:any | undefined
  declination:number,gps:boolean}
  class StarMap extends React.Component<StarmapProp, StarmapState> {
 
@@ -50,7 +51,7 @@ interface StarmapState {region: any,
       region:  start,
       degree:0,
      zoom:7,
-  
+     Accelerometer:undefined,
      rightascension:start.longitude/15,
      declination:start.latitude,
      gps:false,
@@ -78,67 +79,88 @@ error=(err)=> {
   };
   
 
-  onRegionChangeComplete(region) {
+onRegionChangeComplete(region) {
 
-if(!(this.state.gps)){
-  const rightascension = 12 + -1*region.longitude/15
-  const declination =region.latitude
-  this.setState({rightascension,declination})
+    if(!(this.state.gps))
+    {
+      const rightascension = 12 + -1*region.longitude/15
+      const declination =region.latitude
+      this.setState({rightascension,declination})
     }
 
-
-    
   }
+  componentDidMount(){
+
+    DeviceEventEmitter.addListener('Accelerometer',  (data)=> {
 
 
-  componentWillReceiveProps(nextProps){
-
-              let {region,currentRegion,degree}= this.state
-      
-              const gps = nextProps.navigation.state.params&&nextProps.navigation.state.params.gps
-          if(this.state.currentRegion!== undefined && (gps!==undefined &&gps))
+      let {region,currentRegion,degree,gps}= this.state
+      const Accelerometer=data
+            
+          if(this.state.currentRegion!== undefined)
           {
-            const altitude = dot_product(nextProps.Accelerometer.z,nextProps.Accelerometer.y,nextProps.Accelerometer.x,1,0,0)
-               let rightascension =right_ascension(currentRegion.longitude,currentRegion.latitude,altitude, degree)/15
-               const declination =getdeclination(currentRegion.latitude, altitude, degree)
+                const altitude = dot_product(Accelerometer.z,Accelerometer.y,Accelerometer.x,1,0,0)
+                let rightascension =right_ascension(currentRegion.longitude,currentRegion.latitude,altitude, degree)/15
+                const declination =getdeclination(currentRegion.latitude, altitude, degree)
    
-            const longitude = 15*(rightascension-12)<0?15*Math.abs(rightascension-12):-15*Math.abs(rightascension-12)
-  
-         
+                const longitude = 15*(rightascension-12)<0?15*Math.abs(rightascension-12):-15*Math.abs(rightascension-12)
             region = {
               latitude: declination,
               longitude: longitude,
               latitudeDelta: 10,
               longitudeDelta: 10,
             }
+           this.refs.map&&this.setState({Accelerometer, gps,region,rightascension,declination, altitude, siderealtime:siderealtime(this.state.currentRegion.longitude) },()=>  this.forceUpdate());
+      
+          }
+        });
 
-            this.setState({ gps,region,rightascension,declination, altitude, siderealtime:siderealtime(this.state.currentRegion.longitude) },()=>  this.forceUpdate());
-       
+
+    DeviceEventEmitter.addListener('Magnetometer',  (data)=> {
+     
+      const {gps, Accelerometer}= this.state
+   
+      if(Accelerometer!==undefined)
+      { 
+
+       this.refs.map&&this.setState({ degree:   azimuth_degree(Accelerometer, data)},() =>this.forceUpdate())
+      }
+    });
+
+
+  }
+  componentWillUnmount() {
+    let mSensorManager = require('NativeModules').SensorManager;
+   
+    mSensorManager.stopMagnetometer();
+    mSensorManager.stopAccelerometer();
+}
+  componentWillReceiveProps(nextProps){
+   
+              const gps = nextProps.navigation.state.params&&nextProps.navigation.state.params.gps
+              let mSensorManager = require('NativeModules').SensorManager;
+            if(gps)
+             {
+               mSensorManager.startAccelerometer(300); 
+               mSensorManager.startMagnetometer(300);
+  
+            }
+            else
+            {
+
+             mSensorManager.stopMagnetometer();
+             mSensorManager.stopAccelerometer();
+
+             }
         
-        
-      
-          const degree_update_rate = 3;
-          RNSimpleCompass.start(degree_update_rate, (degree) => {
-          
+               this.setState({ gps})
                
-                  this.setState({degree:  degree})
-             
-                 RNSimpleCompass.stop();
-         
-                });
-      
-                }
-                else
-                {
-                  this.setState({ gps:false})
-                }
              }  
 
  
   render() {
 
  const{region, gps,rightascension,declination,degree ,currentRegion,altitude,siderealtime}= this.state;
- const {Accelerometer}= this.props
 
 
     return (<Container ref="map" style={styles.mapcontainer}>
@@ -159,11 +181,4 @@ onRegionChangeComplete={(region)=> this.onRegionChangeComplete(region)}
 </Container>)
   }
 }
- export default sensors({
-  Accelerometer: {
-      updateInterval: 100
-  },
-  Gyroscope: true,
-
-
-})(StarMap);
+ export default StarMap;

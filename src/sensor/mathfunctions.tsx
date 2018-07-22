@@ -78,6 +78,14 @@ export const  azimuth_angle=(azimuth:number):number =>{
 		}
 
 
+		
+export const azimuth_degree=(Accelerometer:any,data:any) =>{
+	const my = (Accelerometer.z*data.x- Accelerometer.x*data.z)/(Math.sqrt(Accelerometer.x*Accelerometer.x+Accelerometer.y*Accelerometer.y+Accelerometer.z*Accelerometer.z)*Math.sqrt(data.x*data.x+data.y*data.y+data.z*data.z))
+	const az = Math.atan2(data.y/Math.sqrt(data.x*data.x+data.y*data.y+data.z*data.z),my)
+    return (360+toDegrees(az))%360
+
+}
+	
 
 export const right_ascension=(longitude:number,latitude:number,altitude:number, azimuth:number)=>{
 
