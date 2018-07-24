@@ -89,7 +89,14 @@ onRegionChangeComplete(region) {
     }
 
   }
-  componentDidMount(){
+ componentDidMount(){
+
+  this.sensorInit()
+
+
+  }
+
+ sensorInit(){
 
     DeviceEventEmitter.addListener('Accelerometer',  (data)=> {
 
@@ -97,7 +104,7 @@ onRegionChangeComplete(region) {
       let {region,currentRegion,degree,gps}= this.state
       const Accelerometer=data
             
-          if(this.state.currentRegion!== undefined)
+          if(this.state.currentRegion!== undefined&&gps)
           {
                 const altitude = dot_product(Accelerometer.z,Accelerometer.y,Accelerometer.x,1,0,0)
                 let rightascension =right_ascension(currentRegion.longitude,currentRegion.latitude,altitude, degree)/15
@@ -114,21 +121,25 @@ onRegionChangeComplete(region) {
       
           }
         });
-
-
+  
+  
     DeviceEventEmitter.addListener('Magnetometer',  (data)=> {
      
       const {gps, Accelerometer}= this.state
    
-      if(Accelerometer!==undefined)
+      if(Accelerometer!==undefined &&gps)
       { 
-
+  
        this.refs.map&&this.setState({ degree:   azimuth_degree(Accelerometer, data)},() =>this.forceUpdate())
       }
     });
 
 
   }
+
+
+
+  
   componentWillUnmount() {
     let mSensorManager = require('NativeModules').SensorManager;
    
@@ -139,6 +150,8 @@ onRegionChangeComplete(region) {
    
               const gps = nextProps.navigation.state.params&&nextProps.navigation.state.params.gps
               let mSensorManager = require('NativeModules').SensorManager;
+
+              
             if(gps)
              {
                mSensorManager.startAccelerometer(300); 

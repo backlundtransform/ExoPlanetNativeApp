@@ -57,7 +57,7 @@ const habmenu= [{
    ]
 
 export const constants ={
-tiles:"https://raw.githubusercontent.com/gbanm/ExoPlanetService/master/ExoPlanetHunterWeb/Content/tiles/{z}/tile.jpg",
+tiles:"/Content/tiles/{z}/tile.jpg",
 habmenu,
 constellations
 
