@@ -4,30 +4,30 @@ import{Planet, Star, terranbase64Icon,jovanbase64Icon,  redIcon,  orangeIcon} fr
 
 export const SolarSystem=(star:Star):Star=>{
 
-    return SolarSystems.find(p=>p.Name==star.Name);
+    return SolarSystems.find(p=>p.name==star.name);
 }
 
 export const ConstellationSolarSystems=(constellation:number):Array<Star>=>{
 
-  return SolarSystems.filter(p=>p.Constellation===constellation);
+  return SolarSystems.filter(p=>p.constellation===constellation);
 }
 
 export const SolarSystems= [
     
   {
-        Name:"1RXS 1609",
-        Type: resource.orange,
-        Img:{uri:orangeIcon},
-        HabZoneMin:350,
-        HabZoneMax : 400,
-        Radius:60,
-        Planets:[  {Name:"1RXS 1609 b",
-        Img: {uri:jovanbase64Icon},
-        Type: resource.hotJovian,
-        Distance: 145.00,
-        Esi:0,
-        DiscYear:2008,
-        Radius: 25,
+        name:"1RXS 1609",
+        type: resource.orange,
+        img:{uri:orangeIcon},
+        habZoneMin:350,
+        habZoneMax : 400,
+        radius:60,
+       planets:[  {name:"1RXS 1609 b",
+        img: {uri:jovanbase64Icon},
+        type: resource.hotJovian,
+        distance: 145.00,
+        esi:0,
+        discYear:2008,
+        radius: 25,
         starDistance: 200,
        
       }, ]
@@ -35,28 +35,28 @@ export const SolarSystems= [
       }as Star,
 
      {
-        Name:"GJ 180",
-        Type: resource.red,
-        Img:{uri:redIcon},
-        HabZoneMin:120,
-        HabZoneMax :300,
-        Radius:60,
-        Constellation:83,
-        Planets:[{Name:"GJ 180 b",
-        Img:  {uri:jovanbase64Icon},
-        Type: resource.superEarth,
-        Distance: 11.69,
-        Esi:0.7,
-        DiscYear: 2014,
-        Radius: 15,
+        name:"GJ 180",
+        type: resource.red,
+        img:{uri:redIcon},
+        habZoneMin:120,
+        habZoneMax :300,
+        radius:60,
+        constellation:83,
+        planets:[{name:"GJ 180 b",
+        img:  {uri:jovanbase64Icon},
+        type: resource.superEarth,
+        distance: 11.69,
+        esi:0.7,
+        discYear: 2014,
+        radius: 15,
         starDistance: 150,
-      } , {Name:"GJ 180 c",
-        Img:  {uri:terranbase64Icon},
-        Type: resource.superEarth,
-        Distance: 11.69,
-        Esi:0.7,
-        DiscYear: 2014,
-        Radius: 25,
+      } , {name:"GJ 180 c",
+        img:  {uri:terranbase64Icon},
+        type: resource.superEarth,
+        distance: 11.69,
+        esi:0.7,
+        discYear: 2014,
+        radius: 25,
         starDistance: 600,
 
       }]

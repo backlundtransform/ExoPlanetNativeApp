@@ -42,8 +42,10 @@ async search(query:string){
 }
 render() {
   const {planets,navigation,getData} =this.props
+  console.log(planets);
   const {loading} =this.state
-  
+
+
     return (
       <Container style={styles.listView}>
         <Content ><Search search={(value)=>this.search(value)}/>
@@ -56,7 +58,7 @@ render() {
                    <Svg
              height="80" 
              width="80" 
-       >      { Gradient(item.Star)}
+       >      { Gradient(item.star)}
     <G>
     <Defs>
         <ClipPath id="clip">
@@ -66,22 +68,22 @@ render() {
 
     <Image
      width="100" height="100" 
-        href={item.Img} 
+        href={item.img} 
         clipPath="url(#clip)"
     />
      <Circle 
         cx="50" cy="40" r="30" 
         fillOpacity={0.6}
-        fill={`url(#${item.Type})`}/></G>
+        fill={`url(#${item.type})`}/></G>
         </Svg>
 
               </Left>
               <Body>
-                <Text style={styles.listTitle}>{item.Name}</Text>
-                <Text style={styles.listText}>{`${item.Type}, ${item.Distance} ${resource.from}`} </Text>
+                <Text style={styles.listTitle}>{item.name}</Text>
+                <Text style={styles.listText}>{`${item.type}, ${item.distance} ${resource.from}`} </Text>
               </Body>
               <Right>
-                <Text style={styles.listText}> {item.DiscYear}</Text>
+                <Text style={styles.listText}> {item.discYear}</Text>
               </Right>
             </ListItem>
             }>

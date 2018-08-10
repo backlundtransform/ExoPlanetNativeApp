@@ -57,7 +57,7 @@ RotateY=(cy:number,ry:number)=>{
 
 navigateToPlanet=(planet:any)=>{
 
-this.props.navigation.navigate('infopages', {planet:PlanetList.find(p=>p.Name==planet.Name)})
+this.props.navigation.navigate('infopages', {planet:PlanetList.find(p=>p.name==planet.Name)})
    }
   render() {
 
@@ -65,9 +65,9 @@ const {star}= this.state
 let {height} = Dimensions.get('window');
 
 
-let width =star.Planets[star.Planets.length-1].starDistance*2
+let width =star.planets[star.planets.length-1].starDistance*2
 
-width =(width>star.HabZoneMax*2?width:star.HabZoneMax*2)+star.Planets[star.Planets.length-1].Radius*2
+width =(width>star.habZoneMax*2?width:star.habZoneMax*2)+star.planets[star.planets.length-1].radius*2
  height =height > width*0.3?height: width*0.3
     return (
    
@@ -99,13 +99,13 @@ width =(width>star.HabZoneMax*2?width:star.HabZoneMax*2)+star.Planets[star.Plane
 
  
       
-   <Path   d={`M${width/2-star.Radius},${height/2} a1,1 0 0,0 ${star.Radius*2},0`}   fill={`url(#Star-${star.Type})`} />
+   <Path   d={`M${width/2-star.radius},${height/2} a1,1 0 0,0 ${star.radius*2},0`}   fill={`url(#Star-${star.type})`} />
 
    <Ellipse
 cx={width/2}
 cy={height/2}
-rx={star.HabZoneMax}
-ry={star.HabZoneMax * 0.3}
+rx={star.habZoneMax}
+ry={star.habZoneMax * 0.3}
 stroke="blue"
 strokeWidth="1"
 fillOpacity="0"
@@ -114,17 +114,17 @@ fillOpacity="0"
    <Ellipse
 cx={width/2}
 cy={height/2}
-rx={star.HabZoneMin}
-ry={star.HabZoneMin * 0.3}
+rx={star.habZoneMin}
+ry={star.habZoneMin * 0.3}
 stroke="red"
 strokeWidth="1"
 fillOpacity="0"
 />
 
-  {star.Planets.map((p,index)=>{ return (<G key={index} >
+  {star.planets.map((p,index)=>{ return (<G key={index} >
     <ClipPath  key={`path- ${index}`}
-      id={p.Name}>
-      <Circle cx={ this.RotateX(width/2 ,p.starDistance)} cy={ this.RotateY(height/2,p.starDistance * 0.3)} r={p.Radius}
+      id={p.name}>
+      <Circle cx={ this.RotateX(width/2 ,p.starDistance)} cy={ this.RotateY(height/2,p.starDistance * 0.3)} r={p.radius}
        />
 		</ClipPath>
 <Image 
@@ -132,30 +132,30 @@ fillOpacity="0"
     x={ this.RotateX(width/2-50 ,p.starDistance)} y={ this.RotateY(height/2-50,p.starDistance * 0.3)} 
     width="100"
     height="100"
-    href={p.Img}
-    clipPath={`url(#${p.Name})`} 
+    href={p.img}
+    clipPath={`url(#${p.name})`} 
 />
 <Text
         key={`text- ${index}`}
-        x={2*p.Radius+this.RotateX(width/2,p.starDistance)}
-        y={2*p.Radius+this.RotateY(height/2,p.starDistance * 0.3)}
+        x={2*p.radius+this.RotateX(width/2,p.starDistance)}
+        y={2*p.radius+this.RotateY(height/2,p.starDistance * 0.3)}
         textAnchor="middle"
         fontWeight="bold"
         fontSize="16"
         fill="white"
-    >{p.Name}</Text>
+    >{p.name}</Text>
   <Circle  key={`circle-${index}`}   
    cx={this.RotateX(width/2,p.starDistance)} 
    cy={this.RotateY(height/2,p.starDistance * 0.3)}
-   r={p.Radius}
+   r={p.radius}
    onPressIn={() => this.navigateToPlanet(p)}
    fillOpacity={0.6}
-   fill={`url(#${p.Type})`}/>
+   fill={`url(#${p.type})`}/>
   
 </G>
   )})}
 
-  <Path    d={`M${width/2+star.Radius},${height/2} a1,1 0 0,0  ${star.Radius*-2},0`}   fill={`url(#Startop-${star.Type})`}/>
+  <Path    d={`M${width/2+star.radius},${height/2} a1,1 0 0,0  ${star.radius*-2},0`}   fill={`url(#Startop-${star.type})`}/>
   </SvgPanZoomElement>
         </SvgPanZoom>
         </Content>

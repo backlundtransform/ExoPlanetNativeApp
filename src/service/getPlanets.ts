@@ -7,197 +7,213 @@ export interface SearchPageState {mass:string, comp:string,atmos:string,disc:str
 
 export interface filter{Key:string, MaxValue:number, MinValue:number, Name:string}
 export interface Planet{
-  Name :string
-  Img: any
-  Period:number
-  Hzd:number
-  Hzc :number
-  Hza:number
-  Hzi :number
-  Type: string
-  Comp:number
-  Atmosphere:number
-  MeanDistance:number
-  Distance: number
-  Esi:number
-  Sph:number
-  DiscYear:number,
-  DiscMethod:number,
-  Radius?:number
-  Coordinate?: any
+  name :string
+  img: any
+  period:number
+  hzd:number
+  hzc :number
+  hza:number
+  hzi :number
+  type: string
+  comp:number
+  atmosphere:number
+  meanDistance:number
+  distance: number
+  esi:number
+  sph:number
+  discYear:number,
+  discMethod:number,
+  radius?:number
+  coordinate?: any
   starDistance: number,
-  Star?: Star
-  Temp?:number
-  TempMin?:number
-  Mass?:number,
-  Density?:number,
-  Gravity?:number,
-  SurfacePressure?:number,
-  EscapeVelocity?:number,
-  MassType?:number
-  TempMax?:number
-  TempZone?:number
+  star?: Star
+  temp?:number
+  tempMin?:number
+  mass?:number,
+  density?:number,
+  gravity?:number,
+  surfacePressure?:number,
+  escapeVelocity?:number,
+  massType?:number
+  tempMax?:number
+  tempZone?:number
  
-  Hab?:boolean
-  Moons:true
+  hab?:boolean
+ moons:true
 }
 
 export interface Star{
-  Name :string
-  Img: any
-  Type: string
-  Color?:number
-  Luminosity?:number
-  Magnitude?:number
-  Constellation?:number
-  HabZoneMin?:number
-  HabZoneMax? :number
-  Mass?: number
-  Age?:number
-  Temp?:number
-  Planets?: Array<Planet>
-  NoHabPlanets?: number
-  NoPlanets?: number
-  Radius?:number
+  name :string
+  img: any
+  type: string
+  color?:number
+  luminosity?:number
+  magnitude?:number
+  constellation?:number
+  habZoneMin?:number
+  habZoneMax? :number
+  mass?: number
+  age?:number
+  temp?:number
+  planets?: Array<Planet>
+  noHabPlanets?: number
+  noPlanets?: number
+  radius?:number
 }
 export const PlanetList= [{
-  Name:"1RXS 1609 b",
-  Img: {uri:jovanbase64Icon},
-  Type: resource.hotJovian,
-  MassType:0,
+  name:"1RXS 1609 b",
+  img: {uri:jovanbase64Icon},
+  type: resource.hotJovian,
+ massType:0,
 
-  Distance: 145.00,
-  Temp:-100,
-  Esi:0,
-  Sph:0,
-  Period:100,
-  DiscMethod:1,
-  Hzd:1,
-  Hzc :1,
-  Hza:1,
-  Hzi :1,
-  MeanDistance:2,
-  Atmosphere:1,
- TempMin:-200,
- Mass:2,
- Density:3,
- Gravity:3,
- SurfacePressure:1,
- EscapeVelocity:2,
+  distance: 145.00,
+  temp:-100,
+  esi:0,
+  sph:0,
+  period:100,
+  discMethod:1,
+  hzd:1,
+  hzc :1,
+  hza:1,
+  hzi :1,
+  meanDistance:2,
+  atmosphere:1,
+tempMin:-200,
+ mass:2,
+ density:3,
+ gravity:3,
+ surfacePressure:1,
+ escapeVelocity:2,
 
- TempMax:0,
+tempMax:0,
 
-  Comp: 0,
-  Hab:false,
-  Moons:true,
-  DiscYear:2008,
-  Star:{
-    Name:"1RXS 1609",
-    Type: resource.orange,
-    Color:2,
-    Luminosity:5,
-    Magnitude:1,
-    Img:{uri:orangeIcon},
-    Constellation:1,
-    NoHabPlanets:0,
-    NoPlanets:1
+  comp: 0,
+  hab:false,
+  moons:true,
+  discYear:2008,
+  star:{
+    name:"1RXS 1609",
+    type: resource.orange,
+    color:2,
+    luminosity:5,
+    magnitude:1,
+    img:{uri:orangeIcon},
+    constellation:1,
+    noHabPlanets:0,
+    noPlanets:1
   }
 } , {
-  Name:"GJ 180 c",
-  Img:  {uri:terranbase64Icon},
-  Type: resource.superEarth,
-  MassType:2,
-  Distance: 11.69,
-  Atmosphere:0,
-  Temp:0,
-  TempMin:-200,
+  name:"GJ 180 c",
+  img:  {uri:terranbase64Icon},
+ type: resource.superEarth,
+  massType:2,
+  distance: 11.69,
+  atmosphere:0,
+  temp:0,
+  tempMin:-200,
 
 
-  TempMax:100,
-  Comp:2,
-  Esi:0.7,
-  Sph:0.4,
-  Period:200,
-  Hzd:2,
-  Hzc :2,
-  Hza:1,
-  Hzi :1,
-  Mass:10,
-  Density:2,
-  Gravity:2,
-  SurfacePressure:1,
-  EscapeVelocity:2,
-  MeanDistance:0.4,
-  Hab:true,
-  Moons:false,
-  DiscYear: 2014,
-  DiscMethod:2,
-  Coordinate:{  latitude:51,longitude:0 },
-  Star:{
-    Name:"GJ 180",
-    Type: resource.red,
-    Img:{uri:redIcon},
-    Constellation:1,
-    Color:3,
-    Luminosity:5,
-    Magnitude:1,
-    Mass: 2,
-    Age:1000,
-    Temp:3000,
-    Radius:1,
-    NoHabPlanets:1,
-    NoPlanets:2
+  tempMax:100,
+  comp:2,
+  esi:0.7,
+  sph:0.4,
+  period:200,
+  hzd:2,
+  hzc :2,
+  hza:1,
+  hzi :1,
+  mass:10,
+  density:2,
+  gravity:2,
+  surfacePressure:1,
+  escapeVelocity:2,
+  meanDistance:0.4,
+  hab:true,
+  moons:false,
+  discYear: 2014,
+  discMethod:2,
+  coordinate:{  latitude:51,longitude:0 },
+  star:{
+    name:"GJ 180",
+    type: resource.red,
+    img:{uri:redIcon},
+    constellation:1,
+    color:3,
+    luminosity:5,
+    magnitude:1,
+    mass: 2,
+    age:1000,
+    temp:3000,
+    radius:1,
+    noHabPlanets:1,
+    noPlanets:2
   }
-},{Name:"GJ 180 b",
-Img:  {uri:jovanbase64Icon},
-Type: resource.hotJovian,
-MassType:0,
-Comp:1,
-Distance: 11.69,
-Esi:0,
-Period:20,
-Hzd:1,
-Hzc :1,
-Hza:2,
-Hzi :2,
-Atmosphere:0,
-MeanDistance:10,
-Temp:100,
-TempMin:-100,
-Mass:6,
-Density:7,
-Gravity:7,
-SurfacePressure:6,
-EscapeVelocity:2,
+},{name:"GJ 180 b",
+img:  {uri:jovanbase64Icon},
+type: resource.hotJovian,
+massType:0,
+comp:1,
+distance: 11.69,
+esi:0,
+period:20,
+hzd:1,
+hzc :1,
+hza:2,
+hzi :2,
+atmosphere:0,
+meanDistance:10,
+temp:100,
+tempMin:-100,
+mass:6,
+density:7,
+gravity:7,
+surfacePressure:6,
+escapeVelocity:2,
 
-TempMax:200,
-Sph:0,
-Hab:false,
-Moons:true,
-DiscYear: 2014,
-Radius: 15,
+tempMax:200,
+sph:0,
+hab:false,
+moons:true,
+discYear: 2014,
+radius: 15,
 
 starDistance: 150,
-Star:{
-  Name:"GJ 180",
-  Type: resource.red,
-  Img:{uri:redIcon},
-  Constellation:1,
-  Color:4,
-  Luminosity:5,
-  Magnitude:0,
-  Mass: 3,
-  Age:4000000,
-  Temp:100000,
-  Radius:2,
-  NoHabPlanets:1,
-  NoPlanets:2
+star:{
+  name:"GJ 180",
+  type: resource.red,
+  img:{uri:redIcon},
+  constellation:1,
+  color:4,
+  luminosity:5,
+  magnitude:0,
+  mass: 3,
+  age:4000000,
+  temp:100000,
+  radius:2,
+  noHabPlanets:1,
+  noPlanets:2
 }
 } ] as Array<Planet> 
 
+ export const GetPlanetListAsync=   (filter:filter, filterstate:any) => {
 
-export const GetPlanetList= (filter:filter, filterstate:any) => {  
-  let planetsfilter = PlanetList
+  const planetList =   fetch('http://exoplanets.azurewebsites.net/api/Planets/ExoPlanets')
+  .then((response) => {
+    return response.json();
+  })
+  .then((myJson):Array<Planet> =>  {
+
+    return myJson as Array<Planet> 
+
+  });
+
+  return  planetList;
+ }
+
+export const GetPlanetList=  (filter:filter, filterstate:any) => {  
+  let planetsfilter = []
+
+
 
   if(filterstate.filter!==undefined)
   { 
@@ -211,32 +227,32 @@ export const GetPlanetList= (filter:filter, filterstate:any) => {
 
   const lightyearsindex = resource.lightyearsearch.indexOf(currentfilter.lightyears)
 if(compindex>-1){
-  planetsfilter =  planetsfilter.filter(p=>p.Comp===compindex) 
+  planetsfilter =  planetsfilter.filter(p=>p.comp===compindex) 
 }
 
 if(massindex>-1){
-  planetsfilter =  planetsfilter.filter(p=>p.MassType=== massindex) 
+  planetsfilter =  planetsfilter.filter(p=>p.massType=== massindex) 
 }
 
 if(atmosindex>-1){
-  planetsfilter =  planetsfilter.filter(p=>p.Atmosphere===atmosindex) 
+  planetsfilter =  planetsfilter.filter(p=>p.atmosphere===atmosindex) 
 }
 if(tempindex>-1){
-  planetsfilter =  planetsfilter.filter(p=>p.TempZone===tempindex) 
+  planetsfilter =  planetsfilter.filter(p=>p.tempZone===tempindex) 
 }
 
   switch(lightyearsindex) {
        case 0:
-        planetsfilter =  planetsfilter.filter(p=>p.Distance< 20) 
+        planetsfilter =  planetsfilter.filter(p=>p.distance< 20) 
         break;
         case 1:
-         planetsfilter =  planetsfilter.filter(p=>p.Distance< 200) 
+         planetsfilter =  planetsfilter.filter(p=>p.distance< 200) 
         break;
          case 2:
         planetsfilter =  planetsfilter.filter(p=>p.Distance< 2000) 
         break;
         case 3:
-        planetsfilter =  planetsfilter.filter(p=>p.Distance< 20000) 
+        planetsfilter =  planetsfilter.filter(p=>p.distance< 20000) 
         break;
   }  
 }
@@ -248,6 +264,7 @@ if(tempindex>-1){
    {
     return planetsfilter.filter(p=>p.Name.search(filter.Name)!==-1)
    }
-   return planetsfilter.filter(p=>filter.MinValue!==undefined ? (p[filter.Key]>filter.MinValue && p[filter.Key]<filter.MaxValue 
-    && p.Hab==true):filter.Key==="Moons"?  p.Moons==true:p.Hab==true)
+   return planetsfilter.filter(p=>filter.MinValue!==undefined ? (p[filter.Key.toLowerCase()]>filter.MinValue && p[filter.Key.toLowerCase()]<filter.MaxValue 
+    && p.hab==true):filter.Key.toLowerCase()==="moons"?  p.moons==true:p.hab==true)
+ 
   }

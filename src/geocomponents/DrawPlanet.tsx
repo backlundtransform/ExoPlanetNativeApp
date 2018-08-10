@@ -35,11 +35,11 @@ export default class DrawPlanet extends React.PureComponent<DrawPlanetsProps,any
     }
 
     render() {
-        return (<React.Fragment>{PlanetList.filter(p=>p.Esi>=0.7 && p.Coordinate!==undefined).map((planet,index) =>  (
+        return (<React.Fragment>{PlanetList.filter(p=>p.esi>=0.7 && p.coordinate!==undefined).map((planet,index) =>  (
             <Marker
-              key={planet.Name}
-              coordinate={planet.Coordinate}
-              title={planet.Name}
+              key={planet.name}
+              coordinate={planet.coordinate}
+              title={planet.name}
              image={require('../images/marker.png')}
              onPress={p=> this.navigateToPlanet(planet)}
              />))}</React.Fragment>)

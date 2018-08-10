@@ -34,7 +34,7 @@ render() {
         <Content >
           <List dataArray={this.state.starlist}
             renderRow={(item) =>
-              <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('d3view', {Star:item})}>
+              <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('d3view', {star:item})}>
              <Left>
              <Svg
             height="100" 
@@ -44,11 +44,11 @@ render() {
      <Circle 
   cx="50" cy="50" r="60" 
  
-   fill={`url(#${item.Type})`}/></G>
+   fill={`url(#${item.type})`}/></G>
 </Svg>
               </Left>
               <Body>
-                <Text style={styles.listTitle}>{item.Name}</Text>
+                <Text style={styles.listTitle}>{item.name}</Text>
             
               </Body>
             </ListItem>

@@ -15,8 +15,9 @@ import {
   StackNavigator,
 } from 'react-navigation';
 
-
 class App extends React.Component {
+
+  
   render() {
     return (<Provider store={store}>
  <AppNavigator/></Provider>
