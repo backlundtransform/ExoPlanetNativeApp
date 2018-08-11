@@ -3,12 +3,12 @@ export const SEARCH_FILTER = 'SEARCH_FILTER';
 
 import {PlanetList,GetPlanetListAsync,GetPlanetList,filter,Planet,SearchPageState} from '../../service/getPlanets';
 
-export  const getData=(filter:filter)=>{
+export  const getData=(filter:filter, top:number)=>{
     return (dispatch, getState) => {
 
-        
-        GetPlanetListAsync(filter,getState().searchReducer).then((planets)=>{
-             console.log(planets)
+        console.log(top)
+        GetPlanetListAsync(filter,getState().searchReducer, top).then((planets)=>{
+             
                 dispatch({type: PLANETS_AVAILABLE, planets:planets});
 
              });

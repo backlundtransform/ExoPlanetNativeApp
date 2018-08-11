@@ -46,12 +46,12 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
    fill={`url(#${planet.type})`}/></G>
 </Svg>
 <Text style={styles.listText}></Text>
-              <Text style={styles.listText}>{`${resource.planetname[0]} ${planet.name} ${resource.planetname[1]}  ${planet.star.name}  ${resource.planetname[2]} ${resource.const[planet.star.constellation-1]&&resource.const[planet.star.constellation-1]}` } {`${resource.decFormatdist[0]}${planet.Distance} ${resource.decFormatdist[1]} ` }</Text>
+              <Text style={styles.listText}>{`${resource.planetname[0]} ${planet.name} ${resource.planetname[1]}  ${planet.star.name}  ${resource.planetname[2]} ${resource.const[planet.star.constellation-1]===undefined?"":resource.const[planet.star.constellation-1]}` } {`${resource.decFormatdist[0]}${planet.distance!==0?Math.round(planet.distance):""} ${resource.decFormatdist[1]} ` }</Text>
             
                    <Text style={styles.listText}> </Text>
             
-                 <Text style={styles.listText}>{resource.massInfo[planet.massType]&&resource.massInfo[planet.massType]} </Text>
-                 <Text style={styles.listText}>{resource.compInfo[planet.comp]&&resource.compInfo[planet.comp]} </Text>
+                 <Text style={styles.listText}>{resource.massInfo[planet.massType]===undefined?"":resource.massInfo[planet.massType]} </Text>
+                 <Text style={styles.listText}>{resource.compInfo[planet.comp]===undefined?"":resource.compInfo[planet.comp]} </Text>
          
                  <Text style={styles.listText}> </Text>
                  <Text style={styles.listText}> </Text>
@@ -59,8 +59,9 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
                 <Text style={styles.listText}>{`${resource.orbit[0]} ${planet.period} ${resource.orbit[1]} ${resource.decMean[0]} ${planet.meanDistance} ${resource.decMean[1]}`}</Text>
        
                <Text style={styles.listText}></Text>
-               <Text style={styles.listText}>{`${resource.hzd[planet.hzd]&&resource.hzd[planet.hzd]} ${resource.hza[planet.hza]&&resource.hza[planet.hza]} ${resource.atmosinfo[planet.atmosphere] &&resource.atmosinfo[planet.atmosphere]}  ${planet.moon ? resource.moon:"" }`}</Text>
-               <Text style={styles.listText}>{`${planet.discYear&&resource.disc} ${planet.discYear&&planet.discYear}. ${resource.discinfo[planet.discMethod]&&resource.discinfo[planet.discMethod]}`}</Text>
+               <Text style={styles.listText}>{`${resource.hzd[planet.hzd]===undefined?"":resource.hzd[planet.hzd]+" "}${resource.hza[planet.hza]===undefined?"":resource.hza[planet.hza]+" "}${resource.atmosinfo[planet.atmosphere] ===undefined?"":resource.atmosinfo[planet.atmosphere]+" "}${planet.moon ? resource.moon:"" }`}</Text>
+               <Text style={styles.listText}>{`${planet.discYear===undefined?"":resource.disc} ${planet.discYear===undefined?"":planet.discYear}.`}</Text>
+               <Text style={styles.listText}>{`${resource.discinfo[planet.discMethod]===undefined?"":resource.discinfo[planet.discMethod]}`}</Text>
              <Text style={styles.listText}></Text>
                <Text style={styles.listText}></Text>
                <Text style={styles.habTitle}>{resource.esiratings}</Text>
@@ -70,23 +71,23 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
 
    <Text style={styles.listText}></Text>
                <Text style={styles.listText}></Text><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.mass&&<Text style={styles.listText}>{`${resource.planetinfo[0]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.mass&&<Text style={styles.listText}>{`${planet.mass}*${resource.earth }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.mass===undefined?"":<Text style={styles.listText}>{`${resource.planetinfo[0]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.mass===undefined?"":<Text style={styles.listText}>{`${planet.mass}*${resource.earth }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.radius&&<Text style={styles.listText}>{`${resource.planetinfo[1]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.radius&&<Text style={styles.listText}>{`${planet.Radius}*${resource.earth }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.radius===undefined?"":<Text style={styles.listText}>{`${resource.planetinfo[1]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.radius===undefined?"":<Text style={styles.listText}>{`${planet.radius}*${resource.earth }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.density&&<Text style={styles.listText}>{`${resource.planetinfo[2]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.density&&<Text style={styles.listText}>{`${planet.density}*${resource.earth }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.density===undefined?"":<Text style={styles.listText}>{`${resource.planetinfo[2]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.density===undefined?"":<Text style={styles.listText}>{`${planet.density}*${resource.earth }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.gravity&&<Text style={styles.listText}>{`${resource.planetinfo[3]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.gravity&&<Text style={styles.listText}>{`${planet.gravity}*${resource.earth }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.gravity===undefined?"":<Text style={styles.listText}>{`${resource.planetinfo[3]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.gravity===undefined?"":<Text style={styles.listText}>{`${planet.gravity}*${resource.earth }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.surfacePressure&&<Text style={styles.listText}>{`${resource.planetinfo[4]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.surfacePressure&&<Text style={styles.listText}>{`${planet.surfacePressure}*${resource.earth }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.surfacePressure===undefined?"":<Text style={styles.listText}>{`${resource.planetinfo[4]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.surfacePressure===undefined?"":<Text style={styles.listText}>{`${planet.surfacePressure}*${resource.earth }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.escapeVelocity&&<Text style={styles.listText}>{`${resource.planetinfo[5]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.escapeVelocity&&<Text style={styles.listText}>{`${planet.escapeVelocity}*${resource.earth }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.escapeVelocity===undefined?"":<Text style={styles.listText}>{`${resource.planetinfo[5]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.escapeVelocity===undefined?"":<Text style={styles.listText}>{`${planet.escapeVelocity}*${resource.earth }`}</Text>}</View>
               </View>
                 <Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text>

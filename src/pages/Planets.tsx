@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {AppRegistry, StyleSheet, View} from 'react-native';
+import {AppRegistry, StyleSheet, View, ScrollView} from 'react-native';
 import { Container, Header, Picker,Title, Content,Thumbnail, List, Button, Left, Right, Body, Icon, Text, ListItem, Spinner,Item,Input } from 'native-base';
 import{resource} from '../config/Resource'
 import{filter,GetPlanetList,Planet,PlanetList } from '../service/getPlanets'
@@ -12,18 +12,19 @@ import {Gradient} from '../styles/radialgradients'
 import Svg,{Circle,G,ClipPath,Path,Rect,Image, Use,Defs,} from 'react-native-svg';
 
 interface PlanetsProps{navigation:any, getData:any,planets: Array<Planet>, loading:boolean}
-interface  PlanetsPropsState {loading:boolean}
+interface  PlanetsPropsState {loading:boolean, top: number}
+
 class Planets extends React.Component<PlanetsProps, PlanetsPropsState> {
   constructor(props) {
     super(props);
-    this.state = {loading:true}
+    this.state = {loading:true, top: 100}
 
   }
 async componentDidMount() {
   const {getData,planets,navigation,loading} =this.props
   const filter = navigation.state.params
 
-   await getData(navigation.state.params)
+   await getData(navigation.state.params,100)
 
    if(navigation.state.routeName=== "planets" && planets.length>0 ){
     this.setState({loading:loading})
@@ -35,20 +36,38 @@ componentWillReceiveProps(nextProps){
   this.setState({loading:nextProps.loading})
 
 }
+isCloseToBottom = ({layoutMeasurement, contentOffset, contentSize}) => {
+  const paddingToBottom = 20;
+  return layoutMeasurement.height + contentOffset.y >=
+    contentSize.height - paddingToBottom;
+};
+onScrollEnd=async (nativeEvent:any)=>{
 
+ 
+  if (this.isCloseToBottom(nativeEvent)) {
+    const {getData,planets,navigation,loading} =this.props
+   
+  const top=this.state.top+100; 
+
+     await getData(navigation.state.params,top)
+this.setState({top}, ()=>this.refs._scrollView.scrollTo({y:0,x:0, animated:true}))
+  }
+
+}
 async search(query:string){
 
   await this.props.getData({Name:query} as filter)
 }
 render() {
   const {planets,navigation,getData} =this.props
-  console.log(planets);
+
   const {loading} =this.state
 
 
     return (
-      <Container style={styles.listView}>
-        <Content ><Search search={(value)=>this.search(value)}/>
+      <Container>
+       <Search search={(value)=>this.search(value)}/>
+       <ScrollView style= {styles.container} ref='_scrollView' onScroll={({nativeEvent})=>this.onScrollEnd(nativeEvent)} >
             {loading?(<Spinner color="#c6d4ff" />):(<List dataArray={planets}
             renderRow={(item) =>
               <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('infopages', {planet:item})}>
@@ -80,14 +99,14 @@ render() {
               </Left>
               <Body>
                 <Text style={styles.listTitle}>{item.name}</Text>
-                <Text style={styles.listText}>{`${item.type}, ${item.distance} ${resource.from}`} </Text>
+                <Text style={styles.listText}>{`${item.type !== null?item.type+",  ":""  } ${item.distance !== 0?Math.round(item.distance):""} ${item.distance !== null?resource.from:""}`} </Text>
               </Body>
               <Right>
-                <Text style={styles.listText}> {item.discYear}</Text>
+                <Text style={styles.listText}> {item.discYear !== null?item.discYear:"" }</Text>
               </Right>
             </ListItem>
             }>
-          </List>)}</Content>
+          </List>)}</ScrollView >
       </Container>    
 
     );
