@@ -18,12 +18,11 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
       }
 
     
-    
   render() {
     const {planet, color}= this.props.navigation.state.params
 
   
-    console.log(color)
+    console.log(planet.img.uri)
     return (
       <View style={{ flex:1}}>
       <ScrollView  style={styles.infoMainContent}>   
@@ -34,17 +33,17 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
     <G>
     <Defs>
         <ClipPath id="clip">
-            <Circle cx="150" cy="130" r="120"  />
+            <Circle cx="150" cy="130" r="100"  />
         </ClipPath>
     </Defs>
 
     <Image
-     width="300" height="300" 
+     width="300" height="250" 
         href={{uri:  color}} 
         clipPath="url(#clip)"
     />
     <Circle 
-  cx="150" cy="130" r="120" 
+  cx="150" cy="130" r="100" 
    fillOpacity={0.4}
    fill={`url(#${planet.img.uri})`}/></G>
 </Svg>
