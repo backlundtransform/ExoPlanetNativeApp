@@ -63,13 +63,13 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
      <Circle 
       cx="150" cy="130" r="120" 
  
-      fill={`url(#${planet.star.type})`}/></G>
+      fill={`url(#${resource.color[planet.star.color-1]})`}/></G>
     </Svg>
              
               <Body>
               <Text style={styles.listText}></Text>
               <Text style={styles.listText}>{`${resource.starname[0]} ${planet.star.name} ${resource.starname[1]} ${resource.const[planet.star.constellation-1]&&resource.const[planet.star.constellation-1]}.` } {`${planet.star.luminosity===12?resource.startype[0]: resource.startype[1] +
-                ' '+ resource.color[planet.star.color-1] } ${resource.mag[planet.star.magnitude-1]} ` }</Text>
+                ' '+ resource.color[planet.star.color-1] } ${resource.mag[planet.star.magnitude-1]&&resource.mag[planet.star.magnitude-1]} ` }</Text>
             
                    <Text style={styles.listText}> </Text>
             

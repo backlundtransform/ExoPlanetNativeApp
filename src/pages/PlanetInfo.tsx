@@ -73,23 +73,23 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
 
    <Text style={styles.listText}></Text>
                <Text style={styles.listText}></Text><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.mass===undefined?"":<Text style={styles.listText}>{`${resource.planetinfo[0]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.mass===undefined?"":<Text style={styles.listText}>{`${planet.mass}*${resource.earth }`}</Text>}</View>
+               <View style={styles.infotext} >{planet.mass==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.planetinfo[0]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.mass==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.mass}*${resource.earth }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.radius===undefined?"":<Text style={styles.listText}>{`${resource.planetinfo[1]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.radius===undefined?"":<Text style={styles.listText}>{`${planet.radius}*${resource.earth }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.radius==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.planetinfo[1]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.radius==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.radius}*${resource.earth }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.density===undefined?"":<Text style={styles.listText}>{`${resource.planetinfo[2]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.density===undefined?"":<Text style={styles.listText}>{`${planet.density}*${resource.earth }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.density==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.planetinfo[2]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.density==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.density}*${resource.earth }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.gravity===undefined?"":<Text style={styles.listText}>{`${resource.planetinfo[3]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.gravity===undefined?"":<Text style={styles.listText}>{`${planet.gravity}*${resource.earth }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.gravity==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.planetinfo[3]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.gravity==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.gravity}*${resource.earth }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.surfacePressure===undefined?"":<Text style={styles.listText}>{`${resource.planetinfo[4]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.surfacePressure===undefined?"":<Text style={styles.listText}>{`${planet.surfacePressure}*${resource.earth }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.surfacePressure==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.planetinfo[4]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.surfacePressure==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.surfacePressure}*${resource.earth }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.escapeVelocity===undefined?"":<Text style={styles.listText}>{`${resource.planetinfo[5]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.escapeVelocity===undefined?"":<Text style={styles.listText}>{`${planet.escapeVelocity}*${resource.earth }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.escapeVelocity==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.planetinfo[5]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.escapeVelocity==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.escapeVelocity}*${resource.earth }`}</Text>}</View>
               </View>
                 <Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text>

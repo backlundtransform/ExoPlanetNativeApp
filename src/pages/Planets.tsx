@@ -69,8 +69,6 @@ render() {
 
   let {loading,color} =this.state
 
-
-
     return (
       <Container>
        <Search search={(value)=>this.search(value)}/>
@@ -99,14 +97,15 @@ render() {
     />
      <Circle 
         cx="50" cy="40" r="30" 
-        fillOpacity={0.6}
+        fillOpacity={0.3}
         fill={`url(#${item.img.uri})`}/></G>
         </Svg>
 
               </Left>
               <Body>
                 <Text style={styles.listTitle}>{item.name}</Text>
-                <Text style={styles.listText}>{`${item.type !== null?item.type+",  ":""  } ${item.distance !== 0?Math.round(item.distance):""} ${item.distance !== null?resource.from:""}`} </Text>
+                <Text style={styles.listText}>{`${item.type&&item.type !== null?item.type:""}`}</Text>
+                <Text style={styles.listText}>{`${item.distance !== 0?Math.round(item.distance):""} ${item.distance !== 0?resource.from:""}`} </Text>
               </Body>
               <Right>
                 <Text style={styles.listText}> {item.discYear !== null?item.discYear:"" }</Text>

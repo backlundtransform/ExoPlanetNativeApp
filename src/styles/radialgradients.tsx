@@ -51,47 +51,57 @@ export const Gradient =(star:Star)=>(<Defs> <RadialGradient id={"jovian"}
 <RadialGradient id={"coldstone"}
   gradientUnits="objectBoundingBox" fx="30%" fy="30%">
   <Stop offset="0%" stopColor="#FFFFFF" />
-  <Stop offset="30%" stopColor="#80BD9E" />
+  <Stop offset="30%" stopColor="#09f751" />
   <Stop offset="100%" stopColor="#4C7B95" />
 </RadialGradient>
 <RadialGradient id={"neptunian"}
   gradientUnits="objectBoundingBox" fx="30%" fy="30%">
   <Stop offset="0%" stopColor="#FFFFFF" />
-  <Stop offset="30%" stopColor="#80BD9E" />
+  <Stop offset="30%" stopColor="#b7c8ff" />
   <Stop offset="100%" stopColor="#4C7B95" />
 </RadialGradient>
 <RadialGradient id={"superearth"}
   gradientUnits="objectBoundingBox" fx="30%" fy="30%">
   <Stop offset="0%" stopColor="#FFFFFF" />
-  <Stop offset="30%" stopColor="#80BD9E" />
+  <Stop offset="30%" stopColor="#09f751" />
   <Stop offset="100%" stopColor="#4C7B95" />
 </RadialGradient>< RadialGradient id={`Star-${resource.red}`}   cx="70" cy="5" r={ star.radius*2} fx="25" fy="25">
 <Stop offset="10%" stopColor="#ff6a00"/>
  <Stop offset="50%" stopColor="red"/>
  <Stop offset="70%" stopColor="black"/>
 </ RadialGradient>
-< RadialGradient id={`Startop-${resource.red}`}   cx="70" cy="70" r={ star.radius*2} fx="25" fy="25">
+< RadialGradient id={`Startop-${resource.color[3]}`}   cx="70" cy="70" r={ star.radius*2} fx="25" fy="25">
  <Stop offset="10%" stopColor="#ff6a00"/>
  <Stop offset="50%" stopColor="red"/>
  <Stop offset="70%" stopColor="black"/>   
 </ RadialGradient>
-< RadialGradient id={`Star-${resource.orange}`}   cx="70" cy="5" r={ star.radius*2} fx="25" fy="25">
+< RadialGradient id={`Star-${resource.color[3]}`}   cx="70" cy="5" r={ star.radius*2} fx="25" fy="25">
 <Stop offset="10%" stopColor="#ff6a00"/>
  <Stop offset="50%" stopColor="orange"/>
  <Stop offset="70%" stopColor="black"/>
 </ RadialGradient>
-< RadialGradient id={`Startop-${resource.orange}`}   cx="70" cy="70" r={ star.radius*2} fx="25" fy="25">
+< RadialGradient id={`Startop-${resource.color[2]}`}   cx="70" cy="70" r={ star.radius*2} fx="25" fy="25">
  <Stop offset="10%" stopColor="#ff6a00"/>
  <Stop offset="50%" stopColor="orange"/>
  <Stop offset="70%" stopColor="black"/>   
-</ RadialGradient>< RadialGradient id={`${resource.red}`} gradientUnits="objectBoundingBox" fx="30%" fy="30%">
+</ RadialGradient>< RadialGradient id={`${resource.color[3]}`} gradientUnits="objectBoundingBox" fx="30%" fy="30%">
  <Stop offset="10%" stopColor="#ff6a00"/>
  <Stop offset="50%" stopColor="red"/>
  <Stop offset="80%" stopColor="#50607a"/>   
 </ RadialGradient>
-< RadialGradient id={`${resource.orange}`}    gradientUnits="objectBoundingBox" fx="30%" fy="30%">
+< RadialGradient id={`${resource.color[2]}`}    gradientUnits="objectBoundingBox" fx="30%" fy="30%">
 <Stop offset="10%" stopColor="#ff6a00"/>
  <Stop offset="50%" stopColor="orange"/>
+ <Stop offset="80%" stopColor="#50607a"/>
+</ RadialGradient>
+< RadialGradient id={`${resource.color[1]}`}    gradientUnits="objectBoundingBox" fx="30%" fy="30%">
+<Stop offset="10%" stopColor="#b7c8ff"/>
+ <Stop offset="50%" stopColor="white"/>
+ <Stop offset="80%" stopColor="#50607a"/>
+</ RadialGradient>
+< RadialGradient id={`${resource.color[0]}`}    gradientUnits="objectBoundingBox" fx="30%" fy="30%">
+<Stop offset="10%" stopColor="#164dff"/>
+ <Stop offset="50%" stopColor="blue"/>
  <Stop offset="80%" stopColor="#50607a"/>
 </ RadialGradient>
  	</Defs>)
