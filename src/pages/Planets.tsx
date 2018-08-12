@@ -2,7 +2,7 @@ import * as React from 'react';
 import {AppRegistry, StyleSheet, View, ScrollView} from 'react-native';
 import { Container, Header, Picker,Title, Content,Thumbnail, List, Button, Left, Right, Body, Icon, Text, ListItem, Spinner,Item,Input } from 'native-base';
 import{resource} from '../config/Resource'
-import{filter,GetPlanetList,Planet,PlanetList } from '../service/getPlanets'
+import{filter,GetPlanetList,Planet,PlanetList,planetcolor,storeBase64 } from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
 import {getData} from '../redux/actions';
 import {bindActionCreators} from 'redux';
@@ -12,22 +12,24 @@ import {Gradient} from '../styles/radialgradients'
 import Svg,{Circle,G,ClipPath,Path,Rect,Image, Use,Defs,} from 'react-native-svg';
 
 interface PlanetsProps{navigation:any, getData:any,planets: Array<Planet>, loading:boolean}
-interface  PlanetsPropsState {loading:boolean, top: number}
+interface  PlanetsPropsState {loading:boolean, top: number, color: any}
 
 class Planets extends React.Component<PlanetsProps, PlanetsPropsState> {
   constructor(props) {
     super(props);
-    this.state = {loading:true, top: 100}
+    this.state = {loading:true, top: 100,color:''}
 
   }
 async componentDidMount() {
   const {getData,planets,navigation,loading} =this.props
   const filter = navigation.state.params
 
-   await getData(navigation.state.params,100)
+  let color= JSON.parse(await storeBase64())
 
+   await getData(navigation.state.params,100)
+   this.setState({color})
    if(navigation.state.routeName=== "planets" && planets.length>0 ){
-    this.setState({loading:loading})
+    this.setState({loading,color})
    }
 
 
@@ -50,7 +52,9 @@ onScrollEnd=async (nativeEvent:any)=>{
   const top=this.state.top+100; 
 
      await getData(navigation.state.params,top)
-this.setState({top}, ()=>this.refs._scrollView.scrollTo({y:0,x:0, animated:true}))
+this.setState({top}, ()=>{this.refs._scrollView.scrollTo({y:0,x:0, animated:true})
+
+})
   }
 
 }
@@ -58,10 +62,13 @@ async search(query:string){
 
   await this.props.getData({Name:query} as filter)
 }
+
+
 render() {
   const {planets,navigation,getData} =this.props
 
-  const {loading} =this.state
+  let {loading,color} =this.state
+
 
 
     return (
@@ -70,7 +77,7 @@ render() {
        <ScrollView style= {styles.container} ref='_scrollView' onScroll={({nativeEvent})=>this.onScrollEnd(nativeEvent)} >
             {loading?(<Spinner color="#c6d4ff" />):(<List dataArray={planets}
             renderRow={(item) =>
-              <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('infopages', {planet:item})}>
+              <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('infopages', {planet:item, color:color[item.img.uri]})}>
              <Left>
 
 
@@ -87,13 +94,13 @@ render() {
 
     <Image
      width="100" height="100" 
-        href={item.img} 
+        href={{uri:  color[item.img.uri]} }
         clipPath="url(#clip)"
     />
      <Circle 
         cx="50" cy="40" r="30" 
         fillOpacity={0.6}
-        fill={`url(#${item.type})`}/></G>
+        fill={`url(#${item.img.uri})`}/></G>
         </Svg>
 
               </Left>

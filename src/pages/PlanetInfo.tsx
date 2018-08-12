@@ -2,25 +2,28 @@ import * as React from 'react';
 import {AppRegistry, StyleSheet, View,ScrollView  } from 'react-native';
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text,Thumbnail, } from 'native-base';
 import{resource} from '../config/Resource'
-import{Planet} from '../service/getPlanets'
+import{Planet,storeBase64} from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
 import {Gradient} from '../styles/radialgradients'
 import RatingBar from '../components/RatingBar'
 import Svg,{Circle,G,ClipPath,Path,Image,Rect, Use,Defs,
 
 } from 'react-native-svg';
-interface PlanetProps{navigation:any}
-interface  PlanetPropsState { }
+interface PlanetProps{navigation:any, color:any}
+interface  PlanetPropsState { color:any}
 export default class PlanetInfo extends React.Component<PlanetProps, PlanetPropsState> {
     constructor(props) {
         super(props);
-
+     
       }
+
+    
     
   render() {
-    const {planet}= this.props.navigation.state.params
+    const {planet, color}= this.props.navigation.state.params
 
-
+  
+    console.log(color)
     return (
       <View style={{ flex:1}}>
       <ScrollView  style={styles.infoMainContent}>   
@@ -37,13 +40,13 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
 
     <Image
      width="300" height="300" 
-        href={planet.img} 
+        href={{uri:  color}} 
         clipPath="url(#clip)"
     />
     <Circle 
   cx="150" cy="130" r="120" 
-   fillOpacity={0.6}
-   fill={`url(#${planet.type})`}/></G>
+   fillOpacity={0.4}
+   fill={`url(#${planet.img.uri})`}/></G>
 </Svg>
 <Text style={styles.listText}></Text>
               <Text style={styles.listText}>{`${resource.planetname[0]} ${planet.name} ${resource.planetname[1]}  ${planet.star.name}  ${resource.planetname[2]} ${resource.const[planet.star.constellation-1]===undefined?"":resource.const[planet.star.constellation-1]}` } {`${resource.decFormatdist[0]}${planet.distance!==0?Math.round(planet.distance):""} ${resource.decFormatdist[1]} ` }</Text>
