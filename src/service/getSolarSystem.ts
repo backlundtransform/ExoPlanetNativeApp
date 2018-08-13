@@ -2,10 +2,24 @@ import{resource} from '../config/Resource'
 
 import{Planet, Star, terranbase64Icon,jovanbase64Icon,  redIcon,  orangeIcon} from './getPlanets'
 
-export const SolarSystem=(star:Star):Star=>{
 
-    return SolarSystems.find(p=>p.name==star.name);
-}
+
+
+
+export const getSolarSystem=async (star:Star):Promise<Star>=>{
+  const SolarSystems =   await fetch(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/GetExoSolarSystemByName?name=${star.name}`)
+  .then((response) => {
+    return response.json();
+  })
+  .then((myJson):Star =>  {
+
+    return myJson as Star
+
+  });
+
+  return  SolarSystems ;
+  
+  }
 
 export const ConstellationSolarSystems=(constellation:number):Array<Star>=>{
 

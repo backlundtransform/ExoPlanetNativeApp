@@ -236,7 +236,7 @@ return value
  export const GetPlanetListAsync=   (filter:filter, filterstate:any, top:number) => {
   const skip = top-100
 
-  const planetList =   fetch(`http://exoplanets.azurewebsites.net/api/Planets/ExoPlanets?%24top=${top}&%24skip=${skip}&%24orderby=DiscYear%20desc`)
+  const planetList =   fetch(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/ExoPlanets?%24top=${top}&%24skip=${skip}&%24orderby=DiscYear%20desc`)
   .then((response) => {
     return response.json();
   })

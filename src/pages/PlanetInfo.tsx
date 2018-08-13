@@ -22,7 +22,7 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
     const {planet, color}= this.props.navigation.state.params
 
   
-    console.log(planet.img.uri)
+
     return (
       <View style={{ flex:1}}>
       <ScrollView  style={styles.infoMainContent}>   

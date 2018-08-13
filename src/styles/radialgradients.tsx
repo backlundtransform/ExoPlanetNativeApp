@@ -65,7 +65,7 @@ export const Gradient =(star:Star)=>(<Defs> <RadialGradient id={"jovian"}
   <Stop offset="0%" stopColor="#FFFFFF" />
   <Stop offset="30%" stopColor="#09f751" />
   <Stop offset="100%" stopColor="#4C7B95" />
-</RadialGradient>< RadialGradient id={`Star-${resource.red}`}   cx="70" cy="5" r={ star.radius*2} fx="25" fy="25">
+</RadialGradient>< RadialGradient id={`Star-${resource.color[3]}`}   cx="70" cy="5" r={ star.radius*2} fx="25" fy="25">
 <Stop offset="10%" stopColor="#ff6a00"/>
  <Stop offset="50%" stopColor="red"/>
  <Stop offset="70%" stopColor="black"/>
@@ -75,7 +75,7 @@ export const Gradient =(star:Star)=>(<Defs> <RadialGradient id={"jovian"}
  <Stop offset="50%" stopColor="red"/>
  <Stop offset="70%" stopColor="black"/>   
 </ RadialGradient>
-< RadialGradient id={`Star-${resource.color[3]}`}   cx="70" cy="5" r={ star.radius*2} fx="25" fy="25">
+< RadialGradient id={`Star-${resource.color[2]}`}   cx="70" cy="5" r={ star.radius*2} fx="25" fy="25">
 <Stop offset="10%" stopColor="#ff6a00"/>
  <Stop offset="50%" stopColor="orange"/>
  <Stop offset="70%" stopColor="black"/>
