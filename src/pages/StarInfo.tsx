@@ -69,12 +69,12 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
               <Body>
               <Text style={styles.listText}></Text>
               <Text style={styles.listText}>{`${resource.starname[0]} ${planet.star.name} ${resource.starname[1]} ${resource.const[planet.star.constellation-1]&&resource.const[planet.star.constellation-1]}.` } {`${planet.star.luminosity===12?resource.startype[0]: resource.startype[1] +
-                ' '+ resource.color[planet.star.color-1] } ${resource.mag[planet.star.magnitude-1]&&resource.mag[planet.star.magnitude-1]} ` }</Text>
+                ' '+ resource.color[planet.star.color-1]+' '+resource.typecolor } ${resource.mag[planet.star.magnitude-1] !=null?resource.mag[planet.star.magnitude-1]:""}` }</Text>
             
                    <Text style={styles.listText}> </Text>
             
-                 <Text style={styles.listText}>{planet.star.habZoneMin !==undefined && planet.star.habZoneMax !==undefined ?  `${resource.habzone[0]} ${planet.star.habZoneMin} ${resource.habzone[1]} ${planet.star.habZoneMax}`:null} </Text>
-                 <Text style={styles.listText}>{ planetext}</Text>
+                 <Text style={styles.listText}>{planet.star.habZoneMin !=null && planet.star.habZoneMax !=null ?  `${resource.habzone[0]} ${planet.star.habZoneMin} AU ${resource.habzone[1]} ${planet.star.habZoneMax} AU`:""} </Text>
+                 <Text style={styles.listText}>{planetext==null?<React.Fragment />:planetext}</Text>
         
                         <Text style={styles.listText}></Text>
                <Text style={styles.listText}></Text>
@@ -83,17 +83,17 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
 
    <Text style={styles.listText}></Text>
                <Text style={styles.listText}></Text><View style={ styles.infocontainer}>
-                <View style={styles.infotext} >{planet.star.mass&&<Text style={styles.listText}>{`${resource.starinfo[0]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.star.mass&&<Text style={styles.listText}>{`${planet.star.mass}*${resource.oursun}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.mass==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.starinfo[0]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.mass==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.mass}*${resource.oursun}`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.star.radiusSu&&<Text style={styles.listText}>{`${resource.starinfo[1]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.star.radiusSu&&<Text style={styles.listText}>{`${planet.star.radiusSu}*${resource.oursun }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.radiusSu==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.starinfo[1]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.radiusSu==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.radiusSu}*${resource.oursun }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.star.age&&<Text style={styles.listText}>{`${resource.starinfo[2]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.star.age&&<Text style={styles.listText}>{`${planet.star.age}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.age==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.starinfo[2]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.age==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.age}`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.star.temp&&<Text style={styles.listText}>{`${resource.starinfo[3]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.star.temp&&<Text style={styles.listText}>{`${planet.star.temp} C`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.temp==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.starinfo[3]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.temp==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.temp} C`}</Text>}</View>
               </View>
                 <Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text>

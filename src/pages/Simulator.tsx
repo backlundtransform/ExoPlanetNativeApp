@@ -23,7 +23,7 @@ export default class Simulator extends React.PureComponent<SimulatorProps,Simula
       x:0,
       y:0,
       alpha:0,
-      star: SolarSystems[0],
+      star:SolarSystems[0],
    
     
     };
@@ -45,7 +45,7 @@ export default class Simulator extends React.PureComponent<SimulatorProps,Simula
     }
 
 
-this.setState({star,})
+this.setState({star})
   }
  
  updateHandler = ({ touches, screen, time }) => {
@@ -89,14 +89,26 @@ let {height} = Dimensions.get('window');
 
 let width =star.planets[star.planets.length-1].starDistance*2
 
-if(star!=undefined){
 
+if(star!=undefined){
   width =star.planets[star.planets.length-1].starDistance*2
   width =(width>star.habZoneMax*2?width:star.habZoneMax*2)+star.planets[star.planets.length-1].radius*2
+  if(star.color==null || star.planets[star.planets.length-1].radius == star.planets[star.planets.length-1].starDistance){
+      
+    return (
+     
+      <ScrollView style= {styles.d3View}   horizontal={true}> 
+       <Content>
+       </Content>
+       </ScrollView>)
+  
+   }
 }
 
 
  height =height > width*0.3?height: width*0.3
+
+ 
     return (
    
       <ScrollView style= {styles.d3View}   horizontal={true}  

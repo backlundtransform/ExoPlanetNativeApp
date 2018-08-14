@@ -86,7 +86,7 @@ export const Gradient =(star:Star)=>(<Defs> <RadialGradient id={"jovian"}
  <Stop offset="70%" stopColor="black"/>   
 </ RadialGradient>
 < RadialGradient id={`Star-${resource.color[1]}`}   cx="70" cy="5" r={ star.radius*2} fx="25" fy="25">
-<Stop offset="10%" stopColor="#ff6a00"/>
+<Stop offset="10%" stopColor="#b7c8ff"/>
  <Stop offset="50%" stopColor="white"/>
  <Stop offset="70%" stopColor="black"/>
 </ RadialGradient>

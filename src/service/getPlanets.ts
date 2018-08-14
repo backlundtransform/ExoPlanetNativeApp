@@ -202,12 +202,12 @@ star:{
 
 export const storeBase64= async () => {
 
-  let value = await AsyncStorage.getItem('planetcolors');
+  let value = await AsyncStorage.getItem('base64');
 
  
   if (value === null) {
 
-    const colors =  await fetch("http://exoplanets.azurewebsites.net/api/Planets/GetImages",{
+    const colors =  await fetch("http://exoplanets.azurewebsites.net/api/ExoSolarSystems/GetImages",{
     headers:{
       'Content-Type': 'application/json'
     }
@@ -224,11 +224,11 @@ export const storeBase64= async () => {
   
 
     value =JSON.stringify(colors);
-    await AsyncStorage.setItem('planetcolors', value);
+    await AsyncStorage.setItem('base64', value);
   
   }
 
-
+console.log(value)
 return value
 }
 

@@ -75,6 +75,7 @@ import LocalizedStrings from 'react-native-localization';
     numberplanet:["a known planet that is located in the habitable zone","The star has","known planets and has","planets located in the habitable zone.","known planets, but has no known planets that are located in the habitable zone.","The star has a known planet, but it is not in the habitable zone."],
     starinfo:["Mass","Radius","Age","Temperature"],
     oursun:"Sun",
+   typecolor:"color.",
     foundplanets:"Found planets: ",
     foundhabitableplanets:"Found habitable planets: ",
   },
@@ -87,8 +88,6 @@ import LocalizedStrings from 'react-native-localization';
     starmap: "Stjärnkarta",
     from: "ljusår från Jorden",
     hotJovian: "Het jovian",
-
-
     superEarth: "Super-terrestisk",
     at:"ligger på ett avstånd av",
     PlanetInfo:"Planet Info",
@@ -164,8 +163,10 @@ import LocalizedStrings from 'react-native-localization';
      numberplanet:["en känd planet som ligger i den beboeliga zonen","Stjärnan har","kända planeter och har","planeter som ligger i den beboeliga zonen.","kända planeter men har inga kända planeter som ligger i den beboeliga zonen.","Stjärnan har en känd planet men den ligger inte i den beboeliga zonen."],
      starinfo:["Massa","Radie","Ålder","Temperatur"],
      oursun:"Solen",
+     typecolor:"färg.",
    foundplanets:"Hittade planeter: ",
    foundhabitableplanets:"Hittade beboliga planeter:  "
+
   },
 
  });

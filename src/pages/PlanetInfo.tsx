@@ -58,12 +58,12 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
                  <Text style={styles.listText}> </Text>
                  <Text style={styles.listText}> </Text>
            
-                <Text style={styles.listText}>{`${resource.orbit[0]} ${planet.period} ${resource.orbit[1]} ${resource.decMean[0]} ${planet.meanDistance} ${resource.decMean[1]}`}</Text>
+                <Text style={styles.listText}>{planet.period!=null?`${resource.orbit[0]} ${planet.period} ${resource.orbit[1]}`:''} {planet.meanDistance!=null?`${resource.decMean[0]} ${planet.meanDistance} ${resource.decMean[1]}`:''}</Text>
        
                <Text style={styles.listText}></Text>
                <Text style={styles.listText}>{`${resource.hzd[planet.hzd]===undefined?"":resource.hzd[planet.hzd]+" "}${resource.hza[planet.hza]===undefined?"":resource.hza[planet.hza]+" "}${resource.atmosinfo[planet.atmosphere] ===undefined?"":resource.atmosinfo[planet.atmosphere]+" "}${planet.moon ? resource.moon:"" }`}</Text>
                <Text style={styles.listText}>{`${planet.discYear===undefined?"":resource.disc} ${planet.discYear===undefined?"":planet.discYear}.`}</Text>
-               <Text style={styles.listText}>{`${resource.discinfo[planet.discMethod]===undefined?"":resource.discinfo[planet.discMethod]}`}</Text>
+               <Text style={styles.listText}>{`${resource.discinfo[planet.discMethod]==undefined?"":resource.discinfo[planet.discMethod]}`}</Text>
              <Text style={styles.listText}></Text>
                <Text style={styles.listText}></Text>
                <Text style={styles.habTitle}>{resource.esiratings}</Text>
