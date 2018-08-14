@@ -86,8 +86,8 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
                 <View style={styles.infotext} >{planet.star.mass&&<Text style={styles.listText}>{`${resource.starinfo[0]}`}</Text>}</View>
                 <View style={styles.infotext} >{planet.star.mass&&<Text style={styles.listText}>{`${planet.star.mass}*${resource.oursun}`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.star.radius&&<Text style={styles.listText}>{`${resource.starinfo[1]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.star.radius&&<Text style={styles.listText}>{`${planet.star.radius}*${resource.oursun }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.radiusSu&&<Text style={styles.listText}>{`${resource.starinfo[1]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.radiusSu&&<Text style={styles.listText}>{`${planet.star.radiusSu}*${resource.oursun }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
                 <View style={styles.infotext} >{planet.star.age&&<Text style={styles.listText}>{`${resource.starinfo[2]}`}</Text>}</View>
                 <View style={styles.infotext} >{planet.star.age&&<Text style={styles.listText}>{`${planet.star.age}`}</Text>}</View>

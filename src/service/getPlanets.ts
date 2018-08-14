@@ -26,7 +26,8 @@ export interface Planet{
   sph:number
   discYear:number,
   discMethod:number,
-  radius?:number
+  radius?:number,
+  radiusEu?:number
   coordinate?: any
   starDistance: number,
   star?: Star
@@ -62,6 +63,7 @@ export interface Star{
   noHabPlanets?: number
   noPlanets?: number
   radius?:number
+  radiusSu?:number
 }
 export const PlanetList= [{
   name:"1RXS 1609 b",
@@ -243,6 +245,23 @@ return value
   .then((myJson):Array<Planet> =>  {
 
     return myJson as Array<Planet> 
+
+  });
+
+  return  planetList;
+ }
+
+ export const GetPlanetAsync=   (name:string) => {
+
+  console.log(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/ExoPlanets?%24filter=Name eq '${name}'`)
+  const planetList =   fetch(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/ExoPlanets?%24filter=Name eq '${name}'`)
+  .then((response) => {
+    return response.json();
+  })
+  .then((myJson):Planet =>  {
+
+
+    return myJson[0] as Planet
 
   });
 

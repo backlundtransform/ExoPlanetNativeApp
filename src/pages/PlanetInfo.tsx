@@ -76,8 +76,8 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
                <View style={styles.infotext} >{planet.mass==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.planetinfo[0]}`}</Text>}</View>
                 <View style={styles.infotext} >{planet.mass==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.mass}*${resource.earth }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.radius==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.planetinfo[1]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.radius==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.radius}*${resource.earth }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.radiusEu==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.planetinfo[1]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.radiusEu==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.radiusEu}*${resource.earth }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
                 <View style={styles.infotext} >{planet.density==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.planetinfo[2]}`}</Text>}</View>
                 <View style={styles.infotext} >{planet.density==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.density}*${resource.earth }`}</Text>}</View>

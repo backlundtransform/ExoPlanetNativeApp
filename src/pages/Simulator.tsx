@@ -5,7 +5,7 @@ import { GameLoop } from "react-native-game-engine";
 import styles from '../styles/defaultStyle'
 import {Gradient} from '../styles/radialgradients'
 import{resource} from '../config/Resource'
-import{Planet, Star, terranbase64Icon,jovanbase64Icon,  redIcon,  orangeIcon} from '../service/getPlanets'
+import{Planet, Star, terranbase64Icon,jovanbase64Icon,  redIcon,  orangeIcon,GetPlanetAsync} from '../service/getPlanets'
 import{SolarSystems, getSolarSystem} from '../service/getSolarSystem'
 import Svg,{Circle,Ellipse,Pattern,Path, Image,ClipPath, Symbol,Text, Use,Defs,Stop,RadialGradient,LinearGradient,G} from 'react-native-svg';
 import{PlanetList,storeBase64} from '../service/getPlanets'
@@ -14,7 +14,7 @@ import SvgPanZoom, { SvgPanZoomElement } from 'react-native-svg-pan-zoom';
 const RADIUS = 25;
 interface SimulatorProps{navigation:any}
 
-interface SimulatorState{x:number,y:number, alpha:number, star:Star,  color: any}
+interface SimulatorState{x:number,y:number, alpha:number, star:Star}
 export default class Simulator extends React.PureComponent<SimulatorProps,SimulatorState> {
   constructor(props) {
     super(props);
@@ -24,7 +24,7 @@ export default class Simulator extends React.PureComponent<SimulatorProps,Simula
       y:0,
       alpha:0,
       star: SolarSystems[0],
-      color:""
+   
     
     };
   }
@@ -41,11 +41,11 @@ export default class Simulator extends React.PureComponent<SimulatorProps,Simula
     {
       planet.type = planet.img.uri
       planet.img.uri =  color[planet.img.uri]
-      planet.starDistance=      planet.starDistance+2*star.radius+planet.radius
+  
     }
-    star.radius= star.radius+40
-    console.log(star)
-this.setState({star,color})
+
+
+this.setState({star,})
   }
  
  updateHandler = ({ touches, screen, time }) => {
@@ -74,13 +74,14 @@ RotateY=(cy:number,ry:number)=>{
     return  cy + ((ry) * Math.sin(this.state.alpha+ry/0.3))
    }
 
-navigateToPlanet=(planet:any)=>{
+navigateToPlanet=async (planet:any)=>{
+  var planetinfo = await GetPlanetAsync(planet.name)
 
-this.props.navigation.navigate('infopages', {planet:PlanetList.find(p=>p.name==planet.Name)})
+this.props.navigation.navigate('infopages', {planet:planetinfo,  color:planet.img.uri})
    }
   render() {
 
-const {star,color}= this.state
+const {star}= this.state
 
 
 let {height} = Dimensions.get('window');
@@ -150,9 +151,9 @@ if(star!=undefined){
 		</ClipPath>
 <Image 
     key={`image- ${index}`}
-    x={ this.RotateX(width/2-50 ,p.starDistance)} y={ this.RotateY(height/2-50,p.starDistance * 0.3)} 
-    width="200"
-    height="170"
+    x={ this.RotateX(width/2-2*p.radius ,p.starDistance)} y={ this.RotateY(height/2-2*p.radius,p.starDistance * 0.3)} 
+    width={300}
+    height={300}
     href={p.img}
     clipPath={`url(#${p.name})`} 
 />
