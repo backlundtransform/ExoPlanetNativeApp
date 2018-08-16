@@ -19,9 +19,9 @@ export default class  SolarSystem extends React.Component<SolarSystemProps, Sola
   
   }
 
-  componentDidMount(){
+  async componentDidMount (){
 
-    const starlist =ConstellationSolarSystems(this.props.navigation.state.params.const)
+    const starlist = await ConstellationSolarSystems(this.props.navigation.state.params.const)
 
     this.setState({starlist})
   }
@@ -44,7 +44,7 @@ render() {
      <Circle 
   cx="50" cy="50" r="60" 
  
-   fill={`url(#${item.type})`}/></G>
+   fill={`url(#${resource.color[item.color]})`}/></G>
 </Svg>
               </Left>
               <Body>

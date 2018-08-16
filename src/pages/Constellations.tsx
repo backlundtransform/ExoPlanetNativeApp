@@ -21,10 +21,7 @@ export default class Constellations extends React.Component<ConstellationsProps,
                return <ListItem style={styles.listViewItem} onPress={() => {
         this.props.navigation.navigate('solarlist',{const:item.id})}}>
               
-             <Left>
-               {item.icon}
-
-           </Left>
+           
            <Body>
              <Text style={styles.listTitle}>{item.name}</Text>
          

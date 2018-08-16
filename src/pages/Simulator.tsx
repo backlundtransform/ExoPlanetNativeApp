@@ -31,9 +31,9 @@ export default class Simulator extends React.PureComponent<SimulatorProps,Simula
 
   async componentDidMount() {
 
-    const  prop= this.props.navigation.state.params.Star?this.props.navigation.state.params:this.props.navigation.state.params.navigation
+    const  prop= this.props.navigation.state.params.star?this.props.navigation.state.params:this.props.navigation.state.params.navigation
    
-    const star = await  getSolarSystem(prop.Star?prop.Star: prop.state.params.planet.star)
+    const star = await  getSolarSystem(prop.star?prop.star: prop.state.params.planet.star)
 
 
     let color= JSON.parse(await storeBase64())
@@ -133,7 +133,7 @@ if(star!=undefined){
 
  
       
-   <Path   d={`M${width/2-star.radius},${height/2} a1,1 0 0,0 ${star.radius*2},0`}   fill={`url(#Star-${resource.color[star.color-1]})`} />
+   <Path   d={`M${width/2-star.radius},${height/2} a1,1 0 0,0 ${star.radius*2},0`}   fill={`url(#Star-${resource.color[star.color]})`} />
 
    <Ellipse
     cx={width/2}
@@ -189,7 +189,7 @@ if(star!=undefined){
 </G>
   )})}
 
-  <Path    d={`M${width/2+star.radius},${height/2} a1,1 0 0,0  ${star.radius*-2},0`}   fill={`url(#Startop-${resource.color[star.color-1]})`}/>
+  <Path    d={`M${width/2+star.radius},${height/2} a1,1 0 0,0  ${star.radius*-2},0`}   fill={`url(#Startop-${resource.color[star.color]})`}/>
   </SvgPanZoomElement>
         </SvgPanZoom>
         </Content>

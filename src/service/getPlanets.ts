@@ -267,14 +267,15 @@ let filterstring = "%24filter=Message eq null"
 
   
    const currentfilter = filterstate.filter.filter
-  const compindex =resource.compsearch.indexOf(currentfilter.comp)
-  const massindex = resource.masssearch.indexOf(currentfilter.mass)
-  const atmosindex = resource.atmossearch.indexOf(currentfilter.atmos)
-  const discindex =  resource.discsearch.indexOf(currentfilter.disc)
-  const tempindex = resource.tempsearch.indexOf(currentfilter.temp)
+   const compindex =resource.compsearch.indexOf(currentfilter.comp)
+   const massindex = resource.masssearch.indexOf(currentfilter.mass)
+   const atmosindex = resource.atmossearch.indexOf(currentfilter.atmos)
+   const discindex =  resource.discsearch.indexOf(currentfilter.disc)
+   const tempindex = resource.tempsearch.indexOf(currentfilter.temp)
 
-  const lightyearsindex = resource.lightyearsearch.indexOf(currentfilter.lightyears)
-if(compindex>-1){
+   const lightyearsindex = resource.lightyearsearch.indexOf(currentfilter.lightyears)
+if(compindex>-1)
+{
   filterstring =  `${filterstring} and Comp eq ${compindex}`
 
 }
@@ -294,14 +295,12 @@ if(tempindex>-1){
 
   switch(lightyearsindex) {
        case 0:
-       
-       filterstring =  `${filterstring} and Distance lt ${20}`
-      
+        filterstring =  `${filterstring} and Distance lt ${20}`
         break;
         case 1:
         filterstring =  `${filterstring} and Distance lt ${200}`
         break;
-         case 2:
+        case 2:
          filterstring =  `${filterstring} and Distance lt ${2000}` 
         break;
         case 3:
