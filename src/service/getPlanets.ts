@@ -228,7 +228,7 @@ export const storeBase64= async () => {
   
   }
 
-console.log(value)
+
 return value
 }
 
@@ -236,9 +236,81 @@ return value
 
 
  export const GetPlanetListAsync=   (filter:filter, filterstate:any, top:number) => {
-  const skip = top-100
+  let skip = top-100
 
-  const planetList =   fetch(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/ExoPlanets?%24top=${top}&%24skip=${skip}&%24orderby=DiscYear%20desc`)
+
+let filterstring = "%24filter=Message eq null"
+  if(filter!=null)
+  {
+    if(filter.Key==="Hab" || filter.Key==="Moons")
+    {
+      filterstring = `${filterstring} and ${filter.Key}%20eq%20true`
+    }
+    if(filter.Key==="Temp" || filter.Key==="Esi" || filter.Key==="Sph")
+    {
+      filterstring  = `${filterstring} and ${filter.Key} gt ${filter.MinValue} and ${filter.Key} lt  ${filter.MaxValue}`
+    }
+
+    if(filter.Name!=null)
+    {
+    skip = 0
+    top=10
+    filterstring  = `${filterstring} and indexof(Name, '${filter.Name}') gt -1`
+  
+    }
+
+
+  }
+
+  if(filterstate.filter!==undefined)
+  { 
+
+  
+   const currentfilter = filterstate.filter.filter
+  const compindex =resource.compsearch.indexOf(currentfilter.comp)
+  const massindex = resource.masssearch.indexOf(currentfilter.mass)
+  const atmosindex = resource.atmossearch.indexOf(currentfilter.atmos)
+  const discindex =  resource.discsearch.indexOf(currentfilter.disc)
+  const tempindex = resource.tempsearch.indexOf(currentfilter.temp)
+
+  const lightyearsindex = resource.lightyearsearch.indexOf(currentfilter.lightyears)
+if(compindex>-1){
+  filterstring =  `${filterstring} and Comp eq ${compindex}`
+
+}
+
+if(massindex>-1){
+  filterstring =  `${filterstring} and MassType eq ${massindex}`
+}
+
+if(atmosindex>-1){
+  filterstring =  `${filterstring} and Atmosphere eq ${atmosindex}`
+
+}
+if(tempindex>-1){
+  filterstring =  `${filterstring} and TempZone eq ${tempindex}`
+ 
+}
+
+  switch(lightyearsindex) {
+       case 0:
+       
+       filterstring =  `${filterstring} and Distance lt ${20}`
+      
+        break;
+        case 1:
+        filterstring =  `${filterstring} and Distance lt ${200}`
+        break;
+         case 2:
+         filterstring =  `${filterstring} and Distance lt ${2000}` 
+        break;
+        case 3:
+        filterstring =  `${filterstring} and Distance lt ${20000}` 
+          break;
+  }  
+}
+
+  const planetList =   fetch(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/ExoPlanets?${filterstring}&%24top=${top}&%24skip=${skip}&%24orderby=DiscYear%20desc`)
   .then((response) => {
     return response.json();
   })
@@ -253,7 +325,6 @@ return value
 
  export const GetPlanetAsync=   (name:string) => {
 
-  console.log(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/ExoPlanets?%24filter=Name eq '${name}'`)
   const planetList =   fetch(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/ExoPlanets?%24filter=Name eq '${name}'`)
   .then((response) => {
     return response.json();
@@ -268,61 +339,3 @@ return value
   return  planetList;
  }
 
-export const GetPlanetList=  (filter:filter, filterstate:any) => {  
-  let planetsfilter = []
-
-
-
-  if(filterstate.filter!==undefined)
-  { 
-
-   const currentfilter = filterstate.filter.filter
-  const compindex =resource.compsearch.indexOf(currentfilter.comp)
-  const massindex = resource.masssearch.indexOf(currentfilter.mass)
-  const atmosindex = resource.atmossearch.indexOf(currentfilter.atmos)
-  const discindex =  resource.discsearch.indexOf(currentfilter.disc)
-  const tempindex = resource.tempsearch.indexOf(currentfilter.temp)
-
-  const lightyearsindex = resource.lightyearsearch.indexOf(currentfilter.lightyears)
-if(compindex>-1){
-  planetsfilter =  planetsfilter.filter(p=>p.comp===compindex) 
-}
-
-if(massindex>-1){
-  planetsfilter =  planetsfilter.filter(p=>p.massType=== massindex) 
-}
-
-if(atmosindex>-1){
-  planetsfilter =  planetsfilter.filter(p=>p.atmosphere===atmosindex) 
-}
-if(tempindex>-1){
-  planetsfilter =  planetsfilter.filter(p=>p.tempZone===tempindex) 
-}
-
-  switch(lightyearsindex) {
-       case 0:
-        planetsfilter =  planetsfilter.filter(p=>p.distance< 20) 
-        break;
-        case 1:
-         planetsfilter =  planetsfilter.filter(p=>p.distance< 200) 
-        break;
-         case 2:
-        planetsfilter =  planetsfilter.filter(p=>p.Distance< 2000) 
-        break;
-        case 3:
-        planetsfilter =  planetsfilter.filter(p=>p.distance< 20000) 
-        break;
-  }  
-}
-  if(filter===undefined)
-   { 
-     return planetsfilter 
-   }
-   else if (filter.Name!==undefined)
-   {
-    return planetsfilter.filter(p=>p.Name.search(filter.Name)!==-1)
-   }
-   return planetsfilter.filter(p=>filter.MinValue!==undefined ? (p[filter.Key.toLowerCase()]>filter.MinValue && p[filter.Key.toLowerCase()]<filter.MaxValue 
-    && p.hab==true):filter.Key.toLowerCase()==="moons"?  p.moons==true:p.hab==true)
- 
-  }
