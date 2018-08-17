@@ -4,7 +4,7 @@ import { LocalTile,  UrlTile,Marker, Circle, Polyline, Callout } from 'react-nat
 
 import{PlanetList, GetHabitablePlanets, Planet } from '../service/getPlanets'
 interface DrawPlanetsProps{ navigation:any}
-interface DrawPlanetsState{planets:Array<Planet>} 
+
 export default class DrawPlanet extends React.PureComponent<DrawPlanetsProps,any> {
     constructor(props) {
         super(props);

@@ -26,9 +26,9 @@ export const Gradient =(star:Star)=>(<Defs> <RadialGradient id={"jovian"}
 </RadialGradient>
 <RadialGradient id={"hotsuperearth"}
   gradientUnits="objectBoundingBox" fx="30%" fy="30%">
-  <Stop offset="0%" stopColor="#FFFFFF" stopOpacity={0} />
-  <Stop offset="30%" stopColor="#090cf7" stopOpacity={0}/>
-  <Stop offset="100%" stopColor="#090cf7" stopOpacity={0}/>
+
+  <Stop offset="30%" stopColor="#ffcc7f" />
+  <Stop offset="100%" stopColor="#fc6b11"/>
 </RadialGradient>
 <RadialGradient id={"hotjupiter"}
   gradientUnits="objectBoundingBox" fx="30%" fy="30%">
@@ -38,21 +38,21 @@ export const Gradient =(star:Star)=>(<Defs> <RadialGradient id={"jovian"}
 </RadialGradient>
 <RadialGradient id={"hotstone"}
   gradientUnits="objectBoundingBox" fx="30%" fy="30%">
-   <Stop offset="0%" stopColor="#FFFFFF" stopOpacity={0} />
-  <Stop offset="30%" stopColor="#090cf7" stopOpacity={0}/>
-  <Stop offset="100%" stopColor="#090cf7" stopOpacity={0} />
+
+  <Stop offset="30%" stopColor="#ffcc7f" />
+  <Stop offset="100%" stopColor="#fc6b11"/>
 </RadialGradient>
 <RadialGradient id={"stone"}
   gradientUnits="objectBoundingBox" fx="30%" fy="30%">
-    <Stop offset="0%" stopColor="#FFFFFF" stopOpacity={0}/>
-  <Stop offset="30%" stopColor="#090cf7" stopOpacity={0}/>
-  <Stop offset="100%" stopColor="#090cf7" stopOpacity={0}/>
+  <Stop offset="0%" stopColor="#4286f4" />
+  <Stop offset="80%" stopColor="#4286f4" />
+  <Stop offset="100%" stopColor="#2baf30"/>
 </RadialGradient>
 <RadialGradient id={"coldstone"}
   gradientUnits="objectBoundingBox" fx="30%" fy="30%">
-    <Stop offset="0%" stopColor="#FFFFFF" stopOpacity={0}/>
-  <Stop offset="30%" stopColor="#090cf7" stopOpacity={0}/>
-  <Stop offset="100%" stopColor="#090cf7" stopOpacity={0}/>
+  <Stop offset="30%" stopColor="#f2f2f7"/>
+  <Stop offset="100%" stopColor="#8bb1ed" />
+
 </RadialGradient>
 <RadialGradient id={"neptunian"}
   gradientUnits="objectBoundingBox" fx="30%" fy="30%">
@@ -62,15 +62,14 @@ export const Gradient =(star:Star)=>(<Defs> <RadialGradient id={"jovian"}
 </RadialGradient>
 <RadialGradient id={"superearth"}
   gradientUnits="objectBoundingBox" fx="30%" fy="30%">
-  <Stop offset="0%" stopColor="#FFFFFF" stopOpacity={0}/>
-  <Stop offset="30%" stopColor="#090cf7" stopOpacity={0}/>
-  <Stop offset="100%" stopColor="#090cf7" stopOpacity={0}/>
+
+  <Stop offset="30%" stopColor="#4286f4" />
+  <Stop offset="100%" stopColor="#4286f4"/>
    </RadialGradient>
   <RadialGradient id={"coldsuperearth"}
   gradientUnits="objectBoundingBox" fx="30%" fy="30%">
-  <Stop offset="0%" stopColor="#FFFFFF" stopOpacity={0}/>
-  <Stop offset="30%" stopColor="#090cf7" stopOpacity={0}/>
-  <Stop offset="100%" stopColor="#090cf7" stopOpacity={0}/>
+  <Stop offset="30%" stopColor="#f2f2f7"/>
+  <Stop offset="100%" stopColor="#8bb1ed" />
  
 </RadialGradient>< RadialGradient id={`Star-${resource.color[3]}`}   cx={ star.radius} cy={ 0.1*star.radius} r={ star.radius} fx="25" fy="25">
 <Stop offset="10%" stopColor="#ff6a00"/>

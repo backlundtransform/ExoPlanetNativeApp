@@ -28,8 +28,8 @@ import styles from "../styles/defaultStyle";
 import customMap from "../styles/customMap"
 
 const start =  {
-  latitude: 51,
-  longitude: 0,
+  latitude: 40,
+  longitude: -90,
   latitudeDelta: 20,
   longitudeDelta: 10,
 } 
