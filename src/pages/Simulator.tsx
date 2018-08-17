@@ -1,12 +1,12 @@
 import  * as React from "react";
 import { AppRegistry, StyleSheet, Dimensions, View,ScrollView,ImageBackground,  TouchableHighlight   } from "react-native";
-import { Container,Content,} from 'native-base';
+import { Container,Content,Spinner} from 'native-base';
 import { GameLoop } from "react-native-game-engine";
 import styles from '../styles/defaultStyle'
 import {Gradient} from '../styles/radialgradients'
 import{resource} from '../config/Resource'
 import{Planet, Star, terranbase64Icon,jovanbase64Icon,  redIcon,  orangeIcon,GetPlanetAsync} from '../service/getPlanets'
-import{SolarSystems, getSolarSystem} from '../service/getSolarSystem'
+import{ getSolarSystem} from '../service/getSolarSystem'
 import Svg,{Circle,Ellipse,Pattern,Path, Image,ClipPath, Symbol,Text, Use,Defs,Stop,RadialGradient,LinearGradient,G} from 'react-native-svg';
 import{PlanetList,storeBase64} from '../service/getPlanets'
 import SvgPanZoom, { SvgPanZoomElement } from 'react-native-svg-pan-zoom';
@@ -14,7 +14,7 @@ import SvgPanZoom, { SvgPanZoomElement } from 'react-native-svg-pan-zoom';
 const RADIUS = 25;
 interface SimulatorProps{navigation:any}
 
-interface SimulatorState{x:number,y:number, alpha:number, star:Star}
+interface SimulatorState{x:number,y:number, alpha:number, star:Star,loading:boolean}
 export default class Simulator extends React.PureComponent<SimulatorProps,SimulatorState> {
   constructor(props) {
     super(props);
@@ -23,8 +23,8 @@ export default class Simulator extends React.PureComponent<SimulatorProps,Simula
       x:0,
       y:0,
       alpha:0,
-      star:SolarSystems[0],
-   
+      star:undefined,
+     loading:true
     
     };
   }
@@ -45,7 +45,7 @@ export default class Simulator extends React.PureComponent<SimulatorProps,Simula
     }
 
 
-this.setState({star})
+this.setState({star, loading:false})
   }
  
  updateHandler = ({ touches, screen, time }) => {
@@ -81,42 +81,38 @@ this.props.navigation.navigate('infopages', {planet:planetinfo,  color:planet.im
    }
   render() {
 
-const {star}= this.state
+const {star,loading}= this.state
 
 
 let {height} = Dimensions.get('window');
 
 
-let width =star.planets[star.planets.length-1].starDistance*2
-
+let width =600
 
 if(star!=undefined){
-  width =star.planets[star.planets.length-1].starDistance*2
-  width =(width>star.habZoneMax*2?width:star.habZoneMax*2)+star.planets[star.planets.length-1].radius*2
-  if(star.color==null || star.planets[star.planets.length-1].radius == star.planets[star.planets.length-1].starDistance){
-      
-    return (
-     
-      <ScrollView style= {styles.d3View}   horizontal={true}> 
-       <Content>
-       </Content>
-       </ScrollView>)
-  
-   }
+  const planets =star.planets.filter(p=>p.starDistance!=null)
+  if(planets.length>0)
+  {
+  width =planets[planets.length-1].starDistance*2
+
+  }
+  if(star.habZoneMax!=null)
+  {
+  width =(width>star.habZoneMax*2?width:star.habZoneMax*2)+planets[planets.length-1].radius*2
+  }
 }
 
 
  height =height > width*0.3?height: width*0.3
 
- 
     return (
    
       <ScrollView style= {styles.d3View}   horizontal={true}  
      
       >
-      <GameLoop onUpdate={this.updateHandler}>
+       <GameLoop onUpdate={this.updateHandler}>
  <Content  style= {[ { left: this.state.x, top: this.state.y }]} >
-    <SvgPanZoom canvasHeight  = {height} canvasWidth   = {width}
+ {loading?(<Spinner color="#c6d4ff" />):(<SvgPanZoom canvasHeight  = {height} canvasWidth   = {width}
           minScale      = {0.5}
           initialZoom   = {1}
           maxScale ={2}>
@@ -134,8 +130,7 @@ if(star!=undefined){
  
       
    <Path   d={`M${width/2-star.radius},${height/2} a1,1 0 0,0 ${star.radius*2},0`}   fill={`url(#Star-${resource.color[star.color]})`} />
-
-   <Ellipse
+   {star.habZoneMax!=null?<Ellipse
     cx={width/2}
     cy={height/2}
     rx={star.habZoneMax}
@@ -143,9 +138,10 @@ if(star!=undefined){
     stroke="blue"
     strokeWidth="1"
     fillOpacity="0"
-      />
+      />:<React.Fragment/>}
+   
 
-   <Ellipse
+    {star.habZoneMax!=null? <Ellipse
       cx={width/2}
       cy={height/2}
       rx={star.habZoneMin}
@@ -153,9 +149,12 @@ if(star!=undefined){
       stroke="red"
       strokeWidth="1"
       fillOpacity="0"
-/>
+/>:<React.Fragment/>}
 
-  {star.planets.map((p,index)=>{ return (<G key={index} >
+  {star.planets.map((p,index)=>{ 
+ 
+    
+    return (<G key={index} >
     <ClipPath  key={`path- ${index}`}
       id={p.name}>
       <Circle cx={ this.RotateX(width/2 ,p.starDistance)} cy={ this.RotateY(height/2,p.starDistance * 0.3)} r={p.radius}
@@ -191,9 +190,9 @@ if(star!=undefined){
 
   <Path    d={`M${width/2+star.radius},${height/2} a1,1 0 0,0  ${star.radius*-2},0`}   fill={`url(#Startop-${resource.color[star.color]})`}/>
   </SvgPanZoomElement>
-        </SvgPanZoom>
+        </SvgPanZoom> )}
         </Content>
-      </GameLoop>  
+      </GameLoop> 
 
       </ScrollView>    
     );

@@ -126,7 +126,7 @@ export const geolinesjson ={
     {
       "type": "Feature",
       "properties": {
-        "constellationid": 83,
+        "constellationid": 82,
         "constellation": "Ursa Major"
       },
       "geometry": {
@@ -197,7 +197,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Andromeda",
-        "constellationid": 1
+        "constellationid": 0
       },
       "geometry": {
         "type": "LineString",
@@ -272,7 +272,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Antlia",
-        "constellationid": 2
+        "constellationid": 1
       },
       "geometry": {
         "type": "LineString",
@@ -296,7 +296,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Apus",
-        "constellationid": 3
+        "constellationid": 2
       },
       "geometry": {
         "type": "LineString",
@@ -345,7 +345,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Aquarius",
-        "constellationid": 4
+        "constellationid": 3
       },
       "geometry": {
         "type": "LineString",
@@ -436,7 +436,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Aquila",
-        "constellationid": 5
+        "constellationid": 4
       },
       "geometry": {
         "type": "LineString",
@@ -464,7 +464,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Ara",
-        "constellationid": 6
+        "constellationid": 5
       },
       "geometry": {
         "type": "LineString",
@@ -508,7 +508,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Aries",
-        "constellationid": 7
+        "constellationid": 6
       },
       "geometry": {
         "type": "LineString",
@@ -557,7 +557,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Auriga",
-        "constellationid": 8
+        "constellationid": 7
       },
       "geometry": {
         "type": "LineString",
@@ -581,7 +581,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Bootes",
-        "constellationid": 9
+        "constellationid": 8
       },
       "geometry": {
         "type": "LineString",
@@ -655,7 +655,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Cealum",
-        "constellationid": 10
+        "constellationid": 9
       },
       "geometry": {
         "type": "LineString",
@@ -725,7 +725,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Camelopardalis",
-        "constellationid": 11
+        "constellationid": 10
       },
       "geometry": {
         "type": "LineString",
@@ -745,7 +745,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Cancer",
-        "constellationid": 12
+        "constellationid": 11
       },
       "geometry": {
         "type": "LineString",
@@ -790,7 +790,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Canes Venatici",
-        "constellationid": 13
+        "constellationid": 12
       },
       "geometry": {
         "type": "LineString",
@@ -810,7 +810,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Canis Major",
-        "constellationid": 14
+        "constellationid": 13
       },
       "geometry": {
         "type": "LineString",
@@ -897,7 +897,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Canis Minor",
-        "constellationid": 15
+        "constellationid": 14
       },
       "geometry": {
         "type": "LineString",
@@ -917,7 +917,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Capricornus",
-        "constellationid": 16
+        "constellationid": 15
       },
       "geometry": {
         "type": "LineString",
@@ -957,7 +957,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Carina",
-        "constellationid": 17
+        "constellationid": 16
       },
       "geometry": {
         "type": "LineString",
@@ -1035,7 +1035,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Cassiopeia",
-        "constellationid": 18
+        "constellationid": 17
       },
       "geometry": {
         "type": "LineString",
@@ -1067,7 +1067,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Centaurus",
-        "constellationid": 19
+        "constellationid": 18
       },
       "geometry": {
         "type": "LineString",
@@ -1175,7 +1175,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Cephus",
-        "constellationid": 20
+        "constellationid": 19
       },
       "geometry": {
         "type": "LineString",
@@ -1236,7 +1236,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Cethus",
-        "constellationid": 21
+        "constellationid": 20
       },
       "geometry": {
         "type": "LineString",
@@ -1309,7 +1309,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Chamaeleon",
-        "constellationid": 22
+        "constellationid": 21
       },
       "geometry": {
         "type": "LineString",
@@ -1341,7 +1341,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Circinus",
-        "constellationid": 23
+        "constellationid": 22
       },
       "geometry": {
         "type": "LineString",
@@ -1378,7 +1378,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Columbia",
-        "constellationid": 24
+        "constellationid": 23
       },
       "geometry": {
         "type": "LineString",
@@ -1423,7 +1423,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Coma Berenices",
-        "constellationid": 25
+        "constellationid": 24
       },
       "geometry": {
         "type": "LineString",
@@ -1447,7 +1447,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Corona Australis",
-        "constellationid": 26
+        "constellationid": 25
       },
       "geometry": {
         "type": "LineString",
@@ -1475,7 +1475,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Corona Borealis",
-        "constellationid": 27
+        "constellationid": 26
       },
       "geometry": {
         "type": "LineString",
@@ -1503,7 +1503,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Corvus",
-        "constellationid": 28
+        "constellationid": 27
       },
       "geometry": {
         "type": "LineString",
@@ -1539,7 +1539,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Crater",
-        "constellationid": 29
+        "constellationid": 28
       },
       "geometry": {
         "type": "LineString",
@@ -1600,7 +1600,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Crux",
-        "constellationid": 30
+        "constellationid": 29
       },
       "geometry": {
         "type": "LineString",
@@ -1637,7 +1637,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Cygnus",
-        "constellationid": 31
+        "constellationid": 30
       },
       "geometry": {
         "type": "LineString",
@@ -1677,7 +1677,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Delphinus",
-        "constellationid": 32
+        "constellationid": 31
       },
       "geometry": {
         "type": "LineString",
@@ -1713,7 +1713,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Dorado",
-        "constellationid": 33
+        "constellationid": 32
       },
       "geometry": {
         "type": "LineString",
@@ -1766,7 +1766,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Drago",
-        "constellationid": 34
+        "constellationid": 33
       },
       "geometry": {
         "type": "LineString",
@@ -1826,7 +1826,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Equuleus",
-        "constellationid": 35
+        "constellationid": 34
       },
       "geometry": {
         "type": "LineString",
@@ -1850,7 +1850,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Eridanus",
-        "constellationid": 36
+        "constellationid": 35
       },
       "geometry": {
         "type": "LineString",
@@ -1926,7 +1926,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Fornax",
-        "constellationid": 37
+        "constellationid": 36
       },
       "geometry": {
         "type": "LineString",
@@ -1979,7 +1979,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Genimi",
-        "constellationid": 38
+        "constellationid": 37
       },
       "geometry": {
         "type": "LineString",
@@ -2079,7 +2079,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Grus",
-        "constellationid": 39
+        "constellationid": 38
       },
       "geometry": {
         "type": "LineString",
@@ -2132,7 +2132,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Hercules",
-        "constellationid": 40
+        "constellationid": 39
       },
       "geometry": {
         "type": "LineString",
@@ -2286,7 +2286,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Horologium",
-        "constellationid": 41
+        "constellationid": 40
       },
       "geometry": {
         "type": "LineString",
@@ -2314,7 +2314,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Hydra",
-        "constellationid": 42
+        "constellationid": 41
       },
       "geometry": {
         "type": "LineString",
@@ -2387,7 +2387,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Hydrus",
-        "constellationid": 43
+        "constellationid": 42
       },
       "geometry": {
         "type": "LineString",
@@ -2415,7 +2415,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Indus",
-        "constellationid": 44
+        "constellationid": 43
       },
       "geometry": {
         "type": "LineString",
@@ -2489,7 +2489,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Lacerta",
-        "constellationid": 45
+        "constellationid": 44
       },
       "geometry": {
         "type": "LineString",
@@ -2550,7 +2550,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Leo",
-        "constellationid": 46
+        "constellationid": 45
       },
       "geometry": {
         "type": "LineString",
@@ -2607,7 +2607,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Leo Minor",
-        "constellationid": 47
+        "constellationid": 46
       },
       "geometry": {
         "type": "LineString",
@@ -2656,7 +2656,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Lepus",
-        "constellationid": 48
+        "constellationid": 47
       },
       "geometry": {
         "type": "LineString",
@@ -2717,7 +2717,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Libra",
-        "constellationid": 49
+        "constellationid": 48
       },
       "geometry": {
         "type": "LineString",
@@ -2816,7 +2816,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Lupus",
-        "constellationid": 50
+        "constellationid": 49
       },
       "geometry": {
         "type": "LineString",
@@ -2857,7 +2857,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Lynx",
-        "constellationid": 51
+        "constellationid": 50
       },
       "geometry": {
         "type": "LineString",
@@ -2893,7 +2893,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Lyra",
-        "constellationid": 52
+        "constellationid": 51
       },
       "geometry": {
         "type": "LineString",
@@ -2937,7 +2937,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Mensa",
-        "constellationid": 53
+        "constellationid": 52
       },
       "geometry": {
         "type": "LineString",
@@ -2965,7 +2965,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Microscopium",
-        "constellationid": 54
+        "constellationid": 53
       },
       "geometry": {
         "type": "LineString",
@@ -3001,7 +3001,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Monoceros",
-        "constellationid": 55
+        "constellationid": 54
       },
       "geometry": {
         "type": "LineString",
@@ -3054,7 +3054,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Musca",
-        "constellationid": 56
+        "constellationid": 55
       },
       "geometry": {
         "type": "LineString",
@@ -3090,7 +3090,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Norma",
-        "constellationid": 57
+        "constellationid": 56
       },
       "geometry": {
         "type": "LineString",
@@ -3122,7 +3122,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Octans",
-        "constellationid": 58
+        "constellationid": 57
       },
       "geometry": {
         "type": "LineString",
@@ -3183,7 +3183,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Ophiuchus",
-        "constellationid": 59
+        "constellationid": 58
       },
       "geometry": {
         "type": "LineString",
@@ -3203,7 +3203,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Orion",
-        "constellationid": 60
+        "constellationid": 59
       },
       "geometry": {
         "type": "LineString",
@@ -3307,7 +3307,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Pavo",
-        "constellationid": 61
+        "constellationid": 60
       },
       "geometry": {
         "type": "LineString",
@@ -3406,7 +3406,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Pegasus",
-        "constellationid": 62
+        "constellationid": 61
       },
       "geometry": {
         "type": "LineString",
@@ -3497,7 +3497,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Perseus",
-        "constellationid": 63
+        "constellationid": 62
       },
       "geometry": {
         "type": "LineString",
@@ -3621,7 +3621,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Perseus",
-        "constellationid": 64
+        "constellationid": 63
       },
       "geometry": {
         "type": "LineString",
@@ -3665,7 +3665,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Pictor",
-        "constellationid": 65
+        "constellationid": 64
       },
       "geometry": {
         "type": "LineString",
@@ -3689,7 +3689,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Pisces",
-        "constellationid": 66
+        "constellationid": 65
       },
       "geometry": {
         "type": "LineString",
@@ -3737,7 +3737,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Pisces Austrinus",
-        "constellationid": 67
+        "constellationid": 66
       },
       "geometry": {
         "type": "LineString",
@@ -3785,7 +3785,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Puppis",
-        "constellationid": 68
+        "constellationid": 67
       },
       "geometry": {
         "type": "LineString",
@@ -3846,7 +3846,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Pyxis",
-        "constellationid": 69
+        "constellationid": 68
       },
       "geometry": {
         "type": "LineString",
@@ -3870,7 +3870,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Reticulum",
-        "constellationid": 70
+        "constellationid": 69
       },
       "geometry": {
         "type": "LineString",
@@ -3902,7 +3902,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Sagitta",
-        "constellationid": 71
+        "constellationid": 70
       },
       "geometry": {
         "type": "LineString",
@@ -3943,7 +3943,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Sagittarius",
-        "constellationid": 72
+        "constellationid": 71
       },
       "geometry": {
         "type": "LineString",
@@ -3987,7 +3987,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Scorpius",
-        "constellationid": 73
+        "constellationid": 72
       },
       "geometry": {
         "type": "LineString",
@@ -4052,7 +4052,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Sculptor",
-        "constellationid": 74
+        "constellationid": 73
       },
       "geometry": {
         "type": "LineString",
@@ -4080,7 +4080,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Scutum",
-        "constellationid": 75
+        "constellationid": 74
       },
       "geometry": {
         "type": "LineString",
@@ -4112,7 +4112,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Serpens",
-        "constellationid": 76
+        "constellationid": 75
       },
       "geometry": {
         "type": "LineString",
@@ -4152,7 +4152,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Sextans",
-        "constellationid": 77
+        "constellationid": 76
       },
       "geometry": {
         "type": "LineString",
@@ -4180,7 +4180,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Taurus",
-        "constellationid": 78
+        "constellationid": 77
       },
       "geometry": {
         "type": "LineString",
@@ -4225,7 +4225,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Telescopium",
-        "constellationid": 79
+        "constellationid": 78
       },
       "geometry": {
         "type": "LineString",
@@ -4249,7 +4249,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Triangulum",
-        "constellationid": 80
+        "constellationid": 79
       },
       "geometry": {
         "type": "LineString",
@@ -4277,7 +4277,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Triangulum Australe",
-        "constellationid": 81
+        "constellationid": 80
       },
       "geometry": {
         "type": "LineString",
@@ -4305,7 +4305,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Tucana",
-        "constellationid": 82
+        "constellationid": 81
       },
       "geometry": {
         "type": "LineString",
@@ -4341,7 +4341,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Ursa Minor",
-        "constellationid": 84
+        "constellationid": 83
       },
       "geometry": {
         "type": "LineString",
@@ -4381,7 +4381,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Vela",
-        "constellationid": 85
+        "constellationid": 84
       },
       "geometry": {
         "type": "LineString",
@@ -4421,7 +4421,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Virgo",
-        "constellationid": 86
+        "constellationid": 85
       },
       "geometry": {
         "type": "LineString",
@@ -4537,7 +4537,7 @@ export const geolinesjson ={
       "type": "Feature",
       "properties": {
         "constellation": "Volans",
-        "constellationid": 87
+        "constellationid": 86
       },
       "geometry": {
         "type": "LineString",
@@ -4587,7 +4587,7 @@ export const geolinesjson ={
       "properties": {
       
        "constellation": "Vulpecula",
-        "constellationid": 88
+        "constellationid": 87
       
       },
       "geometry": {

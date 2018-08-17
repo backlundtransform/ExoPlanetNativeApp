@@ -35,8 +35,8 @@ render() {
           <List dataArray={this.state.starlist}
             renderRow={(item) =>
               <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('d3view', {star:item})}>
-             <Left>
-             <Svg
+                {item.color!==null?  <Left>
+        <Svg
             height="100" 
             width="100" 
        >      { Gradient(item)}
@@ -46,7 +46,7 @@ render() {
  
    fill={`url(#${resource.color[item.color]})`}/></G>
 </Svg>
-              </Left>
+              </Left>:<React.Fragment />}
               <Body>
                 <Text style={styles.listTitle}>{item.name}</Text>
             

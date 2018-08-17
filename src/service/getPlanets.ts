@@ -338,3 +338,20 @@ if(tempindex>-1){
   return  planetList;
  }
 
+
+ export const GetHabitablePlanets=  async () => {
+
+  const planetList =  await fetch(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/GetHabitablePlanets`)
+  .then((response) => {
+    return response.json();
+  })
+  .then((myJson) =>  {
+
+
+    return myJson
+
+  });
+
+  return  planetList;
+ }
+

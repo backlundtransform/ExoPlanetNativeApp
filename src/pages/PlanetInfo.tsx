@@ -44,7 +44,7 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
     />
     <Circle 
   cx="150" cy="130" r="100" 
-   fillOpacity={0.4}
+   fillOpacity={0.3}
    fill={`url(#${planet.img.uri})`}/></G>
 </Svg>
 <Text style={styles.listText}></Text>

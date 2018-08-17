@@ -2,7 +2,7 @@ import * as React from 'react';
 import {AppRegistry, StyleSheet, View, ScrollView} from 'react-native';
 import { Container, Header, Picker,Title, Content,Thumbnail, List, Button, Left, Right, Body, Icon, Text, ListItem, Spinner,Item,Input } from 'native-base';
 import{resource} from '../config/Resource'
-import{filter,GetPlanetList,Planet,PlanetList,planetcolor,storeBase64 } from '../service/getPlanets'
+import{filter,Planet,PlanetList,planetcolor,storeBase64 } from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
 import {getData} from '../redux/actions';
 import {bindActionCreators} from 'redux';
@@ -97,7 +97,7 @@ render() {
     />
      <Circle 
         cx="50" cy="40" r="30" 
-        fillOpacity={0.3}
+        fillOpacity={0.4}
         fill={`url(#${item.img.uri})`}/></G>
         </Svg>
 
