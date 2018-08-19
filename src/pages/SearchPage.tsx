@@ -4,7 +4,7 @@ import {Picker,Form, Container, Header, Title, Content,Thumbnail, List, Button, 
 import{resource} from '../config/Resource'
 import styles from '../styles/defaultStyle'
 import SearchPicker from '../components/SearchPicker'
-import {PlanetList,GetPlanetList,filter,Planet,SearchPageState} from '../service/getPlanets';
+import {filter,Planet,SearchPageState} from '../service/getPlanets';
 import {setFilter} from '../redux/actions';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';

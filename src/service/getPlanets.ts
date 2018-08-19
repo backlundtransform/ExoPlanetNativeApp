@@ -65,140 +65,29 @@ export interface Star{
   radius?:number
   radiusSu?:number
 }
-export const PlanetList= [{
-  name:"1RXS 1609 b",
-  img: {uri:jovanbase64Icon},
-  type: resource.hotJovian,
- massType:0,
-
-  distance: 145.00,
-  temp:-100,
-  esi:0,
-  sph:0,
-  period:100,
-  discMethod:1,
-  hzd:1,
-  hzc :1,
-  hza:1,
-  hzi :1,
-  meanDistance:2,
-  atmosphere:1,
-tempMin:-200,
- mass:2,
- density:3,
- gravity:3,
- surfacePressure:1,
- escapeVelocity:2,
-
-tempMax:0,
-
-  comp: 0,
-  hab:false,
-  moons:true,
-  discYear:2008,
-  star:{
-    name:"1RXS 1609",
-    type: resource.orange,
-    color:2,
-    luminosity:5,
-    magnitude:1,
-    img:{uri:orangeIcon},
-    constellation:1,
-    noHabPlanets:0,
-    noPlanets:1
-  }
-} , {
-  name:"GJ 180 c",
-  img:  {uri:terranbase64Icon},
- type: resource.superEarth,
-  massType:2,
-  distance: 11.69,
-  atmosphere:0,
-  temp:0,
-  tempMin:-200,
-
-
-  tempMax:100,
-  comp:2,
-  esi:0.7,
-  sph:0.4,
-  period:200,
-  hzd:2,
-  hzc :2,
-  hza:1,
-  hzi :1,
-  mass:10,
-  density:2,
-  gravity:2,
-  surfacePressure:1,
-  escapeVelocity:2,
-  meanDistance:0.4,
-  hab:true,
-  moons:false,
-  discYear: 2014,
-  discMethod:2,
-  coordinate:{  latitude:51,longitude:0 },
-  star:{
-    name:"GJ 180",
-    type: resource.red,
-    img:{uri:redIcon},
-    constellation:1,
-    color:3,
-    luminosity:5,
-    magnitude:1,
-    mass: 2,
-    age:1000,
-    temp:3000,
-    radius:1,
-    noHabPlanets:1,
-    noPlanets:2
-  }
-},{name:"GJ 180 b",
-img:  {uri:jovanbase64Icon},
-type: resource.hotJovian,
-massType:0,
-comp:1,
-distance: 11.69,
-esi:0,
-period:20,
-hzd:1,
-hzc :1,
-hza:2,
-hzi :2,
-atmosphere:0,
-meanDistance:10,
-temp:100,
-tempMin:-100,
-mass:6,
-density:7,
-gravity:7,
-surfacePressure:6,
-escapeVelocity:2,
-
-tempMax:200,
-sph:0,
-hab:false,
-moons:true,
-discYear: 2014,
-radius: 15,
-
-starDistance: 150,
-star:{
-  name:"GJ 180",
-  type: resource.red,
-  img:{uri:redIcon},
-  constellation:1,
-  color:4,
-  luminosity:5,
-  magnitude:0,
-  mass: 3,
-  age:4000000,
-  temp:100000,
-  radius:2,
-  noHabPlanets:1,
-  noPlanets:2
+export interface statistics{
+  confirmedPlanets: number,
+  confirmedHabitablePlanets: number,
+  possibleHabitableMoons: number,
+  dateUpdated: Date
 }
-} ] as Array<Planet> 
+export const GetStatisticsAsync=  async ():Promise<statistics> => {
+
+  const stat =  await fetch(`http://exoplanets.azurewebsites.net/api/Statistics`)
+  .then((response) => {
+    return response.json();
+  })
+  .then((myJson) =>  {
+
+
+    return myJson
+
+  });
+
+  return stat as statistics
+
+
+}
 
 export const storeBase64= async () => {
 
@@ -324,7 +213,7 @@ if(tempindex>-1){
 
  export const GetPlanetAsync=   (name:string) => {
 
-  const planetList =   fetch(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/ExoPlanets?%24filter=Name eq '${name}'`)
+  const planetList =  fetch(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/ExoPlanets?%24filter=Name eq '${name}'`)
   .then((response) => {
     return response.json();
   })
@@ -339,7 +228,7 @@ if(tempindex>-1){
  }
 
 
- export const GetHabitablePlanets=  async () => {
+ export const GetHabitablePlanets= async () => {
 
   const planetList =  await fetch(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/GetHabitablePlanets`)
   .then((response) => {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {AppRegistry, StyleSheet, View, ScrollView} from 'react-native';
 import { Container, Header, Picker,Title, Content,Thumbnail, List, Button, Left, Right, Body, Icon, Text, ListItem, Spinner,Item,Input } from 'native-base';
 import{resource} from '../config/Resource'
-import{filter,Planet,PlanetList,planetcolor,storeBase64 } from '../service/getPlanets'
+import{filter,Planet,planetcolor,storeBase64 } from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
 import {getData} from '../redux/actions';
 import {bindActionCreators} from 'redux';
@@ -45,9 +45,9 @@ isCloseToBottom = ({layoutMeasurement, contentOffset, contentSize}) => {
 };
 onScrollEnd=async (nativeEvent:any)=>{
 
- 
-  if (this.isCloseToBottom(nativeEvent)) {
-    const {getData,planets,navigation,loading} =this.props
+  const {getData,planets,navigation,loading} =this.props
+  if (this.isCloseToBottom(nativeEvent) && planets.length>= 100 ) {
+
    
   const top=this.state.top+100; 
 

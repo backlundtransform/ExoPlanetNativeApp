@@ -38,58 +38,6 @@ export const ConstellationSolarSystems=async (constellation:number):Promise<Arra
   return  SolarSystems as Promise<Array<Star>> ;
 }
 
-export const SolarSystems= [
-    
-  {
-        name:"1RXS 1609",
-        type: resource.orange,
-        img:{uri:orangeIcon},
-        habZoneMin:350,
-        habZoneMax : 400,
-        radius:60,
-       planets:[  {name:"1RXS 1609 b",
-        img: {uri:jovanbase64Icon},
-        type: resource.hotJovian,
-        distance: 145.00,
-        esi:0,
-        discYear:2008,
-        radius: 25,
-        starDistance: 200,
-       
-      }, ]
 
-      }as Star,
-
-     {
-        name:"GJ 180",
-        type: resource.red,
-        img:{uri:redIcon},
-        habZoneMin:120,
-        habZoneMax :300,
-        radius:60,
-        constellation:83,
-        planets:[{name:"GJ 180 b",
-        img:  {uri:jovanbase64Icon},
-        type: resource.superEarth,
-        distance: 11.69,
-        esi:0.7,
-        discYear: 2014,
-        radius: 15,
-        starDistance: 150,
-      } , {name:"GJ 180 c",
-        img:  {uri:terranbase64Icon},
-        type: resource.superEarth,
-        distance: 11.69,
-        esi:0.7,
-        discYear: 2014,
-        radius: 25,
-        starDistance: 600,
-
-      }]
-
-  
-      }as Star
     
-    
-    
-   ] 
+

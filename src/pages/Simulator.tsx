@@ -8,7 +8,7 @@ import{resource} from '../config/Resource'
 import{Planet, Star, terranbase64Icon,jovanbase64Icon,  redIcon,  orangeIcon,GetPlanetAsync} from '../service/getPlanets'
 import{ getSolarSystem} from '../service/getSolarSystem'
 import Svg,{Circle,Ellipse,Pattern,Path, Image,ClipPath, Symbol,Text, Use,Defs,Stop,RadialGradient,LinearGradient,G} from 'react-native-svg';
-import{PlanetList,storeBase64} from '../service/getPlanets'
+import{storeBase64} from '../service/getPlanets'
 import SvgPanZoom, { SvgPanZoomElement } from 'react-native-svg-pan-zoom';
 
 const RADIUS = 25;
