@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {AppRegistry, StyleSheet, View, ScrollView} from 'react-native';
+import {AppRegistry, StyleSheet, View, ScrollView,Dimensions} from 'react-native';
 import { Container, Header, Picker,Title, Content,Thumbnail, List, Button, Left, Right, Body, Icon, Text, ListItem, Spinner,Item,Input } from 'native-base';
 import{resource} from '../config/Resource'
 import{filter,Planet,planetcolor,storeBase64 } from '../service/getPlanets'
@@ -34,9 +34,11 @@ async componentDidMount() {
 
 
 }
-componentWillReceiveProps(nextProps){
+async componentWillReceiveProps(nextProps,nextState){
+  const {getData,planets,navigation,loading} =this.props
+if(nextState.loading!==nextProps.loading){
   this.setState({loading:nextProps.loading})
-
+}
 }
 isCloseToBottom = ({layoutMeasurement, contentOffset, contentSize}) => {
   const paddingToBottom = 20;
@@ -51,8 +53,8 @@ onScrollEnd=async (nativeEvent:any)=>{
    
   const top=this.state.top+100; 
 
-     await getData(navigation.state.params,top)
-this.setState({top}, ()=>{this.refs._scrollView.scrollTo({y:0,x:0, animated:true})
+  await getData(navigation.state.params,top)
+this.setState({top, loading:true}, ()=>{this.refs._scrollView.scrollTo({y:0,x:0, animated:true})
 
 })
   }

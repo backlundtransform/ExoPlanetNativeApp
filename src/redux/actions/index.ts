@@ -1,7 +1,7 @@
 export const PLANETS_AVAILABLE = 'PLANETS_AVAILABLE';
 export const SEARCH_FILTER = 'SEARCH_FILTER';
 export const PLANETS_COLOR = 'PLANETS_COLOR';
-import {PlanetList,GetPlanetListAsync,filter,Planet,SearchPageState} from '../../service/getPlanets';
+import {GetPlanetListAsync,filter,Planet,SearchPageState} from '../../service/getPlanets';
 
 export  const getData=(filter:filter, top:number)=>{
     return (dispatch, getState) => {

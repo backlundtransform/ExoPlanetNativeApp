@@ -1,8 +1,9 @@
 import * as React from 'react';
 import MapView from 'react-native-maps';
+import {Spinner} from "native-base"
 import { LocalTile,  UrlTile,Marker, Circle, Polyline, Callout } from 'react-native-maps';
 
-import{PlanetList, GetHabitablePlanets, Planet } from '../service/getPlanets'
+import{ GetHabitablePlanets, Planet } from '../service/getPlanets'
 interface DrawPlanetsProps{ navigation:any}
 
 export default class DrawPlanet extends React.PureComponent<DrawPlanetsProps,any> {
@@ -11,7 +12,8 @@ export default class DrawPlanet extends React.PureComponent<DrawPlanetsProps,any
         this.state = {
             tracksViewChanges: true,
             lines:[],
-            planets:[]
+            planets:[],
+            loading:true
         }
 
     }
@@ -31,7 +33,7 @@ export default class DrawPlanet extends React.PureComponent<DrawPlanetsProps,any
    async componentWillMount() {
   const planets = await GetHabitablePlanets()
   this.setState({
-   planets
+   planets, loading :false
 });
     }
 
@@ -47,8 +49,8 @@ export default class DrawPlanet extends React.PureComponent<DrawPlanetsProps,any
 
     render() {
 
-        const {planets} = this.state
-        return (<React.Fragment>{planets.map((planet,index) =>  (
+        const {planets,loading} = this.state
+    return (<React.Fragment>{ planets.map((planet,index) =>  (
             <Marker
               key={planet.name}
               coordinate={planet.coordinate}

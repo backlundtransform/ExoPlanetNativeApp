@@ -18,7 +18,7 @@ import LocalizedStrings from 'react-native-localization';
     orange:"Orange Dwarf",
     red:"Red Dwarf",
     habmenu: ["Habitable Planets","Cold(–50-0°C)", "Normal Temperature(0–50°C)", "Hot(50–100°C)", "Earth similarity index", "Suitability for vegetation","Candidate for habitable moon"],
-    const:["Andromeda","Antlia","Apus","Aquarius" ,"Aquila" ,"Ara","Aries","Auriga" ,"Boötes","Caelum","Camelopardalis","Cancer" ,"Canes","Canis Majo","Canis Minor","Capricornus","Carina" ,"Cassiopeia" ,"Centaurus" ,"Cepheus","Cetus","Chamaeleon" ,"Circinus","Columba","Coma Berenices","Corona Australis","Corona Borealis","Corvus","Crater","Crux","Cygnus","Delphinus","Dorado","Draco","Equuleus","Eridanus","Fornax","Gemini","Grus","Hercules","Horologium","Hydra" ,"Hydrus","Indus","Lacerta","Leo","Leo Minor","Lepus" ,"Libra" ,"Lupus" ,"Lynx" ,"Lyra" ,"Mensa","Microscopium","Monoceros","Musca","Norma" ,"Octans","Ophiuchus" ,"Orion" ,"Pavo" ,"Pegasus","Perseus" ,"Phoenix","Pictor" ,"Pisces","Piscis Austrinus","Puppis","Pyxis" ,"Reticulum" ,"Sagitta","Sagittarius","Scorpius","Sculptor","Scutum","Serpens","Sextans","Taurus","Telescopium","Triangulum","Triangulum Australe","Tucana" ,"Ursa Major" ,"Ursa Minor" ,"Vela","Venatici" ,"Virgo","Volans","Vulpecula"],
+    const:["Andromeda","Antlia","Apus","Aquarius" ,"Aquila" ,"Ara","Aries","Auriga" ,"Boötes","Caelum","Camelopardalis","Cancer" ,"Canes","Canis Major","Canis Minor","Capricornus","Carina" ,"Cassiopeia" ,"Centaurus" ,"Cepheus","Cetus","Chamaeleon" ,"Circinus","Columba","Coma Berenices","Corona Australis","Corona Borealis","Corvus","Crater","Crux","Cygnus","Delphinus","Dorado","Draco","Equuleus","Eridanus","Fornax","Gemini","Grus","Hercules","Horologium","Hydra" ,"Hydrus","Indus","Lacerta","Leo","Leo Minor","Lepus" ,"Libra" ,"Lupus" ,"Lynx" ,"Lyra" ,"Mensa","Microscopium","Monoceros","Musca","Norma" ,"Octans","Ophiuchus" ,"Orion" ,"Pavo" ,"Pegasus","Perseus" ,"Phoenix","Pictor" ,"Pisces","Piscis Austrinus","Puppis","Pyxis" ,"Reticulum" ,"Sagitta","Sagittarius","Scorpius","Sculptor","Scutum","Serpens","Sextans","Taurus","Telescopium","Triangulum","Triangulum Australe","Tucana" ,"Ursa Major" ,"Ursa Minor" ,"Vela","Venatici" ,"Virgo","Volans","Vulpecula"],
     sensorstart: "Starting Sensor..",
     sensorstop: "Deactivating Sensor",
     search: "Search",
@@ -56,7 +56,7 @@ import LocalizedStrings from 'react-native-localization';
     decMean:["The planet is located at a distance from it star that correspond to ", "times the distance between our Earth and Sun."],
     hzd:["The planet is within the its solar system habitable zone, where alien could exist.","The planet is too close to its sun, no alien could exist here.", "The planet is too far away from its sun, no alien could exist here."],
     hza:["The planet has an atmosphere that could be suitable for life.","The planet has no atmosphere.", "The planet has an atmosphere, but it is not suitable for life."],
-    atmosinfo:["The planet has a hydrogen-rich atmosphere.","The planet has a metal-rich atmosphere.",  ""],
+    atmosinfo:["","The planet has a hydrogen-rich atmosphere.","The planet has a metal-rich atmosphere.",  ""],
     meantemp:["The mean temperature of the planet is", "A hot day at", "the mean temperature is","C and on a cold day at it is" ],
     moon:"It is possible that the planet can have a habitable moon.",
     disc:"Discovered year ",
@@ -140,7 +140,7 @@ import LocalizedStrings from 'react-native-localization';
     hzd:["Planeten ligger i solsystemets beboeliga zon där liv ska kunna existera.","Planeten ligger för nära sin sol för att liv ska kunna existera.", "Planeten ligger för långt bort från sin sol för att liv ska kunna existera."],
     hza:["Planeten har en atmosfär som skulle kunna vara lämplig för liv.","Planeten saknar atmosfär.", "Planetens atmosfär är olämplig för liv. "],
 
-    atmosinfo:["Atmosfären är rik på väte.","Atmosfären är rik på metaller.",""],
+    atmosinfo:["","Atmosfären är rik på väte.","Atmosfären är rik på metaller.",""],
 
     meantemp:["Planetens medeltempratur är", "En varm dag på", "är temperaturen","C och på en kall dag är det" ],
 

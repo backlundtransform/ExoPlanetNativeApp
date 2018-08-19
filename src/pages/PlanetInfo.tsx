@@ -48,7 +48,7 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
    fill={`url(#${planet.img.uri})`}/></G>
 </Svg>
 <Text style={styles.listText}></Text>
-              <Text style={styles.listText}>{`${resource.planetname[0]} ${planet.name} ${resource.planetname[1]}  ${planet.star.name}  ${resource.planetname[2]} ${resource.const[planet.star.constellation-1]===undefined?"":resource.const[planet.star.constellation-1]}` } {`${resource.decFormatdist[0]}${planet.distance!==0?Math.round(planet.distance):""} ${resource.decFormatdist[1]} ` }</Text>
+              <Text style={styles.listText}>{`${resource.planetname[0]} ${planet.name} ${resource.planetname[1]}  ${planet.star.name}  ${resource.planetname[2]} ${resource.const[planet.star.constellation]===undefined?"":resource.const[planet.star.constellation]}` } {`${resource.decFormatdist[0]}${planet.distance!==0?Math.round(planet.distance):""} ${resource.decFormatdist[1]} ` }</Text>
             
                    <Text style={styles.listText}> </Text>
             

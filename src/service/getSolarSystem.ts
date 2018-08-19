@@ -1,6 +1,6 @@
 import{resource} from '../config/Resource'
 
-import{Planet, Star, terranbase64Icon,jovanbase64Icon,  redIcon,  orangeIcon} from './getPlanets'
+import{Planet, Star} from './getPlanets'
 
 const getData=async (uri:string):Promise<any>=>{
   const SolarSystems =   await fetch(uri)
@@ -26,7 +26,9 @@ const getData=async (uri:string):Promise<any>=>{
 
 
 export const getSolarSystem=async (star:Star):Promise<Star>=>{
-  const SolarSystems =   await getData(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/GetExoSolarSystemByName?name=${star.name}`)
+
+
+  const SolarSystems =   await getData(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/GetExoSolarSystemByName?name=${encodeURIComponent(star.name)}`)
    return  SolarSystems as Promise<Star>;
   
   }
