@@ -60,7 +60,7 @@ setfilter () {
           <SearchPicker statekey={"temp"} title={resource.temptitle} value={temp}  searcharray={resource.tempsearch} onValueChange={this.handleChange} />
           <SearchPicker statekey={"atmos"} title={resource.atmostitle} value={atmos}  searcharray={resource.atmossearch} onValueChange={this.handleChange} />
           <SearchPicker statekey={"disc"}  title={resource.disctitle} value={disc}  searcharray={resource.discsearch} onValueChange={this.handleChange} />
-          <SearchPicker statekey={"lightyears"} title={resource.atmostitle}  value={lightyears}  searcharray={resource.lightyearsearch} onValueChange={this.handleChange} />
+          <SearchPicker statekey={"lightyears"} title={resource.lightyeartitle}  value={lightyears}  searcharray={resource.lightyearsearch} onValueChange={this.handleChange} />
         </Container>
          );
        }

@@ -5,17 +5,16 @@ import { GameLoop } from "react-native-game-engine";
 import styles from '../styles/defaultStyle'
 import {Gradient} from '../styles/radialgradients'
 import{resource} from '../config/Resource'
-import{Planet, Star, terranbase64Icon,jovanbase64Icon,  redIcon,  orangeIcon,GetPlanetAsync} from '../service/getPlanets'
+import{Planet, Star, GetPlanetAsync} from '../service/getPlanets'
 import{ getSolarSystem} from '../service/getSolarSystem'
 import Svg,{Circle,Ellipse,Pattern,Path, Image,ClipPath, Symbol,Text, Use,Defs,Stop,RadialGradient,LinearGradient,G} from 'react-native-svg';
 import{storeBase64} from '../service/getPlanets'
 import SvgPanZoom, { SvgPanZoomElement } from 'react-native-svg-pan-zoom';
 
-const RADIUS = 25;
 interface SimulatorProps{navigation:any}
 
 interface SimulatorState{x:number,y:number, alpha:number, star:Star,loading:boolean}
-export default class Simulator extends React.PureComponent<SimulatorProps,SimulatorState> {
+export default class Simulator extends React.Component<SimulatorProps,SimulatorState> {
   constructor(props) {
     super(props);
 
@@ -32,7 +31,7 @@ export default class Simulator extends React.PureComponent<SimulatorProps,Simula
   async componentDidMount() {
 
     const  prop= this.props.navigation.state.params.star?this.props.navigation.state.params:this.props.navigation.state.params.navigation
-   
+
     const star = await  getSolarSystem(prop.star?prop.star: prop.state.params.planet.star)
 
 
@@ -57,11 +56,6 @@ this.setState({
 });
 
 
-    if (move) {
-     // move.delta.pageX,
-    // move.delta.pageY
-   
-    }
   };
 
 RotateX=(cx:number,rx:number)=>{
@@ -75,9 +69,13 @@ RotateY=(cy:number,ry:number)=>{
    }
 
 navigateToPlanet=async (planet:any)=>{
+ 
   var planetinfo = await GetPlanetAsync(planet.name)
+ 
+  this.props.navigation.replace('infopages', {planet:planetinfo,  color:planet.img.uri});
 
-this.props.navigation.navigate('infopages', {planet:planetinfo,  color:planet.img.uri})
+
+
    }
   render() {
 
