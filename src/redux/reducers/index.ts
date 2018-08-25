@@ -4,7 +4,7 @@ import { PLANETS_AVAILABLE,SEARCH_FILTER } from "../actions/"
 
 let planetState = { planets: [], loading:true };
 
-let searchState ={ filter: {mass:"",comp:"",atmos:"",disc:"",temp:"",lightyears:"", }};
+let searchState ={ filter: {mass:"",comp:"",atmos:"",disc:"",temp:"",lightyears:"",sort:"", order:false }};
  
 const planetReducer = (state = planetState , action) => {
 

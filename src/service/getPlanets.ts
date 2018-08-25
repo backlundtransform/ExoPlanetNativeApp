@@ -1,6 +1,6 @@
 import{resource} from '../config/Resource'
 import { AsyncStorage } from "react-native"
-export interface SearchPageState {mass:string, comp:string,atmos:string,disc:string, temp:string,lightyears:string}
+export interface SearchPageState {mass:string, comp:string,atmos:string,disc:string, temp:string,lightyears:string, sort:string, order:boolean}
 
 export interface filter{Key:string, MaxValue:number, MinValue:number, Name:string}
 

@@ -24,7 +24,8 @@ import LocalizedStrings from 'react-native-localization';
     search: "Search",
     dashboard: "Dashboard",
     number:"Confirmed planets",
-    sortsearch:["Sort","Distance","Habitable","Mass","Discovery year"],
+    sorttordertitle:"Sort",
+    sortsearch:["Distance","Habitable","Mass","Discovery year"],
     masssearch:["Jovian","Neptunian","Super-Earth","Earth","Mercurian"],
     masstitle:"Mass Klass",
  
@@ -70,7 +71,7 @@ import LocalizedStrings from 'react-native-localization';
     color: ["blue","blue to white","orange to red","red"],
     lum:["very luminous supergiant","less luminous supergiant","luminous giant","giant","subgiant","dwarf","subdwarf","white dwarf","pulsar"],
     mag:["The star is visible from Earth with the naked eye.","The star can not be seen from Earth without a telescope."],
-
+    sortorder:["Distance","Dicsovery year"],
     habzone:["The stars habitable zone is located at a distance between","and","times the distance between Earth and the Sun"],
     numberplanet:["a known planet that is located in the habitable zone","The star has","known planets and has","planets located in the habitable zone.","known planets, but has no known planets that are located in the habitable zone.","The star has a known planet, but it is not in the habitable zone."],
     starinfo:["Mass","Radius","Age","Temperature"],
@@ -96,12 +97,15 @@ import LocalizedStrings from 'react-native-localization';
     red:"Röd dvärg",
     habmenu: ["Beboliga Planeter","Kallt (-50-0°C)", "Normal Temperatur(0–50°C)", "Varmt(50–100°C)", "Liknar Jorden (ESI index)", "Lämpad för växlighet (SPH index)","Kandidater för beboliga månar"],
     const:["Andromeda","Antlia","Apus","Aquarius" ,"Aquila" ,"Ara","Aries","Auriga" ,"Boötes","Caelum","Camelopardalis","Cancer" ,"Canes", "Venatici","Canis Majo","Canis Minor","Capricornus","Carina" ,"Cassiopeia" ,"Centaurus" ,"Cepheus","Cetus","Chamaeleon" ,"Circinus","Columba","Coma Berenices","Corona Australis","Corona Borealis","Corvus","Crater","Crux","Cygnus","Delphinus","Dorado","Draco","Equuleus","Eridanus","Fornax","Gemini","Grus","Hercules","Horologium","Hydra" ,"Hydrus","Indus","Lacerta","Leo","Leo Minor","Lepus" ,"Libra" ,"Lupus" ,"Lynx" ,"Lyra" ,"Mensa","Microscopium","Monoceros","Musca","Norma" ,"Octans","Ophiuchus" ,"Orion" ,"Pavo" ,"Pegasus","Perseus" ,"Phoenix","Pictor" ,"Pisces","Piscis Austrinus","Puppis","Pyxis" ,"Reticulum" ,"Sagitta","Sagittarius","Scorpius","Sculptor","Scutum","Serpens","Sextans","Taurus","Telescopium","Triangulum","Triangulum Australe","Tucana" ,"Ursa Major" ,"Ursa Minor" ,"Vela" ,"Virgo","Volans","Vulpecula"],
+
+ 
     sensorstart: "Väntar på sensor",
     sensorstop: "Stänger av sensor",
     search: "Sök",
     dashboard: "Statistik",
     number:"Hittade planeter",
-    sortsearch:["Sortera efter","Avstånd (från jorden)","Beboelighet","Massa","Upptäckts år"],
+    sorttordertitle:"Sortera efter",
+    sortsearch:["Avstånd (från jorden)","Beboelighet","Massa","Upptäckts år"],
     masstitle:"Mass Klass",
     masssearch:["Jovian (Gasjätte)","Neptunian","Super-jord","Jord","Mercurian"],
 
