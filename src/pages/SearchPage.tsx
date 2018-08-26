@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {AppRegistry, StyleSheet, View,Image, StyleProp} from 'react-native';
-import {Picker,Form, Container, Header, Title, Content,Thumbnail, List, Button, Left, Right, Body, Text, ListItem,Radio} from 'native-base';
+import {Picker,Form, Container, Header, Title, Content,Thumbnail, List, Button, Left, Right, Body, Text, ListItem,Radio,Grid,Col  } from 'native-base';
 import{resource} from '../config/Resource'
 import styles from '../styles/defaultStyle'
 import SearchPicker from '../components/SearchPicker'
@@ -8,7 +8,7 @@ import {filter,Planet,SearchPageState} from '../service/getPlanets';
 import {setFilter} from '../redux/actions';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
-interface SearchPageProps{navigate:any, setFilter:any,filter:any}
+interface SearchPageProps{navigation:any, setFilter:any,filter:any}
 interface SearchPagePropsState {mass:string, comp:string,atmos:string,disc:string, temp:string,lightyears:string, sort:string,order:boolean }
 
  class SearchPage extends React.Component<SearchPageProps,SearchPagePropsState> {
@@ -45,13 +45,28 @@ componentWillMount(){
 
 }
 
-setfilter () {
+setfilter = ()=> {
   let {comp,mass,atmos,disc,temp,lightyears,order,sort}=this.state
-  const { setFilter,navigate} =this.props
+  const { setFilter} =this.props
 
   setFilter({filter:{comp,mass,atmos,disc,temp,lightyears, order,sort}})
 
   }
+  search = ()=> {
+  
+    const {navigation} =this.props
+  navigation.replace("planets");
+  
+  
+    }
+   clear= ()=>{
+  
+    const { setFilter} =this.props
+    setFilter(undefined)
+    
+    this.setState({mass:"",comp:"",atmos:"",disc:"",temp:"",lightyears:"",sort:"", order:true})
+      }
+  
 
 
     render() {
@@ -93,8 +108,15 @@ setfilter () {
                 selected={order}
               />
             </Right>
-          </ListItem>
-        </Container>
+          </ListItem><Body style={{margin:20}}><Grid>
+          <Col size={3}></Col>
+                        <Col size={3}><Button onPress={()=>this.search()}  style={styles.button}>
+                      <Text>{resource.search}</Text></Button></Col>
+                        <Col size={3} ><Button onPress={()=>this.clear()} style={styles.button}>
+                      <Text>{resource.clear}</Text></Button></Col>
+                      <Col size={3}></Col>
+                    </Grid ></Body>
+              </Container>
          );
        }
      }

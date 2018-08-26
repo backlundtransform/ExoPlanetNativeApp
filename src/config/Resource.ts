@@ -22,6 +22,7 @@ import LocalizedStrings from 'react-native-localization';
     sensorstart: "Starting Sensor..",
     sensorstop: "Deactivating Sensor",
     search: "Search",
+    clear: "Clear",
     dashboard: "Dashboard",
     number:"Confirmed planets",
     sorttordertitle:"Sort",
@@ -75,7 +76,7 @@ import LocalizedStrings from 'react-native-localization';
     habzone:["The stars habitable zone is located at a distance between","and","times the distance between Earth and the Sun"],
     numberplanet:["a known planet that is located in the habitable zone","The star has","known planets and has","planets located in the habitable zone.","known planets, but has no known planets that are located in the habitable zone.","The star has a known planet, but it is not in the habitable zone."],
     starinfo:["Mass","Radius","Age","Temperature"],
-    
+  
     order:["Ascending", "Descending"],
     oursun:"Sun",
    typecolor:"color.",
@@ -104,6 +105,7 @@ import LocalizedStrings from 'react-native-localization';
     sensorstart: "Väntar på sensor",
     sensorstop: "Stänger av sensor",
     search: "Sök",
+    clear: "Rensa",
     dashboard: "Statistik",
     number:"Hittade planeter",
     sorttordertitle:"Sortera efter",
