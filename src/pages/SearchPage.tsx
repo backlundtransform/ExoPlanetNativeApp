@@ -15,7 +15,7 @@ interface SearchPagePropsState {mass:string, comp:string,atmos:string,disc:strin
   constructor(props) {
     super(props);
 
-   this.state ={mass:"",comp:"",atmos:"",disc:"",temp:"",lightyears:"",sort:"", order:false}
+   this.state ={mass:"",comp:"",atmos:"",disc:"",temp:"",lightyears:"",sort:"", order:true}
    this.handleChange = this.handleChange.bind(this);
   }
       
@@ -41,7 +41,7 @@ componentWillMount(){
   }
  const action =filter.filter
 
-  this.setState({mass:action.mass,comp:action.comp,atmos:action.atmos,disc:action.disc,temp:action.temp,lightyears:action.lightyears, order: action.order})
+  this.setState({mass:action.mass,comp:action.comp,atmos:action.atmos,disc:action.disc,temp:action.temp,lightyears:action.lightyears,sort:action.sort, order: action.order})
 
 }
 
@@ -67,27 +67,28 @@ setfilter () {
           <SearchPicker statekey={"atmos"} title={resource.atmostitle} value={atmos}  searcharray={resource.atmossearch} onValueChange={this.handleChange} />
           <SearchPicker statekey={"disc"}  title={resource.disctitle} value={disc}  searcharray={resource.discsearch} onValueChange={this.handleChange} />
           <SearchPicker statekey={"lightyears"} title={resource.lightyeartitle}  value={lightyears}  searcharray={resource.lightyearsearch} onValueChange={this.handleChange} />
-          <SearchPicker statekey={"sort"} title={resource.sorttordertitle}  value={sort}  searcharray={resource. sortsearch} onValueChange={this.handleChange} />
+          <SearchPicker statekey={"sort"} title={resource.sorttordertitle}  value={sort}  searcharray={resource.sortsearch} onValueChange={this.handleChange} />
 
            <ListItem selected={!order} onPress={(e:any)=>this.handleChange(e.value, "order")}>
             <Left>
-              <Text>Stigande</Text>
+              <Text>{resource.order[0]}</Text>
             </Left>
             <Right>
               <Radio
-            
+          
                 selected={!order}
               />
             </Right>
           </ListItem>
 
-             <ListItem selected={order} onPress={(e:any)=>this.handleChange(e.value, "order")}>
+             <ListItem selected={order}     onPress={(e:any)=>this.handleChange(e.value, "order")}>
             <Left>
-              <Text>fallande
+              <Text >{resource.order[1]}
               </Text>
             </Left>
-            <Right>
+            <Right >
               <Radio
+              
              
                 selected={order}
               />

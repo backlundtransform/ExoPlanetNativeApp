@@ -125,6 +125,7 @@ return value
 
 
 let filterstring = "%24filter=Message eq null"
+let orderby ="DiscYear%20desc"
   if(filter!=null)
   {
     if(filter.Key==="Hab" || filter.Key==="Moons")
@@ -157,7 +158,7 @@ let filterstring = "%24filter=Message eq null"
    const atmosindex = resource.atmossearch.indexOf(currentfilter.atmos)
    const discindex =  resource.discsearch.indexOf(currentfilter.disc)
    const tempindex = resource.tempsearch.indexOf(currentfilter.temp)
-
+   const orderindex = resource.sortsearch.indexOf(currentfilter.sort)
    const lightyearsindex = resource.lightyearsearch.indexOf(currentfilter.lightyears)
 if(compindex>-1)
 {
@@ -192,9 +193,36 @@ if(tempindex>-1){
         filterstring =  `${filterstring} and Distance lt ${20000}` 
           break;
   }  
-}
 
-  const planetList =   fetch(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/ExoPlanets?${filterstring}&%24top=${top}&%24skip=${skip}&%24orderby=DiscYear%20desc`)
+  if(orderindex>-1)
+  {
+
+    const order =currentfilter.order?"desc":"asc"
+    if(orderindex===0){
+
+      orderby= "Distance"
+    }
+
+    if(orderindex===1){
+
+      orderby= "Esi"
+    }
+
+    if(orderindex===2){
+
+      orderby= "Mass"
+    }
+
+    
+    if(orderindex===3){
+
+      orderby= "DiscYear"
+    }
+    orderby=`${orderby}%20${order}`
+
+  }
+}
+const planetList =   fetch(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/ExoPlanets?${filterstring}&%24top=${top}&%24skip=${skip}&%24orderby=${orderby}`)
   .then((response) => {
     return response.json();
   })

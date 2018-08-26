@@ -75,6 +75,8 @@ import LocalizedStrings from 'react-native-localization';
     habzone:["The stars habitable zone is located at a distance between","and","times the distance between Earth and the Sun"],
     numberplanet:["a known planet that is located in the habitable zone","The star has","known planets and has","planets located in the habitable zone.","known planets, but has no known planets that are located in the habitable zone.","The star has a known planet, but it is not in the habitable zone."],
     starinfo:["Mass","Radius","Age","Temperature"],
+    
+    order:["Ascending", "Descending"],
     oursun:"Sun",
    typecolor:"color.",
     foundplanets:"Found planets: ",
@@ -98,7 +100,7 @@ import LocalizedStrings from 'react-native-localization';
     habmenu: ["Beboliga Planeter","Kallt (-50-0°C)", "Normal Temperatur(0–50°C)", "Varmt(50–100°C)", "Liknar Jorden (ESI index)", "Lämpad för växlighet (SPH index)","Kandidater för beboliga månar"],
     const:["Andromeda","Antlia","Apus","Aquarius" ,"Aquila" ,"Ara","Aries","Auriga" ,"Boötes","Caelum","Camelopardalis","Cancer" ,"Canes", "Venatici","Canis Majo","Canis Minor","Capricornus","Carina" ,"Cassiopeia" ,"Centaurus" ,"Cepheus","Cetus","Chamaeleon" ,"Circinus","Columba","Coma Berenices","Corona Australis","Corona Borealis","Corvus","Crater","Crux","Cygnus","Delphinus","Dorado","Draco","Equuleus","Eridanus","Fornax","Gemini","Grus","Hercules","Horologium","Hydra" ,"Hydrus","Indus","Lacerta","Leo","Leo Minor","Lepus" ,"Libra" ,"Lupus" ,"Lynx" ,"Lyra" ,"Mensa","Microscopium","Monoceros","Musca","Norma" ,"Octans","Ophiuchus" ,"Orion" ,"Pavo" ,"Pegasus","Perseus" ,"Phoenix","Pictor" ,"Pisces","Piscis Austrinus","Puppis","Pyxis" ,"Reticulum" ,"Sagitta","Sagittarius","Scorpius","Sculptor","Scutum","Serpens","Sextans","Taurus","Telescopium","Triangulum","Triangulum Australe","Tucana" ,"Ursa Major" ,"Ursa Minor" ,"Vela" ,"Virgo","Volans","Vulpecula"],
 
- 
+    order:["Stigande", "Fallande"],
     sensorstart: "Väntar på sensor",
     sensorstop: "Stänger av sensor",
     search: "Sök",
