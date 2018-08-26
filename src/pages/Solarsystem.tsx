@@ -19,9 +19,9 @@ export default class  SolarSystem extends React.Component<SolarSystemProps, Sola
   
   }
 
-  componentDidMount(){
+  async componentDidMount (){
 
-    const starlist =ConstellationSolarSystems(this.props.navigation.state.params.const)
+    const starlist = await ConstellationSolarSystems(this.props.navigation.state.params.const)
 
     this.setState({starlist})
   }
@@ -34,9 +34,9 @@ render() {
         <Content >
           <List dataArray={this.state.starlist}
             renderRow={(item) =>
-              <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('d3view', {Star:item})}>
-             <Left>
-             <Svg
+              <ListItem style={styles.listViewItem} onPress={() => this.props.navigation.navigate('d3view', {star:item})}>
+                {item.color!==null?  <Left>
+        <Svg
             height="100" 
             width="100" 
        >      { Gradient(item)}
@@ -44,11 +44,11 @@ render() {
      <Circle 
   cx="50" cy="50" r="60" 
  
-   fill={`url(#${item.Type})`}/></G>
+   fill={`url(#${resource.color[item.color]})`}/></G>
 </Svg>
-              </Left>
+              </Left>:<React.Fragment />}
               <Body>
-                <Text style={styles.listTitle}>{item.Name}</Text>
+                <Text style={styles.listTitle}>{item.name}</Text>
             
               </Body>
             </ListItem>

@@ -42,7 +42,7 @@ import {
           <Button transparent onPress={() =>navigation.navigate("planets")} >
               <Icon style={styles.white} name={ "keyboard-arrow-left"}   size={36} />
             </Button>
-            </Left><Button  style={styles.d3button}  transparent onPress={() =>navigation.navigate("d3view",{navigation:navigation})} >
+            </Left><Button  style={styles.d3button}  transparent onPress={() =>navigation.replace("d3view",{navigation:navigation})} >
             <Icon style={styles.white} name={"3d-rotation"} size={36} />
             </Button>
         </Header>), 

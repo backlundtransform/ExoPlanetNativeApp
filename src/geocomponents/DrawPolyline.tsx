@@ -2,7 +2,9 @@ import * as React from 'react';
 import MapView from 'react-native-maps';
 import { LocalTile,  UrlTile,Marker, Circle, Polyline, Callout } from 'react-native-maps';
 import { View, Text } from 'react-native';
-import{geolinesjson} from '../config/geojson'
+
+import{GetConstellationsLines} from '../service/getConstellations'
+
 import{resource} from '../config/Resource'
 import styles from '../styles/defaultStyle'
 
@@ -11,10 +13,18 @@ export default class DrawPolyline extends React.PureComponent<{ navigation:any},
         super(props);
         this.state = {
             tracksViewChanges: true,
-            lines:[]
+            lines:{features:[]}
+
         }
 
     }
+    async componentWillMount() {
+        const lines = await GetConstellationsLines()
+        this.setState({
+            lines
+      });
+          }
+      
 
     componentWillReceiveProps(nextProps) {
         if (this.props !== nextProps) {
@@ -37,7 +47,9 @@ export default class DrawPolyline extends React.PureComponent<{ navigation:any},
     }
 
     render() {
-        return (<React.Fragment>{geolinesjson.features.map((line,index) =>  (
+
+        const {lines}=this.state
+        return (<React.Fragment>{lines.features.map((line,index) =>  (
             <React.Fragment key={"fragment"+ index}><Polyline
               key={"line"+ index}
                coordinates={(line.geometry.coordinates as number[][]).map(p=> { return {latitude:p[1] as number,longitude:p[0] as number}}) }

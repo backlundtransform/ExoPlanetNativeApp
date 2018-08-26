@@ -15,8 +15,8 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
       }
     
       getPlanetText=(planet:Planet):string=>{
-        const knownhabplanets = planet.Star.NoHabPlanets
-        const knownplanets = planet.Star.NoPlanets
+        const knownhabplanets = planet.star.noHabPlanets
+        const knownplanets = planet.star.noPlanets
 
       
         
@@ -57,24 +57,24 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
              <Svg
             height="300" 
             width="300" 
-       >      { Gradient(planet.Star)}
+       >      { Gradient(planet.star)}
       <G>
     
      <Circle 
       cx="150" cy="130" r="120" 
  
-      fill={`url(#${planet.Star.Type})`}/></G>
+      fill={`url(#${resource.color[planet.star.color]})`}/></G>
     </Svg>
              
               <Body>
               <Text style={styles.listText}></Text>
-              <Text style={styles.listText}>{`${resource.starname[0]} ${planet.Star.Name} ${resource.starname[1]} ${resource.const[planet.Star.Constellation-1]&&resource.const[planet.Star.Constellation-1]}.` } {`${planet.Star.Luminosity===12?resource.startype[0]: resource.startype[1] +
-                ' '+ resource.color[planet.Star.Color-1] } ${resource.mag[planet.Star.Magnitude-1]} ` }</Text>
+              <Text style={styles.listText}>{`${resource.starname[0]} ${planet.star.name} ${resource.starname[1]} ${resource.const[planet.star.constellation]&&resource.const[planet.star.constellation]}.` } {`${planet.star.luminosity===12?resource.startype[0]: resource.startype[1] +
+                ' '+ resource.color[planet.star.color]+' '+resource.typecolor } ${resource.mag[planet.star.magnitude] !=null?resource.mag[planet.star.magnitude]:""}` }</Text>
             
                    <Text style={styles.listText}> </Text>
             
-                 <Text style={styles.listText}>{planet.Star.HabZoneMin !==undefined && planet.Star.HabZoneMax !==undefined ?  `${resource.habzone[0]} ${planet.Star.HabZoneMin} ${resource.habzone[1]} ${planet.Star.HabZoneMax}`:null} </Text>
-                 <Text style={styles.listText}>{ planetext}</Text>
+                 <Text style={styles.listText}>{planet.star.habZoneMin !=null && planet.star.habZoneMax !=null ?  `${resource.habzone[0]} ${planet.star.habZoneMin} AU ${resource.habzone[1]} ${planet.star.habZoneMax} AU`:""} </Text>
+                 <Text style={styles.listText}>{planetext==null?<React.Fragment />:planetext}</Text>
         
                         <Text style={styles.listText}></Text>
                <Text style={styles.listText}></Text>
@@ -83,17 +83,17 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
 
    <Text style={styles.listText}></Text>
                <Text style={styles.listText}></Text><View style={ styles.infocontainer}>
-                <View style={styles.infotext} >{planet.Star.Mass&&<Text style={styles.listText}>{`${resource.starinfo[0]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.Star.Mass&&<Text style={styles.listText}>{`${planet.Star.Mass}*${resource.oursun}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.mass==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.starinfo[0]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.mass==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.mass}*${resource.oursun}`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.Star.Radius&&<Text style={styles.listText}>{`${resource.starinfo[1]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.Star.Radius&&<Text style={styles.listText}>{`${planet.Star.Radius}*${resource.oursun }`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.radiusSu==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.starinfo[1]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.radiusSu==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.radiusSu}*${resource.oursun }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.Star.Age&&<Text style={styles.listText}>{`${resource.starinfo[2]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.Star.Age&&<Text style={styles.listText}>{`${planet.Star.Age}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.age==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.starinfo[2]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.age==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.age}`}</Text>}</View>
               </View><View style={styles.infocontainer}>
-                <View style={styles.infotext} >{planet.Star.Temp&&<Text style={styles.listText}>{`${resource.starinfo[3]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.Star.Temp&&<Text style={styles.listText}>{`${planet.Star.Temp} C`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.temp==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.starinfo[3]}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.temp==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.temp} C`}</Text>}</View>
               </View>
                 <Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text>

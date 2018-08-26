@@ -1,69 +1,45 @@
 import{resource} from '../config/Resource'
 
-import{Planet, Star, terranbase64Icon,jovanbase64Icon,  redIcon,  orangeIcon} from './getPlanets'
+import{Planet, Star} from './getPlanets'
 
-export const SolarSystem=(star:Star):Star=>{
+const getData=async (uri:string):Promise<any>=>{
+  const SolarSystems =   await fetch(uri)
+  .then((response) => {
+    return response.json();
+  })
+  .then((myJson) =>  {
 
-    return SolarSystems.find(p=>p.Name==star.Name);
-}
+    return myJson 
 
-export const ConstellationSolarSystems=(constellation:number):Array<Star>=>{
+  });
 
-  return SolarSystems.filter(p=>p.Constellation===constellation);
-}
-
-export const SolarSystems= [
-    
-  {
-        Name:"1RXS 1609",
-        Type: resource.orange,
-        Img:{uri:orangeIcon},
-        HabZoneMin:350,
-        HabZoneMax : 400,
-        Radius:60,
-        Planets:[  {Name:"1RXS 1609 b",
-        Img: {uri:jovanbase64Icon},
-        Type: resource.hotJovian,
-        Distance: 145.00,
-        Esi:0,
-        DiscYear:2008,
-        Radius: 25,
-        starDistance: 200,
-       
-      }, ]
-
-      }as Star,
-
-     {
-        Name:"GJ 180",
-        Type: resource.red,
-        Img:{uri:redIcon},
-        HabZoneMin:120,
-        HabZoneMax :300,
-        Radius:60,
-        Constellation:83,
-        Planets:[{Name:"GJ 180 b",
-        Img:  {uri:jovanbase64Icon},
-        Type: resource.superEarth,
-        Distance: 11.69,
-        Esi:0.7,
-        DiscYear: 2014,
-        Radius: 15,
-        starDistance: 150,
-      } , {Name:"GJ 180 c",
-        Img:  {uri:terranbase64Icon},
-        Type: resource.superEarth,
-        Distance: 11.69,
-        Esi:0.7,
-        DiscYear: 2014,
-        Radius: 25,
-        starDistance: 600,
-
-      }]
-
+  return  SolarSystems ;
   
-      }as Star
+
+
+}
+
+
+
+
+
+
+
+export const getSolarSystem=async (star:Star):Promise<Star>=>{
+
+
+  const SolarSystems =   await getData(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/GetExoSolarSystemByName?name=${encodeURIComponent(star.name)}`)
+   return  SolarSystems as Promise<Star>;
+  
+  }
+
+export const ConstellationSolarSystems=async (constellation:number):Promise<Array<Star>>=>{
+
+  const SolarSystems =   await getData(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/GetSolarSystemPerConstellation?constellation=${constellation}`)
+
+  return  SolarSystems as Promise<Array<Star>> ;
+}
+
+
     
-    
-    
-   ] 
+
