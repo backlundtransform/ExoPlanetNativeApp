@@ -2,7 +2,7 @@ import * as React from 'react';
 import {AppRegistry, StyleSheet, View,Image} from 'react-native';
 import { Container, Header, Title, Content,Thumbnail, List, Button, Left, Right, Body, Text, ListItem} from 'native-base';
 import{resource} from '../config/Resource'
-import{PlanetList, filter} from '../service/getPlanets'
+import{ filter} from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
 import {constants} from '../config/constants'
 interface ConstellationsProps{navigation:any}

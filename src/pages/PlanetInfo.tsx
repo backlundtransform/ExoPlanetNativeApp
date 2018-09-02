@@ -9,6 +9,12 @@ import RatingBar from '../components/RatingBar'
 import Svg,{Circle,G,ClipPath,Path,Image,Rect, Use,Defs,
 
 } from 'react-native-svg';
+import { 
+  AdMobBanner, 
+  AdMobInterstitial, 
+  PublisherBanner,
+  AdMobRewarded
+} from 'react-native-admob'
 interface PlanetProps{navigation:any, color:any}
 interface  PlanetPropsState { color:any}
 export default class PlanetInfo extends React.Component<PlanetProps, PlanetPropsState> {
