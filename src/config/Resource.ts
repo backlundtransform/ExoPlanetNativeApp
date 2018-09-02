@@ -31,7 +31,7 @@ import LocalizedStrings from 'react-native-localization';
     masstitle:"Mass Klass",
  
     comptitle:"Composition",
-    compsearch:["Composition","Gas","Gas-water","Rocky-water","Rocky-iron","Iron"],
+    compsearch:["Gas","Gas-water","Rocky-water","Rocky-iron","Iron"],
     atmostitle:"Atmosphere",
     atmossearch:["Hydrogen-rich","Metal-rich","None"],
     temptitle:"Temperature zon",
@@ -68,9 +68,9 @@ import LocalizedStrings from 'react-native-localization';
     planetinfo:["Mass","Radius","Density","Gravity","Surface pressure","Escape velocity"],
     earth:"Earth",
     starname:["The star is called","and is located in the constellation"],
-    startype:["The star has exploded and the only thing that remains are small, heavy and very rapidly rotating celestial objects known as pulsars.","The star has","color and is of the type"],
+    startype:["The star has exploded and the only thing that remains are small, heavy and very rapidly rotating celestial objects known as pulsars.","The star has","and is of the type"],
     color: ["blue","blue to white","orange to red","red"],
-    lum:["very luminous supergiant","less luminous supergiant","luminous giant","giant","subgiant","dwarf","subdwarf","white dwarf","pulsar"],
+    lum:["very luminous supergiant", "luminous supergiant", "less luminous supergiant","luminous giant","giant","subgiant","dwarf","subdwarf","white dwarf","pulsar"],
     mag:["The star is visible from Earth with the naked eye.","The star can not be seen from Earth without a telescope."],
     sortorder:["Distance","Dicsovery year"],
     habzone:["The stars habitable zone is located at a distance between","and","times the distance between Earth and the Sun"],
@@ -79,7 +79,7 @@ import LocalizedStrings from 'react-native-localization';
   
     order:["Ascending", "Descending"],
     oursun:"Sun",
-   typecolor:"color.",
+   typecolor:"color",
     foundplanets:"Found planets: ",
     foundhabitableplanets:"Found habitable planets: ",
   },
@@ -162,16 +162,16 @@ import LocalizedStrings from 'react-native-localization';
     earth:"Jordens",
 
     starname:["Stjärnan heter","och ligger i stjärnbilden"],
-    startype:["Stjärna har exploderat det ända som återstår är små, tunga och mycket snabbt roterande himlakroppar så kallade pulsarer.","Stjärnan har en","färg och är av stjärntypen"],
+    startype:["Stjärna har exploderat det ända som återstår är små, tunga och mycket snabbt roterande himlakroppar så kallade pulsarer.","Stjärnan har en","och är av stjärntypen"],
      color: ["blå","blåvit","orange-röd","röd"],
-    lum:["hyperjätte","superjätte","ljusjätte","jätte","subjätte","dvärg","subdvärg","vit dvärg","pulsar"],
+    lum:["hyperjätte","superjätte", "mindre superjätte","ljus stark jätte","jätte","subjätte","dvärg","subdvärg","vit dvärg","pulsar"],
     mag:["Stjärnan är synlig från jorden med blotta ögat.","Stjärnan kan inte ses från jorden utan ett teleskop"],
 
     habzone:["Stjärnans beboeliga zon ligger på ett avstånd mellan","och","gånger avståndet mellan jorden och solen."],
      numberplanet:["en känd planet som ligger i den beboeliga zonen","Stjärnan har","kända planeter och har","planeter som ligger i den beboeliga zonen.","kända planeter men har inga kända planeter som ligger i den beboeliga zonen.","Stjärnan har en känd planet men den ligger inte i den beboeliga zonen."],
      starinfo:["Massa","Radie","Ålder","Temperatur"],
      oursun:"Solen",
-     typecolor:"färg.",
+     typecolor:"färg",
    foundplanets:"Hittade planeter: ",
    foundhabitableplanets:"Hittade beboliga planeter:  "
 

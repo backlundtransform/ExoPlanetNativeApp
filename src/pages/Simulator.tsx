@@ -5,12 +5,12 @@ import { GameLoop } from "react-native-game-engine";
 import styles from '../styles/defaultStyle'
 import {Gradient} from '../styles/radialgradients'
 import{resource} from '../config/Resource'
-import{Planet, Star, GetPlanetAsync} from '../service/getPlanets'
+import{Planet, Star, GetPlanetAsync,} from '../service/getPlanets'
 import{ getSolarSystem} from '../service/getSolarSystem'
 import Svg,{Circle,Ellipse,Pattern,Path, Image,ClipPath, Symbol,Text, Use,Defs,Stop,RadialGradient,LinearGradient,G} from 'react-native-svg';
 import{storeBase64} from '../service/getPlanets'
 import SvgPanZoom, { SvgPanZoomElement } from 'react-native-svg-pan-zoom';
-
+import{getStarSize} from '../service/getSolarSystem'
 interface SimulatorProps{navigation:any}
 
 interface SimulatorState{x:number,y:number, alpha:number, star:Star,loading:boolean}
@@ -43,6 +43,7 @@ export default class Simulator extends React.Component<SimulatorProps,SimulatorS
   
     }
 
+    star.radius =getStarSize(star)
 
 this.setState({star, loading:false})
   }
@@ -178,7 +179,7 @@ if(star!=undefined){
         key={`text- ${index}`}
         x={p.radius+this.RotateX(width/2,p.starDistance)}
         y={p.radius+this.RotateY(height/2,p.starDistance * 0.3)}
-        textAnchor="middle"
+        textAnchor="end"
         fontWeight="bold"
         fontSize="16"
         fill="white"

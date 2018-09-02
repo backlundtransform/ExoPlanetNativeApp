@@ -67,9 +67,9 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
     </Svg>
              
               <Body>
-              <Text style={styles.listText}></Text>
-              <Text style={styles.listText}>{`${resource.starname[0]} ${planet.star.name} ${resource.starname[1]} ${resource.const[planet.star.constellation]&&resource.const[planet.star.constellation]}.` } {`${planet.star.luminosity===12?resource.startype[0]: resource.startype[1] +
-                ' '+ resource.color[planet.star.color]+' '+resource.typecolor } ${resource.mag[planet.star.magnitude] !=null?resource.mag[planet.star.magnitude]:""}` }</Text>
+        
+              <Text style={styles.listText}>{`${resource.starname[0]} ${planet.star.name} ${resource.starname[1]} ${resource.const[planet.star.constellation]&&resource.const[planet.star.constellation]}.` } {`${planet.star.luminosity===9?resource.startype[0]: resource.startype[1] +
+                ' '+ resource.color[planet.star.color]+' '+resource.typecolor}${planet.star.luminosity<9?" "+resource.startype[2]+" "+resource.lum[planet.star.luminosity]+".":"."} ${resource.mag[planet.star.magnitude] !=null?resource.mag[planet.star.magnitude]:""}` }</Text>
             
                    <Text style={styles.listText}> </Text>
             

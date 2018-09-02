@@ -22,6 +22,23 @@ const getData=async (uri:string):Promise<any>=>{
 
 
 
+export const getStarSize =(star:Star):number=>{
+
+  if(star.luminosity<3){
+
+    return 150
+
+  }
+
+  if(star.luminosity<6){
+
+    return 100
+
+  }
+
+  return 75
+
+}
 
 
 
