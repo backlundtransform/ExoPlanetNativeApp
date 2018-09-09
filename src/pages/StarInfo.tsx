@@ -96,13 +96,15 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
                 <View style={styles.infotext} >{planet.star.temp==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.temp} C`}</Text>}</View>
               </View>
                 <Text style={styles.listText}></Text>
+                { resource.const[planet.star.constellation]&&<Button onPress={()=>this.props.navigation.navigate('solarlist',{const:planet.star.constellation})} style={styles.button}>
+                      <Text>{resource.const[planet.star.constellation]}</Text></Button>}
                         <Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text><Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text><Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text><Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text><Text style={styles.listText}></Text>
                         <Text style={styles.listText}></Text><Text style={styles.listText}></Text>
-                        <Text style={styles.listText}></Text>
+                        <Text style={styles.listText}></Text>      
               </Body>
               </ScrollView>
               </View>
