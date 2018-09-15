@@ -1,4 +1,4 @@
-package com.exoplanetnativeapp;
+package com.varoid.exoplanethunter;
 
 import android.app.Application;
 import com.airbnb.android.react.maps.MapsPackage;

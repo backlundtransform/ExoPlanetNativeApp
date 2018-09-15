@@ -1,4 +1,4 @@
-package com.exoplanetnativeapp;
+package com.varoid.exoplanethunter;
 
 import com.facebook.react.ReactActivity;
 
