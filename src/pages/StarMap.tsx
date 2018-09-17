@@ -109,21 +109,25 @@ class StarMap extends React.Component<StarmapProp, StarmapState> {
       }
     });
 
-    DeviceEventEmitter.addListener('Orientation', (data) => {
-      const { gps, Accelerometer } = this.state
-
-      if (Accelerometer !== undefined && gps) {
-
-        this.refs.map && this.setState({ degree: data.azimuth }, () => this.forceUpdate())
+    DeviceEventEmitter.addListener('Magnetometer',  (data)=> {
+     
+      const {gps, Accelerometer}= this.state
+   
+      if(Accelerometer!==undefined &&gps)
+      { 
+  
+       this.refs.map&&this.setState({ degree: azimuth_degree(Accelerometer, data)},() =>this.forceUpdate())
       }
     });
 
+
+  
   }
 
   componentWillUnmount() {
     let mSensorManager = require('NativeModules').SensorManager;
 
-    mSensorManager.stopMagnetometer();
+   
     mSensorManager.stopAccelerometer();
     mSensorManager.stopOrientation();
   }
@@ -132,17 +136,15 @@ class StarMap extends React.Component<StarmapProp, StarmapState> {
     const gps = nextProps.navigation.state.params && nextProps.navigation.state.params.gps
     let mSensorManager = require('NativeModules').SensorManager;
 
-
     if (gps) {
-      mSensorManager.startAccelerometer(300);
-      mSensorManager.startMagnetometer(300);
-      mSensorManager.startOrientation(300);
+      mSensorManager.startAccelerometer(300)
+      mSensorManager.startMagnetometer(300)
     }
     else {
 
-      mSensorManager.stopMagnetometer();
-      mSensorManager.stopAccelerometer();
-      mSensorManager.stopOrientation();
+   
+      mSensorManager.stopAccelerometer()
+      mSensorManager.stopMagnetometer()
     }
 
     this.setState({ gps })
