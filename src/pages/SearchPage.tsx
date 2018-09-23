@@ -109,12 +109,12 @@ setfilter = ()=> {
               />
             </Right>
           </ListItem><Body style={{margin:20}}><Grid>
-          <Col size={3}></Col>
-                        <Col size={3}><Button onPress={()=>this.search()}  style={styles.button}>
+          <Col size={2}></Col>
+                        <Col size={4}><Button onPress={()=>this.search()}  style={styles.button}>
                       <Text>{resource.search}</Text></Button></Col>
-                        <Col size={3} ><Button onPress={()=>this.clear()} style={styles.button}>
+                        <Col size={4} ><Button onPress={()=>this.clear()} style={styles.button}>
                       <Text>{resource.clear}</Text></Button></Col>
-                      <Col size={3}></Col>
+                      <Col size={2}></Col>
                     </Grid ></Body>
               </Container>
          );

@@ -7,7 +7,7 @@ import LocalizedStrings from 'react-native-localization';
   ,en:{
     message:"ExoPlanetHunter",
     planetlist:"Planetlist",
-    habplanets: "Earth-like planet",
+    habplanets: "Earth-like planets",
     con: "Constellations",
     starmap: "Starmap",
     from: "lightyears from Earth",
@@ -18,7 +18,7 @@ import LocalizedStrings from 'react-native-localization';
     orange:"Orange Dwarf",
     red:"Red Dwarf",
     habmenu: ["Habitable Planets","Cold(–50-0°C)", "Normal Temperature(0–50°C)", "Hot(50–100°C)", "Earth similarity index", "Suitability for vegetation","Candidate for habitable moon"],
-    const:["Andromeda","Antlia","Apus","Aquarius" ,"Aquila" ,"Ara","Aries","Auriga" ,"Boötes","Caelum","Camelopardalis","Cancer" ,"Canes","Canis Major","Canis Minor","Capricornus","Carina" ,"Cassiopeia" ,"Centaurus" ,"Cepheus","Cetus","Chamaeleon" ,"Circinus","Columba","Coma Berenices","Corona Australis","Corona Borealis","Corvus","Crater","Crux","Cygnus","Delphinus","Dorado","Draco","Equuleus","Eridanus","Fornax","Gemini","Grus","Hercules","Horologium","Hydra" ,"Hydrus","Indus","Lacerta","Leo","Leo Minor","Lepus" ,"Libra" ,"Lupus" ,"Lynx" ,"Lyra" ,"Mensa","Microscopium","Monoceros","Musca","Norma" ,"Octans","Ophiuchus" ,"Orion" ,"Pavo" ,"Pegasus","Perseus" ,"Phoenix","Pictor" ,"Pisces","Piscis Austrinus","Puppis","Pyxis" ,"Reticulum" ,"Sagitta","Sagittarius","Scorpius","Sculptor","Scutum","Serpens","Sextans","Taurus","Telescopium","Triangulum","Triangulum Australe","Tucana" ,"Ursa Major" ,"Ursa Minor" ,"Vela","Venatici" ,"Virgo","Volans","Vulpecula"],
+    const:["Andromeda","Antlia","Apus","Aquarius" ,"Aquila" ,"Ara","Aries","Auriga" ,"Boötes","Caelum","Camelopardalis","Cancer" ,"Canes Venatici","Canis Major","Canis Minor","Capricornus","Carina" ,"Cassiopeia" ,"Centaurus" ,"Cepheus","Cetus","Chamaeleon" ,"Circinus","Columba","Coma Berenices","Corona Australis","Corona Borealis","Corvus","Crater","Crux","Cygnus","Delphinus","Dorado","Draco","Equuleus","Eridanus","Fornax","Gemini","Grus","Hercules","Horologium","Hydra" ,"Hydrus","Indus","Lacerta","Leo","Leo Minor","Lepus" ,"Libra" ,"Lupus" ,"Lynx" ,"Lyra" ,"Mensa","Microscopium","Monoceros","Musca","Norma" ,"Octans","Ophiuchus" ,"Orion" ,"Pavo" ,"Pegasus","Perseus" ,"Phoenix","Pictor" ,"Pisces","Piscis Austrinus","Puppis","Pyxis" ,"Reticulum" ,"Sagitta","Sagittarius","Scorpius","Sculptor","Scutum","Serpens","Sextans","Taurus","Telescopium","Triangulum","Triangulum Australe","Tucana" ,"Ursa Major" ,"Ursa Minor" ,"Vela" ,"Virgo","Volans","Vulpecula"],
     sensorstart: "Starting Sensor..",
     sensorstop: "Deactivating Sensor",
     search: "Search",
@@ -28,7 +28,7 @@ import LocalizedStrings from 'react-native-localization';
     sorttordertitle:"Sort",
     sortsearch:["Distance","Habitable","Mass","Discovery year"],
     masssearch:["Jovian","Neptunian","Super-Earth","Earth","Mercurian"],
-    masstitle:"Mass Klass",
+    masstitle:"Mass class",
  
     comptitle:"Composition",
     compsearch:["Gas","Gas-water","Rocky-water","Rocky-iron","Iron"],
@@ -99,7 +99,7 @@ import LocalizedStrings from 'react-native-localization';
     orange:"Orange dvärg",
     red:"Röd dvärg",
     habmenu: ["Beboliga Planeter","Kallt (-50-0°C)", "Normal Temperatur(0–50°C)", "Varmt(50–100°C)", "Liknar Jorden (ESI index)", "Lämpad för växlighet (SPH index)","Kandidater för beboliga månar"],
-    const:["Andromeda","Antlia","Apus","Aquarius" ,"Aquila" ,"Ara","Aries","Auriga" ,"Boötes","Caelum","Camelopardalis","Cancer" ,"Canes", "Venatici","Canis Majo","Canis Minor","Capricornus","Carina" ,"Cassiopeia" ,"Centaurus" ,"Cepheus","Cetus","Chamaeleon" ,"Circinus","Columba","Coma Berenices","Corona Australis","Corona Borealis","Corvus","Crater","Crux","Cygnus","Delphinus","Dorado","Draco","Equuleus","Eridanus","Fornax","Gemini","Grus","Hercules","Horologium","Hydra" ,"Hydrus","Indus","Lacerta","Leo","Leo Minor","Lepus" ,"Libra" ,"Lupus" ,"Lynx" ,"Lyra" ,"Mensa","Microscopium","Monoceros","Musca","Norma" ,"Octans","Ophiuchus" ,"Orion" ,"Pavo" ,"Pegasus","Perseus" ,"Phoenix","Pictor" ,"Pisces","Piscis Austrinus","Puppis","Pyxis" ,"Reticulum" ,"Sagitta","Sagittarius","Scorpius","Sculptor","Scutum","Serpens","Sextans","Taurus","Telescopium","Triangulum","Triangulum Australe","Tucana" ,"Ursa Major" ,"Ursa Minor" ,"Vela" ,"Virgo","Volans","Vulpecula"],
+    const:["Andromeda","Antlia","Apus","Aquarius" ,"Aquila" ,"Ara","Aries","Auriga" ,"Boötes","Caelum","Camelopardalis","Cancer" ,"Canes Venatici","Canis Major","Canis Minor","Capricornus","Carina" ,"Cassiopeia" ,"Centaurus" ,"Cepheus","Cetus","Chamaeleon" ,"Circinus","Columba","Coma Berenices","Corona Australis","Corona Borealis","Corvus","Crater","Crux","Cygnus","Delphinus","Dorado","Draco","Equuleus","Eridanus","Fornax","Gemini","Grus","Hercules","Horologium","Hydra" ,"Hydrus","Indus","Lacerta","Leo","Leo Minor","Lepus" ,"Libra" ,"Lupus" ,"Lynx" ,"Lyra" ,"Mensa","Microscopium","Monoceros","Musca","Norma" ,"Octans","Ophiuchus" ,"Orion" ,"Pavo" ,"Pegasus","Perseus" ,"Phoenix","Pictor" ,"Pisces","Piscis Austrinus","Puppis","Pyxis" ,"Reticulum" ,"Sagitta","Sagittarius","Scorpius","Sculptor","Scutum","Serpens","Sextans","Taurus","Telescopium","Triangulum","Triangulum Australe","Tucana" ,"Ursa Major" ,"Ursa Minor" ,"Vela" ,"Virgo","Volans","Vulpecula"],
 
     order:["Stigande", "Fallande"],
     sensorstart: "Väntar på sensor",
