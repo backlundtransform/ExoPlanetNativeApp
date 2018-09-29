@@ -2,7 +2,7 @@ import * as React from 'react';
 import {AppRegistry, StyleSheet, View,Image } from 'react-native';
 import { Container, Header, Title, Content,Thumbnail, List, Button, Left, Right, Body, Icon, Text, ListItem} from 'native-base';
 import{resource} from '../config/Resource'
-import{Star,PlanetList} from '../service/getPlanets'
+import{Star} from '../service/getPlanets'
 import{ConstellationSolarSystems} from '../service/getSolarSystem'
 import styles from '../styles/defaultStyle'
 import {Gradient} from '../styles/radialgradients'
