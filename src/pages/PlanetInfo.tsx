@@ -64,8 +64,10 @@ export default class PlanetInfo extends React.Component<PlanetProps, PlanetProps
                  <Text style={styles.listText}> </Text>
                  <Text style={styles.listText}> </Text>
            
-                <Text style={styles.listText}>{planet.period!=null?`${resource.orbit[0]} ${planet.period} ${resource.orbit[1]}`:''} {planet.meanDistance!=null?`${resource.decMean[0]} ${planet.meanDistance} ${resource.decMean[1]}`:''}</Text>
+                <Text style={styles.listText}>{planet.temp!=null?`${resource.meantemp[0]} ${planet.temp}. `:''}{planet.tempMax!=null&&planet.tempMin!=null?`${resource.meantemp[1]} ${planet.name} ${resource.meantemp[2]} ${planet.tempMax} ${resource.meantemp[3]} ${planet.tempMin}`:''}</Text>
        
+               <Text style={styles.listText}></Text>
+               <Text style={styles.listText}>{planet.period!=null?`${resource.orbit[0]} ${planet.period} ${resource.orbit[1]} `:''}{planet.meanDistance!=null?`${resource.decMean[0]} ${planet.meanDistance} ${resource.decMean[1]}`:''}</Text>
                <Text style={styles.listText}></Text>
                <Text style={styles.listText}>{`${resource.hzd[planet.hzd]===undefined?"":resource.hzd[planet.hzd]+" "}${resource.hza[planet.hza]===undefined?"":resource.hza[planet.hza]+" "}${resource.atmosinfo[planet.atmosphere] ===undefined?"":resource.atmosinfo[planet.atmosphere]+" "}${planet.moon ? resource.moon:"" }`}</Text>
                <Text style={styles.listText}>{`${planet.discYear===undefined?"":resource.disc} ${planet.discYear===undefined?"":planet.discYear}.`}</Text>

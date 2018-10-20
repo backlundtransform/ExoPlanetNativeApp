@@ -101,8 +101,8 @@ android {
         applicationId "com.varoid.exoplanethunter"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 5564
-        versionName "2.01"
+        versionCode 7764
+        versionName "2.03"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
