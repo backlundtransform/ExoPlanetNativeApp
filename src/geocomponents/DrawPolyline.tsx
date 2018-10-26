@@ -5,7 +5,6 @@ import { View, Text } from 'react-native';
 
 import{GetConstellationsLines} from '../service/getConstellations'
 
-import{resource} from '../config/Resource'
 import styles from '../styles/defaultStyle'
 
 export default class DrawPolyline extends React.PureComponent<{ navigation:any},any> {

@@ -1,13 +1,11 @@
 import * as React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native'
-import PlanetInfo  from '../pages/PlanetInfo'
-import StarInfo  from '../pages/StarInfo'
+
 import Planets  from '../pages/Planets'
 import  Simulator  from '../pages/Simulator'
 import styles from '../styles/defaultStyle'
 import  TabBar  from './TabBar';
 import  InfoNavigator  from './InfoNavigator';
-import {  Button, Left ,Header ,Right} from 'native-base'
+import {  Button, Left ,Header} from 'native-base'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import  HamburgerMenu from './HamburgerMenu'
 import SearchPage  from '../pages/SearchPage'
@@ -35,11 +33,9 @@ import {
      infopages: { screen: InfoNavigator,  
     
       navigationOptions:({ navigation, screenProps }) => ( {
-        header:(<Header 
-
-        style={styles.headercontent}>
+        header:(<Header  style={styles.headercontent}>
         <Left style={styles.left}>
-          <Button transparent onPress={() =>navigation.navigate("planets")} >
+          <Button transparent onPress={() =>navigation.goBack()} >
               <Icon style={styles.white} name={ "keyboard-arrow-left"}   size={36} />
             </Button>
             </Left><Button  style={styles.d3button}  transparent onPress={() =>navigation.replace("d3view",{navigation:navigation})} >

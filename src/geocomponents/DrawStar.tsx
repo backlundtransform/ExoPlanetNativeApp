@@ -1,7 +1,7 @@
 import * as React from 'react';
-import MapView from 'react-native-maps';
-import { LocalTile,  UrlTile,Marker, Circle, Polyline, Callout } from 'react-native-maps';
-import { View, Text } from 'react-native';
+
+import { Marker } from 'react-native-maps';
+
 import{GetStarsMarkers} from '../service/getConstellations'
 export default class DrawStar extends React.PureComponent<any,any> {
     constructor(props) {

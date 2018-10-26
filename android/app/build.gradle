@@ -100,9 +100,9 @@ android {
     defaultConfig {
         applicationId "com.varoid.exoplanethunter"
         minSdkVersion 16
-        targetSdkVersion 22
-        versionCode 7764
-        versionName "2.03"
+        targetSdkVersion 26
+        versionCode 8864
+        versionName "2.04"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -162,7 +162,7 @@ dependencies {
      compile 'com.google.android.gms:play-services-base:11.0.4'
     compile 'com.google.android.gms:play-services-maps:11.0.4'
       compile project(':react-native-sensor-manager')
-       compile project(':RNAdMob')
+   
 }
 
 // Run this once to be able to run the application with BUCK
