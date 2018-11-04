@@ -1,20 +1,14 @@
 import * as React from 'react';
-import {AppRegistry, StyleSheet, View,ScrollView  } from 'react-native';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text,Thumbnail, } from 'native-base';
+import { View,ScrollView  } from 'react-native';
+import { Text } from 'native-base';
 import{resource} from '../config/Resource'
-import{Planet,storeBase64} from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
 import {Gradient} from '../styles/radialgradients'
 import RatingBar from '../components/RatingBar'
-import Svg,{Circle,G,ClipPath,Path,Image,Rect, Use,Defs,
+import Svg,{Circle,G,ClipPath,Image,Defs,
 
 } from 'react-native-svg';
-import { 
-  AdMobBanner, 
-  AdMobInterstitial, 
-  PublisherBanner,
-  AdMobRewarded
-} from 'react-native-admob'
+
 interface PlanetProps{navigation:any, color:any}
 interface  PlanetPropsState { color:any}
 export default class PlanetInfo extends React.Component<PlanetProps, PlanetPropsState> {

@@ -15,7 +15,8 @@ const planetReducer = (state = planetState , action) => {
          }
             state = Object.assign({}, state, { planets: action.planets, loading:false });
             
-            return state; 
+            return state;
+    
 };
 
 

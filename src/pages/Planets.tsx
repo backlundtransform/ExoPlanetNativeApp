@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {AppRegistry, StyleSheet, View, ScrollView,Dimensions} from 'react-native';
-import { Container, Header, Picker,Title, Content,Thumbnail, List, Button, Left, Right, Body, Icon, Text, ListItem, Spinner,Item,Input } from 'native-base';
+import {ScrollView} from 'react-native';
+import { Container, List, Button, Left, Right, Body, Icon, Text, ListItem, Spinner,Item,Input } from 'native-base';
 import{resource} from '../config/Resource'
 import{filter,Planet,storeBase64 } from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
@@ -9,7 +9,7 @@ import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import Search from "../navigation/Search";
 import {Gradient} from '../styles/radialgradients'
-import Svg,{Circle,G,ClipPath,Path,Rect,Image, Use,Defs,} from 'react-native-svg';
+import Svg,{Circle,G,ClipPath,Image,Defs,} from 'react-native-svg';
 
 interface PlanetsProps{navigation:any, getData:any,planets: Array<Planet>, loading:boolean}
 interface  PlanetsPropsState {loading:boolean, top: number, color: any}
