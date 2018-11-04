@@ -2,7 +2,7 @@ import * as React from 'react';
 import {AppRegistry, StyleSheet, View, ScrollView,Dimensions} from 'react-native';
 import { Container, Header, Picker,Title, Content,Thumbnail, List, Button, Left, Right, Body, Icon, Text, ListItem, Spinner,Item,Input } from 'native-base';
 import{resource} from '../config/Resource'
-import{filter,Planet,planetcolor,storeBase64 } from '../service/getPlanets'
+import{filter,Planet,storeBase64 } from '../service/getPlanets'
 import styles from '../styles/defaultStyle'
 import {getData} from '../redux/actions';
 import {bindActionCreators} from 'redux';
@@ -22,8 +22,6 @@ class Planets extends React.Component<PlanetsProps, PlanetsPropsState> {
   }
 async componentDidMount() {
   const {getData,planets,navigation,loading} =this.props
-  const filter = navigation.state.params
-
   let color= JSON.parse(await storeBase64())
 
    await getData(navigation.state.params,100)
@@ -35,7 +33,6 @@ async componentDidMount() {
 
 }
 async componentWillReceiveProps(nextProps,nextState){
-  const {getData,planets,navigation,loading} =this.props
 if(nextState.loading!==nextProps.loading){
   this.setState({loading:nextProps.loading})
 }
@@ -67,7 +64,7 @@ async search(query:string){
 
 
 render() {
-  const {planets,navigation,getData} =this.props
+  const {planets} =this.props
 
   let {loading,color} =this.state
 

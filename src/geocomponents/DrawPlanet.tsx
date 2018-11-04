@@ -36,10 +36,7 @@ export default class DrawPlanet extends React.PureComponent<DrawPlanetsProps,any
    planets, loading :false
 });
     }
-
-
-
-    componentDidUpdate() { 
+ componentDidUpdate() { 
         if (this.state.tracksViewChanges) {
             this.setState({
                 tracksViewChanges: false
@@ -49,7 +46,7 @@ export default class DrawPlanet extends React.PureComponent<DrawPlanetsProps,any
 
     render() {
 
-        const {planets,loading} = this.state
+        const {planets} = this.state
     return (<React.Fragment>{ planets.map((planet,index) =>  (
             <Marker
               key={planet.name}

@@ -120,8 +120,6 @@ class StarMap extends React.Component<StarmapProp, StarmapState> {
       }
     });
 
-
-  
   }
 
   componentWillUnmount() {

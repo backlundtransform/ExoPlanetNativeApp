@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {AppRegistry, StyleSheet, View,ScrollView  } from 'react-native';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text,Thumbnail } from 'native-base';
+import { View,ScrollView  } from 'react-native';
+import {  Button, Left, Right, Body, Text, } from 'native-base';
 import{resource} from '../config/Resource'
 import styles from '../styles/defaultStyle'
 import {Gradient} from '../styles/radialgradients'
-import Svg,{Circle,G,ClipPath,Path,Image,Rect, Use,Defs,} from 'react-native-svg';
+import Svg,{Circle,G} from 'react-native-svg';
 import { Planet } from '../service/getPlanets';
 interface StarProps{navigation:any}
 interface  StarPropsState { }
@@ -18,28 +18,28 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
         const knownhabplanets = planet.star.noHabPlanets
         const knownplanets = planet.star.noPlanets
 
-      
-        
-        if(knownhabplanets>=1 && knownplanets>1){
 
+   
+        if(knownhabplanets>=1 && knownplanets>1){
+      
           
           if(knownhabplanets===1){
 
-            return `${resource.numberplanet[1]} ${knownplanets} ${resource.numberplanet[2]} ${resource.numberplanet[0]}`;
+            return `${resource.numberplanet.split(",")[1]} ${knownplanets} ${resource.numberplanet.split(",")[2]} ${resource.numberplanet.split(",")[0]}`;
           }
-          return `${resource.numberplanet[1]} ${knownplanets} ${resource.numberplanet[2]} ${knownhabplanets} ${resource.numberplanet[3]}`;
+          return `${resource.numberplanet.split(",")[1]} ${knownplanets} ${resource.numberplanet.split(",")[2]} ${knownhabplanets} ${resource.numberplanet.split(",")[3]}`;
         }
         
         
         if(knownhabplanets==0 && knownplanets>1){
 
-          return `${resource.numberplanet[1]} ${knownplanets} ${resource.numberplanet[4]}` 
+          return `${resource.numberplanet.split(",")[1]} ${knownplanets} ${resource.numberplanet.split(",")[4]}` 
 
         }
 
         if(knownhabplanets==0 && knownplanets==1){
 
-          return `${resource.numberplanet[5]}` 
+          return `${resource.numberplanet.split(",")[5]}` 
         }
 
 
@@ -63,13 +63,13 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
      <Circle 
       cx="150" cy="130" r="120" 
  
-      fill={`url(#${resource.color[planet.star.color]})`}/></G>
+      fill={`url(#${resource.color.split(",")[planet.star.color]})`}/></G>
     </Svg>
              
               <Body>
         
-              <Text style={styles.listText}>{`${resource.starname[0]} ${planet.star.name} ${resource.starname[1]} ${resource.const[planet.star.constellation]&&resource.const[planet.star.constellation]}.` } {`${planet.star.luminosity===9?resource.startype[0]: resource.startype[1] +
-                ' '+ resource.color[planet.star.color]+' '+resource.typecolor}${planet.star.luminosity<9?" "+resource.startype[2]+" "+resource.lum[planet.star.luminosity]+".":"."} ${resource.mag[planet.star.magnitude] !=null?resource.mag[planet.star.magnitude]:""}` }</Text>
+              <Text style={styles.listText}>{`${resource.starname.split(",")[0]} ${planet.star.name} ${resource.starname.split(",")[1]} ${resource.const.split(",")[planet.star.constellation]&&resource.const.split(",")[planet.star.constellation]}.` } {`${planet.star.luminosity===9?resource.startype.split(",")[0]: resource.startype.split(",")[1] +
+                ' '+ resource.color.split(",")[planet.star.color]+' '+resource.typecolor}${planet.star.luminosity<9?" "+resource.startype[2]+" "+resource.lum[planet.star.luminosity]+".":"."} ${resource.mag[planet.star.magnitude] !=null?resource.mag[planet.star.magnitude]:""}` }</Text>
             
                    <Text style={styles.listText}> </Text>
             
