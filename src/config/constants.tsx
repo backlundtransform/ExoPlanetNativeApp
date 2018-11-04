@@ -3,12 +3,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles/defaultStyle'
 import{resource} from '../config/Resource'
 import Svg,{
-  Circle,
-  Ellipse,
-  Pattern,
+
   Path,
-Defs,
-G,Use
+
 
 } from 'react-native-svg';
 const habmenu= [{

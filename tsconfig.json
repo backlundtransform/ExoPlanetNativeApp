@@ -1,9 +1,11 @@
 {
     "compilerOptions": {
         "target": "es2015",
+        "module": "es2015",
         "jsx": "react",
         "noEmit": true,
         "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true
     },
     "exclude": [
         "node_modules"
