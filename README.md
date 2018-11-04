@@ -75,4 +75,4 @@ The last section will be the starmap.</p>
 
 <p>This version is still beta and i can be downloaded at <a href="https://play.google.com/store/apps/details?id=com.varoid.exoplanethunter&amp;hl=en">google play</a>. Service will be found under the section api and will replace the old not updated service.</p>
 
-                </div>
+                
