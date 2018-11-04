@@ -1,13 +1,11 @@
 import * as React from 'react';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
-import { AppRegistry, StyleSheet, View, Platform, Image, Dimensions, DeviceEventEmitter, NativeModules } from 'react-native';
-import { resource } from '../config/Resource'
+import { Container} from 'native-base';
+import {  DeviceEventEmitter} from 'react-native';
 import MapView from 'react-native-maps';
-import { LocalTile, UrlTile, Marker, Circle, Polyline, Callout } from 'react-native-maps';
+import {  UrlTile } from 'react-native-maps';
 import DrawPolyline from '../geocomponents/DrawPolyline'
 import DrawStar from '../geocomponents/DrawStar'
 import DrawPlanet from '../geocomponents/DrawPlanet'
-import HamburgerMenu from '../navigation/HamburgerMenu'
 import { siderealtime, dot_product, right_ascension, getdeclination, azimuth_degree } from '../sensor/mathfunctions'
 import Compass from '../sensor/compass'
 import { constants } from '../config/constants'
@@ -61,10 +59,7 @@ class StarMap extends React.Component<StarmapProp, StarmapState> {
     }
 
   };
-
   error = (err) => {
-
-
   };
 
 

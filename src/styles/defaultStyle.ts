@@ -241,4 +241,4 @@ d3View: {
   });
 
 
-  export default styles;
+  export default styles as any

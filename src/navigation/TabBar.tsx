@@ -1,7 +1,6 @@
 import * as React  from  'react';
-import {  Button, Left, Icon,Header,Right  } from 'native-base';
+import {  Button, Icon,Header} from 'native-base';
 import styles from '../styles/defaultStyle';
-import  InfoNavigator  from './InfoNavigator';
 interface TabBarProps{navigator:any}
 interface TabBarState {tab:string }
 export default class TabBar extends React.Component<TabBarProps, TabBarState> {
@@ -21,8 +20,6 @@ export default class TabBar extends React.Component<TabBarProps, TabBarState> {
 
         this.setState({tab:"Planet"})
       }
-
-
   }
 
  HandleClick=(tab:string)=>{

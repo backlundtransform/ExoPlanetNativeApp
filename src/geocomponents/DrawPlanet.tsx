@@ -1,9 +1,8 @@
 import * as React from 'react';
-import MapView from 'react-native-maps';
-import {Spinner} from "native-base"
-import { LocalTile,  UrlTile,Marker, Circle, Polyline, Callout } from 'react-native-maps';
 
-import{ GetHabitablePlanets, Planet } from '../service/getPlanets'
+import {Marker} from 'react-native-maps';
+
+import{ GetHabitablePlanets } from '../service/getPlanets'
 interface DrawPlanetsProps{ navigation:any}
 
 export default class DrawPlanet extends React.PureComponent<DrawPlanetsProps,any> {

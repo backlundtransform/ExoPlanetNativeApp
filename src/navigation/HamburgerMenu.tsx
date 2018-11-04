@@ -4,7 +4,7 @@ import styles from '../styles/defaultStyle';
 import  {Drawer}  from './Drawer'
 interface HamburgerMenuProps{navigate:any}
 interface HamburgerMenuState {  menu :  boolean}
-const _ismounted =true
+
 export default class HamburgerMenu extends React.Component<HamburgerMenuProps, HamburgerMenuState> {
   constructor(props) {
     super(props);

@@ -1,4 +1,3 @@
-
 const time = (longitude: number): number => {
 	const now = new Date;
 	var utc_timestamp = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),

@@ -1,10 +1,6 @@
 import  * as React from "react";
-
-import{filter } from '../service/getPlanets'
-
 import styles from '../styles/defaultStyle';
-
-import { Container, Header, Title, Content, Button, Left, Icon, Text, ListItem,Item,Input } from 'native-base';
+import {  Header, Button, Icon, Text,Item,Input } from 'native-base';
 import{resource} from '../config/Resource'
 interface Searchprop{search:any}
 class Search extends React.Component<Searchprop,any> {

@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {AppRegistry, StyleSheet, View,Image} from 'react-native';
-import { Container, Header, Title, Content,Thumbnail, List, Button, Left, Right, Body, Text, ListItem,Spinner} from 'native-base';
+import { Container, Body, Text,Spinner} from 'native-base';
 import{resource} from '../config/Resource'
 import styles from '../styles/defaultStyle'
 import {GetStatisticsAsync,statistics} from '../service/getPlanets'

@@ -1,7 +1,7 @@
 import  * as React from "react";
 import styles from '../styles/defaultStyle';
 import{resource} from '../config/Resource'
-import {Container,Header,Title,Content,Button,Icon,Right,Body,Left,Form} from "native-base";
+import {Header,Icon,} from "native-base";
 import {Picker} from "react-native";
 import {setFilter} from '../redux/actions';
 import {bindActionCreators} from 'redux';
@@ -20,16 +20,13 @@ class Settings extends React.Component<SettingsProps, SettingsPropsState> {
   
   }
 
-
   render() {
     const {filter}= this.props
 
     const color =filter===undefined?"#fff":"red" 
     return (
       <Header style={styles.d3button} >
-      <Icon name='ios-settings'
- style={{ width: 20, zIndex:-10, margin:10,color:color} }
-/>
+      <Icon name='ios-settings'style={{ width: 20, zIndex:-10, margin:10,color:color} }/>
         <Picker
               mode="dropdown"
               style={{ position: 'absolute', top: 0, width: 100, height: 1000 }}
@@ -44,7 +41,7 @@ class Settings extends React.Component<SettingsProps, SettingsPropsState> {
   }
 }
 
-function mapStateToProps(state, props) {
+const mapStateToProps=(state, props) => {
 
   return {
     filter: state.searchReducer.filter

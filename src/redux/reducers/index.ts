@@ -1,22 +1,11 @@
 import { combineReducers } from 'redux';
 import {AppNavigator} from '../../navigation/AppNavigator'
-import { PLANETS_AVAILABLE,SEARCH_FILTER } from "../actions/" 
-import { AsyncStorage } from "react-native"
+import { PLANETS_AVAILABLE } from "../actions/" 
+
 let planetState = { planets: [], loading:true };
 
 let searchState ={ filter: {mass:"",comp:"",atmos:"",disc:"",temp:"",lightyears:"",sort:"", order:true }};
-const getStorage =()=>{
-    AsyncStorage.getItem('filter').then(value=> {
-   if (value !== null) {
-   
- return JSON.parse(value)
-   }
- 
-})
- 
-return null
-  }
- 
+
 const planetReducer = (state = planetState , action) => {
 
    
@@ -26,8 +15,7 @@ const planetReducer = (state = planetState , action) => {
          }
             state = Object.assign({}, state, { planets: action.planets, loading:false });
             
-            return state;
-    
+            return state; 
 };
 
 

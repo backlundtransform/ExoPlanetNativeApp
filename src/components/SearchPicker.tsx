@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {Picker, Container, Header, Title, Content,Thumbnail, List, Button, Left, Right, Body, Text, ListItem} from 'native-base';
+import {Picker} from 'native-base';
 
-import styles from '../styles/defaultStyle'
 
 interface SearchPickerProp{ title:string, statekey:string,  value:any, onValueChange:(value: any, key:any)=>void,searcharray:any }
 export default class SearchPicker extends React.Component<SearchPickerProp, any> {

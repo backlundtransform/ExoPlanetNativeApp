@@ -1,13 +1,12 @@
 import * as React  from  'react';
 import {  Button, Left,Header  } from 'native-base';
 import styles from '../styles/defaultStyle';
-import StarMap from '../pages/StarMap';
-import  {Drawer}  from './Drawer'
+
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import{resource} from '../config/Resource'
+
 interface GpsMenuProps{navigate:any}
 interface GpsMenuState {  menu :  boolean}
-const _ismounted =true
+
 export default class GpsMenu extends React.Component<GpsMenuProps, GpsMenuState> {
   constructor(props) {
     super(props);
@@ -15,20 +14,12 @@ export default class GpsMenu extends React.Component<GpsMenuProps, GpsMenuState>
       menu:true  }
   }
 
-  componentWillReceiveProps(nextProps){
-  
-
-   
-  }
-
  HandleClick=()=>{
+    const {menu} =this.state
 
-//to do use redux instead
-  const {menu} =this.state
+    this.props.navigate.setParams({gps:menu}) 
 
- this.props.navigate.setParams({gps:this.state.menu}) 
-
-  this.setState({ menu:!this.state.menu})
+    this.setState({ menu:!menu})
   }
   render() {
     

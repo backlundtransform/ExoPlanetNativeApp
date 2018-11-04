@@ -1,12 +1,8 @@
 import { DrawerNavigator } from 'react-navigation';
 import{resource} from '../config/Resource'
 import * as React from 'react';
-
-import Planets from '../pages/Planets';
 import ConstellationNavigator from './ConstellationNavigator';
-import Constellations from '../pages/Constellations';
 import StarMap from '../pages/StarMap';
-import { Icon,Text,ListItem, Content,View} from "native-base";
 import SidebarContent from './SideBarContent'
 import styles from '../styles/defaultStyle';
 import  HamburgerMenu from './HamburgerMenu'
@@ -14,12 +10,9 @@ import  GpsMenu from './GpsMenu'
 import   PlanetsNavigator from './PlanetsNavigator'
 import   HabNavigator from './HabNavigator'
 import  NavListItems from './NavListItems'
-import { Button, TouchableOpacity } from 'react-native';
-import { Header , Left } from 'native-base';
-import { Provider } from 'react-redux';
+
 import  Settings  from './Settings';
 
-import store from '../store'; 
 const appRoutes ={
   
     planets: { screen: PlanetsNavigator,  
@@ -70,9 +63,7 @@ const appRoutes ={
 
             drawerLabel: () =>
             <NavListItems title={resource.starmap} icon={'map'} /> ,
-          })   
-          
-        
+          })    
     }
  }
 

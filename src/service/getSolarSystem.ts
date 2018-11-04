@@ -1,6 +1,4 @@
-import{resource} from '../config/Resource'
-
-import{Planet, Star} from './getPlanets'
+import{ Star} from './getPlanets'
 
 const getData=async (uri:string):Promise<any>=>{
   const SolarSystems =   await fetch(uri)
@@ -15,37 +13,22 @@ const getData=async (uri:string):Promise<any>=>{
 
   return  SolarSystems ;
   
-
-
 }
-
-
-
 
 export const getStarSize =(star:Star):number=>{
 
   if(star.luminosity<3){
-
-    return 150
-
+      return 150
   }
 
   if(star.luminosity<6){
-
-    return 100
-
+     return 100
   }
-
-  return 75
-
+ return 75
 }
 
-
-
 export const getSolarSystem=async (star:Star):Promise<Star>=>{
-
-
-  const SolarSystems =   await getData(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/GetExoSolarSystemByName?name=${encodeURIComponent(star.name)}`)
+   const SolarSystems =   await getData(`http://exoplanets.azurewebsites.net/api/ExoSolarSystems/GetExoSolarSystemByName?name=${encodeURIComponent(star.name)}`)
    return  SolarSystems as Promise<Star>;
   
   }

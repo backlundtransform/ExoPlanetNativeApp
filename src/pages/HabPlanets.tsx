@@ -1,8 +1,7 @@
 import * as React from 'react';
-import {AppRegistry, StyleSheet, View,Image} from 'react-native';
-import { Container, Header, Title, Content,Thumbnail, List, Button, Left, Right, Body, Text, ListItem} from 'native-base';
-import{resource} from '../config/Resource'
-import{filter} from '../service/getPlanets'
+
+import { Container, Content, List,  Body, Text, ListItem} from 'native-base';
+
 import styles from '../styles/defaultStyle'
 import {constants} from '../config/constants'
 
@@ -26,7 +25,7 @@ export default class HabPlanets extends React.Component<HabPlanetsProps,HabPlane
            <Body style={styles.habbody} >
 
           {item.icon}
-             <Text  style={styles.habTitle} >  {item.name}</Text>
+             <Text style={styles.habTitle}>  {item.name}</Text>
   
            </Body>
          
