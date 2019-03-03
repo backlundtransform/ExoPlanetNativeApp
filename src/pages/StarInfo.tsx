@@ -90,7 +90,7 @@ export default class StarInfo extends React.Component<StarProps, StarPropsState>
                 <View style={styles.infotext} >{planet.star.radiusSu==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.radiusSu}*${resource.oursun }`}</Text>}</View>
               </View><View style={styles.infocontainer}>
                 <View style={styles.infotext} >{planet.star.age==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.starinfo[2]}`}</Text>}</View>
-                <View style={styles.infotext} >{planet.star.age==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.age}`}</Text>}</View>
+                <View style={styles.infotext} >{planet.star.age==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.age}*${resource.oursun}`}</Text>}</View>
               </View><View style={styles.infocontainer}>
                 <View style={styles.infotext} >{planet.star.temp==null?<React.Fragment />:<Text style={styles.listText}>{`${resource.starinfo[3]}`}</Text>}</View>
                 <View style={styles.infotext} >{planet.star.temp==null?<React.Fragment />:<Text style={styles.listText}>{`${planet.star.temp} C`}</Text>}</View>
