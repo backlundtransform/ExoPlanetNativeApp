@@ -85,20 +85,19 @@ export const azimuth_degree = (Accelerometer: any, data: any) => {
 }
 
 
-export const right_ascension = (longitude: number, latitude: number, altitude: number, azimuth: number) => {
-
+export const right_ascension = (
+	longitude: number,
+	latitude: number,
+	altitude: number,
+	azimuth: number
+  ) => {
 	const angle = hourangle(latitude, altitude, azimuth)
-	const right_ascension = Math.abs(time(longitude) * 15 - angle);
-
-	if (right_ascension > 360) {
-		return right_ascension - 360;
-
-	}
-
-	return right_ascension;
-
-}
-
+	let right_ascension = Math.abs(time(longitude) * 15 - angle)
+	right_ascension =(360 + right_ascension) % 360
+	right_ascension =
+	  right_ascension < 0 ? -right_ascension - 180 : 180 - right_ascension
+	return right_ascension
+  }
 
 const timeformat = (time: number) => {
 	const decimal = Math.trunc(time);
