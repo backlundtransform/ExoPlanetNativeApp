@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { Container } from 'native-base'
 import { DeviceEventEmitter } from 'react-native'
-import  MapView,{ UrlTile } from 'react-native-maps'
+import MapView, { UrlTile } from 'react-native-maps'
 import DrawPolyline from '../geocomponents/DrawPolyline'
 import DrawStar from '../geocomponents/DrawStar'
 import DrawPlanet from '../geocomponents/DrawPlanet'
 import DrawCelestialObjects from '../geocomponents/DrawCelestialObjects'
+
 import {
     siderealtime,
     dot_product,
@@ -79,11 +80,9 @@ class StarMap extends React.Component<StarmapProp, StarmapState> {
     }
 
     onRegionChangeComplete(region) {
-        if (!this.state.gps) {
-            const rightascension = 12 + (-1 * region.longitude) / 15
-            const declination = region.latitude
-            this.setState({ rightascension, declination })
-        }
+        const rightascension = 12 + (-1 * region.longitude) / 15
+        const declination = region.latitude
+        this.setState({ rightascension, declination })
     }
     componentDidMount() {
         this.sensorInit()
@@ -95,21 +94,21 @@ class StarMap extends React.Component<StarmapProp, StarmapState> {
             const Accelerometer = data
 
             if (this.state.currentRegion !== undefined && gps) {
-                const altitude = dot_product(
-                    Accelerometer.z,
-                    Accelerometer.y,
-                    Accelerometer.x,
-                    1,
-                    0,
-                    0,
+                const altitude =
+                    dot_product(
+                        Accelerometer.x,
+                        Accelerometer.y,
+                        Accelerometer.z,
+                        0,
+                        0,
+                        1,
+                    ) - 90
+                let rightascension = right_ascension(
+                    currentRegion.longitude,
+                    currentRegion.latitude,
+                    altitude,
+                    degree,
                 )
-                let rightascension =
-                 right_ascension(
-                        currentRegion.longitude,
-                        currentRegion.latitude,
-                        altitude,
-                        degree,
-                    ) 
 
                 const declination = getdeclination(
                     currentRegion.latitude,
@@ -117,7 +116,7 @@ class StarMap extends React.Component<StarmapProp, StarmapState> {
                     degree,
                 )
 
-                const longitude = 15 * rightascension
+                const longitude = -15 * (rightascension - 12)
                 region = {
                     latitude: declination,
                     longitude: longitude,
@@ -130,7 +129,8 @@ class StarMap extends React.Component<StarmapProp, StarmapState> {
                             Accelerometer,
                             gps,
                             region,
-                            rightascension: declination,
+                            rightascension,
+                            declination,
                             altitude,
                             siderealtime: siderealtime(
                                 this.state.currentRegion.longitude,

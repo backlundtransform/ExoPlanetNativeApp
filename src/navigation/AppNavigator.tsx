@@ -7,10 +7,10 @@ import { StackNavigator } from 'react-navigation'
 export const AppNavigator = StackNavigator({
     first: {
         screen: Drawer,
-        navigationOptions: ({ navigation, screenProps }) => ({
+        navigationOptions: ({ navigation }) => ({
             headerStyle: styles.container,
             headerLeft: <HamburgerMenu navigate={navigation} />,
-            handleNavigationState: (previous, next, action) => {
+            handleNavigationState: () => {
                 return <HamburgerMenu navigate={null} />
             },
         }),

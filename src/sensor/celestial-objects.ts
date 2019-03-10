@@ -1,11 +1,3 @@
-import { StyleSheet } from 'react-native'
-export interface CelestialObject {
-    name: string
-    coordinates: Array<number>
-    image: any
-    size: number
-}
-
 const julianDayZero = 2451545
 const angle = 0.9856076686
 const ecliptic = (23.4397 * Math.PI) / 180
@@ -122,14 +114,14 @@ const getRaDeg = (geolongLat: Array<number>): Array<number> => {
     return [rightAscension, declination]
 }
 
-const getCoordinates = (
+export const getCoordinates = (
     eccentricity: number,
     distance: number,
     argumentOmega: number,
     eclipticlongitude: number,
     meanAnomalyZero: number,
     inclination: number,
-): Array<number> => {
+): { longitude: number; latitude: number } => {
     const day = julianDay()
 
     const meanAnomaly = getMeanAnomaly(day, meanAnomalyZero, distance)
@@ -152,114 +144,9 @@ const getCoordinates = (
 
     const geocoord = getGeocentricCoordinates(heliocoord)
     const [ra, dec] = getRaDeg(getGeocentricLongLat(geocoord))
-    return [
-        (dec * 180) / Math.PI,
-        ra < 0 ? (-ra * 180) / Math.PI - 180 : 180 - (ra * 180) / Math.PI,
-    ]
+    return {
+        longitude:
+            ra < 0 ? (-ra * 180) / Math.PI - 180 : 180 - (ra * 180) / Math.PI,
+        latitude: (dec * 180) / Math.PI,
+    }
 }
-const celestialObject = [
-    {
-        name: 'Mercury',
-        image: require('../images/mercury.png'),
-        coordinates: getCoordinates(
-            0.20563,
-            0.3871,
-            29.125,
-            48.331,
-            174.795,
-            7.005,
-        ),
-        size: {
-            height: 30,
-        },
-    },
-    {
-        name: 'Venus',
-        image: require('../images/venus.png'),
-        coordinates: getCoordinates(
-            0.00677,
-            0.72333,
-            54.884,
-            76.68,
-            50.416,
-            3.395,
-        ),
-        size: {
-            height: 30,
-        },
-    },
-    {
-        name: 'Mars',
-        image: require('../images/mars.png'),
-        coordinates: getCoordinates(
-            0.0934,
-            1.52368,
-            286.502,
-            49.558,
-            19.373,
-            1.85,
-        ),
-        size: {
-            height: 30,
-        },
-    },
-    {
-        name: 'Jupiter',
-        image: require('../images/jupiter.png'),
-        coordinates: getCoordinates(
-            0.04849,
-            5.2026,
-            273.867,
-            100.464,
-            20.02,
-            1.303,
-        ),
-        size: StyleSheet.create({ image: { width: 60 } }),
-    },
-    {
-        name: 'Saturn',
-        image: require('../images/saturn.png'),
-        coordinates: getCoordinates(
-            0.05551,
-            9.55491,
-            339.391,
-            113.666,
-            317.021,
-            2.489,
-        ),
-        size: {
-            height: 40,
-        },
-    },
-    {
-        name: 'Uranus',
-        image: require('../images/uranus.png'),
-        coordinates: getCoordinates(
-            0.0463,
-            19.21845,
-            98.999,
-            74.006,
-            141.05,
-            0.773,
-        ),
-        size: {
-            height: 40,
-        },
-    },
-    {
-        name: 'Neptune',
-        image: require('../images/neptune.png'),
-        coordinates: getCoordinates(
-            0.00899,
-            30.11039,
-            276.34,
-            131.784,
-            256.225,
-            1.7,
-        ),
-        size: {
-            height: 40,
-        },
-    },
-]
-export default celestialObject

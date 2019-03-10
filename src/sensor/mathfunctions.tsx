@@ -24,10 +24,9 @@ const time = (longitude: number): number => {
     return (startime + 24) % 24
 }
 const hourangle = (latitude: number, altitude: number, azimuth: number) => {
-    let numerator = Math.sin(toRadians(azimuth_angle(azimuth)))
+    let numerator = Math.sin(toRadians(azimuth))
     let denominator =
-        Math.cos(toRadians(azimuth_angle(azimuth))) *
-            Math.sin(toRadians(latitude)) +
+        Math.cos(toRadians(azimuth)) * Math.sin(toRadians(latitude)) +
         Math.tan(toRadians(altitude)) * Math.cos(toRadians(latitude))
 
     return toDegrees(Math.atan2(numerator, denominator))
@@ -48,7 +47,7 @@ export const dot_product = (
         Math.sqrt(a1 * a1 + a2 * a2 + a3 * a3) *
         Math.sqrt(b1 * b1 + b2 * b2 + b3 * b3)
     numerator = numerator === 0 ? 1 : numerator
-    return toDegrees(Math.acos((a1 * b1 + a2 * b2 + a3 * b3) / numerator)) - 90
+    return toDegrees(Math.acos((a1 * b1 + a2 * b2 + a3 * b3) / numerator))
 }
 export const getdeclination = (
     latitude: number,
@@ -59,7 +58,7 @@ export const getdeclination = (
         Math.sin(toRadians(latitude)) * Math.sin(toRadians(altitude)) -
         Math.cos(toRadians(latitude)) *
             Math.cos(toRadians(altitude)) *
-            Math.cos(toRadians(azimuth_angle(azimuth)))
+            Math.cos(toRadians(azimuth))
 
     return toDegrees(Math.asin(sindec))
 }
@@ -71,33 +70,18 @@ export const toDegrees = (value: number) => {
     return (value * 180) / Math.PI
 }
 
-export const azimuth_angle = (azimuth: number): number => {
-    if (azimuth > 180) {
-        return azimuth - 180
-    }
-
-    if (azimuth < 180) {
-        return azimuth + 180
-    }
-    return (azimuth + 180) % 180
+export const azimuth_degree = (accelerometer: any, data: any) => {
+    const b = calculatecrossproduct(accelerometer, { x: 0, y: 0, z: 1 })
+    const a = calculatecrossproduct(accelerometer, data)
+    const az = dot_product(a[0], a[1], a[2], b[0], b[1], b[2])
+    return az
 }
 
-export const azimuth_degree = (Accelerometer: any, data: any) => {
-    const my =
-        (Accelerometer.z * data.x - Accelerometer.x * data.z) /
-        (Math.sqrt(
-            Accelerometer.x * Accelerometer.x +
-                Accelerometer.y * Accelerometer.y +
-                Accelerometer.z * Accelerometer.z,
-        ) *
-            Math.sqrt(data.x * data.x + data.y * data.y + data.z * data.z))
-    const az = Math.atan2(
-        data.y / Math.sqrt(data.x * data.x + data.y * data.y + data.z * data.z),
-        my,
-    )
-
-    return (360 + toDegrees(az)) % 360
-}
+export const calculatecrossproduct = (a: any, b: any) => [
+    a.y * b.z - a.z * b.y,
+    a.z * b.x - a.x * b.z,
+    a.x * b.y - a.y * b.x,
+]
 
 export const right_ascension = (
     longitude: number,
@@ -107,8 +91,7 @@ export const right_ascension = (
 ) => {
     const angle = hourangle(latitude, altitude, azimuth)
     let right_ascension = Math.abs(time(longitude) * 15 - angle)
-    right_ascension = ((360 + right_ascension) % 360) - 180
-    return (right_ascension/15+24)%24
+    return (right_ascension / 15 + 24) % 24
 }
 
 const timeformat = (time: number) => {
