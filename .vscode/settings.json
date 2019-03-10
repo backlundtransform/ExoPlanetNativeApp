@@ -1,3 +1,17 @@
 {
-    "java.configuration.updateBuildConfiguration": "disabled"
+
+    "java.configuration.updateBuildConfiguration": "disabled",
+    "csharp.format.enable": true,
+    "editor.formatOnSave": true,
+    "[markdown]": {
+        "editor.formatOnSave": false
+    },
+    "[json]": {
+        "editor.formatOnSave": false
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "prettier.singleQuote": true,
+    "prettier.semi": false,
+    "prettier.trailingComma": "all",
+    "prettier.tabWidth": 4
 }

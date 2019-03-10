@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { Image } from 'react-native'
 import { Marker } from 'react-native-maps'
-import { GetHabitablePlanets } from '../service/getPlanets'
+import { Image } from 'react-native'
+import celestialObject from '../sensor/celestial-objects'
 
-interface DrawPlanetsProps {
+interface DrawCelestialObjectsProps {
     navigation: any
 }
 
-export default class DrawPlanet extends React.PureComponent<
-    DrawPlanetsProps,
+export default class DrawCelestialObjects extends React.PureComponent<
+    DrawCelestialObjectsProps,
     any
 > {
     constructor(props) {
@@ -32,13 +32,7 @@ export default class DrawPlanet extends React.PureComponent<
         }
     }
 
-    async componentWillMount() {
-        const planets = await GetHabitablePlanets()
-        this.setState({
-            planets,
-            loading: false,
-        })
-    }
+    async componentWillMount() {}
     componentDidUpdate() {
         if (this.state.tracksViewChanges) {
             this.setState({
@@ -48,20 +42,24 @@ export default class DrawPlanet extends React.PureComponent<
     }
 
     render() {
-        const { planets } = this.state
         return (
             <React.Fragment>
-                {planets.map((planet, index) => (
+                {celestialObject.map(planet => (
                     <Marker
                         key={planet.name}
-                        coordinate={planet.coordinate}
+                        coordinate={{
+                            longitude: planet.coordinates[1],
+                            latitude: planet.coordinates[0],
+                        }}
                         title={planet.name}
-                        onPress={p => this.navigateToPlanet(planet)}
+                        onPress={() =>
+                            this.navigateToPlanet({
+                                name: planet.name,
+                                star: { name: 'Sun' },
+                            })
+                        }
                     >
-                        <Image
-                            source={require('../images/marker.png')}
-                            style={{ width: 40 }}
-                        />
+                        <Image source={planet.image} />
                     </Marker>
                 ))}
             </React.Fragment>

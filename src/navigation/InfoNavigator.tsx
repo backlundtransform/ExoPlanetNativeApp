@@ -1,33 +1,24 @@
-import * as React from 'react';
+import * as React from 'react'
 import StarInfo from '../pages/StarInfo'
-import TabBar from './TabBar';
+import TabBar from './TabBar'
 import PlanetInfo from '../pages/PlanetInfo'
-import {
-  TabNavigator
-} from 'react-navigation';
+import { TabNavigator } from 'react-navigation'
 
-const InfoNavigator = TabNavigator({
-    Planet: {
-      screen: PlanetInfo,
+const InfoNavigator = TabNavigator(
+    {
+        Planet: {
+            screen: PlanetInfo,
+        },
+        Star: {
+            screen: StarInfo,
+        },
     },
-    Star: {
-      screen: StarInfo
+    {
+        tabBarComponent: ({ navigation }) => <TabBar navigator={navigation} />,
+
+        tabBarPosition: 'top',
+        animationEnabled: false,
+        swipeEnabled: false,
     },
-
-  }, {
-
-    tabBarComponent: ({
-      navigation
-    }) => < TabBar navigator = {
-      navigation
-    }
-    />,
-
-
-    tabBarPosition: 'top',
-    animationEnabled: false,
-    swipeEnabled: false
-  }
-
 )
 export default InfoNavigator
