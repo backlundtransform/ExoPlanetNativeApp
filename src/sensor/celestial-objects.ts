@@ -150,3 +150,46 @@ export const getCoordinates = (
         latitude: (dec * 180) / Math.PI,
     }
 }
+export const CalculateMoonPosition = () => {
+    const julianday = julianDay()
+    const lValue = 218.316 + 13.176396 * (julianday - julianDayZero)
+    const mValue = 134.963 + 13.064993 * (julianday - julianDayZero)
+    const fValue = 93.272 + 13.22935 * (julianday - julianDayZero)
+    const longitude = lValue + 6.289 * Math.sin((mValue * Math.PI) / 180)
+    const latitude = 5.128 * Math.sin((fValue * Math.PI) / 180)
+    const [ra, dec] = getRaDeg([
+        (longitude * Math.PI) / 180,
+        (latitude * Math.PI) / 180,
+    ])
+    return {
+        longitude:
+            ra < 0 ? (-ra * 180) / Math.PI - 180 : 180 - (ra * 180) / Math.PI,
+        latitude: (dec * 180) / Math.PI,
+    }
+}
+
+export const getMoonPhase = () => {
+    const julianday = julianDay()
+    const daysSince = julianday - 2451549.5
+    const daysIntoCycle = ((daysSince / 29.53) % 1) * 29.53
+
+    if (daysIntoCycle < 6) {
+        return require('../images/rtcresent.png')
+    }
+    if (daysIntoCycle < 10) {
+        return require('../images/rtquater.png')
+    }
+    if (daysIntoCycle < 14) {
+        return require('../images/rtgibbous.png')
+    }
+    if (daysIntoCycle < 18) {
+        return require('../images/moon.png')
+    }
+    if (daysIntoCycle < 21) {
+        return require('../images/gibbous.png')
+    }
+    if (daysIntoCycle < 24) {
+        return require('../images/quater.png')
+    }
+    return require('../images/cresent.png')
+}

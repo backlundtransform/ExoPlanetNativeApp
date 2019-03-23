@@ -74,7 +74,7 @@ export const azimuth_degree = (accelerometer: any, data: any) => {
     const b = calculatecrossproduct(accelerometer, { x: 0, y: 0, z: 1 })
     const a = calculatecrossproduct(accelerometer, data)
     const az = dot_product(a[0], a[1], a[2], b[0], b[1], b[2])
-    return az
+    return (az + 360) % 360
 }
 
 export const calculatecrossproduct = (a: any, b: any) => [

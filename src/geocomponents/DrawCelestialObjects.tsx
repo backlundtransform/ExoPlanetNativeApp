@@ -1,10 +1,15 @@
 import * as React from 'react'
 import { Marker } from 'react-native-maps'
 import { Image } from 'react-native'
-import { getCoordinates } from '../sensor/celestial-objects'
+import {
+    getCoordinates,
+    getMoonPhase,
+    CalculateMoonPosition,
+} from '../sensor/celestial-objects'
 
 interface DrawCelestialObjectsProps {
     navigation: any
+    isDownUnder: boolean
 }
 
 export default class DrawCelestialObjects extends React.PureComponent<
@@ -15,8 +20,6 @@ export default class DrawCelestialObjects extends React.PureComponent<
         super(props)
         this.state = {
             tracksViewChanges: true,
-            lines: [],
-            planets: [],
             loading: true,
         }
     }
@@ -37,7 +40,11 @@ export default class DrawCelestialObjects extends React.PureComponent<
         }
     }
 
-    async componentWillMount() {}
+    async componentWillMount() {
+        this.setState({
+            loading: false,
+        })
+    }
     componentDidUpdate() {
         if (this.state.tracksViewChanges) {
             this.setState({
@@ -47,6 +54,7 @@ export default class DrawCelestialObjects extends React.PureComponent<
     }
 
     render() {
+        const { isDownUnder } = this.props
         return (
             <>
                 <Marker
@@ -153,6 +161,16 @@ export default class DrawCelestialObjects extends React.PureComponent<
                     onPress={() => this.navigateToPlanet()}
                 >
                     <Image source={require('../images/neptune.png')} />
+                </Marker>
+                <Marker
+                    key={'Moon'}
+                    coordinate={CalculateMoonPosition()}
+                    title={'Moon'}
+                    style={{
+                        transform: [{ rotate: `${isDownUnder ? 180 : 0}deg` }],
+                    }}
+                >
+                    <Image source={getMoonPhase()} />
                 </Marker>
             </>
         )

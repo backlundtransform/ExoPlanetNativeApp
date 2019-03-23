@@ -51,12 +51,12 @@ export default class DrawPlanet extends React.PureComponent<
         const { planets } = this.state
         return (
             <React.Fragment>
-                {planets.map((planet, index) => (
+                {planets.map((planet) => (
                     <Marker
                         key={planet.name}
                         coordinate={planet.coordinate}
                         title={planet.name}
-                        onPress={p => this.navigateToPlanet(planet)}
+                        onPress={_p => this.navigateToPlanet(planet)}
                     >
                         <Image
                             source={require('../images/marker.png')}

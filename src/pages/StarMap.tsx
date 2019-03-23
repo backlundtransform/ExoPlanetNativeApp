@@ -6,7 +6,6 @@ import DrawPolyline from '../geocomponents/DrawPolyline'
 import DrawStar from '../geocomponents/DrawStar'
 import DrawPlanet from '../geocomponents/DrawPlanet'
 import DrawCelestialObjects from '../geocomponents/DrawCelestialObjects'
-
 import {
     siderealtime,
     dot_product,
@@ -214,6 +213,7 @@ class StarMap extends React.Component<StarmapProp, StarmapState> {
                             <DrawStar />
                             <DrawCelestialObjects
                                 navigation={this.props.navigation}
+                                isDownUnder={currentRegion.latitude < 0}
                             />
                             <DrawPlanet navigation={this.props.navigation} />
                         </>
