@@ -1,59 +1,70 @@
-import * as React from 'react';
+import * as React from 'react'
+import { Image } from 'react-native'
+import { Marker } from 'react-native-maps'
+import { GetHabitablePlanets } from '../service/getPlanets'
 
-import {Marker} from 'react-native-maps';
+interface DrawPlanetsProps {
+    navigation: any
+}
 
-import{ GetHabitablePlanets } from '../service/getPlanets'
-interface DrawPlanetsProps{ navigation:any}
-
-export default class DrawPlanet extends React.PureComponent<DrawPlanetsProps,any> {
+export default class DrawPlanet extends React.PureComponent<
+    DrawPlanetsProps,
+    any
+> {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             tracksViewChanges: true,
-            lines:[],
-            planets:[],
-            loading:true
+            lines: [],
+            planets: [],
+            loading: true,
         }
-
     }
-    navigateToPlanet=(planet:any)=>{
- 
-        this.props.navigation.navigate("d3view",{navigation:planet})
-             }
-      
+    navigateToPlanet = (planet: any) => {
+        this.props.navigation.navigate('d3view', { navigation: planet })
+    }
+
     componentWillReceiveProps(nextProps) {
         if (this.props !== nextProps) {
             this.setState(() => ({
                 tracksViewChanges: true,
-            }));
+            }))
         }
     }
 
-   async componentWillMount() {
-  const planets = await GetHabitablePlanets()
-  this.setState({
-   planets, loading :false
-});
+    async componentDidMount() {
+        const planets = await GetHabitablePlanets()
+        this.setState({
+            planets,
+            loading: false,
+        })
     }
- componentDidUpdate() { 
+    componentDidUpdate() {
         if (this.state.tracksViewChanges) {
             this.setState({
-                tracksViewChanges: false
-            });
+                tracksViewChanges: false,
+            })
         }
     }
 
     render() {
-
-        const {planets} = this.state
-    return (<React.Fragment>{ planets.map((planet,index) =>  (
-            <Marker
-              key={planet.name}
-              coordinate={planet.coordinate}
-              title={planet.name}
-             image={require('../images/marker.png')}
-             onPress={p=> this.navigateToPlanet(planet)}
-             />))}</React.Fragment>)
-
+        const { planets } = this.state
+        return (
+            <React.Fragment>
+                {planets.map((planet) => (
+                    <Marker
+                        key={planet.name}
+                        coordinate={planet.coordinate}
+                        title={planet.name}
+                        onPress={_p => this.navigateToPlanet(planet)}
+                    >
+                        <Image
+                            source={require('../images/marker.png')}
+                            style={{ width: 40 }}
+                        />
+                    </Marker>
+                ))}
+            </React.Fragment>
+        )
     }
 }
