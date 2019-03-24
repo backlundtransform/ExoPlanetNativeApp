@@ -90,7 +90,8 @@ export const right_ascension = (
     azimuth: number,
 ) => {
     const angle = hourangle(latitude, altitude, azimuth)
-    let right_ascension = Math.abs(time(longitude) * 15 - angle)
+    let right_ascension = time(longitude) * 15 + angle
+
     return (right_ascension / 15 + 24) % 24
 }
 

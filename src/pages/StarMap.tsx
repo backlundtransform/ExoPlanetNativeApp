@@ -174,6 +174,7 @@ class StarMap extends React.Component<StarmapProp, StarmapState> {
         if (gps) {
             mSensorManager.startAccelerometer(300)
             mSensorManager.startMagnetometer(300)
+            this.onRegionChangeComplete(this.state.region)
         } else {
             mSensorManager.stopAccelerometer()
             mSensorManager.stopMagnetometer()
@@ -216,11 +217,11 @@ class StarMap extends React.Component<StarmapProp, StarmapState> {
                     )}
                     {currentRegion && (
                         <>
-                            <DrawStar />
                             <DrawCelestialObjects
                                 navigation={this.props.navigation}
                                 isDownUnder={currentRegion.latitude < 0}
                             />
+                            <DrawStar />
                             <DrawPlanet navigation={this.props.navigation} />
                         </>
                     )}
