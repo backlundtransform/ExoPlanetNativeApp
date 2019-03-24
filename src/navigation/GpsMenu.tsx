@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Button, Left, Header } from 'native-base'
 import styles from '../styles/defaultStyle'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -21,10 +21,10 @@ export default class GpsMenu extends React.Component<
         }
     }
 
-    HandleClick = () => {
+    HandleClick = async () => {
         const { menu } = this.state
 
-        this.props.navigate.setParams({ gps: menu })
+        await this.props.navigate.setParams({ gps: menu })
 
         this.setState({ menu: !menu })
     }
@@ -32,7 +32,7 @@ export default class GpsMenu extends React.Component<
         return (
             <Header ref="header" style={styles.header}>
                 <Left>
-                    <Button transparent onPress={() => this.HandleClick()}>
+                    <Button transparent onPressIn={() => this.HandleClick()}>
                         <Icon
                             style={styles.white}
                             name={

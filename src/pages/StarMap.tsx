@@ -159,10 +159,16 @@ class StarMap extends React.Component<StarmapProp, StarmapState> {
         mSensorManager.stopAccelerometer()
         mSensorManager.stopOrientation()
     }
-    componentWillReceiveProps(nextProps) {
+    async componentWillReceiveProps(nextProps: any) {
         const gps =
             nextProps.navigation.state.params &&
             nextProps.navigation.state.params.gps
+        if (
+            this.props.navigation.state.params &&
+            gps === this.props.navigation.state.params.gps
+        ) {
+            return
+        }
         let mSensorManager = require('NativeModules').SensorManager
 
         if (gps) {

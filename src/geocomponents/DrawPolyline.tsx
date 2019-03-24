@@ -17,7 +17,7 @@ export default class DrawPolyline extends React.PureComponent<
             lines: { features: [] },
         }
     }
-    async componentWillMount() {
+    async componentDidMount() {
         const lines = await GetConstellationsLines()
         this.setState({
             lines,

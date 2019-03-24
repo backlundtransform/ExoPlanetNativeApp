@@ -18,7 +18,7 @@ export default class DrawStar extends React.PureComponent<any, any> {
         }
     }
 
-    async componentWillMount() {
+    async componentDidMount() {
         const stars = await GetStarsMarkers()
         this.setState({ stars })
     }

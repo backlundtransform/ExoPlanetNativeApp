@@ -32,7 +32,7 @@ export default class DrawPlanet extends React.PureComponent<
         }
     }
 
-    async componentWillMount() {
+    async componentDidMount() {
         const planets = await GetHabitablePlanets()
         this.setState({
             planets,

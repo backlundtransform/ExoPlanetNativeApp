@@ -40,7 +40,7 @@ export default class DrawCelestialObjects extends React.PureComponent<
         }
     }
 
-    async componentWillMount() {
+    async componentDidMount() {
         this.setState({
             loading: false,
         })
