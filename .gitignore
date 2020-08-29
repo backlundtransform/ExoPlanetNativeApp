@@ -53,3 +53,5 @@ buck-out/
 */fastlane/screenshots
 android/app/planetviktigkey
 android/gradle.properties
+
+android/app/src/main/AndroidManifest.xml
