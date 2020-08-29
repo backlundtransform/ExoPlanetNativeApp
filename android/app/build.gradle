@@ -100,9 +100,9 @@ android {
     defaultConfig {
         applicationId "com.varoid.exoplanethunter"
         minSdkVersion 16
-        targetSdkVersion 26
-        versionCode 99648
-        versionName "2.07"
+        targetSdkVersion 29
+        versionCode 99650
+        versionName "2.09"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
